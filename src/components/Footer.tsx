@@ -13,18 +13,8 @@ const Footer = () => {
               <span className="font-display font-bold text-lg">Thermo3D</span>
             </div>
             <p className="text-sm opacity-60 leading-relaxed max-w-xs">
-              Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Qualité supérieure, designs uniques, compatibles TM5, TM6 et TM61.
+              Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Qualité supérieure, designs uniques, compatibles TM5, TM6 et TM7.
             </p>
-          </div>
-
-          <div>
-            <h4 className="font-display font-bold text-sm mb-4 uppercase tracking-wider">Boutique</h4>
-            <ul className="space-y-2 text-sm opacity-60">
-              <li><Link to="/catalogue" className="hover:opacity-100 transition-opacity">Tous les produits</Link></li>
-              <li><Link to="/catalogue" className="hover:opacity-100 transition-opacity">Rangement</Link></li>
-              <li><Link to="/catalogue" className="hover:opacity-100 transition-opacity">Doseurs</Link></li>
-              <li><Link to="/catalogue" className="hover:opacity-100 transition-opacity">Supports</Link></li>
-            </ul>
           </div>
 
           <div>
