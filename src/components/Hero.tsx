@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
           {[
             { icon: Printer, title: 'Impression 3D', desc: 'PLA alimentaire premium' },
-            { icon: Truck, title: 'Livraison rapide', desc: 'Offerte dès 35€' },
+            { icon: Truck, title: 'Livraison rapide', desc: 'Offre à partir de 50€' },
             { icon: Flag, title: 'Fabriqué en France', desc: 'Qualité garantie' },
           ].map((item) => (
             <div key={item.title} className="flex items-center gap-4 bg-foreground/10 rounded-xl px-5 py-4">
