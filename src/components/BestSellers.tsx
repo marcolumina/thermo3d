@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import { Loader2 } from 'lucide-react';
 
 const BestSellers = () => {
-  const { data: products, isLoading, error } = useShopifyProducts(10);
+  const { data: products, isLoading, error } = useShopifyProducts(4);
 
   return (
     <section className="container mx-auto px-6 py-16">
