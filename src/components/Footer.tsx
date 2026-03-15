@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
-
 const Footer = () => {
   return (
     <footer className="bg-hero text-hero-foreground">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
