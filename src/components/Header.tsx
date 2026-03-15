@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
-import { useCartStore } from '@/stores/cartStore';
+import { CartDrawer } from '@/components/CartDrawer';
 
 const Header = () => {
-  const totalItems = useCartStore(state => state.items.reduce((sum, item) => sum + item.quantity, 0));
-
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -21,14 +18,7 @@ const Header = () => {
           <Link to="/modelisation" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Modélisation</Link>
         </nav>
 
-        <Link to="/panier" className="relative">
-          <ShoppingCart className="w-5 h-5 text-foreground" />
-          {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
-              {totalItems}
-            </span>
-          )}
-        </Link>
+        <CartDrawer />
       </div>
     </header>
   );
