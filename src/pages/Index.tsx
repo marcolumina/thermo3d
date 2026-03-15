@@ -2,6 +2,7 @@ import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import BestSellers from '@/components/BestSellers';
+import Reviews from '@/components/Reviews';
 import Categories from '@/components/Categories';
 import WhyUs from '@/components/WhyUs';
 import Footer from '@/components/Footer';
@@ -13,6 +14,7 @@ const Index = () => {
       <Header />
       <Hero />
       <BestSellers />
+      <Reviews />
       <Categories />
       <WhyUs />
       <Footer />
