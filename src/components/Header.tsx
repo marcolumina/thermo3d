@@ -15,7 +15,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-primary font-medium text-sm">Accueil</Link>
           <Link to="/catalogue" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Catalogue</Link>
-          <Link to="/modelisation" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Modélisation</Link>
+          
         </nav>
 
         <CartDrawer />
