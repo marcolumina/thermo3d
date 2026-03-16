@@ -8,6 +8,9 @@ import Index from "./pages/Index.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
 import Catalogue from "./pages/Catalogue.tsx";
 import Contact from "./pages/Contact.tsx";
+import MentionsLegales from "./pages/MentionsLegales.tsx";
+import CGV from "./pages/CGV.tsx";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
