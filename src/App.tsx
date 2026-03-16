@@ -24,6 +24,9 @@ const AppContent = () => {
         <Route path="/product/:handle" element={<ProductPage />} />
         <Route path="/catalogue" element={<Catalogue />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/cgv" element={<CGV />} />
+        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
