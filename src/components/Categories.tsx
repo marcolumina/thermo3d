@@ -1,29 +1,37 @@
+import { Link } from 'react-router-dom';
+import { Monitor, Scale, Utensils, ShieldCheck } from 'lucide-react';
+
 const categories = [
-  { name: 'Supports', color: 'bg-primary/10 text-primary' },
-  { name: 'Rangement', color: 'bg-primary/10 text-primary' },
-  { name: 'Doseurs', color: 'bg-primary/10 text-primary' },
-  { name: 'Couvercles', color: 'bg-primary/10 text-primary' },
+  { name: 'Cache écran', icon: Monitor, desc: 'Protection élégante' },
+  { name: 'Cache balance', icon: Scale, desc: 'Hygiène optimale' },
+  { name: 'Support ustensiles', icon: Utensils, desc: 'Organisation pratique' },
+  { name: 'Protection', icon: ShieldCheck, desc: 'Durabilité garantie' },
 ];
 
 const Categories = () => {
   return (
-    <section className="container mx-auto px-6 py-16">
-      <h2 className="font-display font-bold text-2xl md:text-3xl text-center mb-2">
-        Nos catégories
-      </h2>
-      <p className="text-muted-foreground text-sm text-center mb-10">
-        Trouvez l'accessoire parfait pour votre Thermomix
-      </p>
+    <section className="container mx-auto px-6 py-20">
+      <div className="text-center mb-12">
+        <h2 className="font-display font-bold text-2xl md:text-3xl">
+          Nos <span className="text-gradient">catégories</span>
+        </h2>
+        <p className="text-muted-foreground text-sm mt-2">
+          Trouvez l'accessoire Thermomix parfait pour votre cuisine
+        </p>
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {categories.map((cat) => (
-          <div
+          <Link
             key={cat.name}
-            className="bg-card rounded-2xl p-8 text-center hover:shadow-lg transition-shadow cursor-pointer"
+            to="/catalogue"
+            className="bg-card border border-border/50 rounded-2xl p-8 text-center hover:border-primary/30 hover:bg-card/80 transition-all group cursor-pointer"
           >
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-display font-semibold ${cat.color}`}>
-              {cat.name}
-            </span>
-          </div>
+            <div className="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <cat.icon className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="font-display font-semibold text-sm">{cat.name}</h3>
+            <p className="text-xs text-muted-foreground mt-1">{cat.desc}</p>
+          </Link>
         ))}
       </div>
     </section>

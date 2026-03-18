@@ -1,22 +1,36 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
 
 const Header = () => {
+  const location = useLocation();
+  const isActive = (path: string) => location.pathname === path;
+
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">T</span>
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 bg-gradient-primary rounded-lg flex items-center justify-center shadow-lg group-hover:glow-primary transition-shadow">
+            <span className="text-accent-foreground font-black text-sm">T</span>
           </div>
-          <span className="font-display font-bold text-lg">Thermo3D.</span>
+          <span className="font-display font-bold text-lg tracking-tight">Thermo3D<span className="text-primary">.</span></span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-primary font-medium text-sm">Accueil</Link>
-          <Link to="/catalogue" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Catalogue</Link>
-          <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Contact</Link>
-          
+          {[
+            { to: '/', label: 'Accueil' },
+            { to: '/catalogue', label: 'Catalogue' },
+            { to: '/contact', label: 'Contact' },
+          ].map(link => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`text-sm font-medium transition-colors ${
+                isActive(link.to) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <CartDrawer />
