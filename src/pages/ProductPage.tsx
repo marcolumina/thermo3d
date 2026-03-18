@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Loader2 } from 'lucide-react';
+import { Loader2, ShoppingCart, Truck, ShieldCheck, Flag } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -39,7 +39,7 @@ const ProductPage = () => {
       quantity: 1,
       selectedOptions: variant.selectedOptions || [],
     });
-    toast.success('Produit ajouté au panier', { position: 'top-center' });
+    toast.success('Ajouté au panier ✓', { position: 'top-center' });
   };
 
   const productTitle = product?.node.title || 'Accessoire Thermomix';
@@ -91,7 +91,7 @@ const ProductPage = () => {
         {product && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <div className="bg-card rounded-2xl aspect-square overflow-hidden mb-4">
+              <div className="bg-card border border-border/50 rounded-2xl aspect-square overflow-hidden mb-4">
                 {product.node.images.edges[selectedImage]?.node ? (
                   <img
                     src={product.node.images.edges[selectedImage].node.url}
@@ -109,7 +109,7 @@ const ProductPage = () => {
                     <button
                       key={i}
                       onClick={() => setSelectedImage(i)}
-                      className={`w-16 h-16 rounded-lg bg-card overflow-hidden border-2 transition-colors ${i === selectedImage ? 'border-primary' : 'border-transparent'}`}
+                      className={`w-16 h-16 rounded-xl bg-card overflow-hidden border-2 transition-colors ${i === selectedImage ? 'border-primary' : 'border-border/50'}`}
                     >
                       <img src={img.node.url} alt={`${productTitle} vue ${i + 1}`} className="w-full h-full object-contain p-1" loading="lazy" />
                     </button>
@@ -119,21 +119,37 @@ const ProductPage = () => {
             </div>
             <div className="md:sticky md:top-32 self-start">
               <h1 className="font-display font-bold text-2xl md:text-3xl">{productTitle}</h1>
-              <p className="text-2xl font-display font-bold text-primary mt-4">
+              <p className="text-3xl font-display font-bold text-primary mt-4">
                 {productPrice} €
               </p>
               <p className="text-muted-foreground mt-4 leading-relaxed">{product.node.description}</p>
-              <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-                <p>✅ Compatible Thermomix TM6 & TM7</p>
-                <p>🇫🇷 Fabriqué en France par impression 3D</p>
-                <p>🍽️ Matériaux qualité alimentaire</p>
+
+              <div className="mt-6 space-y-3">
+                {[
+                  { icon: ShieldCheck, text: 'Compatible Thermomix TM5, TM6 & TM7' },
+                  { icon: Flag, text: 'Fabriqué en France par impression 3D' },
+                  { icon: Truck, text: 'Livraison offerte dès 50€' },
+                ].map(item => (
+                  <div key={item.text} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span>{item.text}</span>
+                  </div>
+                ))}
               </div>
+
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading}
-                className="mt-8 w-full bg-primary text-primary-foreground font-display font-semibold py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="mt-8 w-full bg-gradient-primary text-accent-foreground font-display font-bold py-4 rounded-xl hover:opacity-90 transition-all glow-primary disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                {isLoading ? 'Ajout en cours...' : 'Ajouter au panier'}
+                {isLoading ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <>
+                    <ShoppingCart className="w-5 h-5" />
+                    Ajouter au panier — {productPrice} €
+                  </>
+                )}
               </button>
             </div>
           </div>

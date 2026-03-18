@@ -1,9 +1,13 @@
+import { Truck, Shield } from 'lucide-react';
+
 const TopBanner = () => {
   return (
-    <div className="bg-banner text-banner-foreground text-center py-2 text-sm font-medium tracking-wide">
-      LIVRAISON OFFERTE DÈS 50€ D'ACHAT · IMPRESSION 3D EN FRANCE
-    </div>);
-
+    <div className="bg-gradient-primary text-accent-foreground text-center py-2.5 text-xs font-semibold tracking-widest uppercase flex items-center justify-center gap-4">
+      <span className="flex items-center gap-1.5"><Truck className="w-3.5 h-3.5" /> Livraison offerte dès 50€</span>
+      <span className="opacity-40">·</span>
+      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> Impression 3D en France</span>
+    </div>
+  );
 };
 
 export default TopBanner;
