@@ -15,47 +15,47 @@
     --popover: 150 8% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 155 80% 45%;
-    --primary-foreground: 150 10% 6%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 6% 15%;
+    --secondary: 150 6% 14%;
     --secondary-foreground: 0 0% 85%;
 
-    --muted: 150 6% 15%;
+    --muted: 150 6% 14%;
     --muted-foreground: 150 5% 55%;
 
-    --accent: 155 80% 45%;
-    --accent-foreground: 150 10% 6%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 6% 18%;
-    --input: 150 6% 18%;
-    --ring: 155 80% 45%;
+    --border: 150 6% 16%;
+    --input: 150 6% 16%;
+    --ring: 160 84% 39%;
 
     --radius: 0.75rem;
 
-    --hero-bg: 150 12% 5%;
+    --hero-bg: 150 12% 4%;
     --hero-foreground: 0 0% 95%;
-    --banner-bg: 155 80% 30%;
+    --banner-bg: 160 84% 28%;
     --banner-foreground: 0 0% 100%;
 
-    --primary-glow: 155 90% 55%;
-    --gradient-primary: linear-gradient(135deg, hsl(155 80% 45%), hsl(155 90% 55%));
-    --shadow-glow: 0 0 40px -10px hsl(155 80% 45% / 0.3);
+    --primary-glow: 160 90% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 90% 50%));
+    --shadow-glow: 0 0 40px -10px hsl(160 84% 39% / 0.35);
 
     --font-display: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --sidebar-background: 150 8% 10%;
     --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 155 80% 45%;
-    --sidebar-primary-foreground: 150 10% 6%;
-    --sidebar-accent: 150 6% 15%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 6% 14%;
     --sidebar-accent-foreground: 0 0% 85%;
-    --sidebar-border: 150 6% 18%;
-    --sidebar-ring: 155 80% 45%;
+    --sidebar-border: 150 6% 16%;
+    --sidebar-ring: 160 84% 39%;
   }
 }
 
@@ -67,6 +67,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -77,14 +79,18 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(155 80% 45%), hsl(155 90% 60%));
+    background-image: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 90% 55%));
   }
 
   .bg-gradient-primary {
-    background-image: linear-gradient(135deg, hsl(155 80% 45%), hsl(155 90% 55%));
+    background-image: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 90% 50%));
   }
 
   .glow-primary {
-    box-shadow: 0 0 30px -5px hsl(155 80% 45% / 0.4);
+    box-shadow: 0 0 30px -5px hsl(160 84% 39% / 0.4);
+  }
+
+  .bg-hero {
+    background-color: hsl(var(--hero-bg));
   }
 }
