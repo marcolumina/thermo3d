@@ -37,9 +37,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         {image ? (
           <img
             src={image.url}
-            alt={image.altText || `${node.title} — accessoire Thermomix imprimé en 3D`}
+            alt={image.altText || `${node.title} — accessoire Thermomix imprimé en 3D, accessoire cuisine pratique`}
             className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
+            width="400"
+            height="400"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-muted-foreground">

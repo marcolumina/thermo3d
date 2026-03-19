@@ -3,23 +3,23 @@ import { Leaf, Palette, Flag, Zap } from 'lucide-react';
 const features = [
   {
     icon: Leaf,
-    title: 'PLA alimentaire',
-    desc: 'Matériaux certifiés contact alimentaire pour une utilisation en toute sécurité avec votre Thermomix.',
+    title: 'PLA qualité alimentaire',
+    desc: 'Matériaux certifiés contact alimentaire pour une utilisation sûre avec votre Thermomix TM5, TM6 ou TM7.',
   },
   {
     icon: Palette,
-    title: 'Design sur mesure',
-    desc: "Chaque accessoire est modélisé avec précision pour un ajustement parfait sur votre TM5, TM6 ou TM7.",
+    title: 'Impression 3D cuisine sur mesure',
+    desc: "Chaque accessoire Thermomix est modélisé avec précision pour un ajustement parfait et une utilisation intuitive.",
   },
   {
     icon: Flag,
-    title: 'Made in France',
-    desc: 'Conception et fabrication 100% française dans notre atelier en Corse. Qualité artisanale garantie.',
+    title: 'Fabriqué en France',
+    desc: 'Conception et fabrication 100% française. Accessoires cuisine pratiques de qualité artisanale.',
   },
   {
     icon: Zap,
     title: 'Livraison rapide',
-    desc: 'Expédition sous 48h. Livraison gratuite dès 50€ d\'achat. Suivi de commande inclus.',
+    desc: "Expédition sous 48h. Livraison gratuite dès 50€ d'achat. Satisfait ou remboursé 30 jours.",
   },
 ];
 
@@ -29,9 +29,9 @@ const WhyUs = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-2xl md:text-3xl">
-            Pourquoi choisir <span className="text-gradient">Thermo3D</span> ?
+            Pourquoi choisir <span className="text-gradient">Thermo3D</span> pour vos accessoires Thermomix&nbsp;?
           </h2>
-          <p className="text-muted-foreground text-sm mt-2">La qualité d'impression 3D au service de votre cuisine</p>
+          <p className="text-muted-foreground text-sm mt-2">L'impression 3D cuisine au service de votre quotidien</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((f) => (
