@@ -11,9 +11,9 @@ const BestSellers = () => {
       <div className="flex items-end justify-between mb-10">
         <div>
           <h2 className="font-display font-bold text-2xl md:text-3xl">
-            Nos <span className="text-gradient">best-sellers</span>
+            Nos <span className="text-gradient">accessoires Thermomix</span> populaires
           </h2>
-          <p className="text-muted-foreground text-sm mt-2">Les accessoires Thermomix préférés de nos clients</p>
+          <p className="text-muted-foreground text-sm mt-2">Les accessoires cuisine pratiques préférés de nos clients</p>
         </div>
         <Link to="/catalogue" className="hidden md:flex items-center gap-1.5 text-primary text-sm font-medium hover:gap-2.5 transition-all">
           Voir tout <ArrowRight className="w-4 h-4" />

@@ -47,8 +47,8 @@ const Catalogue = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Catalogue Accessoires Thermomix TM6 & TM7 | Thermo3D</title>
-        <meta name="description" content="Parcourez nos accessoires Thermomix imprimés en 3D. Cache écran, support ustensiles, organisateurs, rangements. Compatibles TM6 et TM7. Fabriqué en France." />
+        <title>Accessoires Thermomix imprimés en 3D — Catalogue | Thermo3D</title>
+        <meta name="description" content="Découvrez nos accessoires Thermomix imprimés en 3D, pratiques et innovants. Cache écran, support ustensiles, organisateurs. Compatibles TM5, TM6, TM7. Fabriqué en France." />
         <link rel="canonical" href="https://thermo3d.fr/catalogue" />
       </Helmet>
 
@@ -61,8 +61,8 @@ const Catalogue = () => {
             Accessoires Thermomix <span className="text-gradient">imprimés en 3D</span>
           </h1>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            Découvrez notre gamme complète d'accessoires innovants pour Thermomix TM5, TM6 et TM7.
-            Conçus et fabriqués en France avec des matériaux de qualité alimentaire.
+            Découvrez notre gamme complète d'accessoires cuisine pratiques pour Thermomix TM5, TM6 et TM7.
+            Conçus et fabriqués en France grâce à l'impression 3D cuisine, avec des matériaux de qualité alimentaire.
           </p>
         </div>
       </section>
@@ -72,10 +72,11 @@ const Catalogue = () => {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
             type="search"
-            placeholder="Rechercher un accessoire..."
+            placeholder="Rechercher un accessoire Thermomix..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-card border border-border/50 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+            aria-label="Rechercher un accessoire Thermomix"
           />
         </div>
 
