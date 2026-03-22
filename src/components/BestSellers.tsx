@@ -4,7 +4,7 @@ import { Loader2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const BestSellers = () => {
-  const { data: products, isLoading, error } = useShopifyProducts(4);
+  const { data: products, isLoading, error } = useShopifyProducts(3);
 
   return (
     <section className="container mx-auto px-6 py-20">
@@ -38,7 +38,7 @@ const BestSellers = () => {
       )}
 
       {products && products.length > 0 && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {products.map((product) => (
             <ProductCard key={product.node.id} product={product} />
           ))}
