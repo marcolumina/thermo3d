@@ -40,9 +40,11 @@ const BestSellers = () => {
 
         {products && products.length > 0 && (() => {
           const sorted = [...products].sort((a, b) => {
+            const aIsPack = a.node.tags?.includes('pack') ? 2 : 0;
+            const bIsPack = b.node.tags?.includes('pack') ? 2 : 0;
             const aIsBest = a.node.tags?.includes('best-seller') ? 1 : 0;
             const bIsBest = b.node.tags?.includes('best-seller') ? 1 : 0;
-            return bIsBest - aIsBest;
+            return (bIsPack + bIsBest) - (aIsPack + aIsBest);
           });
           return (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
