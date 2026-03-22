@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LogoInverted } from '@/components/Logo';
+import logoSimple from '@/assets/logo-thermo3d-simple.png';
 
 const Footer = () => {
   return (
