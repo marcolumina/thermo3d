@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Loader2, ShoppingCart, Truck, ShieldCheck, Flag, RotateCcw, Package, Star, CheckCircle2, Zap, Maximize2 } from 'lucide-react';
+import { Loader2, ShoppingCart, Truck, ShieldCheck, Flag, CreditCard, Star, Check } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -46,28 +46,29 @@ const ProductPage = () => {
   const productPrice = product ? parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(2) : '';
   const productImage = product?.node.images.edges[0]?.node.url || '';
 
-  const benefits = [
-    { icon: Maximize2, title: 'Gain de place', desc: 'Design compact optimisé pour votre cuisine' },
-    { icon: Zap, title: 'Utilisation facile', desc: 'Installation rapide, sans outils' },
-    { icon: CheckCircle2, title: 'Compatible Thermomix', desc: 'S\'adapte parfaitement aux TM5, TM6 & TM7' },
+  const bullets = [
+    'Gain de place sur votre plan de travail',
+    'Facile à installer, sans outil',
+    'Résistant et durable au quotidien',
+    'Compatible Thermomix TM5 / TM6',
   ];
 
   const trustBadges = [
+    { icon: Flag, text: 'Fabriqué en France 🇫🇷' },
     { icon: Truck, text: 'Livraison rapide' },
-    { icon: RotateCcw, text: 'Satisfait ou remboursé 30j' },
-    { icon: ShieldCheck, text: 'Qualité alimentaire certifiée' },
-    { icon: Flag, text: 'Fabriqué en France' },
+    { icon: CreditCard, text: 'Paiement sécurisé' },
+    { icon: ShieldCheck, text: 'Qualité alimentaire' },
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {product && (
         <Helmet>
-          <title>{productTitle} — Accessoire Thermomix imprimé en 3D | Thermo3D</title>
-          <meta name="description" content={`${productTitle} — Accessoire Thermomix imprimé en 3D en France. ${product.node.description?.slice(0, 120) || 'Compatible TM5, TM6 et TM7. Qualité alimentaire. Livraison rapide.'}`} />
+          <title>{productTitle} — Accessoire Thermomix | Thermo3D</title>
+          <meta name="description" content={`${productTitle} — Accessoire Thermomix imprimé en 3D en France. ${product.node.description?.slice(0, 120) || 'Compatible TM5, TM6. Qualité alimentaire.'}`} />
           <link rel="canonical" href={`https://thermo3d.fr/product/${handle}`} />
           <meta property="og:title" content={`${productTitle} | Thermo3D`} />
-          <meta property="og:description" content={product.node.description?.slice(0, 160) || `${productTitle} — Accessoire cuisine Thermomix imprimé en 3D`} />
+          <meta property="og:description" content={product.node.description?.slice(0, 160) || `${productTitle} — Accessoire Thermomix`} />
           <meta property="og:image" content={productImage} />
           <meta property="og:url" content={`https://thermo3d.fr/product/${handle}`} />
           <meta property="og:type" content="product" />
@@ -105,122 +106,120 @@ const ProductPage = () => {
 
         {product && (
           <>
-            {/* Main product section */}
+            {/* 1. Main product section — optimized for instant conversion */}
             <section className="container mx-auto px-4 sm:px-6 py-6 md:py-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
                 {/* Images */}
                 <div>
-                  <div className="bg-card border border-border/50 rounded-2xl aspect-square overflow-hidden mb-3">
+                  <div className="bg-muted rounded-2xl aspect-square overflow-hidden">
                     {product.node.images.edges[selectedImage]?.node ? (
                       <img
                         src={product.node.images.edges[selectedImage].node.url}
-                        alt={product.node.images.edges[selectedImage].node.altText || `${productTitle} — Accessoire Thermomix imprimé en 3D par Thermo3D`}
+                        alt={product.node.images.edges[selectedImage].node.altText || `${productTitle} — Accessoire Thermomix Thermo3D`}
                         className="w-full h-full object-contain p-6 md:p-10"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">Pas d'image</div>
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                        <div className="text-center">
+                          <span className="text-5xl block mb-2">📦</span>
+                          <span className="text-sm">Image produit</span>
+                        </div>
+                      </div>
                     )}
                   </div>
                   {product.node.images.edges.length > 1 && (
-                    <div className="flex gap-2 overflow-x-auto pb-2">
+                    <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
                       {product.node.images.edges.map((img, i) => (
                         <button
                           key={i}
                           onClick={() => setSelectedImage(i)}
-                          className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-card overflow-hidden border-2 transition-all ${i === selectedImage ? 'border-primary ring-2 ring-primary/20' : 'border-border/50 hover:border-border'}`}
+                          className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-muted overflow-hidden border-2 transition-all ${i === selectedImage ? 'border-primary' : 'border-border hover:border-muted-foreground/30'}`}
                         >
                           <img src={img.node.url} alt={`${productTitle} vue ${i + 1}`} className="w-full h-full object-contain p-1" loading="lazy" />
                         </button>
                       ))}
                     </div>
                   )}
-
-                  {/* Branding badge under images — desktop only */}
-                  <div className="hidden lg:flex items-center gap-3 mt-6 p-4 rounded-xl bg-secondary/50 border border-border/30">
-                    <span className="font-display font-bold text-primary text-lg">Thermo3D</span>
-                    <span className="text-xs text-muted-foreground">Accessoires Thermomix imprimés en 3D en France</span>
-                  </div>
                 </div>
 
-                {/* Product info */}
-                <div className="lg:sticky lg:top-28 self-start space-y-6">
-                  {/* Brand + title */}
+                {/* 2. Product info — price visible immediately */}
+                <div className="lg:sticky lg:top-28 self-start space-y-5">
                   <div>
                     <span className="text-xs font-display font-semibold text-primary tracking-widest uppercase">Thermo3D</span>
-                    <h1 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl mt-1 leading-tight">
+                    <h1 className="font-display font-bold text-2xl md:text-3xl mt-1 leading-tight text-foreground">
                       {productTitle}
                     </h1>
                   </div>
 
-                  {/* Price */}
-                  <p className="text-3xl md:text-4xl font-display font-bold text-primary">
+                  {/* 3. Price — large and visible */}
+                  <p className="text-3xl font-display font-bold text-foreground">
                     {productPrice}&nbsp;€
                   </p>
 
-                  {/* CTA — mobile-first: always visible */}
+                  {/* 4. Bullet points */}
+                  <ul className="space-y-2.5">
+                    {bullets.map((b) => (
+                      <li key={b} className="flex items-center gap-3 text-sm text-foreground">
+                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-3 h-3 text-primary" />
+                        </div>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* 5. CTA — Acheter maintenant */}
                   <button
                     onClick={handleAddToCart}
                     disabled={isLoading}
-                    className="w-full bg-gradient-primary text-accent-foreground font-display font-bold py-4 md:py-5 rounded-xl hover:opacity-90 transition-all glow-primary disabled:opacity-50 flex items-center justify-center gap-3 text-base md:text-lg"
+                    className="w-full bg-primary text-primary-foreground font-display font-bold py-4 rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-3 text-base"
                   >
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (
                       <>
                         <ShoppingCart className="w-5 h-5" />
-                        Ajouter au panier — {productPrice} €
+                        Acheter maintenant — {productPrice} €
                       </>
                     )}
                   </button>
 
-                  {/* Trust icons row */}
-                  <div className="grid grid-cols-2 gap-3">
+                  {/* Trust badges */}
+                  <div className="grid grid-cols-2 gap-3 pt-1">
                     {trustBadges.map(item => (
-                      <div key={item.text} className="flex items-center gap-2.5 text-xs md:text-sm text-muted-foreground">
+                      <div key={item.text} className="flex items-center gap-2 text-xs text-muted-foreground">
                         <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
                         <span>{item.text}</span>
                       </div>
                     ))}
                   </div>
+                </div>
+              </div>
+            </section>
 
-                  {/* Benefits cards */}
-                  <div className="space-y-3 pt-2">
-                    <h2 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground">Pourquoi choisir cet accessoire&nbsp;?</h2>
-                    {benefits.map(b => (
-                      <div key={b.title} className="flex items-start gap-4 p-4 rounded-xl bg-secondary/40 border border-border/30">
-                        <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <b.icon className="w-4 h-4 text-primary" />
-                        </div>
-                        <div>
-                          <p className="font-display font-semibold text-sm">{b.title}</p>
-                          <p className="text-xs text-muted-foreground mt-0.5">{b.desc}</p>
-                        </div>
-                      </div>
-                    ))}
+            {/* 6. Description détaillée orientée bénéfices */}
+            <section className="bg-muted/50 border-y border-border">
+              <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16">
+                <div className="max-w-2xl">
+                  <h2 className="font-display font-bold text-xl md:text-2xl mb-4 text-foreground">
+                    Pourquoi choisir le {productTitle} ?
+                  </h2>
+                  <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                    <p>{product.node.description}</p>
+                    <p>
+                      Conçu et imprimé en France avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>, 
+                      cet accessoire est pensé pour résister à un usage intensif en cuisine. Il s'installe en quelques secondes, 
+                      sans outil, et s'adapte parfaitement aux modèles <strong className="text-foreground">Thermomix TM5 et TM6</strong>.
+                    </p>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Description SEO section */}
-            <section className="container mx-auto px-4 sm:px-6 py-10 md:py-16">
-              <div className="max-w-3xl">
-                <h2 className="font-display font-bold text-xl md:text-2xl mb-4">
-                  Description — {productTitle}
-                </h2>
-                <div className="prose prose-invert prose-sm md:prose-base max-w-none text-muted-foreground leading-relaxed space-y-4">
-                  <p>{product.node.description}</p>
-                  <p className="text-xs text-muted-foreground/60">
-                    Accessoire cuisine Thermomix compatible TM5, TM6 et TM7 · Imprimé en 3D en France avec du PLA alimentaire · Conçu par Thermo3D
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Reviews section — empty structure */}
-            <section className="container mx-auto px-4 sm:px-6 py-10 md:py-16 border-t border-border/30">
-              <h2 className="font-display font-bold text-xl md:text-2xl mb-6">Avis clients</h2>
-              <div className="flex items-center gap-2 mb-8">
+            {/* 7. Avis clients — structure vide (pas de faux avis) */}
+            <section className="container mx-auto px-4 sm:px-6 py-12 md:py-16">
+              <h2 className="font-display font-bold text-xl md:text-2xl mb-6 text-foreground">Avis clients</h2>
+              <div className="flex items-center gap-2 mb-6">
                 {[1, 2, 3, 4, 5].map(s => (
                   <Star key={s} className="w-5 h-5 text-border" />
                 ))}
@@ -230,24 +229,22 @@ const ProductPage = () => {
             </section>
 
             {/* Sticky mobile CTA */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-md border-t border-border/50 lg:hidden z-50">
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-md border-t border-border lg:hidden z-50">
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading}
-                className="w-full bg-gradient-primary text-accent-foreground font-display font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base"
+                className="w-full bg-primary text-primary-foreground font-display font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base"
               >
                 {isLoading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <>
                     <ShoppingCart className="w-5 h-5" />
-                    Ajouter au panier — {productPrice} €
+                    Acheter — {productPrice} €
                   </>
                 )}
               </button>
             </div>
-
-            {/* Bottom padding for sticky CTA on mobile */}
             <div className="h-24 lg:hidden" />
           </>
         )}
