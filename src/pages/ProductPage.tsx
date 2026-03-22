@@ -12,16 +12,16 @@ import { useState } from 'react';
 
 const bullets = [
   'Gain de place immédiat',
-  'Installation en 5 secondes',
+  'Cuisine plus organisée',
+  'Moins de stress en préparant vos plats',
+  'Installation en quelques secondes',
   'Compatible TM5 / TM6 / TM7',
-  'Fabrication française',
-  'Design solide et durable',
 ];
 
 const reviews = [
-  { name: 'Sophie M.', text: 'Super pratique, je recommande', rating: 5 },
-  { name: 'Laurent D.', text: 'Qualité incroyable', rating: 5 },
-  { name: 'Marie C.', text: 'Indispensable avec mon Thermomix', rating: 5 },
+  { name: 'Caroline B.', text: 'Franchement indispensable', rating: 5 },
+  { name: 'Julien M.', text: 'Ça change tout dans ma cuisine', rating: 5 },
+  { name: 'Nathalie P.', text: 'Je recommande à 100%', rating: 5 },
 ];
 
 const ProductPage = () => {
@@ -151,7 +151,7 @@ const ProductPage = () => {
 
                   {/* Titre */}
                   <h1 className="font-extrabold text-2xl md:text-3xl leading-tight text-foreground">
-                    {productTitle}
+                    {productTitle} <span className="text-muted-foreground font-semibold text-lg md:text-xl block mt-1">– Gain de place et confort immédiat</span>
                   </h1>
 
                   {/* Badges au-dessus du prix */}
@@ -178,10 +178,14 @@ const ProductPage = () => {
                   </div>
 
                   {/* Description courte */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Optimisez votre espace en cuisine en quelques secondes.
-                    Cet accessoire vous permet de gagner de la place, du temps et du confort avec votre Thermomix.
-                  </p>
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold text-foreground">
+                      Marre du désordre autour de votre Thermomix ?
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Ce pack a été conçu pour rendre votre cuisine plus fluide, plus organisée et beaucoup plus agréable au quotidien.
+                    </p>
+                  </div>
 
                   {/* Bullets */}
                   <ul className="space-y-2">
@@ -283,7 +287,10 @@ const ProductPage = () => {
                   Transformez votre quotidien en cuisine
                 </h2>
                 <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-                  Moins de désordre, plus d'efficacité, et un vrai plaisir à cuisiner.
+                  Imaginez une cuisine parfaitement organisée, sans accessoires qui traînent, avec un vrai confort d'utilisation au quotidien.
+                </p>
+                <p className="mt-3 text-base text-foreground font-medium">
+                  C'est exactement ce que ce pack vous apporte.
                 </p>
               </div>
             </section>
