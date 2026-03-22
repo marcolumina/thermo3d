@@ -1,9 +1,9 @@
 const SeoBlock = () => {
   return (
-    <section className="border-t border-border">
-      <div className="container mx-auto px-6 py-12 md:py-16">
+    <section className="border-t border-border/60">
+      <div className="container mx-auto px-6 py-14 md:py-20">
         <div className="max-w-3xl mx-auto space-y-6 text-sm text-muted-foreground leading-relaxed">
-          <h2 className="font-display font-bold text-lg md:text-xl text-foreground">
+          <h2 className="font-display font-semibold text-lg md:text-xl text-foreground">
             Thermo3D — Accessoire Thermomix imprimé en 3D en France
           </h2>
           <p>
@@ -13,7 +13,7 @@ const SeoBlock = () => {
           </p>
           <p>
             Tous nos produits sont compatibles avec les modèles <strong className="text-foreground">Thermomix TM5</strong>, 
-            <strong className="text-foreground">TM6</strong> et <strong className="text-foreground">TM7</strong>. Chaque <strong className="text-foreground">accessoire TM6 TM5</strong> est 
+            <strong className="text-foreground"> TM6</strong> et <strong className="text-foreground">TM7</strong>. Chaque <strong className="text-foreground">accessoire TM6 TM5</strong> est 
             fabriqué en France avec du PLA de qualité alimentaire, garantissant durabilité et sécurité pour un usage quotidien en cuisine.
           </p>
           <p>
