@@ -8,6 +8,7 @@ import WhyUs from '@/components/WhyUs';
 import Reviews from '@/components/Reviews';
 import BestSellers from '@/components/BestSellers';
 import CtaFinal from '@/components/CtaFinal';
+import SeoBlock from '@/components/SeoBlock';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -43,6 +44,7 @@ const Index = () => {
       <Reviews />
       <BestSellers />
       <CtaFinal />
+      <SeoBlock />
       <Footer />
     </div>
   );
