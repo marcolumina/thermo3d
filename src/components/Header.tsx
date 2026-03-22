@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
-import logo from '@/assets/thermo3d-logo.png';
 const Header = () => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
