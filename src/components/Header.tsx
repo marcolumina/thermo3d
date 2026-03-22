@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
-import logoImg from '@/assets/logo-thermo3d.png';
+import logoSimple from '@/assets/logo-thermo3d-simple.png';
+import logoIcon from '@/assets/logo-thermo3d-icon.png';
 
 const Header = () => {
   const location = useLocation();
@@ -10,7 +11,8 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-2xl border-b border-border/60">
       <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         <Link to="/" className="group shrink-0">
-          <img src={logoImg} alt="Thermo3D" className="h-[50px] w-auto" />
+          <img src={logoSimple} alt="Thermo3D" className="hidden sm:block h-[50px] w-auto" />
+          <img src={logoIcon} alt="Thermo3D" className="block sm:hidden h-[36px] w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
