@@ -1,5 +1,6 @@
 import { ArrowRight, ShoppingBag, Star, Flame, Clock, CheckCircle, Flag } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logoPremium from '@/assets/logo-thermo3d.png';
 
 const Hero = () => {
   return (
@@ -8,6 +9,10 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(97_52%_51%/0.06)_0%,transparent_70%)]" />
 
       <div className="container mx-auto px-6 py-20 md:py-32 relative z-10">
+        {/* Premium logo above content */}
+        <div className="flex justify-center mb-10">
+          <img src={logoPremium} alt="Thermo3D" className="h-20 md:h-28 w-auto drop-shadow-[0_0_30px_hsl(97_52%_51%/0.3)]" />
+        </div>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Copy */}
           <div className="flex flex-col items-start text-left">
