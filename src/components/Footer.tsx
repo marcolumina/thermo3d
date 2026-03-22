@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from '@/assets/thermo3d-logo.png';
 
 const Footer = () => {
   return (
