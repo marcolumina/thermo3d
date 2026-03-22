@@ -48,6 +48,7 @@ const Index = () => {
       <WhyUs />
       <Reviews />
       <ImagineSection />
+      <CrossSell />
       <CtaFinal />
       <SeoBlock />
       <Footer />
