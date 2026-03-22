@@ -10,6 +10,7 @@ import WhyUs from '@/components/WhyUs';
 import ImagineSection from '@/components/ImagineSection';
 import CrossSell from '@/components/CrossSell';
 import Reviews from '@/components/Reviews';
+import Testimonials from '@/components/Testimonials';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
 import Footer from '@/components/Footer';
@@ -49,6 +50,7 @@ const Index = () => {
       <Reviews />
       <ImagineSection />
       <CrossSell />
+      <Testimonials />
       <CtaFinal />
       <SeoBlock />
       <Footer />
