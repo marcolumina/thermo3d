@@ -145,9 +145,9 @@ const ProductPage = () => {
                 {/* 2. Product info — price visible immediately */}
                 <div className="lg:sticky lg:top-28 self-start space-y-5">
                   <div>
-                    <span className="text-xs font-display font-semibold text-primary tracking-widest uppercase">Thermo3D</span>
+                    <span className="text-xs font-display font-semibold text-primary tracking-widest uppercase">Thermo3D · Fabriqué en France 🇫🇷</span>
                     <h1 className="font-display font-bold text-2xl md:text-3xl mt-1 leading-tight text-foreground">
-                      {productTitle}
+                      {productTitle} — Accessoire Thermomix
                     </h1>
                   </div>
 
