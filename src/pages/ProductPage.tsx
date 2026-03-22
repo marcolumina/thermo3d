@@ -287,7 +287,10 @@ const ProductPage = () => {
                   Transformez votre quotidien en cuisine
                 </h2>
                 <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-                  Moins de désordre, plus d'efficacité, et un vrai plaisir à cuisiner.
+                  Imaginez une cuisine parfaitement organisée, sans accessoires qui traînent, avec un vrai confort d'utilisation au quotidien.
+                </p>
+                <p className="mt-3 text-base text-foreground font-medium">
+                  C'est exactement ce que ce pack vous apporte.
                 </p>
               </div>
             </section>
