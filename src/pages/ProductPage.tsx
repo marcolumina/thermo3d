@@ -194,19 +194,21 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* 6. Description détaillée orientée bénéfices */}
+            {/* 6. Description orientée bénéfices */}
             <section className="bg-muted/50 border-y border-border">
               <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16">
                 <div className="max-w-2xl">
                   <h2 className="font-display font-bold text-xl md:text-2xl mb-4 text-foreground">
-                    Pourquoi choisir le {productTitle} ?
+                    Pourquoi tout le monde adore le {productTitle}
                   </h2>
                   <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                     <p>{product.node.description}</p>
                     <p>
-                      Conçu et imprimé en France avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>, 
-                      cet accessoire est pensé pour résister à un usage intensif en cuisine. Il s'installe en quelques secondes, 
-                      sans outil, et s'adapte parfaitement aux modèles <strong className="text-foreground">Thermomix TM5 et TM6</strong>.
+                      🇫🇷 <strong className="text-foreground">Fabriqué en France</strong> avec du PLA de qualité alimentaire. 
+                      S'installe en 2 secondes, sans outil, directement sur votre <strong className="text-foreground">Thermomix TM5, TM6 ou TM7</strong>.
+                    </p>
+                    <p>
+                      🚚 <strong className="text-foreground">Livraison rapide</strong> — Expédié sous 48h. Satisfait ou remboursé.
                     </p>
                   </div>
                 </div>
