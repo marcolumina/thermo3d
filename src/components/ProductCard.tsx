@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useCartStore } from '@/stores/cartStore';
 import type { ShopifyProduct } from '@/lib/shopify';
-import { ShoppingCart, Loader2 } from 'lucide-react';
+import { ShoppingCart, Loader2, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -87,6 +87,20 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <span className="text-[10px] text-muted-foreground">· Déjà adopté par +1000 clients</span>
       </div>
       <span className="inline-block mt-1.5 text-[10px] font-bold text-destructive uppercase tracking-wide">🔥 Stock limité</span>
+      <div className="flex items-center gap-3 mt-3 pt-3 border-t border-border">
+        <div className="flex items-center gap-1 text-muted-foreground">
+          <ShieldCheck className="w-3 h-3" />
+          <span className="text-[9px]">Paiement sécurisé</span>
+        </div>
+        <div className="flex items-center gap-1 text-muted-foreground">
+          <Truck className="w-3 h-3" />
+          <span className="text-[9px]">Livraison rapide</span>
+        </div>
+        <div className="flex items-center gap-1 text-muted-foreground">
+          <RefreshCw className="w-3 h-3" />
+          <span className="text-[9px]">Satisfait ou remboursé</span>
+        </div>
+      </div>
     </Link>
   );
 };
