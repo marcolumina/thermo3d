@@ -8,14 +8,11 @@ const CtaFinal = () => {
         <h2 className="font-extrabold text-2xl md:text-4xl max-w-2xl mx-auto leading-tight">
           Passez au niveau supérieur avec votre Thermomix
         </h2>
-        <p className="mt-5 text-primary-foreground/60 max-w-md mx-auto text-lg">
-          Rejoignez +1000 clients qui ont transformé leur cuisine.
-        </p>
         <Link
           to="/catalogue"
           className="mt-10 inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-full font-bold text-sm hover:brightness-110 transition-all"
         >
-          Voir les produits
+          Je découvre les accessoires
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
