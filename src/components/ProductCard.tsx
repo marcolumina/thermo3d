@@ -15,11 +15,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const image = node.images.edges[0]?.node;
   const variant = node.variants.edges[0]?.node;
   const price = node.priceRange.minVariantPrice;
-
-  const tags = node.tags || [];
-  const isBestSeller = tags.some(t => t.toLowerCase().includes('best-seller'));
-  const isOffreLimitee = tags.some(t => t.toLowerCase().includes('offre-limitee'));
-  const isPack = tags.some(t => t.toLowerCase() === 'pack');
+  const priceNum = parseFloat(price.amount);
+  const fakeOriginalPrice = (priceNum / 0.8).toFixed(2);
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -41,21 +38,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <div className="relative bg-secondary rounded-xl overflow-hidden aspect-square mb-4">
         {/* Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
-          {isBestSeller && (
-            <span className="bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-              Best seller
-            </span>
-          )}
-          {isOffreLimitee && (
-            <span className="bg-foreground text-background text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-              Offre limitée
-            </span>
-          )}
-          {isPack && (
-            <span className="bg-red-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-              -20% aujourd'hui
-            </span>
-          )}
+          <span className="bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+            Best seller
+          </span>
+          <span className="bg-foreground text-background text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+            Stock limité
+          </span>
+          <span className="bg-destructive text-destructive-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+            -20% aujourd'hui
+          </span>
         </div>
 
         {image ? (
@@ -82,15 +73,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </button>
       </div>
       <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2">{node.title}</h3>
-      <div className="flex items-center gap-2 mt-1">
+      <p className="text-xs text-muted-foreground mt-1">Optimisez votre espace en cuisine en quelques secondes</p>
+      <div className="flex items-center gap-2 mt-1.5">
         <span className="font-bold text-base text-foreground">
-          {parseFloat(price.amount).toFixed(2)} €
+          {priceNum.toFixed(2)} €
         </span>
-        {isPack && (
-          <span className="text-sm text-muted-foreground line-through">
-            {(parseFloat(price.amount) * 1.25).toFixed(2)} €
-          </span>
-        )}
+        <span className="text-sm text-muted-foreground line-through">
+          {fakeOriginalPrice} €
+        </span>
       </div>
     </Link>
   );
