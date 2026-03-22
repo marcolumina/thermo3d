@@ -11,10 +11,10 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-3 group">
           <img src={logo} alt="Thermo3D logo" className="h-[78px] w-auto object-contain" />
           <div className="flex flex-col leading-none">
-            <span className="font-extrabold text-lg tracking-tight text-foreground">
-              Thermo<span className="text-accent">3D</span>
+            <span className="font-extrabold text-xl tracking-tight text-foreground">
+              THERMO<span className="text-accent font-black">3D</span>
             </span>
-            <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-muted-foreground">
+            <span className="text-[8px] font-semibold tracking-[0.25em] uppercase text-muted-foreground">
               Accessoires Thermomix
             </span>
           </div>
