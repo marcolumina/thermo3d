@@ -47,22 +47,23 @@ const Catalogue = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Accessoires Thermomix imprimés en 3D — Catalogue | Thermo3D</title>
-        <meta name="description" content="Découvrez nos accessoires Thermomix imprimés en 3D, pratiques et innovants. Cache écran, support ustensiles, organisateurs. Compatibles TM5, TM6, TM7. Fabriqué en France." />
+        <title>Catalogue Accessoire Thermomix — Support Varoma, Rangement TM6 TM5 | Thermo3D</title>
+        <meta name="description" content="Tous nos accessoires Thermomix imprimés en 3D : support varoma, rangement Thermomix, accessoire TM6 et TM5. Cache écran, organisateurs. Fabriqué en France." />
         <link rel="canonical" href="https://thermo3d.fr/catalogue" />
+        <meta name="keywords" content="accessoire thermomix, support varoma thermomix, rangement thermomix, accessoire tm6, accessoire tm5, catalogue thermomix" />
       </Helmet>
 
       <TopBanner />
       <Header />
 
-      <section className="border-b border-border/50">
+      <section className="border-b border-border">
         <div className="container mx-auto px-6 py-14 md:py-20">
-          <h1 className="font-display font-bold text-3xl md:text-4xl">
-            Accessoires Thermomix <span className="text-gradient">imprimés en 3D</span>
+          <h1 className="font-display font-bold text-3xl md:text-4xl text-foreground">
+            Accessoire Thermomix — Support Varoma, Rangement TM6 & TM5
           </h1>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            Découvrez notre gamme complète d'accessoires cuisine pratiques pour Thermomix TM5, TM6 et TM7.
-            Conçus et fabriqués en France grâce à l'impression 3D cuisine, avec des matériaux de qualité alimentaire.
+            Retrouvez tous nos accessoires Thermomix imprimés en 3D : support varoma, rangement, cache écran, organisateurs.
+            Compatibles TM5 et TM6, fabriqués en France avec du PLA de qualité alimentaire.
           </p>
         </div>
       </section>
