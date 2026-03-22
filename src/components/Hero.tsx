@@ -23,11 +23,11 @@ const Hero = () => {
         </div>
 
         <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl leading-[1.08] tracking-tight max-w-4xl text-white">
-          Transformez votre Thermomix en station de cuisine ultra optimisée
+          Le Thermomix, mais en 10x plus pratique
         </h1>
 
         <p className="mt-6 text-lg md:text-xl text-white/55 max-w-2xl leading-relaxed font-light">
-          Accessoires malins imprimés en 3D pour gagner du temps, de l'espace et du confort au quotidien
+          Accessoires intelligents pour gagner du temps, de la place et du confort en cuisine
         </p>
 
         <Link
@@ -39,9 +39,9 @@ const Hero = () => {
         </Link>
 
         <div className="mt-12 flex items-center gap-6 text-white/35 text-xs font-medium tracking-wide uppercase">
-          <span>✓ Livraison rapide</span>
-          <span>✓ Paiement sécurisé</span>
-          <span>✓ Satisfait ou remboursé</span>
+          <span>⭐ +1000 clients satisfaits</span>
+          <span>✔ Compatible TM5 TM6 TM7</span>
+          <span>🇫🇷 Fabrication française</span>
         </div>
       </div>
     </section>
