@@ -73,7 +73,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </button>
       </div>
       <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2">{node.title}</h3>
-      <p className="text-xs text-muted-foreground mt-1">Optimisez votre espace en cuisine en quelques secondes</p>
+      <p className="text-xs text-muted-foreground mt-1">Optimisez votre cuisine en quelques secondes</p>
       <div className="flex items-center gap-2 mt-1.5">
         <span className="font-bold text-base text-foreground">
           {priceNum.toFixed(2)} €
