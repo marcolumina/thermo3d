@@ -11,9 +11,9 @@ const Footer = () => {
               <img src={logo} alt="Thermo3D logo" className="h-[94px] w-auto object-contain brightness-0 invert" />
               <div className="flex flex-col leading-none">
                 <span className="font-extrabold text-xl tracking-tight">
-                  Thermo<span className="text-accent">3D</span>
+                  THERMO<span className="text-accent font-black">3D</span>
                 </span>
-                <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-primary-foreground/40">
+                <span className="text-[8px] font-semibold tracking-[0.25em] uppercase text-primary-foreground/40">
                   Accessoires Thermomix
                 </span>
               </div>
