@@ -16,6 +16,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const variant = node.variants.edges[0]?.node;
   const price = node.priceRange.minVariantPrice;
 
+  const tags = node.tags || [];
+  const isBestSeller = tags.some(t => t.toLowerCase().includes('best-seller'));
+  const isOffreLimitee = tags.some(t => t.toLowerCase().includes('offre-limitee'));
+  const isPack = tags.some(t => t.toLowerCase() === 'pack');
+
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -34,6 +39,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link to={`/product/${node.handle}`} className="group block">
       <div className="relative bg-secondary rounded-xl overflow-hidden aspect-square mb-4">
+        {/* Badges */}
+        <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
+          {isBestSeller && (
+            <span className="bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+              Best seller
+            </span>
+          )}
+          {isOffreLimitee && (
+            <span className="bg-foreground text-background text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+              Offre limitée
+            </span>
+          )}
+          {isPack && (
+            <span className="bg-red-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+              -20% aujourd'hui
+            </span>
+          )}
+        </div>
+
         {image ? (
           <img
             src={image.url}
@@ -44,8 +68,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
             height="400"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-            Pas d'image
+          <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+            📦 Image à venir
           </div>
         )}
         <button
@@ -58,9 +82,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </button>
       </div>
       <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2">{node.title}</h3>
-      <p className="font-bold text-base mt-1 text-foreground">
-        {parseFloat(price.amount).toFixed(2)} €
-      </p>
+      <div className="flex items-center gap-2 mt-1">
+        <span className="font-bold text-base text-foreground">
+          {parseFloat(price.amount).toFixed(2)} €
+        </span>
+        {isPack && (
+          <span className="text-sm text-muted-foreground line-through">
+            {(parseFloat(price.amount) * 1.25).toFixed(2)} €
+          </span>
+        )}
+      </div>
     </Link>
   );
 };
