@@ -1,10 +1,9 @@
 import { Star } from 'lucide-react';
 
 const reviews = [
-  { name: 'Sophie M.', text: "Produit hyper pratique, je ne peux plus m'en passer !", rating: 5 },
-  { name: 'Laurent D.', text: "Qualité incroyable, parfait pour mon Thermomix.", rating: 5 },
-  { name: 'Marie C.', text: "Le support varoma a changé ma vie en cuisine. Livraison rapide en plus !", rating: 5 },
-  { name: 'Julie P.', text: "Enfin des accessoires bien pensés. Le pack rangement est top.", rating: 5 },
+  { name: 'Sophie M.', text: "Incroyable, super pratique au quotidien", rating: 5 },
+  { name: 'Laurent D.', text: "Qualité top, je recommande à 100%", rating: 5 },
+  { name: 'Marie C.', text: "Je ne peux plus m'en passer", rating: 5 },
 ];
 
 const Reviews = () => {
