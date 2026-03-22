@@ -47,10 +47,10 @@ const ProductPage = () => {
   const productImage = product?.node.images.edges[0]?.node.url || '';
 
   const bullets = [
-    'Gain de place sur votre plan de travail',
-    'Facile à installer, sans outil',
-    'Résistant et durable au quotidien',
-    'Compatible Thermomix TM5 / TM6',
+    '✅ Gain de place immédiat sur votre plan de travail',
+    '✅ Facile à utiliser — installation en 2 secondes',
+    '✅ Résistant et durable, qualité alimentaire',
+    '✅ Compatible Thermomix TM5, TM6 et TM7',
   ];
 
   const trustBadges = [
@@ -145,9 +145,9 @@ const ProductPage = () => {
                 {/* 2. Product info — price visible immediately */}
                 <div className="lg:sticky lg:top-28 self-start space-y-5">
                   <div>
-                    <span className="text-xs font-display font-semibold text-primary tracking-widest uppercase">Thermo3D</span>
+                    <span className="text-xs font-display font-semibold text-primary tracking-widest uppercase">Thermo3D · Fabriqué en France 🇫🇷</span>
                     <h1 className="font-display font-bold text-2xl md:text-3xl mt-1 leading-tight text-foreground">
-                      {productTitle}
+                      {productTitle} — Accessoire Thermomix
                     </h1>
                   </div>
 
@@ -159,10 +159,7 @@ const ProductPage = () => {
                   {/* 4. Bullet points */}
                   <ul className="space-y-2.5">
                     {bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-3 text-sm text-foreground">
-                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-3 h-3 text-primary" />
-                        </div>
+                      <li key={b} className="flex items-center gap-2 text-sm font-medium text-foreground">
                         {b}
                       </li>
                     ))}
@@ -197,19 +194,21 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* 6. Description détaillée orientée bénéfices */}
+            {/* 6. Description orientée bénéfices */}
             <section className="bg-muted/50 border-y border-border">
               <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16">
                 <div className="max-w-2xl">
                   <h2 className="font-display font-bold text-xl md:text-2xl mb-4 text-foreground">
-                    Pourquoi choisir le {productTitle} ?
+                    Pourquoi tout le monde adore le {productTitle}
                   </h2>
                   <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                     <p>{product.node.description}</p>
                     <p>
-                      Conçu et imprimé en France avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>, 
-                      cet accessoire est pensé pour résister à un usage intensif en cuisine. Il s'installe en quelques secondes, 
-                      sans outil, et s'adapte parfaitement aux modèles <strong className="text-foreground">Thermomix TM5 et TM6</strong>.
+                      🇫🇷 <strong className="text-foreground">Fabriqué en France</strong> avec du PLA de qualité alimentaire. 
+                      S'installe en 2 secondes, sans outil, directement sur votre <strong className="text-foreground">Thermomix TM5, TM6 ou TM7</strong>.
+                    </p>
+                    <p>
+                      🚚 <strong className="text-foreground">Livraison rapide</strong> — Expédié sous 48h. Satisfait ou remboursé.
                     </p>
                   </div>
                 </div>
