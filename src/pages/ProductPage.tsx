@@ -12,16 +12,16 @@ import { useState } from 'react';
 
 const bullets = [
   'Gain de place immédiat',
-  'Installation en 5 secondes',
+  'Cuisine plus organisée',
+  'Moins de stress en préparant vos plats',
+  'Installation en quelques secondes',
   'Compatible TM5 / TM6 / TM7',
-  'Fabrication française',
-  'Design solide et durable',
 ];
 
 const reviews = [
-  { name: 'Sophie M.', text: 'Super pratique, je recommande', rating: 5 },
-  { name: 'Laurent D.', text: 'Qualité incroyable', rating: 5 },
-  { name: 'Marie C.', text: 'Indispensable avec mon Thermomix', rating: 5 },
+  { name: 'Caroline B.', text: 'Franchement indispensable', rating: 5 },
+  { name: 'Julien M.', text: 'Ça change tout dans ma cuisine', rating: 5 },
+  { name: 'Nathalie P.', text: 'Je recommande à 100%', rating: 5 },
 ];
 
 const ProductPage = () => {
