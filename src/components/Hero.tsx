@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
 
             <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-[3.25rem] leading-[1.08] tracking-tight text-white">
-              Le Thermomix, mais en{' '}
+              Accessoires Thermomix TM5 TM6 TM7 :{' '}
               <span className="text-accent">10x</span> plus pratique
             </h1>
 
