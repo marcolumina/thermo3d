@@ -7,6 +7,7 @@ import BeforeAfter from '@/components/BeforeAfter';
 import BestSellers from '@/components/BestSellers';
 import ProblemSolution from '@/components/ProblemSolution';
 import WhyUs from '@/components/WhyUs';
+import ImagineSection from '@/components/ImagineSection';
 import Reviews from '@/components/Reviews';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
@@ -45,6 +46,7 @@ const Index = () => {
       <ProblemSolution />
       <WhyUs />
       <Reviews />
+      <ImagineSection />
       <CtaFinal />
       <SeoBlock />
       <Footer />
