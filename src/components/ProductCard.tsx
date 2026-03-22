@@ -33,12 +33,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <Link to={`/product/${node.handle}`} className="group block">
-      <div className="relative bg-card rounded-2xl overflow-hidden aspect-square mb-3 border border-border/50 group-hover:border-primary/30 transition-colors">
+      <div className="relative bg-secondary rounded-xl overflow-hidden aspect-square mb-4">
         {image ? (
           <img
             src={image.url}
-            alt={image.altText || `${node.title} — accessoire Thermomix imprimé en 3D, accessoire cuisine pratique`}
-            className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+            alt={image.altText || `${node.title} — accessoire Thermomix`}
+            className="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             width="400"
             height="400"
@@ -51,14 +51,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <button
           onClick={handleAddToCart}
           disabled={isLoading || !variant}
-          className="absolute bottom-3 right-3 w-10 h-10 bg-primary text-accent-foreground rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:glow-primary disabled:opacity-50"
+          className="absolute bottom-3 right-3 w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 disabled:opacity-50"
           aria-label={`Ajouter ${node.title} au panier`}
         >
           {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShoppingCart className="w-4 h-4" />}
         </button>
       </div>
-      <h3 className="font-display font-semibold text-sm group-hover:text-primary transition-colors line-clamp-2">{node.title}</h3>
-      <p className="font-display font-bold text-base mt-1 text-primary">
+      <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2">{node.title}</h3>
+      <p className="font-bold text-base mt-1 text-foreground">
         {parseFloat(price.amount).toFixed(2)} €
       </p>
     </Link>
