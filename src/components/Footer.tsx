@@ -7,11 +7,16 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <img src={logo} alt="Thermo3D logo" className="h-8 w-auto object-contain" />
-              <span className="font-extrabold text-xl tracking-tight">
-                Thermo<span className="text-accent">3D</span>
-              </span>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Thermo3D logo" className="h-12 w-auto object-contain brightness-0 invert" />
+              <div className="flex flex-col leading-none">
+                <span className="font-extrabold text-xl tracking-tight">
+                  Thermo<span className="text-accent">3D</span>
+                </span>
+                <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-primary-foreground/40">
+                  Accessoires Thermomix
+                </span>
+              </div>
             </div>
             <p className="text-sm text-primary-foreground/50 leading-relaxed max-w-sm mt-4">
               Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Compatibles TM5, TM6 et TM7.
