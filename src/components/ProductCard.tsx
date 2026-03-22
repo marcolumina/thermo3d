@@ -9,7 +9,7 @@ interface ProductCardProps {
   featured?: boolean;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, featured = false }: ProductCardProps) => {
   const { node } = product;
   const addItem = useCartStore(state => state.addItem);
   const isLoading = useCartStore(state => state.isLoading);
