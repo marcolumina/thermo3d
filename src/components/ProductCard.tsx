@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useCartStore } from '@/stores/cartStore';
 import type { ShopifyProduct } from '@/lib/shopify';
-import { ShoppingCart, Loader2, ShieldCheck, Truck, RefreshCw, Headphones } from 'lucide-react';
+import { ShoppingCart, Loader2, ShieldCheck, Truck, RefreshCw, Headphones, Star } from 'lucide-react';
 
 interface ProductCardProps {
   product: ShopifyProduct;
