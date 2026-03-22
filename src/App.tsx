@@ -9,6 +9,8 @@ import Index from "./pages/Index.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
 import Catalogue from "./pages/Catalogue.tsx";
 import Contact from "./pages/Contact.tsx";
+import APropos from "./pages/APropos.tsx";
+import FAQ from "./pages/FAQ.tsx";
 import MentionsLegales from "./pages/MentionsLegales.tsx";
 import CGV from "./pages/CGV.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
@@ -24,6 +26,8 @@ const AppContent = () => {
         <Route path="/" element={<Index />} />
         <Route path="/product/:handle" element={<ProductPage />} />
         <Route path="/catalogue" element={<Catalogue />} />
+        <Route path="/a-propos" element={<APropos />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgv" element={<CGV />} />

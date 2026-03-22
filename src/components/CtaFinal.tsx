@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 
 const CtaFinal = () => {
   return (
-    <section className="bg-primary/5 border-y border-primary/10">
-      <div className="container mx-auto px-6 py-16 md:py-20 text-center">
-        <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground">
-          Simplifiez votre cuisine dès aujourd'hui
+    <section className="bg-primary text-primary-foreground">
+      <div className="container mx-auto px-6 py-20 md:py-28 text-center">
+        <h2 className="font-extrabold text-2xl md:text-4xl max-w-2xl mx-auto leading-tight">
+          Passez au niveau supérieur avec votre Thermomix
         </h2>
-        <p className="mt-3 text-muted-foreground max-w-md mx-auto">
-          Découvrez nos accessoires Thermomix conçus pour le quotidien.
+        <p className="mt-5 text-primary-foreground/60 max-w-md mx-auto text-lg">
+          Rejoignez +1000 clients qui ont transformé leur cuisine.
         </p>
         <Link
           to="/catalogue"
-          className="mt-8 inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-display font-bold text-sm hover:bg-primary/90 transition-colors"
+          className="mt-10 inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-full font-bold text-sm hover:brightness-110 transition-all"
         >
           Voir les produits
           <ArrowRight className="w-4 h-4" />
