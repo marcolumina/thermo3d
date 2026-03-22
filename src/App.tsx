@@ -14,6 +14,9 @@ import FAQ from "./pages/FAQ.tsx";
 import MentionsLegales from "./pages/MentionsLegales.tsx";
 import CGV from "./pages/CGV.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
+import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
+import SupportThermomix from "./pages/SupportThermomix.tsx";
+import RangementThermomix from "./pages/RangementThermomix.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
