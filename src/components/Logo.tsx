@@ -77,12 +77,12 @@ export const LogoIcon = ({
       className={className}
       aria-label="Thermo3D logo"
     >
-      <g transform="translate(15,10)">
-        <path d="M10 45 Q10 75 40 75 L60 75 Q90 75 90 45 L90 35 Q90 25 75 25 L25 25 Q10 25 10 35 Z" fill={inverted ? '#FFFFFF' : 'hsl(var(--accent))'} />
-        <rect x="20" y="10" width="60" height="10" rx="5" fill={inverted ? '#FFFFFF' : 'hsl(var(--accent))'} />
-        <rect x="40" y="2" width="20" height="8" rx="4" fill={inverted ? '#FFFFFF' : 'hsl(var(--accent))'} />
-        <path d="M35 35 L65 35 M50 35 L50 65" stroke={inverted ? 'hsl(var(--foreground))' : 'white'} strokeWidth="8" strokeLinecap="round" />
-      </g>
+      <path d="M20 60 Q20 90 50 90 L80 90 Q110 90 110 60 L110 50 Q110 40 95 40 L35 40 Q20 40 20 50 Z"
+        fill={inverted ? '#FFFFFF' : 'hsl(var(--accent))'} />
+      <rect x="30" y="25" width="70" height="12" rx="6" fill={inverted ? '#FFFFFF' : 'hsl(var(--accent))'} />
+      <rect x="55" y="15" width="20" height="10" rx="5" fill={inverted ? '#FFFFFF' : 'hsl(var(--accent))'} />
+      <path d="M45 50 L85 50 M65 50 L65 80"
+        stroke={inverted ? 'hsl(var(--foreground))' : 'white'} strokeWidth="10" strokeLinecap="round" />
     </svg>
   );
 };
