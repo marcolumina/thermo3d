@@ -51,8 +51,7 @@ const BestSellers = () => {
               ))}
             </div>
           );
-        })()
-        )}
+        })()}
 
         <Link to="/catalogue" className="md:hidden flex items-center justify-center gap-2 text-foreground text-sm font-semibold mt-10 hover:text-accent transition-colors">
           Voir tout le catalogue <ArrowRight className="w-4 h-4" />
