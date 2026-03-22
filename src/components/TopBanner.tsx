@@ -29,7 +29,7 @@ const TopBanner = () => {
 
   return (
     <div className="bg-foreground text-background text-center py-2.5 text-[11px] font-medium tracking-wider uppercase flex items-center justify-center gap-3 flex-wrap">
-      <span>-20% aujourd'hui sur Thermo3D</span>
+      <span>🔥 -20% aujourd'hui | Stock limité</span>
       <span className="inline-flex items-center gap-1 bg-background/10 rounded px-2 py-0.5 text-[10px] font-mono tracking-normal">
         {pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
       </span>
