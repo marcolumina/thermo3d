@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
-import logo from '@/assets/thermo3d-logo.png';
+import { Logo } from '@/components/Logo';
 
 const Header = () => {
   const location = useLocation();
@@ -9,16 +9,8 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-2xl border-b border-border/60">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <img src={logo} alt="Thermo3D logo" className="h-[78px] w-auto object-contain" />
-          <div className="flex flex-col leading-none">
-            <span className="font-display font-bold text-xl tracking-tight text-foreground">
-              THERMO<span className="text-accent font-extrabold">3D</span>
-            </span>
-            <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
-              Accessoires Thermomix
-            </span>
-          </div>
+        <Link to="/" className="group">
+          <Logo size={50} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
