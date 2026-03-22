@@ -151,7 +151,7 @@ const ProductPage = () => {
 
                   {/* Titre */}
                   <h1 className="font-extrabold text-2xl md:text-3xl leading-tight text-foreground">
-                    {productTitle}
+                    {productTitle} <span className="text-muted-foreground font-semibold text-lg md:text-xl block mt-1">– Gain de place et confort immédiat</span>
                   </h1>
 
                   {/* Badges au-dessus du prix */}
