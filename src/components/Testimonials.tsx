@@ -15,10 +15,10 @@ const Testimonials = () => {
             Retours clients
           </p>
           <h2 className="font-extrabold text-2xl md:text-4xl text-foreground mb-4">
-            Une fois testé, impossible de revenir en arrière
+            Une fois essayé, impossible de revenir en arrière
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Nos clients ne peuvent plus cuisiner sans ces accessoires.
+            Ces accessoires deviennent indispensables dès la première utilisation.
           </p>
         </div>
 
