@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from '@/assets/thermo3d-logo.png';
 
 const Footer = () => {
   return (
@@ -6,13 +7,16 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
-            <div className="flex flex-col leading-none">
-              <span className="font-extrabold text-xl tracking-tight">
-                THERMO<span className="text-accent font-black">3D</span>
-              </span>
-              <span className="text-[8px] font-semibold tracking-[0.25em] uppercase text-primary-foreground/40">
-                Accessoires Thermomix
-              </span>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Thermo3D logo" className="h-[72px] w-auto object-contain brightness-0 invert" />
+              <div className="flex flex-col leading-none">
+                <span className="font-extrabold text-xl tracking-tight">
+                  THERMO<span className="text-accent font-black">3D</span>
+                </span>
+                <span className="text-[8px] font-semibold tracking-[0.25em] uppercase text-primary-foreground/40">
+                  Accessoires Thermomix
+                </span>
+              </div>
             </div>
             <p className="text-sm text-primary-foreground/50 leading-relaxed max-w-sm mt-4">
               Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Compatibles TM5, TM6 et TM7.
