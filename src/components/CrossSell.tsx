@@ -18,8 +18,8 @@ const CrossSell = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12">
-          {products.slice(0, 3).map((product) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mt-12">
+          {products.slice(0, 2).map((product) => (
             <ProductCard key={product.node.id} product={product} />
           ))}
         </div>
