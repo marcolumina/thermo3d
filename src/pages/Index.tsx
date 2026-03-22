@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import SocialProof from '@/components/SocialProof';
 
 import BestSellers from '@/components/BestSellers';
+import WhyAdopt from '@/components/WhyAdopt';
 import ProblemSolution from '@/components/ProblemSolution';
 import WhyUs from '@/components/WhyUs';
 import ImagineSection from '@/components/ImagineSection';
@@ -44,7 +45,7 @@ const Index = () => {
       <Hero />
       <SocialProof />
       <BestSellers />
-      
+      <WhyAdopt />
       <ProblemSolution />
       <WhyUs />
       <Reviews />
