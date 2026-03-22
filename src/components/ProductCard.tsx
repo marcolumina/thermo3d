@@ -19,6 +19,17 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
   const priceNum = parseFloat(price.amount);
   const fakeOriginalPrice = (priceNum / 0.8).toFixed(2);
 
+  const miniReviews = [
+    { name: 'Sophie M.', text: 'Super pratique, indispensable !' },
+    { name: 'Laurent D.', text: 'Qualité au top, je recommande.' },
+    { name: 'Marie C.', text: 'Ça change tout dans ma cuisine !' },
+    { name: 'Caroline B.', text: 'Franchement indispensable.' },
+    { name: 'Thomas R.', text: 'Parfait pour mon Thermomix.' },
+  ];
+  // Pick a consistent review based on product id hash
+  const reviewIndex = node.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % miniReviews.length;
+  const review = miniReviews[reviewIndex];
+
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -100,7 +111,16 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
         ))}
         <span className="text-[10px] text-muted-foreground ml-1">4,8/5 · +1000 clients satisfaits</span>
       </div>
-      <p className="text-[10px] text-muted-foreground italic mt-1.5 line-clamp-1">"Super pratique, indispensable !" — Client vérifié</p>
+      <div className="flex items-start gap-2 mt-2 bg-secondary/50 rounded-lg p-2">
+        <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-[9px] font-bold text-accent shrink-0 mt-0.5">
+          {review.name[0]}
+        </div>
+        <div className="min-w-0">
+          <p className="text-[10px] text-foreground italic line-clamp-1">"{review.text}"</p>
+          <p className="text-[9px] text-muted-foreground mt-0.5">{review.name} · <span className="text-accent">✓ Achat vérifié</span></p>
+        </div>
+      </div>
+      <p className="text-[10px] font-semibold text-accent mt-1.5">🎉 Déjà +1000 clients satisfaits</p>
       <span className="inline-block mt-1.5 text-[10px] font-bold text-destructive uppercase tracking-wide">🔥 Stock limité</span>
       <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-border">
         <div className="flex items-center gap-1.5 text-muted-foreground">
