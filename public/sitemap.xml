@@ -11,6 +11,20 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://thermo3d.fr/accessoires-thermomix</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thermo3d.fr/support-thermomix</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thermo3d.fr/rangement-thermomix</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  <url>
     <loc>https://thermo3d.fr/a-propos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

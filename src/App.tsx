@@ -14,6 +14,9 @@ import FAQ from "./pages/FAQ.tsx";
 import MentionsLegales from "./pages/MentionsLegales.tsx";
 import CGV from "./pages/CGV.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
+import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
+import SupportThermomix from "./pages/SupportThermomix.tsx";
+import RangementThermomix from "./pages/RangementThermomix.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,9 @@ const AppContent = () => {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgv" element={<CGV />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
+        <Route path="/support-thermomix" element={<SupportThermomix />} />
+        <Route path="/rangement-thermomix" element={<RangementThermomix />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
