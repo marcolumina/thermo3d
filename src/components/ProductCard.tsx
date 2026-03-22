@@ -16,10 +16,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const variant = node.variants.edges[0]?.node;
   const price = node.priceRange.minVariantPrice;
 
-  const tags = (node as any).tags as string[] | undefined;
-  const isBestSeller = tags?.some(t => t.toLowerCase().includes('best-seller'));
-  const isOffreLimitee = tags?.some(t => t.toLowerCase().includes('offre-limitee'));
-  const isPack = tags?.some(t => t.toLowerCase() === 'pack');
+  const tags = node.tags || [];
+  const isBestSeller = tags.some(t => t.toLowerCase().includes('best-seller'));
+  const isOffreLimitee = tags.some(t => t.toLowerCase().includes('offre-limitee'));
+  const isPack = tags.some(t => t.toLowerCase() === 'pack');
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
