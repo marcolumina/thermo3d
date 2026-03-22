@@ -46,6 +46,7 @@ const Index = () => {
       <ProblemSolution />
       <WhyUs />
       <Reviews />
+      <ImagineSection />
       <CtaFinal />
       <SeoBlock />
       <Footer />
