@@ -50,6 +50,7 @@ const Index = () => {
       <Reviews />
       <ImagineSection />
       <CrossSell />
+      <Testimonials />
       <CtaFinal />
       <SeoBlock />
       <Footer />
