@@ -82,6 +82,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {fakeOriginalPrice} €
         </span>
       </div>
+      <div className="flex flex-wrap items-center gap-2 mt-2">
+        <span className="text-[10px] font-bold text-accent uppercase tracking-wide">⭐ Best seller</span>
+        <span className="text-[10px] text-muted-foreground">· Déjà adopté par +1000 clients</span>
+      </div>
+      <span className="inline-block mt-1.5 text-[10px] font-bold text-destructive uppercase tracking-wide">🔥 Stock limité</span>
     </Link>
   );
 };
