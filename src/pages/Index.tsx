@@ -45,7 +45,7 @@ const Index = () => {
       <Hero />
       <SocialProof />
       <BestSellers />
-      
+      <WhyAdopt />
       <ProblemSolution />
       <WhyUs />
       <Reviews />
