@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Thermo3D logo" className="h-12 w-auto object-contain brightness-0 invert" />
+              <img src={logo} alt="Thermo3D logo" className="h-[72px] w-auto object-contain brightness-0 invert" />
               <div className="flex flex-col leading-none">
                 <span className="font-extrabold text-xl tracking-tight">
                   Thermo<span className="text-accent">3D</span>
