@@ -5,7 +5,7 @@ const WhyAdopt = () => {
         <div className="text-center mb-16">
           <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-3">Le constat</p>
           <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground mb-5 leading-tight max-w-2xl mx-auto">
-            Vous utilisez votre Thermomix tous les jours… mais mal optimisé
+            Sans support ni rangement Thermomix, votre cuisine est mal optimisée
           </h2>
         </div>
 

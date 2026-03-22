@@ -38,7 +38,7 @@ const Hero = () => {
             </h1>
 
             <p className="mt-6 text-lg text-white/45 max-w-md leading-relaxed font-light">
-              Gagnez du temps, de la place et du confort avec nos accessoires intelligents.
+              Support Thermomix, rangement Thermomix et accessoires intelligents pour gagner du temps, de la place et du confort.
             </p>
 
             {/* CTA buttons */}

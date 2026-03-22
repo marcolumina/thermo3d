@@ -13,7 +13,7 @@ const BestSellers = () => {
           <div>
             <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-3">Best sellers</p>
             <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground leading-tight">
-              Nos indispensables Thermomix
+              Nos accessoires Thermomix TM5, TM6 & TM7 indispensables
             </h2>
           </div>
           <Link to="/catalogue" className="hidden md:flex items-center gap-2 text-foreground text-sm font-medium hover:text-accent transition-colors duration-200">
