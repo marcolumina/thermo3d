@@ -3,7 +3,7 @@ import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SocialProof from '@/components/SocialProof';
-import BeforeAfter from '@/components/BeforeAfter';
+
 import BestSellers from '@/components/BestSellers';
 import ProblemSolution from '@/components/ProblemSolution';
 import WhyUs from '@/components/WhyUs';
@@ -43,7 +43,7 @@ const Index = () => {
       <Hero />
       <SocialProof />
       <BestSellers />
-      <BeforeAfter />
+      
       <ProblemSolution />
       <WhyUs />
       <Reviews />
