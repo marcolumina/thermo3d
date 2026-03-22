@@ -38,12 +38,20 @@ const BestSellers = () => {
           </div>
         )}
 
-        {products && products.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {products.map((product) => (
-              <ProductCard key={product.node.id} product={product} />
-            ))}
-          </div>
+        {products && products.length > 0 && (() => {
+          const sorted = [...products].sort((a, b) => {
+            const aIsBest = a.node.tags?.includes('best-seller') ? 1 : 0;
+            const bIsBest = b.node.tags?.includes('best-seller') ? 1 : 0;
+            return bIsBest - aIsBest;
+          });
+          return (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+              {sorted.map((product, i) => (
+                <ProductCard key={product.node.id} product={product} featured={i === 0} />
+              ))}
+            </div>
+          );
+        })()
         )}
 
         <Link to="/catalogue" className="md:hidden flex items-center justify-center gap-2 text-foreground text-sm font-semibold mt-10 hover:text-accent transition-colors">

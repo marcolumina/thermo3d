@@ -6,6 +6,7 @@ import { ShoppingCart, Loader2, ShieldCheck, Truck, RefreshCw, Headphones } from
 
 interface ProductCardProps {
   product: ShopifyProduct;
+  featured?: boolean;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
