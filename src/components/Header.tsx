@@ -8,7 +8,8 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <img src={logo} alt="Thermo3D logo" className="h-8 w-auto object-contain" />
           <span className="font-extrabold text-xl tracking-tight text-foreground">
             Thermo<span className="text-accent">3D</span>
           </span>
