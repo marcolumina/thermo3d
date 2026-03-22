@@ -10,10 +10,10 @@ const BestSellers = () => {
     <section className="container mx-auto px-6 py-20">
       <div className="flex items-end justify-between mb-10">
         <div>
-          <h2 className="font-display font-bold text-2xl md:text-3xl">
-            Nos <span className="text-gradient">accessoires Thermomix</span> populaires
+          <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground">
+            Nos accessoires Thermomix populaires
           </h2>
-          <p className="text-muted-foreground text-sm mt-2">Les accessoires cuisine pratiques préférés de nos clients</p>
+          <p className="text-muted-foreground text-sm mt-2">Support varoma, rangement, accessoire TM6 et TM5 — les plus demandés</p>
         </div>
         <Link to="/catalogue" className="hidden md:flex items-center gap-1.5 text-primary text-sm font-medium hover:gap-2.5 transition-all">
           Voir tout <ArrowRight className="w-4 h-4" />
