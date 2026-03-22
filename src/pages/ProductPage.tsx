@@ -47,10 +47,10 @@ const ProductPage = () => {
   const productImage = product?.node.images.edges[0]?.node.url || '';
 
   const bullets = [
-    'Gain de place sur votre plan de travail',
-    'Facile à installer, sans outil',
-    'Résistant et durable au quotidien',
-    'Compatible Thermomix TM5 / TM6',
+    '✅ Gain de place immédiat sur votre plan de travail',
+    '✅ Facile à utiliser — installation en 2 secondes',
+    '✅ Résistant et durable, qualité alimentaire',
+    '✅ Compatible Thermomix TM5, TM6 et TM7',
   ];
 
   const trustBadges = [
