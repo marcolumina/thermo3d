@@ -20,7 +20,7 @@ const Reviews = () => {
             <span className="text-sm font-bold text-foreground">4.9/5</span>
           </div>
           <h2 className="font-extrabold text-2xl md:text-4xl text-foreground">
-            Déjà +1000 clients satisfaits
+            Ils ont transformé leur Thermomix
           </h2>
         </div>
 
