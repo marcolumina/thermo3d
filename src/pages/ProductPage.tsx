@@ -178,10 +178,14 @@ const ProductPage = () => {
                   </div>
 
                   {/* Description courte */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Optimisez votre espace en cuisine en quelques secondes.
-                    Cet accessoire vous permet de gagner de la place, du temps et du confort avec votre Thermomix.
-                  </p>
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold text-foreground">
+                      Marre du désordre autour de votre Thermomix ?
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Ce pack a été conçu pour rendre votre cuisine plus fluide, plus organisée et beaucoup plus agréable au quotidien.
+                    </p>
+                  </div>
 
                   {/* Bullets */}
                   <ul className="space-y-2">
