@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Loader2, ShoppingCart, Truck, ShieldCheck, RefreshCw, Star, Clock, Flame } from 'lucide-react';
+import { Loader2, ShoppingCart, Truck, ShieldCheck, RefreshCw, Star, Clock, Flame, CheckCircle, Flag, ChevronDown, Headphones } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -12,16 +12,39 @@ import { useState } from 'react';
 
 const bullets = [
   'Gain de place immédiat',
-  'Cuisine plus organisée',
-  'Moins de stress en préparant vos plats',
-  'Installation en quelques secondes',
+  'Installation en 2 secondes, sans outil',
+  'Cuisine plus fluide et organisée',
   'Compatible TM5 / TM6 / TM7',
+  'Fabriqué en France 🇫🇷',
 ];
 
 const reviews = [
-  { name: 'Caroline B.', text: 'Franchement indispensable', rating: 5 },
-  { name: 'Julien M.', text: 'Ça change tout dans ma cuisine', rating: 5 },
-  { name: 'Nathalie P.', text: 'Je recommande à 100%', rating: 5 },
+  { name: 'Caroline B.', text: "Franchement indispensable ! Ma cuisine est enfin organisée, je ne peux plus m'en passer.", rating: 5 },
+  { name: 'Julien M.', text: "Ça change tout dans ma cuisine. Installation ultra simple et qualité top.", rating: 5 },
+  { name: 'Nathalie P.', text: 'Je recommande à 100%. Fini le bazar autour du Thermomix !', rating: 5 },
+];
+
+const faqs = [
+  {
+    q: 'Est-ce compatible avec mon Thermomix TM6 ?',
+    a: 'Oui ! Tous nos accessoires sont compatibles avec les modèles Thermomix TM5, TM6 et TM7. L\'ajustement est parfait grâce à l\'impression 3D de précision.',
+  },
+  {
+    q: 'Comment ça s\'installe ?',
+    a: 'Installation en 2 secondes, sans outil. Vous posez, ça clipe, c\'est prêt. Ultra simple et ultra stable.',
+  },
+  {
+    q: 'Quel est le délai de livraison ?',
+    a: 'Expédition sous 48h depuis notre atelier en France. Livraison rapide par Colissimo ou Mondial Relay.',
+  },
+  {
+    q: 'C\'est vraiment alimentaire ?',
+    a: 'Oui, tous nos produits sont fabriqués en PLA de qualité alimentaire, certifié pour un usage en cuisine en contact avec les aliments.',
+  },
+  {
+    q: 'Et si ça ne me convient pas ?',
+    a: 'Satisfait ou remboursé. Si le produit ne vous convient pas, contactez-nous et nous vous rembourserons sans discussion.',
+  },
 ];
 
 const ProductPage = () => {
@@ -29,6 +52,7 @@ const ProductPage = () => {
   const addItem = useCartStore(state => state.addItem);
   const isLoading = useCartStore(state => state.isLoading);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const { data: product, isLoading: fetching } = useQuery({
     queryKey: ['product', handle],
@@ -66,8 +90,8 @@ const ProductPage = () => {
     <div className="min-h-screen flex flex-col bg-background">
       {product && (
         <Helmet>
-          <title>{productTitle} — Accessoire Thermomix | Thermo3D</title>
-          <meta name="description" content={`${productTitle} — Accessoire Thermomix imprimé en 3D en France. Compatible TM5, TM6, TM7.`} />
+          <title>{productTitle} — Accessoire Thermomix TM5 TM6 TM7 | Thermo3D</title>
+          <meta name="description" content={`${productTitle} — Accessoire Thermomix imprimé en 3D en France. Compatible TM5, TM6, TM7. Gain de place immédiat. Livraison rapide.`} />
           <link rel="canonical" href={`https://thermo3d.fr/product/${handle}`} />
           <meta property="og:title" content={`${productTitle} | Thermo3D`} />
           <meta property="og:description" content={product.node.description?.slice(0, 160) || productTitle} />
@@ -82,6 +106,7 @@ const ProductPage = () => {
               description: product.node.description,
               image: productImage,
               brand: { "@type": "Brand", name: "Thermo3D" },
+              aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "1000" },
               offers: {
                 "@type": "Offer",
                 price: productPrice,
@@ -111,9 +136,9 @@ const ProductPage = () => {
             {/* ───── SECTION 1 : PRODUIT ───── */}
             <section className="container mx-auto px-4 sm:px-6 py-6 md:py-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
-                {/* Image — fond blanc, centré, ombre */}
+                {/* Image */}
                 <div>
-                  <div className="bg-white rounded-2xl aspect-square overflow-hidden shadow-lg">
+                  <div className="bg-white rounded-2xl aspect-square overflow-hidden shadow-lg relative">
                     {product.node.images.edges[selectedImage]?.node ? (
                       <img
                         src={product.node.images.edges[selectedImage].node.url}
@@ -125,6 +150,10 @@ const ProductPage = () => {
                         <span className="text-5xl">📦</span>
                       </div>
                     )}
+                    {/* Badge best seller on image */}
+                    <div className="absolute top-4 left-4 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                      ⭐ Best seller
+                    </div>
                   </div>
                   {product.node.images.edges.length > 1 && (
                     <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
@@ -151,18 +180,26 @@ const ProductPage = () => {
 
                   {/* Titre */}
                   <h1 className="font-extrabold text-2xl md:text-3xl leading-tight text-foreground">
-                    {productTitle} <span className="text-muted-foreground font-semibold text-lg md:text-xl block mt-1">– Gain de place et confort immédiat</span>
+                    {productTitle}
+                    <span className="text-muted-foreground font-semibold text-lg md:text-xl block mt-1">
+                      – Gain de place immédiat
+                    </span>
                   </h1>
 
-                  {/* Badges au-dessus du prix */}
+                  {/* Accroche */}
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Organisez votre espace en quelques secondes et cuisinez plus efficacement.
+                  </p>
+
+                  {/* Badges */}
                   <div className="flex flex-wrap items-center gap-3 text-xs">
                     <span className="flex items-center gap-1 text-accent font-bold">
                       <Star className="w-3.5 h-3.5 fill-accent text-accent" />
                       4,8/5 <span className="text-muted-foreground font-normal">(+1000 clients)</span>
                     </span>
-                    <span className="flex items-center gap-1 font-bold text-foreground">
-                      <Flame className="w-3.5 h-3.5 text-destructive" />
-                      Best seller
+                    <span className="flex items-center gap-1 font-bold text-destructive">
+                      <Flame className="w-3.5 h-3.5" />
+                      -20% aujourd'hui
                     </span>
                     <span className="flex items-center gap-1 font-bold text-destructive">
                       <Clock className="w-3.5 h-3.5" />
@@ -177,21 +214,11 @@ const ProductPage = () => {
                     <span className="text-xs font-bold text-destructive bg-destructive/10 px-2 py-0.5 rounded-full">-20%</span>
                   </div>
 
-                  {/* Description courte */}
-                  <div className="space-y-2">
-                    <p className="text-sm font-semibold text-foreground">
-                      Marre du désordre autour de votre Thermomix ?
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Ce pack a été conçu pour rendre votre cuisine plus fluide, plus organisée et beaucoup plus agréable au quotidien.
-                    </p>
-                  </div>
-
-                  {/* Bullets */}
-                  <ul className="space-y-2">
+                  {/* Bullets bénéfices */}
+                  <ul className="space-y-2.5 py-2">
                     {bullets.map((b) => (
                       <li key={b} className="flex items-center gap-2.5 text-sm text-foreground">
-                        <span className="text-accent font-bold">✔</span>
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
                         {b}
                       </li>
                     ))}
@@ -201,7 +228,7 @@ const ProductPage = () => {
                   <button
                     onClick={handleAddToCart}
                     disabled={isLoading}
-                    className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl hover:brightness-110 transition-all disabled:opacity-50 flex items-center justify-center gap-3 text-base"
+                    className="w-full bg-accent text-accent-foreground font-bold py-5 rounded-xl hover:brightness-110 transition-all disabled:opacity-50 flex items-center justify-center gap-3 text-lg shadow-[0_0_30px_hsl(97_52%_51%/0.25)]"
                   >
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -213,38 +240,114 @@ const ProductPage = () => {
                     )}
                   </button>
 
-                  {/* Réassurance sous bouton */}
-                  <div className="flex items-center justify-between pt-1">
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                      <span className="text-[11px]">Paiement sécurisé</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
-                      <Truck className="w-3.5 h-3.5" />
+                  {/* Réassurance 4 badges */}
+                  <div className="grid grid-cols-2 gap-3 pt-1">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Truck className="w-4 h-4 text-accent/70" />
                       <span className="text-[11px]">Livraison rapide</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
-                      <RefreshCw className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <ShieldCheck className="w-4 h-4 text-accent/70" />
+                      <span className="text-[11px]">Paiement sécurisé</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <RefreshCw className="w-4 h-4 text-accent/70" />
                       <span className="text-[11px]">Satisfait ou remboursé</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Headphones className="w-4 h-4 text-accent/70" />
+                      <span className="text-[11px]">Support client français</span>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* ───── SECTION 2 : PROBLÈME / SOLUTION ───── */}
-            <section className="bg-primary text-primary-foreground">
-              <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 max-w-2xl text-center">
-                <h2 className="font-extrabold text-xl md:text-3xl leading-tight">
-                  Marre du désordre autour de votre Thermomix ?
+            {/* ───── SECTION 2 : AVANT / APRÈS ───── */}
+            <section className="bg-secondary/40 py-16 md:py-20">
+              <div className="container mx-auto px-4 sm:px-6">
+                <h2 className="font-extrabold text-xl md:text-3xl text-foreground text-center mb-10">
+                  La transformation en un clic
                 </h2>
-                <p className="mt-5 text-base text-primary-foreground/60 leading-relaxed">
-                  Grâce à cet accessoire, vous gardez un espace propre, organisé et agréable au quotidien.
-                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                  {/* Avant */}
+                  <div className="bg-background rounded-2xl p-8 shadow-premium text-center border border-border">
+                    <span className="text-4xl mb-4 block">😩</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-destructive/70 mb-4 block">Avant</span>
+                    <ul className="space-y-3 text-sm text-muted-foreground text-left">
+                      <li className="flex items-center gap-2">
+                        <span className="text-destructive">✗</span> Désordre sur le plan de travail
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-destructive">✗</span> Perte de temps à chaque utilisation
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-destructive">✗</span> Accessoires qui traînent partout
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Après */}
+                  <div className="bg-background rounded-2xl p-8 shadow-premium text-center border border-accent/30">
+                    <span className="text-4xl mb-4 block">😍</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-accent mb-4 block">Après – avec Thermo3D</span>
+                    <ul className="space-y-3 text-sm text-foreground text-left">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" /> Cuisine parfaitement organisée
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" /> Gain de temps au quotidien
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" /> Confort et plaisir de cuisiner
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </section>
 
-            {/* ───── SECTION 3 : PREUVE SOCIALE ───── */}
+            {/* ───── SECTION 3 : DESCRIPTION DÉTAILLÉE ───── */}
+            <section className="py-16 md:py-20">
+              <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
+                <h2 className="font-extrabold text-xl md:text-3xl text-foreground text-center leading-tight mb-8">
+                  Optimisez votre cuisine en quelques secondes
+                </h2>
+                <div className="space-y-5 text-muted-foreground leading-relaxed">
+                  <p>
+                    Ce <strong className="text-foreground">support Thermomix</strong> est conçu pour optimiser votre espace et rendre votre cuisine plus pratique au quotidien. 
+                    Fini le désordre, place à l'efficacité. Chaque accessoire trouve sa place, votre plan de travail reste dégagé, 
+                    et vous gagnez un temps précieux à chaque utilisation.
+                  </p>
+                  <p>
+                    Fabriqué en France par impression 3D avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>, 
+                    cet accessoire s'adapte parfaitement à votre <strong className="text-foreground">Thermomix TM5, TM6 ou TM7</strong>. 
+                    La précision au dixième de millimètre garantit un ajustement impeccable et une stabilité totale.
+                  </p>
+                  <p>
+                    L'installation se fait en 2 secondes, sans outil. Vous posez, ça clipe, c'est prêt. 
+                    Plus de 1000 clients ont déjà transformé leur cuisine avec nos accessoires Thermo3D.
+                  </p>
+                </div>
+
+                {/* Badges confiance */}
+                <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm text-muted-foreground">
+                  <span className="inline-flex items-center gap-2">
+                    <Flag className="w-4 h-4 text-accent/70" />
+                    Fabrication française
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent/70" />
+                    PLA alimentaire
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <Star className="w-4 h-4 text-accent fill-accent" />
+                    4,8/5 – +1000 clients
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            {/* ───── SECTION 4 : PREUVE SOCIALE ───── */}
             <section className="bg-secondary py-16 md:py-20">
               <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center mb-10">
@@ -272,7 +375,7 @@ const ProductPage = () => {
                           {r.name[0]}
                         </div>
                         <span className="text-xs font-bold text-foreground">{r.name}</span>
-                        <span className="text-xs text-accent">✓ Vérifié</span>
+                        <span className="text-xs text-accent">✓ Achat vérifié</span>
                       </div>
                     </div>
                   ))}
@@ -280,18 +383,56 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* ───── SECTION 4 : PROJECTION ───── */}
+            {/* ───── SECTION 5 : FAQ ───── */}
             <section className="py-16 md:py-20">
-              <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center">
-                <h2 className="font-extrabold text-xl md:text-3xl text-foreground leading-tight">
-                  Transformez votre quotidien en cuisine
+              <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
+                <h2 className="font-extrabold text-xl md:text-3xl text-foreground text-center mb-10">
+                  Questions fréquentes
                 </h2>
-                <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-                  Imaginez une cuisine parfaitement organisée, sans accessoires qui traînent, avec un vrai confort d'utilisation au quotidien.
+                <div className="space-y-3">
+                  {faqs.map((faq, i) => (
+                    <div key={i} className="bg-card border border-border/50 rounded-xl overflow-hidden">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        className="w-full flex items-center justify-between px-6 py-4 text-left"
+                      >
+                        <span className="text-sm font-semibold text-foreground pr-4">{faq.q}</span>
+                        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform flex-shrink-0 ${openFaq === i ? 'rotate-180' : ''}`} />
+                      </button>
+                      {openFaq === i && (
+                        <div className="px-6 pb-5">
+                          <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* ───── SECTION 6 : CTA FINAL ───── */}
+            <section className="bg-foreground text-background">
+              <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
+                <h2 className="font-extrabold text-xl md:text-3xl leading-tight max-w-xl mx-auto">
+                  Prêt à transformer votre cuisine ?
+                </h2>
+                <p className="mt-4 text-background/60 text-sm max-w-md mx-auto">
+                  Rejoignez +1000 clients satisfaits. Installation en 2 secondes, satisfaction garantie.
                 </p>
-                <p className="mt-3 text-base text-foreground font-medium">
-                  C'est exactement ce que ce pack vous apporte.
-                </p>
+                <button
+                  onClick={handleAddToCart}
+                  disabled={isLoading}
+                  className="mt-8 inline-flex items-center gap-3 bg-accent text-accent-foreground px-10 py-5 rounded-full font-bold text-base hover:brightness-110 transition-all disabled:opacity-50 shadow-[0_0_30px_hsl(97_52%_51%/0.3)]"
+                >
+                  {isLoading ? (
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-5 h-5" />
+                      Ajouter au panier — {productPrice} €
+                    </>
+                  )}
+                </button>
               </div>
             </section>
 
@@ -300,7 +441,7 @@ const ProductPage = () => {
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading}
-                className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base"
+                className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base shadow-[0_0_20px_hsl(97_52%_51%/0.2)]"
               >
                 {isLoading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
