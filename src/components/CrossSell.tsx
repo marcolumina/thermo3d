@@ -7,18 +7,18 @@ const CrossSell = () => {
   if (isLoading || !products?.length) return null;
 
   return (
-    <section className="py-20 md:py-28 bg-secondary">
+    <section className="py-24 md:py-32 bg-secondary/40">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-4">
-          <span className="inline-flex items-center bg-accent/10 text-accent text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+        <div className="text-center mb-14">
+          <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-3">
             Souvent achetés ensemble
-          </span>
-          <h2 className="font-extrabold text-2xl md:text-4xl text-foreground">
+          </p>
+          <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground leading-tight">
             Complétez votre installation
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {products.slice(0, 2).map((product) => (
             <ProductCard key={product.node.id} product={product} />
           ))}
