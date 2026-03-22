@@ -91,10 +91,13 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
           {fakeOriginalPrice} €
         </span>
       </div>
-      <div className="flex flex-wrap items-center gap-2 mt-2">
-        <span className="text-[10px] font-bold text-accent uppercase tracking-wide">⭐ Best seller</span>
-        <span className="text-[10px] text-muted-foreground">· Déjà adopté par +1000 clients</span>
+      <div className="flex items-center gap-1 mt-2">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+        ))}
+        <span className="text-[10px] text-muted-foreground ml-1">4,8/5 · +1000 clients satisfaits</span>
       </div>
+      <p className="text-[10px] text-muted-foreground italic mt-1.5 line-clamp-1">"Super pratique, indispensable !" — Client vérifié</p>
       <span className="inline-block mt-1.5 text-[10px] font-bold text-destructive uppercase tracking-wide">🔥 Stock limité</span>
       <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-border">
         <div className="flex items-center gap-1.5 text-muted-foreground">
