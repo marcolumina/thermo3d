@@ -3,13 +3,13 @@ import logo from '@/assets/thermo3d-logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-card/50 border-t border-border/50">
+    <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <img src={logo} alt="Thermo3D logo" className="w-9 h-9 object-contain" />
-              <span className="font-display font-bold text-lg">
+              <span className="font-display font-bold text-lg text-foreground">
                 Thermo<span className="text-primary">3D</span>
               </span>
             </div>
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border/50 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground">
+        <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground">
           <span>© 2026 Thermo3D. Tous droits réservés.</span>
           <span className="mt-2 sm:mt-0">Fabriqué avec 💚 en Corse, France</span>
         </div>
