@@ -6,9 +6,10 @@ import { ShoppingCart, Loader2, ShieldCheck, Truck, RefreshCw, Headphones } from
 
 interface ProductCardProps {
   product: ShopifyProduct;
+  featured?: boolean;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, featured = false }: ProductCardProps) => {
   const { node } = product;
   const addItem = useCartStore(state => state.addItem);
   const isLoading = useCartStore(state => state.isLoading);
@@ -34,7 +35,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <Link to={`/product/${node.handle}`} className="group block">
+    <Link to={`/product/${node.handle}`} className={`group block ${featured ? 'col-span-2 md:col-span-1 ring-2 ring-accent rounded-xl p-3 bg-accent/5 relative' : ''}`}>
+      {featured && (
+        <div className="flex items-center gap-2 mb-3">
+          <span className="bg-accent text-accent-foreground text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+            🏆 Produit le plus populaire
+          </span>
+          <span className="text-[11px] text-muted-foreground">⭐ 4,8/5 — +1000 avis</span>
+        </div>
+      )}
       <div className="relative bg-secondary rounded-xl overflow-hidden aspect-square mb-4">
         {/* Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
