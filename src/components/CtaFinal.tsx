@@ -12,7 +12,7 @@ const CtaFinal = () => {
           to="/catalogue"
           className="mt-10 inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-full font-bold text-sm hover:brightness-110 transition-all"
         >
-          Je découvre les accessoires
+          Découvrir les accessoires
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
