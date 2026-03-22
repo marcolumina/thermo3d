@@ -6,7 +6,7 @@ const CtaFinal = () => {
     <section className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-24 md:py-32 text-center">
         <h2 className="font-display font-bold text-2xl md:text-[2.25rem] max-w-2xl mx-auto leading-tight">
-          Passez au niveau supérieur avec votre Thermomix
+          Découvrez nos accessoires, supports et rangements Thermomix
         </h2>
         <Link
           to="/catalogue"

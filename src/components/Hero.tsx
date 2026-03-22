@@ -33,12 +33,12 @@ const Hero = () => {
             </div>
 
             <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-[3.25rem] leading-[1.08] tracking-tight text-white">
-              Le Thermomix, mais en{' '}
+              Accessoires Thermomix TM5 TM6 TM7 :{' '}
               <span className="text-accent">10x</span> plus pratique
             </h1>
 
             <p className="mt-6 text-lg text-white/45 max-w-md leading-relaxed font-light">
-              Gagnez du temps, de la place et du confort avec nos accessoires intelligents.
+              Support Thermomix, rangement Thermomix et accessoires intelligents pour gagner du temps, de la place et du confort.
             </p>
 
             {/* CTA buttons */}
