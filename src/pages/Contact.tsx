@@ -18,14 +18,19 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Contact — Thermo3D | Accessoire Thermomix imprimé en 3D</title>
+        <meta name="description" content="Contactez Thermo3D pour toute question sur nos accessoires Thermomix : support varoma, rangement TM6 TM5. Réponse sous 24-48h." />
+      </Helmet>
+
       <TopBanner />
       <Header />
 
       <main className="flex-1">
-        <section className="bg-hero text-hero-foreground py-16">
+        <section className="bg-muted/50 py-16">
           <div className="container mx-auto px-6">
-            <h1 className="font-display font-extrabold text-3xl md:text-4xl">Contactez-nous</h1>
-            <p className="mt-2 text-sm opacity-70 max-w-md">Une question, une suggestion ? N'hésitez pas à nous écrire.</p>
+            <h1 className="font-display font-extrabold text-3xl md:text-4xl text-foreground">Contactez Thermo3D</h1>
+            <p className="mt-2 text-sm text-muted-foreground max-w-md">Une question sur nos accessoires Thermomix ? N'hésitez pas à nous écrire.</p>
           </div>
         </section>
 
