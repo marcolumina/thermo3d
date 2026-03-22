@@ -19,6 +19,17 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
   const priceNum = parseFloat(price.amount);
   const fakeOriginalPrice = (priceNum / 0.8).toFixed(2);
 
+  const miniReviews = [
+    { name: 'Sophie M.', text: 'Super pratique, indispensable !' },
+    { name: 'Laurent D.', text: 'Qualité au top, je recommande.' },
+    { name: 'Marie C.', text: 'Ça change tout dans ma cuisine !' },
+    { name: 'Caroline B.', text: 'Franchement indispensable.' },
+    { name: 'Thomas R.', text: 'Parfait pour mon Thermomix.' },
+  ];
+  // Pick a consistent review based on product id hash
+  const reviewIndex = node.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % miniReviews.length;
+  const review = miniReviews[reviewIndex];
+
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
