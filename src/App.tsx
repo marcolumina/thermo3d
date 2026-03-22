@@ -35,6 +35,9 @@ const AppContent = () => {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgv" element={<CGV />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
+        <Route path="/support-thermomix" element={<SupportThermomix />} />
+        <Route path="/rangement-thermomix" element={<RangementThermomix />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
