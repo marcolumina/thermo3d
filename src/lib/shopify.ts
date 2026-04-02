@@ -10,6 +10,7 @@ export interface ShopifyProduct {
     id: string;
     title: string;
     description: string;
+    descriptionHtml: string;
     handle: string;
     tags: string[];
     priceRange: {
@@ -135,6 +136,7 @@ export const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
       id
       title
       description
+      descriptionHtml
       handle
       tags
       priceRange {
