@@ -241,7 +241,7 @@ const Catalogue = () => {
                           </span>
                         );
                         if (i < 3) return (
-                          <span className="absolute -top-2 left-3 z-20 text-[10px] font-bold px-3 py-1 rounded-full shadow-md bg-purple-500/90 text-white">
+                          <span className="absolute -top-2 left-3 z-20 text-[10px] font-bold px-3 py-1 rounded-full shadow-md bg-primary/90 text-primary-foreground">
                             👍 Recommandé
                           </span>
                         );
