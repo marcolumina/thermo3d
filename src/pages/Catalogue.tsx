@@ -42,13 +42,13 @@ function getProductBadge(title: string, tags: string[]): { label: string; classN
 /** Short benefit line per product type */
 function getMicroText(title: string): string {
   const t = title.toLowerCase();
-  if (t.includes('pack')) return 'Tout ce qu'il faut pour une cuisine parfaitement organisée.';
-  if (t.includes('cache') && (t.includes('ecran') || t.includes('écran'))) return 'Protège votre écran des éclaboussures et de la poussière.';
-  if (t.includes('cache') && t.includes('balance')) return 'Garde votre balance propre et toujours prête à l'emploi.';
-  if (t.includes('support')) return 'Libérez de la place en rangeant vos ustensiles verticalement.';
-  if (t.includes('organis')) return 'Chaque accessoire à sa place, toujours à portée de main.';
-  if (t.includes('couteau') || t.includes('range')) return 'Rangez vos lames en toute sécurité, gain de place immédiat.';
-  if (t.includes('spatule') || t.includes('racleur')) return 'L'outil idéal pour récupérer chaque gramme de préparation.';
+  if (t.includes('pack')) return "Tout ce qu'il faut pour une cuisine parfaitement organisée.";
+  if (t.includes('cache') && (t.includes('ecran') || t.includes('écran'))) return "Protège votre écran des éclaboussures et de la poussière.";
+  if (t.includes('cache') && t.includes('balance')) return "Garde votre balance propre et toujours prête à l'emploi.";
+  if (t.includes('support')) return "Libérez de la place en rangeant vos ustensiles verticalement.";
+  if (t.includes('organis')) return "Chaque accessoire à sa place, toujours à portée de main.";
+  if (t.includes('couteau') || t.includes('range')) return "Rangez vos lames en toute sécurité, gain de place immédiat.";
+  if (t.includes('spatule') || t.includes('racleur')) return "L'outil idéal pour récupérer chaque gramme de préparation.";
   if (t.includes('protect')) return 'Préservez votre Thermomix des rayures et chocs du quotidien.';
   if (t.includes('rang')) return 'Un espace de rangement pensé pour votre plan de travail.';
   if (t.includes('déco') || t.includes('deco')) return 'Ajoutez une touche de style à votre coin cuisine.';
