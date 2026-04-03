@@ -34,8 +34,8 @@ function getProductBadge(title: string, tags: string[]): { label: string; classN
   const t = title.toLowerCase();
   const tg = tags.map(tag => tag.toLowerCase());
   if (tg.includes('pack') || t.includes('pack')) return { label: '⭐ Best-seller', className: 'bg-accent text-accent-foreground' };
-  if (tg.includes('nouveau') || tg.includes('new')) return { label: '🆕 Nouveau', className: 'bg-blue-500 text-white' };
-  if (tg.includes('recommande') || tg.includes('recommandé')) return { label: '👍 Recommandé', className: 'bg-purple-500 text-white' };
+  if (tg.includes('nouveau') || tg.includes('new')) return { label: '🆕 Nouveau', className: 'bg-secondary text-secondary-foreground' };
+  if (tg.includes('recommande') || tg.includes('recommandé')) return { label: '👍 Recommandé', className: 'bg-primary text-primary-foreground' };
   return null;
 }
 
