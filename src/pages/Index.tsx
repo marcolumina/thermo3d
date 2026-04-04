@@ -2,17 +2,13 @@ import { Helmet } from 'react-helmet-async';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import SocialProof from '@/components/SocialProof';
-
+import Categories from '@/components/Categories';
 import BestSellers from '@/components/BestSellers';
-import WhyAdopt from '@/components/WhyAdopt';
-import ProblemSolution from '@/components/ProblemSolution';
-import TimeLoss from '@/components/TimeLoss';
-import WhyUs from '@/components/WhyUs';
-import ImagineSection from '@/components/ImagineSection';
-import CrossSell from '@/components/CrossSell';
-import Reviews from '@/components/Reviews';
 import Testimonials from '@/components/Testimonials';
+import CrossSell from '@/components/CrossSell';
+import AboutSection from '@/components/AboutSection';
+import WhyUs from '@/components/WhyUs';
+import Reviews from '@/components/Reviews';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
 import Footer from '@/components/Footer';
@@ -44,15 +40,13 @@ const Index = () => {
       <TopBanner />
       <Header />
       <Hero />
-      <SocialProof />
+      <Categories />
       <BestSellers />
-      <WhyAdopt />
-      <TimeLoss />
+      <Testimonials />
+      <CrossSell />
+      <AboutSection />
       <WhyUs />
       <Reviews />
-      <ImagineSection />
-      <CrossSell />
-      <Testimonials />
       <CtaFinal />
       <SeoBlock />
       <Footer />
