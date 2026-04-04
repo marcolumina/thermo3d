@@ -1,24 +1,39 @@
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
 import ProductCard from './ProductCard';
-import { Loader2, ArrowRight } from 'lucide-react';
+import { Loader2, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 
 const BestSellers = () => {
-  const { data: products, isLoading, error } = useShopifyProducts(6);
+  const { data: products, isLoading, error } = useShopifyProducts(12);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const amount = scrollRef.current.offsetWidth * 0.7;
+    scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-14 gap-4">
+        <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-3">Best sellers</p>
-            <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground leading-tight">
-              Nos accessoires Thermomix TM5, TM6 & TM7 indispensables
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground">
+              Nos meilleures ventes
             </h2>
           </div>
-          <Link to="/catalogue" className="hidden md:flex items-center gap-2 text-foreground text-sm font-medium hover:text-accent transition-colors duration-200">
-            Tout voir <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="flex items-center gap-3">
+            <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-secondary transition-colors">
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-secondary transition-colors">
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button>
+            <Link to="/catalogue" className="hidden md:flex items-center gap-2 text-accent text-sm font-medium hover:underline ml-3">
+              Tout afficher <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
         {isLoading && (
@@ -31,32 +46,21 @@ const BestSellers = () => {
           <p className="text-center text-destructive py-10">Erreur lors du chargement des produits.</p>
         )}
 
-        {!isLoading && !error && products && products.length === 0 && (
-          <div className="text-center py-24 bg-secondary rounded-2xl">
-            <p className="text-muted-foreground text-lg">Aucun produit trouvé</p>
-            <p className="text-muted-foreground text-sm mt-1">Créez votre premier produit en le décrivant dans le chat.</p>
+        {products && products.length > 0 && (
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-x-auto scrollbar-hide pb-4 -mx-2 px-2"
+          >
+            {products.map((product) => (
+              <div key={product.node.id} className="min-w-[220px] sm:min-w-[260px] max-w-[280px] flex-shrink-0">
+                <ProductCard product={product} />
+              </div>
+            ))}
           </div>
         )}
 
-        {products && products.length > 0 && (() => {
-          const sorted = [...products].sort((a, b) => {
-            const aIsPack = a.node.tags?.includes('pack') ? 2 : 0;
-            const bIsPack = b.node.tags?.includes('pack') ? 2 : 0;
-            const aIsBest = a.node.tags?.includes('best-seller') ? 1 : 0;
-            const bIsBest = b.node.tags?.includes('best-seller') ? 1 : 0;
-            return (bIsPack + bIsBest) - (aIsPack + aIsBest);
-          });
-          return (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {sorted.map((product, i) => (
-                <ProductCard key={product.node.id} product={product} featured={i === 0} />
-              ))}
-            </div>
-          );
-        })()}
-
-        <Link to="/catalogue" className="md:hidden flex items-center justify-center gap-2 text-foreground text-sm font-medium mt-12 hover:text-accent transition-colors duration-200">
-          Voir tout le catalogue <ArrowRight className="w-4 h-4" />
+        <Link to="/catalogue" className="md:hidden flex items-center justify-center gap-2 text-accent text-sm font-medium mt-8 hover:underline">
+          Tout afficher <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </section>

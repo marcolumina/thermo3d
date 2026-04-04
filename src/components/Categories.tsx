@@ -1,38 +1,38 @@
 import { Link } from 'react-router-dom';
-import { Monitor, Scale, Utensils, ShieldCheck } from 'lucide-react';
 
 const categories = [
-  { name: 'Cache écran Thermomix', icon: Monitor, desc: 'Protection élégante pour votre écran' },
-  { name: 'Cache balance Thermomix', icon: Scale, desc: 'Hygiène optimale au quotidien' },
-  { name: 'Support ustensiles cuisine', icon: Utensils, desc: 'Organisation pratique et gain de place' },
-  { name: 'Protection Thermomix', icon: ShieldCheck, desc: 'Durabilité et sécurité garanties' },
+  { label: 'Meilleures\nventes', emoji: '⭐', to: '/catalogue?filter=best' },
+  { label: 'Packs', emoji: '📦', to: '/catalogue?filter=pack' },
+  { label: 'Supports', emoji: '🔧', to: '/catalogue?filter=support' },
+  { label: 'Rangement', emoji: '🗄️', to: '/catalogue?filter=rangement' },
+  { label: 'Protection', emoji: '🛡️', to: '/catalogue?filter=protection' },
+  { label: 'Ustensiles', emoji: '🥄', to: '/catalogue?filter=ustensiles' },
+  { label: 'Déco\ncuisine', emoji: '🎨', to: '/catalogue?filter=deco' },
 ];
 
 const Categories = () => {
   return (
-    <section className="container mx-auto px-6 py-20">
-      <div className="text-center mb-12">
-        <h2 className="font-display font-bold text-2xl md:text-3xl">
-          Nos catégories d'<span className="text-gradient">accessoires cuisine pratiques</span>
+    <section className="py-16 md:py-20">
+      <div className="container mx-auto px-6">
+        <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground text-center mb-12">
+          Catégories populaires
         </h2>
-        <p className="text-muted-foreground text-sm mt-2">
-          Trouvez l'accessoire Thermomix idéal grâce à l'impression 3D cuisine
-        </p>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {categories.map((cat) => (
-          <Link
-            key={cat.name}
-            to="/catalogue"
-            className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 text-center hover:border-primary/30 hover:bg-card/80 transition-all group cursor-pointer"
-          >
-            <div className="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-              <cat.icon className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-display font-semibold text-xs md:text-sm">{cat.name}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{cat.desc}</p>
-          </Link>
-        ))}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          {categories.map((cat) => (
+            <Link
+              key={cat.label}
+              to={cat.to}
+              className="flex flex-col items-center gap-3 group"
+            >
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-secondary border-2 border-transparent group-hover:border-accent flex items-center justify-center text-3xl md:text-4xl transition-all duration-300 shadow-premium group-hover:shadow-premium-lg">
+                {cat.emoji}
+              </div>
+              <span className="text-xs md:text-sm font-medium text-foreground/70 group-hover:text-accent text-center whitespace-pre-line transition-colors">
+                {cat.label}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
