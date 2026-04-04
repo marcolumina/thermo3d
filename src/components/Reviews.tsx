@@ -1,50 +1,38 @@
 import { Star } from 'lucide-react';
 
 const reviews = [
-  { name: 'Sophie M.', text: "Indispensable ! Depuis que j'ai ces accessoires, ma cuisine est transformée.", rating: 5 },
-  { name: 'Laurent D.', text: "Super pratique, qualité au top. Je ne peux plus m'en passer.", rating: 5 },
-  { name: 'Marie C.', text: "Je recommande les yeux fermés. Un vrai gain de temps au quotidien.", rating: 5 },
+  { name: 'Isabelle R.', text: "Indispensable ! Depuis que j'ai ces accessoires, ma cuisine est transformée. Commande et livraison au top.", rating: 5 },
+  { name: 'Thomas B.', text: "Excellente qualité, tout est parfaitement conçu. Le support varoma est génial, je recommande !", rating: 5 },
+  { name: 'Nathalie P.', text: "Toujours très satisfaite de Thermo3D. Produits de qualité, livraison rapide. Bravo !", rating: 5 },
+  { name: 'Pierre L.', text: "Super accessoires pour mon TM6. L'impression 3D est impeccable, ça change la vie en cuisine.", rating: 5 },
 ];
 
 const Reviews = () => {
   return (
-    <section className="bg-secondary/40 py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-              ))}
-            </div>
-            <span className="text-sm font-semibold text-foreground">4,8/5</span>
-            <span className="text-sm text-muted-foreground">· +1000 clients</span>
-          </div>
-          <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground leading-tight">
-            Ils ont transformé leur cuisine
-          </h2>
+        <div className="text-center mb-4">
+          <p className="text-accent font-bold text-3xl">4,9</p>
+          <p className="text-sm text-muted-foreground">basé sur <strong className="text-foreground">+1000</strong> avis vérifiés</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {reviews.map((r) => (
-            <div key={r.name} className="bg-background rounded-2xl p-7 flex flex-col gap-5 shadow-premium">
-              <div className="flex gap-0.5">
-                {Array.from({ length: r.rating }).map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent" />
-                ))}
-              </div>
-              <p className="text-sm text-foreground/80 leading-relaxed flex-1">"{r.text}"</p>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-xs font-semibold text-foreground">
-                  {r.name[0]}
+        <div className="overflow-x-auto scrollbar-hide pb-4">
+          <div className="flex gap-4 min-w-max px-2">
+            {reviews.map((r) => (
+              <div key={r.name} className="bg-card rounded-xl p-5 border border-border/50 w-[280px] flex-shrink-0">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="font-semibold text-sm text-foreground">{r.name}</span>
+                  <span className="text-[10px] text-accent font-medium bg-accent/10 px-2 py-0.5 rounded-full">Vérifié</span>
                 </div>
-                <div>
-                  <span className="text-xs font-semibold text-foreground">{r.name}</span>
-                  <span className="text-[10px] text-accent ml-1.5">✓ Vérifié</span>
+                <div className="flex gap-0.5 mb-3">
+                  {Array.from({ length: r.rating }).map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent" />
+                  ))}
                 </div>
+                <p className="text-sm text-foreground/70 leading-relaxed">{r.text}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,26 +1,54 @@
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
 import ProductCard from '@/components/ProductCard';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 
 const CrossSell = () => {
-  const { data: products, isLoading } = useShopifyProducts(3);
+  const { data: products, isLoading } = useShopifyProducts(8);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   if (isLoading || !products?.length) return null;
 
+  // Show products not in the first 6 (those are in best sellers)
+  const newProducts = products.slice(0, 6);
+
+  const scroll = (dir: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const amount = scrollRef.current.offsetWidth * 0.7;
+    scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
+
   return (
-    <section className="py-24 md:py-32 bg-secondary/40">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-3">
-            Souvent achetés ensemble
-          </p>
-          <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground leading-tight">
-            Complétez votre installation
-          </h2>
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground">
+              Nos nouveautés
+            </h2>
+          </div>
+          <div className="flex items-center gap-3">
+            <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-secondary transition-colors">
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-secondary transition-colors">
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button>
+            <Link to="/catalogue" className="hidden md:flex items-center gap-2 text-accent text-sm font-medium hover:underline ml-3">
+              Tout afficher <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {products.slice(0, 2).map((product) => (
-            <ProductCard key={product.node.id} product={product} />
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-x-auto scrollbar-hide pb-4 -mx-2 px-2"
+        >
+          {newProducts.map((product) => (
+            <div key={product.node.id} className="min-w-[220px] sm:min-w-[260px] max-w-[280px] flex-shrink-0">
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
       </div>

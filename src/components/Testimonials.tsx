@@ -1,24 +1,36 @@
 import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Isabelle R.', text: "Depuis que j'ai ces accessoires, ma cuisine est transformée. Impossible de revenir en arrière !", rating: 5 },
-  { name: 'Thomas B.', text: "J'étais sceptique, mais après une semaine je ne peux plus m'en passer. Un vrai game changer.", rating: 5 },
-  { name: 'Nathalie P.', text: "Qualité exceptionnelle, tout est parfaitement pensé. Je recommande les yeux fermés.", rating: 5 },
+  { 
+    name: 'Sophie M.', 
+    age: '34 ans',
+    text: "Les produits sont de très bonne qualité. Ils complètent parfaitement le Thermomix et permettent d'en tirer encore plus de bénéfices.", 
+    rating: 5 
+  },
+  { 
+    name: 'Laurent D.', 
+    age: '42 ans',
+    text: "Livraison rapide, produit impeccable. Je suis très satisfait de mon achat et de la qualité des produits. Je recommande !",
+    rating: 5 
+  },
+  { 
+    name: 'Marie C.', 
+    age: '38 ans',
+    text: "Tout ce que j'ai de Thermo3D pour mon TM6 fonctionne parfaitement, je ne peux que le recommander. Un vrai gain de temps.",
+    rating: 5 
+  },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-3">
-            Retours clients
-          </p>
-          <h2 className="font-display font-bold text-2xl md:text-[2.25rem] text-foreground mb-5 leading-tight">
-            Une fois essayé, impossible de revenir en arrière
+        <div className="text-center mb-14">
+          <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground">
+            Témoignages de clients
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Ces accessoires deviennent indispensables dès la première utilisation.
+          <p className="text-muted-foreground text-sm mt-2">
+            sur plus de 1000 commandes
           </p>
         </div>
 
@@ -26,26 +38,21 @@ const Testimonials = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="relative bg-secondary/50 rounded-2xl p-8 flex flex-col gap-5 shadow-premium"
+              className="bg-card rounded-2xl p-7 border border-border/50 shadow-premium relative"
             >
-              <Quote className="w-7 h-7 text-accent/20 absolute top-6 right-6" />
-              <div className="flex gap-0.5">
+              <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
+              
+              <p className="font-semibold text-sm text-foreground mb-1">{t.name}, {t.age}</p>
+              
+              <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="text-sm text-foreground/80 leading-relaxed flex-1">
-                "{t.text}"
+
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                {t.text}
               </p>
-              <div className="flex items-center gap-3 pt-3 border-t border-border/60">
-                <div className="w-9 h-9 rounded-full bg-accent/[0.08] flex items-center justify-center text-sm font-semibold text-accent">
-                  {t.name[0]}
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-semibold text-foreground">{t.name}</span>
-                  <span className="text-[10px] text-accent">✓ Achat vérifié</span>
-                </div>
-              </div>
             </div>
           ))}
         </div>
