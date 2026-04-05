@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, UserCircle } from 'lucide-react';
 import { useState } from 'react';
 
 const NAV_LINKS = [
@@ -37,6 +37,9 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-3">
+          <Link to="/auth" aria-label="Mon compte" className="p-2 text-foreground/70 hover:text-accent transition-colors">
+            <UserCircle className="w-5 h-5" />
+          </Link>
           <CartDrawer />
           <button
             className="md:hidden p-2"
