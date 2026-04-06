@@ -18,6 +18,9 @@ import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
 import SupportThermomix from "./pages/SupportThermomix.tsx";
 import RangementThermomix from "./pages/RangementThermomix.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Auth from "./pages/Auth.tsx";
+import Account from "./pages/Account.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +41,9 @@ const AppContent = () => {
         <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
         <Route path="/support-thermomix" element={<SupportThermomix />} />
         <Route path="/rangement-thermomix" element={<RangementThermomix />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
