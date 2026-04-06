@@ -1,5 +1,18 @@
 import { Link } from "react-router-dom";
-import { Truck, RefreshCw, ShieldCheck, Flag } from 'lucide-react';
+import { Truck, RefreshCw, ShieldCheck, Flag, Instagram, Facebook, Youtube } from 'lucide-react';
+
+const TikTokIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.71a8.21 8.21 0 0 0 4.76 1.52V6.77a4.83 4.83 0 0 1-1-.08z" />
+  </svg>
+);
+
+const SOCIAL_LINKS = [
+  { icon: Instagram, href: 'https://instagram.com/thermo3d', label: 'Instagram' },
+  { icon: Facebook, href: 'https://facebook.com/thermo3d', label: 'Facebook' },
+  { icon: TikTokIcon, href: 'https://tiktok.com/@thermo3d', label: 'TikTok', isCustom: true },
+  { icon: Youtube, href: 'https://youtube.com/@thermo3d', label: 'YouTube' },
+];
 
 const Footer = () => {
   return (
@@ -30,6 +43,25 @@ const Footer = () => {
             <p className="text-sm text-background/40 leading-relaxed max-w-sm mt-4">
               Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Compatibles TM5, TM6 et TM7.
             </p>
+
+            {/* Social links */}
+            <div className="mt-6">
+              <h4 className="font-display font-semibold text-sm mb-3 uppercase tracking-wider text-background/60">Suivez-nous</h4>
+              <div className="flex items-center gap-4">
+                {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="p-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground transition-all duration-200"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div>
@@ -44,7 +76,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-sm mb-4 uppercase tracking-wider text-background/60">Légal</h4>
+            <h4 className="font-display font-semibold text-sm mb-4 uppercase tracking-wider text-background/60">Mon compte</h4>
+            <ul className="space-y-2.5 text-sm text-background/40">
+              <li><Link to="/auth" className="hover:text-accent transition-colors">Connexion / Inscription</Link></li>
+              <li><Link to="/account" className="hover:text-accent transition-colors">Mon espace</Link></li>
+            </ul>
+
+            <h4 className="font-display font-semibold text-sm mb-4 mt-6 uppercase tracking-wider text-background/60">Légal</h4>
             <ul className="space-y-2.5 text-sm text-background/40">
               <li><Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link></li>
               <li><Link to="/cgv" className="hover:text-accent transition-colors">CGV</Link></li>

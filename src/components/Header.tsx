@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, User } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
 
 const NAV_LINKS = [
@@ -15,6 +16,7 @@ const Header = () => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/60">
@@ -37,6 +39,9 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-3">
+          <Link to={user ? '/account' : '/auth'} className="p-2 hover:text-accent transition-colors" aria-label="Mon compte">
+            <User className="w-5 h-5" />
+          </Link>
           <CartDrawer />
           <button
             className="md:hidden p-2"
