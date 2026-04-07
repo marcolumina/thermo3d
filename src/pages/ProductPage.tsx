@@ -574,6 +574,20 @@ const ProductPage = () => {
             {/* ═══════ SECTION 7 : CROSS-SELL ═══════ */}
             <CrossSell />
 
+            {/* ═══════ MAILLAGE INTERNE ═══════ */}
+            <section className="py-10 bg-secondary/20">
+              <div className="container mx-auto px-6">
+                <h3 className="font-display font-semibold text-base text-foreground mb-4 text-center">Découvrir nos catégories</h3>
+                <div className="flex flex-wrap justify-center gap-3 text-sm">
+                  <Link to="/accessoires-thermomix" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Accessoires Thermomix</Link>
+                  <Link to="/rangement-thermomix" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Rangement Thermomix</Link>
+                  <Link to="/accessoires-tm6" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Accessoires TM6</Link>
+                  <Link to="/accessoires-tm7" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Accessoires TM7</Link>
+                  <Link to="/blog" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Blog & Conseils</Link>
+                </div>
+              </div>
+            </section>
+
             {/* ═══════ SECTION 8 : CTA FINAL ═══════ */}
             <section className="bg-foreground text-background">
               <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
