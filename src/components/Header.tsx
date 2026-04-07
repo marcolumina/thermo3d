@@ -7,7 +7,9 @@ import { useState } from 'react';
 const NAV_LINKS = [
   { to: '/', label: 'Accueil' },
   { to: '/catalogue', label: 'Boutique' },
-  { to: '/catalogue?filter=pack', label: 'Packs' },
+  { to: '/accessoires-tm6', label: 'TM6' },
+  { to: '/accessoires-tm7', label: 'TM7' },
+  { to: '/blog', label: 'Blog' },
   { to: '/a-propos', label: 'À propos' },
   { to: '/contact', label: 'Contact' },
 ];
@@ -20,7 +22,6 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/60">
-      {/* Main header */}
       <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         <Link to="/" className="shrink-0">
           <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
@@ -28,7 +29,6 @@ const Header = () => {
           </span>
         </Link>
 
-        {/* Search bar - desktop */}
         <div className="hidden md:flex relative flex-1 max-w-md mx-8">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
@@ -53,7 +53,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Category nav - desktop */}
       <nav className="hidden md:block bg-accent/[0.06] border-t border-border/40">
         <div className="container mx-auto px-6 flex items-center justify-center gap-8 py-2.5">
           {NAV_LINKS.map(link => (
@@ -70,7 +69,6 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Mobile nav */}
       {mobileOpen && (
         <nav className="md:hidden bg-background border-t border-border/40 px-6 py-4 space-y-3">
           <div className="relative mb-3">

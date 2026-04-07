@@ -17,6 +17,10 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
 import SupportThermomix from "./pages/SupportThermomix.tsx";
 import RangementThermomix from "./pages/RangementThermomix.tsx";
+import AccessoiresTM6 from "./pages/AccessoiresTM6.tsx";
+import AccessoiresTM7 from "./pages/AccessoiresTM7.tsx";
+import Blog from "./pages/Blog.tsx";
+import BlogArticle from "./pages/BlogArticle.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Account from "./pages/Account.tsx";
@@ -41,6 +45,10 @@ const AppContent = () => {
         <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
         <Route path="/support-thermomix" element={<SupportThermomix />} />
         <Route path="/rangement-thermomix" element={<RangementThermomix />} />
+        <Route path="/accessoires-tm6" element={<AccessoiresTM6 />} />
+        <Route path="/accessoires-tm7" element={<AccessoiresTM7 />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogArticle />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/account" element={<Account />} />
         <Route path="/reset-password" element={<ResetPassword />} />

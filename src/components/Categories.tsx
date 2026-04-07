@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 
 const categories = [
-  { label: 'Meilleures\nventes', emoji: '⭐', to: '/catalogue?filter=best' },
-  { label: 'Packs', emoji: '📦', to: '/catalogue?filter=pack' },
-  { label: 'Supports', emoji: '🔧', to: '/catalogue?filter=support' },
-  { label: 'Rangement', emoji: '🗄️', to: '/catalogue?filter=rangement' },
-  { label: 'Protection', emoji: '🛡️', to: '/catalogue?filter=protection' },
-  { label: 'Ustensiles', emoji: '🥄', to: '/catalogue?filter=ustensiles' },
-  { label: 'Déco\ncuisine', emoji: '🎨', to: '/catalogue?filter=deco' },
+  { label: 'Accessoires\nThermomix', emoji: '🔧', to: '/accessoires-thermomix' },
+  { label: 'Rangement\nThermomix', emoji: '🗄️', to: '/rangement-thermomix' },
+  { label: 'Organisation\ncuisine', emoji: '📐', to: '/catalogue?filter=rangement' },
+  { label: 'Accessoires\nTM6', emoji: '⚙️', to: '/accessoires-tm6' },
+  { label: 'Accessoires\nTM7', emoji: '✨', to: '/accessoires-tm7' },
 ];
 
 const Categories = () => {
