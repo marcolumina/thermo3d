@@ -1,20 +1,20 @@
-import { Printer, Flag, Truck, RefreshCw } from 'lucide-react';
+import { Truck, Printer, CheckCircle } from 'lucide-react';
 
 const advantages = [
   {
-    icon: Printer,
-    title: 'Une qualité exceptionnelle',
-    desc: "Nous croyons fermement que la qualité n'est pas seulement une caractéristique, mais un engagement. Chaque pièce est imprimée en 3D avec une précision au dixième de millimètre.",
-  },
-  {
     icon: Truck,
-    title: 'Livraison offerte dès 50€',
-    desc: "À partir de 50€ d'achat, nous livrons directement chez vous en France métropolitaine, sans frais de port — rapidement et en toute fiabilité.",
+    title: 'Livraison rapide',
+    desc: "Expédition sous 48h depuis notre atelier en France. Livraison offerte dès 50€ d'achat en France métropolitaine.",
   },
   {
-    icon: RefreshCw,
-    title: 'Satisfait ou remboursé 30 jours',
-    desc: "Vous avez 30 jours pour vérifier votre commande en toute tranquillité. Si quelque chose ne vous convient pas, nous vous remboursons facilement.",
+    icon: Printer,
+    title: 'Fabrication 3D française',
+    desc: "Chaque accessoire est imprimé en 3D avec précision dans notre atelier en France, avec du PLA de qualité alimentaire certifié.",
+  },
+  {
+    icon: CheckCircle,
+    title: 'Compatible Thermomix',
+    desc: "Tous nos accessoires sont conçus pour s'adapter parfaitement aux modèles Thermomix TM6 et TM7, sans outil ni modification.",
   },
 ];
 
@@ -24,7 +24,7 @@ const WhyUs = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground">
-            Vos avantages
+            Pourquoi choisir Thermo3D ?
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">

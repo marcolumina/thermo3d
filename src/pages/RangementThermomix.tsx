@@ -21,19 +21,19 @@ const RangementThermomix = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Rangement Thermomix TM5 TM6 TM7 — Organisateur Cuisine | Thermo3D</title>
-        <meta name="description" content="Rangement Thermomix imprimé en 3D : organisateur, cache écran, range couteau pour TM5, TM6 et TM7. Organisez votre cuisine. Fabriqué en France." />
+        <title>Rangement Thermomix : optimisez votre espace | Thermo3D</title>
+        <meta name="description" content="Rangement Thermomix imprimé en 3D : organisateur, cache écran pour TM6 et TM7. Optimisez votre espace cuisine. Fabriqué en France, livraison rapide." />
         <link rel="canonical" href="https://thermo3d.fr/rangement-thermomix" />
-        <meta name="keywords" content="rangement thermomix, organisateur thermomix, rangement tm6, rangement tm5, rangement tm7, cache écran thermomix" />
-        <meta property="og:title" content="Rangement Thermomix TM5 TM6 TM7 — Thermo3D" />
-        <meta property="og:description" content="Rangement Thermomix imprimé en 3D : organisateur, cache écran pour TM5, TM6 et TM7. Fabriqué en France." />
+        <meta name="keywords" content="rangement thermomix, organisateur thermomix, rangement tm6, rangement tm7, organisation cuisine thermomix" />
+        <meta property="og:title" content="Rangement Thermomix : optimisez votre espace — Thermo3D" />
+        <meta property="og:description" content="Rangement Thermomix imprimé en 3D. Compatible TM6 et TM7. Fabriqué en France." />
         <meta property="og:url" content="https://thermo3d.fr/rangement-thermomix" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: "Rangement Thermomix TM5 TM6 TM7",
-            description: "Solutions de rangement Thermomix imprimées en 3D : organisateur, cache écran, range couteau. Compatible TM5, TM6 et TM7.",
+            name: "Rangement Thermomix : optimisez votre espace",
+            description: "Solutions de rangement Thermomix imprimées en 3D. Compatible TM6 et TM7.",
             url: "https://thermo3d.fr/rangement-thermomix",
             provider: { "@type": "Organization", name: "Thermo3D", url: "https://thermo3d.fr" },
           })}
@@ -48,7 +48,7 @@ const RangementThermomix = () => {
         <div className="container mx-auto px-6 py-16 md:py-24">
           <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-4">Rangement Thermomix</p>
           <h1 className="font-display font-bold text-3xl md:text-5xl text-white leading-tight max-w-3xl">
-            Rangement Thermomix TM5, TM6 & TM7 : une cuisine parfaitement organisée
+            Rangement Thermomix : optimisez votre espace
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
             Nos solutions de rangement Thermomix transforment le désordre en organisation. Chaque accessoire trouve sa place.
@@ -58,7 +58,7 @@ const RangementThermomix = () => {
               <Package className="w-4 h-4 text-accent/70" /> Expédié sous 48h
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-accent/70" /> Compatible TM5 / TM6 / TM7
+              <CheckCircle className="w-4 h-4 text-accent/70" /> Compatible TM6 / TM7
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Star className="w-4 h-4 text-accent fill-accent" /> 4,8/5 – +1000 avis
@@ -119,6 +119,19 @@ const RangementThermomix = () => {
         </div>
       </section>
 
+      {/* Internal links */}
+      <section className="bg-secondary/30 py-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-wrap justify-center gap-3 text-sm">
+            <Link to="/accessoires-thermomix" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Accessoires Thermomix</Link>
+            <Link to="/accessoires-tm6" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Accessoires TM6</Link>
+            <Link to="/accessoires-tm7" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Accessoires TM7</Link>
+            <Link to="/support-thermomix" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Support Thermomix</Link>
+            <Link to="/blog" className="px-4 py-2 bg-background rounded-full border border-border/50 hover:border-accent transition-colors">Blog & Conseils</Link>
+          </div>
+        </div>
+      </section>
+
       {/* SEO Content */}
       <section className="border-t border-border/60">
         <div className="container mx-auto px-6 py-14 md:py-20">
@@ -127,22 +140,19 @@ const RangementThermomix = () => {
               Rangement Thermomix : organisez votre cuisine intelligemment
             </h2>
             <p>
-              Le <strong className="text-foreground">rangement Thermomix</strong> est essentiel pour profiter pleinement de votre appareil au quotidien. Sans organisation adaptée, les accessoires du <strong className="text-foreground">Thermomix TM5, TM6 ou TM7</strong> — spatules, varoma, plateau, couteaux — s'accumulent et encombrent votre plan de travail.
+              Le <strong className="text-foreground">rangement Thermomix</strong> est un élément clé pour garder une cuisine propre, organisée et agréable à utiliser. Avec les bons accessoires, il devient facile de structurer votre espace et de gagner un temps précieux lors de la préparation de vos recettes.
             </p>
             <p>
-              Thermo3D a développé une gamme de <strong className="text-foreground">rangements Thermomix</strong> imprimés en 3D qui transforment votre cuisine. Nos organisateurs, caches écran et range-couteaux sont conçus spécifiquement pour les dimensions de votre <strong className="text-foreground">Thermomix</strong>.
-            </p>
-            <h3 className="font-display font-semibold text-base text-foreground pt-2">
-              Des rangements Thermomix pour chaque besoin
-            </h3>
-            <p>
-              Que vous cherchiez un <strong className="text-foreground">rangement Thermomix</strong> pour vos couteaux, un cache écran protecteur, ou un organisateur complet pour tous vos accessoires, notre catalogue couvre tous les besoins. Chaque pièce est fabriquée en France avec du PLA de qualité alimentaire.
+              Un bon rangement permet de garder tous vos ustensiles à portée de main, tout en évitant l'encombrement. Cela améliore non seulement votre confort, mais aussi votre efficacité en cuisine.
             </p>
             <p>
-              L'impression 3D nous permet de garantir un ajustement parfait sur votre <strong className="text-foreground">Thermomix TM5</strong>, <strong className="text-foreground">TM6</strong> ou <strong className="text-foreground">TM7</strong>. Installation sans outil en quelques secondes : vous posez, ça tient, c'est rangé.
+              Nos solutions de <strong className="text-foreground">rangement Thermomix</strong> sont conçues pour optimiser chaque centimètre de votre espace. Elles s'intègrent parfaitement dans votre environnement et offrent une organisation intelligente adaptée à votre utilisation quotidienne.
             </p>
             <p>
-              Nos clients témoignent d'un vrai changement dans leur quotidien. Fini le désordre, fini la perte de temps. Avec un <strong className="text-foreground">rangement Thermomix</strong> adapté, chaque accessoire a sa place et votre cuisine reste propre et fonctionnelle. Rejoignez plus de 1000 clients satisfaits et commandez votre <strong className="text-foreground">rangement Thermomix</strong> dès maintenant.
+              Grâce à des accessoires pratiques et bien pensés, vous pouvez transformer votre cuisine en un espace fonctionnel, moderne et parfaitement structuré.
+            </p>
+            <p>
+              Le <strong className="text-foreground">rangement Thermomix</strong> n'est plus un problème, mais une véritable solution pour cuisiner plus sereinement.
             </p>
           </div>
         </div>

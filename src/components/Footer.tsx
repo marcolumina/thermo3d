@@ -17,7 +17,6 @@ const SOCIAL_LINKS = [
 const Footer = () => {
   return (
     <footer className="bg-foreground text-background/80">
-      {/* Trust icons row */}
       <div className="border-b border-background/10">
         <div className="container mx-auto px-6 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -38,13 +37,11 @@ const Footer = () => {
 
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
+          <div className="md:col-span-1">
             <span className="text-2xl font-extrabold tracking-tight">THERMO<span className="text-accent">3D</span></span>
             <p className="text-sm text-background/40 leading-relaxed max-w-sm mt-4">
-              Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Compatibles TM5, TM6 et TM7.
+              Accessoires Thermomix innovants, conçus et imprimés en 3D en France. Compatibles TM6 et TM7.
             </p>
-
-            {/* Social links */}
             <div className="mt-6">
               <h4 className="font-display font-semibold text-sm mb-3 uppercase tracking-wider text-background/60">Suivez-nous</h4>
               <div className="flex items-center gap-4">
@@ -68,21 +65,31 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-sm mb-4 uppercase tracking-wider text-background/60">Boutique</h4>
             <ul className="space-y-2.5 text-sm text-background/40">
               <li><Link to="/catalogue" className="hover:text-accent transition-colors">Tous les produits</Link></li>
-              <li><Link to="/catalogue?filter=pack" className="hover:text-accent transition-colors">Packs</Link></li>
-              <li><Link to="/a-propos" className="hover:text-accent transition-colors">À propos</Link></li>
-              <li><Link to="/faq" className="hover:text-accent transition-colors">FAQ</Link></li>
-              <li><Link to="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link to="/accessoires-thermomix" className="hover:text-accent transition-colors">Accessoires Thermomix</Link></li>
+              <li><Link to="/rangement-thermomix" className="hover:text-accent transition-colors">Rangement Thermomix</Link></li>
+              <li><Link to="/accessoires-tm6" className="hover:text-accent transition-colors">Accessoires TM6</Link></li>
+              <li><Link to="/accessoires-tm7" className="hover:text-accent transition-colors">Accessoires TM7</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-sm mb-4 uppercase tracking-wider text-background/60">Mon compte</h4>
+            <h4 className="font-display font-semibold text-sm mb-4 uppercase tracking-wider text-background/60">Informations</h4>
+            <ul className="space-y-2.5 text-sm text-background/40">
+              <li><Link to="/a-propos" className="hover:text-accent transition-colors">À propos</Link></li>
+              <li><Link to="/blog" className="hover:text-accent transition-colors">Blog</Link></li>
+              <li><Link to="/faq" className="hover:text-accent transition-colors">FAQ</Link></li>
+              <li><Link to="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
+            </ul>
+
+            <h4 className="font-display font-semibold text-sm mb-4 mt-6 uppercase tracking-wider text-background/60">Mon compte</h4>
             <ul className="space-y-2.5 text-sm text-background/40">
               <li><Link to="/auth" className="hover:text-accent transition-colors">Connexion / Inscription</Link></li>
               <li><Link to="/account" className="hover:text-accent transition-colors">Mon espace</Link></li>
             </ul>
+          </div>
 
-            <h4 className="font-display font-semibold text-sm mb-4 mt-6 uppercase tracking-wider text-background/60">Légal</h4>
+          <div>
+            <h4 className="font-display font-semibold text-sm mb-4 uppercase tracking-wider text-background/60">Légal</h4>
             <ul className="space-y-2.5 text-sm text-background/40">
               <li><Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link></li>
               <li><Link to="/cgv" className="hover:text-accent transition-colors">CGV</Link></li>
