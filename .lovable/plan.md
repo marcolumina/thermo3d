@@ -1,72 +1,87 @@
 
 
-## Plan: Espace Client + Reseaux Sociaux dans le Footer
+## Plan : Refonte SEO & Conversion complète du site Thermo3D
 
-### Apercu
+Ce plan couvre la restructuration complète du site selon les specifications fournies : nouvelle homepage, nouvelles pages categories (dont 2 nouvelles), section blog, maillage interne, et optimisation SEO technique.
 
-Creer un systeme d'authentification par email avec un espace client (mon compte, mes commandes) et ajouter les liens reseaux sociaux dans le footer.
+---
 
-### 1. Base de donnees (Lovable Cloud)
+### 1. Page d'accueil — Refonte complète
 
-**Migration SQL :**
-- Table `profiles` (id, user_id FK auth.users, first_name, last_name, phone, address, city, postal_code, country, created_at, updated_at) avec RLS
-- Table `orders` (id, user_id, order_number, status, total, currency, items JSONB, shipping_address JSONB, created_at) avec RLS
-- Policies : chaque utilisateur ne voit/modifie que ses propres donnees
-- Trigger pour creer automatiquement un profil a l'inscription
+**Fichiers modifies :** `src/components/Hero.tsx`, `src/components/Categories.tsx`, `src/components/SeoBlock.tsx`, `src/components/WhyUs.tsx`, `src/pages/Index.tsx`
 
-### 2. Pages d'authentification
+- **Hero** : Nouveau H1 "Accessoires Thermomix pour une cuisine organisee et efficace", sous-titre exact fourni, CTA "Decouvrir les accessoires" vers `/catalogue`
+- **Categories** : Remplacer les categories actuelles par les 5 demandees (Accessoires Thermomix, Rangement Thermomix, Organisation cuisine, Accessoires TM6, Accessoires TM7) avec liens vers les pages correspondantes
+- **SeoBlock** : Remplacer par le texte SEO exact fourni (5 paragraphes)
+- **WhyUs / Reassurance** : 3 blocs (Livraison rapide, Fabrication 3D francaise, Compatible Thermomix)
+- Garder BestSellers (produits populaires) tel quel
 
-**Fichiers a creer :**
-- `src/pages/Auth.tsx` : page avec onglets Connexion / Inscription (email + mot de passe)
-- `src/pages/ResetPassword.tsx` : page pour reinitialiser le mot de passe
-- `src/hooks/useAuth.ts` : hook pour gerer l'etat d'authentification (onAuthStateChange + getSession)
+### 2. Pages categories — Mise a jour + 2 nouvelles pages
 
-**Fonctionnalites :**
-- Inscription par email avec verification
-- Connexion par email/mot de passe
-- Mot de passe oublie avec lien de reinitialisation
-- Deconnexion
+**Fichiers modifies :** `src/pages/AccessoiresThermomix.tsx`, `src/pages/RangementThermomix.tsx`
+**Fichiers crees :** `src/pages/AccessoiresTM6.tsx`, `src/pages/AccessoiresTM7.tsx`
 
-### 3. Espace client (Mon Compte)
+- **/accessoires-thermomix** : Nouveau H1 "Accessoires Thermomix indispensables", remplacer texte SEO par celui fourni, balises meta mises a jour
+- **/rangement-thermomix** : Nouveau H1 "Rangement Thermomix : optimisez votre espace", remplacer texte SEO par celui fourni
+- **/accessoires-tm6** (nouvelle page) : H1 "Accessoires Thermomix TM6", texte SEO 300-500 mots avec mots-cles (accessoire thermomix tm6, accessoires cuisine robot, organisation cuisine), grille produits filtree par tag TM6
+- **/accessoires-tm7** (nouvelle page) : H1 "Accessoires Thermomix TM7", texte SEO 300-500 mots avec mots-cles (accessoire thermomix tm7, rangement cuisine, accessoires thermomix), grille produits filtree par tag TM7
+- Chaque page inclut des liens de maillage interne vers les autres categories, produits et blog
 
-**Fichiers a creer :**
-- `src/pages/Account.tsx` : layout avec sidebar/onglets pour naviguer entre les sections
-- `src/components/account/AccountProfile.tsx` : formulaire pour modifier nom, email, telephone, adresse
-- `src/components/account/AccountOrders.tsx` : liste des commandes avec statut et details
-- `src/components/account/AccountAddresses.tsx` : gestion des adresses de livraison
-- `src/components/account/AccountWishlist.tsx` : liste de souhaits (produits favoris)
+### 3. Page produit — Structure enrichie
 
-**Route protegee** : redirection vers /auth si non connecte.
+**Fichier modifie :** `src/pages/ProductPage.tsx`
 
-### 4. Integration dans le Header
+- Adapter le H1 au format "Support ustensiles Thermomix TM6 – Organisation parfaite" (utiliser le titre Shopify enrichi)
+- Ajouter les sections structurees si pas deja parsees : "Pourquoi utiliser ce support Thermomix ?", "Compatible avec quels modeles ?"
+- Enrichir la FAQ avec les 4 questions exactes fournies
+- Ajouter maillage interne en bas (liens vers categories + blog)
 
-- Ajouter une icone utilisateur (User icon) dans le Header
-- Si connecte : lien vers /account
-- Si non connecte : lien vers /auth
+### 4. Blog — Nouvelle section
 
-### 5. Footer - Reseaux sociaux
+**Fichiers crees :** `src/pages/Blog.tsx`, `src/pages/BlogArticle.tsx`
 
-**Modifier `src/components/Footer.tsx` :**
-- Ajouter une section "Suivez-nous" avec icones cliquables :
-  - Instagram
-  - Facebook
-  - TikTok
-  - YouTube
-- Liens configurables (URLs placeholder en attendant les vrais comptes)
-- Icones stylisees avec hover effects
+- **/blog** : Page listing des articles avec cards, meta SEO
+- **/blog/accessoires-thermomix** : Premier article "Top 10 des accessoires Thermomix indispensables pour une cuisine organisee" avec le contenu fourni, structure H1/H2/H3, maillage interne vers categories et produits
+- Articles statiques cotes front (pas de CMS pour l'instant), facilement extensibles
+- JSON-LD BlogPosting pour chaque article
 
-### 6. Routes
+### 5. Navigation — Mise a jour
 
-**Modifier `src/App.tsx` :**
-- Ajouter `/auth` → Auth.tsx
-- Ajouter `/account` → Account.tsx (protege)
-- Ajouter `/reset-password` → ResetPassword.tsx
+**Fichier modifie :** `src/components/Header.tsx`
 
-### Details techniques
+- Ajouter lien "Blog" dans la navigation principale
+- Ajouter les nouvelles categories dans le menu (Accessoires TM6, TM7)
 
-- Authentification via le SDK Lovable Cloud (supabase client deja configure)
-- Validation des formulaires avec zod + react-hook-form
-- RLS sur toutes les tables pour securiser les donnees
-- Composants UI existants (shadcn) reutilises pour la coherence visuelle
-- Icones reseaux sociaux via lucide-react (Instagram, Facebook, Youtube) + icone custom TikTok
+### 6. Footer — Maillage interne
+
+**Fichier modifie :** `src/components/Footer.tsx`
+
+- Ajouter liens vers les nouvelles pages categories (TM6, TM7)
+- Ajouter lien vers le blog
+- Renforcer le maillage interne
+
+### 7. Routes
+
+**Fichier modifie :** `src/App.tsx`
+
+- Ajouter `/accessoires-tm6` → AccessoiresTM6
+- Ajouter `/accessoires-tm7` → AccessoiresTM7
+- Ajouter `/blog` → Blog
+- Ajouter `/blog/:slug` → BlogArticle
+
+### 8. SEO technique
+
+**Fichiers modifies :** `public/sitemap.xml`, `public/robots.txt`
+
+- Ajouter les nouvelles URLs au sitemap : `/accessoires-tm6`, `/accessoires-tm7`, `/blog`, `/blog/accessoires-thermomix`
+- Corriger le XML malformed (balise `</url>` manquante ligne 27)
+- Toutes les pages utilisent deja `react-helmet-async` pour title/meta/canonical/OG/JSON-LD — continuer ce pattern
+- Mots-cles cibles integres dans les balises title et meta description de chaque page
+
+### Resume des fichiers touches
+
+| Action | Fichiers |
+|--------|----------|
+| Modifier | Hero, Categories, SeoBlock, WhyUs, Header, Footer, Index, AccessoiresThermomix, RangementThermomix, ProductPage, App.tsx, sitemap.xml |
+| Creer | AccessoiresTM6.tsx, AccessoiresTM7.tsx, Blog.tsx, BlogArticle.tsx |
 
