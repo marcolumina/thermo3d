@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { Loader2, Package } from 'lucide-react';
+import { Loader2, Package, Truck, ExternalLink } from 'lucide-react';
 
 const statusLabels: Record<string, { label: string; color: string }> = {
   pending: { label: 'En attente', color: 'bg-yellow-100 text-yellow-800' },
@@ -54,6 +54,25 @@ const AccountOrders = ({ userId }: { userId: string }) => {
               <span>{new Date(order.created_at).toLocaleDateString('fr-FR')}</span>
               <span className="font-semibold text-foreground">{Number(order.total).toFixed(2)} {order.currency}</span>
             </div>
+            {(order.status === 'shipped' || order.status === 'delivered') && order.shipping_address && typeof order.shipping_address === 'object' && (order.shipping_address as any).tracking_number && (
+              <div className="mt-2 flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-lg px-3 py-2">
+                <Truck className="w-4 h-4 text-accent flex-shrink-0" />
+                <div className="flex-1 text-xs">
+                  <span className="font-medium text-foreground">Suivi : </span>
+                  <span className="text-muted-foreground">{(order.shipping_address as any).tracking_number}</span>
+                </div>
+                {(order.shipping_address as any).tracking_url && (
+                  <a
+                    href={(order.shipping_address as any).tracking_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline text-xs flex items-center gap-1"
+                  >
+                    Suivre <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         );
       })}

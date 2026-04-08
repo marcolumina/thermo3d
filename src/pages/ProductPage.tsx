@@ -309,11 +309,29 @@ const ProductPage = () => {
                   </div>
 
                   {/* Livraison info */}
-                  <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
-                    <Truck className="w-4 h-4 text-accent flex-shrink-0" />
-                    <p className="text-xs text-foreground">
-                      <strong>Livraison offerte</strong> dès 39€ · Expédié sous 48h depuis la France
-                    </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
+                      <Truck className="w-4 h-4 text-accent flex-shrink-0" />
+                      <p className="text-xs text-foreground">
+                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la France
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-[11px]">
+                      <div className="flex items-center gap-2 bg-secondary/40 rounded-lg px-3 py-2">
+                        <Truck className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                        <div>
+                          <p className="font-semibold text-foreground">Colissimo</p>
+                          <p className="text-muted-foreground">2-3 jours · 4,90€</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 bg-secondary/40 rounded-lg px-3 py-2">
+                        <Package className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                        <div>
+                          <p className="font-semibold text-foreground">Mondial Relay</p>
+                          <p className="text-muted-foreground">3-5 jours · 3,90€</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Bénéfices */}
