@@ -48,7 +48,7 @@ const AccessoiresTM7 = () => {
       <section className="bg-hero">
         <div className="container mx-auto px-6 py-16 md:py-24">
           <p className="text-accent font-semibold text-xs uppercase tracking-[0.2em] mb-4">Compatible TM7</p>
-          <h1 className="font-display font-bold text-3xl md:text-5xl text-white leading-tight max-w-3xl">
+          <h1 className="font-display font-bold text-3xl md:text-5xl text-foreground leading-tight max-w-3xl">
             Accessoires Thermomix TM7
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
