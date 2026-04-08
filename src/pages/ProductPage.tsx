@@ -270,11 +270,6 @@ const ProductPage = () => {
 
                 {/* ── Infos produit ── */}
                 <div className="lg:sticky lg:top-28 self-start space-y-5">
-                  {/* Urgence */}
-                  <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full animate-pulse">
-                    <Flame className="w-3.5 h-3.5" />
-                    Offre limitée · -20% aujourd'hui
-                  </div>
 
                   {/* Titre H1 SEO */}
                   <h1 className="font-display font-extrabold text-2xl md:text-[2rem] leading-tight text-foreground">
