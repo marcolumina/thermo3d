@@ -8,7 +8,7 @@ const Hero = () => {
         className="absolute inset-0 bg-no-repeat bg-center"
         style={{
           backgroundImage: `url('/images/hero-thermomix.png')`,
-          backgroundSize: '120%',
+          backgroundSize: 'cover',
           backgroundPosition: 'center 25%',
         }}
       />
