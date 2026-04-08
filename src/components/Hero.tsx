@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative bg-hero overflow-hidden">
+    <section className="relative bg-[hsl(var(--hero-bg,30,20%,15%))] overflow-hidden">
       <div
-        className="absolute inset-0 bg-no-repeat"
+        className="absolute inset-0 bg-no-repeat bg-center"
         style={{
           backgroundImage: `url('/images/hero-thermomix.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
+          backgroundSize: 'contain',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/50 to-foreground/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/20" />
 
       <div className="container mx-auto px-6 py-24 md:py-40 relative z-10">
         <div className="max-w-2xl">
