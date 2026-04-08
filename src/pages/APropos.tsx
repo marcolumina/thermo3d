@@ -28,7 +28,7 @@ const APropos = () => {
             <h1 className="font-extrabold text-3xl md:text-5xl text-accent leading-tight">
               À propos de Thermo3D
             </h1>
-            <p className="mt-5 text-white/60 text-lg max-w-xl mx-auto">
+            <p className="mt-5 text-foreground text-lg max-w-xl mx-auto">
               Des accessoires Thermomix pensés par des passionnés, pour des passionnés.
             </p>
           </div>
