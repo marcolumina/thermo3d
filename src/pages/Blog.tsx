@@ -7,6 +7,30 @@ import Footer from '@/components/Footer';
 
 const articles = [
   {
+    slug: 'top-5-accessoires-thermomix-tm7',
+    title: 'Top 5 accessoires Thermomix TM7 indispensables en 2026',
+    excerpt: "Découvrez les 5 accessoires Thermomix TM7 indispensables : support, cache écran, organisateur, cache balance et pack complet. Guide complet.",
+    readTime: '8 min',
+    date: '8 avril 2026',
+    image: '/images/blog-accessoires.png',
+  },
+  {
+    slug: 'organiser-thermomix-facilement',
+    title: 'Comment organiser son Thermomix facilement : le guide complet',
+    excerpt: "Comment organiser votre Thermomix et votre cuisine en 6 étapes simples. Conseils pratiques, astuces de rangement et accessoires indispensables.",
+    readTime: '9 min',
+    date: '8 avril 2026',
+    image: '/images/blog-accessoires.png',
+  },
+  {
+    slug: 'meilleurs-accessoires-gagner-temps-cuisine',
+    title: 'Les meilleurs accessoires pour gagner du temps en cuisine avec votre Thermomix',
+    excerpt: "Gagnez jusqu'à 30 minutes par semaine grâce aux bons accessoires Thermomix. Support, organisateur, rangement : découvrez les solutions les plus efficaces.",
+    readTime: '8 min',
+    date: '8 avril 2026',
+    image: '/images/blog-accessoires.png',
+  },
+  {
     slug: 'accessoires-thermomix',
     title: 'Top 10 des accessoires Thermomix indispensables pour une cuisine organisée',
     excerpt: "Découvrez les accessoires Thermomix essentiels pour organiser votre cuisine, gagner du temps et profiter pleinement de votre TM6 ou TM7.",
@@ -21,9 +45,9 @@ const Blog = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Blog Accessoires Thermomix — Conseils & Astuces | Thermo3D</title>
-        <meta name="description" content="Blog Thermo3D : conseils, astuces et guides pour optimiser votre Thermomix TM6 et TM7 avec les meilleurs accessoires. Organisation cuisine et rangement." />
+        <meta name="description" content="Blog Thermo3D : conseils, astuces et guides pour optimiser votre Thermomix TM5, TM6 et TM7 avec les meilleurs accessoires. Organisation cuisine et rangement." />
         <link rel="canonical" href="https://thermo3d.fr/blog" />
-        <meta name="keywords" content="blog thermomix, accessoires thermomix, conseils cuisine, organisation cuisine thermomix" />
+        <meta name="keywords" content="blog thermomix, accessoires thermomix, conseils cuisine, organisation cuisine thermomix, gagner du temps cuisine" />
         <meta property="og:title" content="Blog Accessoires Thermomix — Thermo3D" />
         <meta property="og:description" content="Conseils et astuces pour optimiser votre Thermomix avec les meilleurs accessoires." />
         <meta property="og:url" content="https://thermo3d.fr/blog" />
