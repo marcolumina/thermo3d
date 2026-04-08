@@ -8,6 +8,7 @@ import Testimonials from '@/components/Testimonials';
 import CrossSell from '@/components/CrossSell';
 import AboutSection from '@/components/AboutSection';
 import WhyUs from '@/components/WhyUs';
+import ShippingInfo from '@/components/ShippingInfo';
 import Reviews from '@/components/Reviews';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
@@ -46,6 +47,7 @@ const Index = () => {
       <CrossSell />
       <AboutSection />
       <WhyUs />
+      <ShippingInfo />
       <Reviews />
       <CtaFinal />
       <SeoBlock />
