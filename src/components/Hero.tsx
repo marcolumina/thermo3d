@@ -5,9 +5,11 @@ const Hero = () => {
   return (
     <section className="relative bg-hero overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-no-repeat"
         style={{
           backgroundImage: `url('/images/hero-thermomix.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/50 to-foreground/20" />
