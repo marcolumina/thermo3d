@@ -41,6 +41,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thermo3d.fr/blog/top-5-accessoires-thermomix-tm7</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thermo3d.fr/blog/organiser-thermomix-facilement</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thermo3d.fr/blog/meilleurs-accessoires-gagner-temps-cuisine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://thermo3d.fr/blog/accessoires-thermomix</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
