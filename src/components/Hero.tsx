@@ -8,8 +8,11 @@ const Hero = () => {
       <div className="md:hidden">
         <img
           src="/images/hero-thermomix.png"
-          alt="Accessoires Thermomix imprimés en 3D"
+          alt="Accessoires Thermomix imprimés en 3D pour organiser votre cuisine"
           className="w-full h-auto block"
+          width="800"
+          height="600"
+          fetchPriority="high"
         />
         <div className="px-6 py-10 bg-foreground">
           <p className="text-accent font-semibold text-xs mb-3">
@@ -35,8 +38,11 @@ const Hero = () => {
       <div className="hidden md:block">
         <img
           src="/images/hero-thermomix.png"
-          alt="Accessoires Thermomix imprimés en 3D"
+          alt="Accessoires Thermomix imprimés en 3D — support, rangement et organisation cuisine"
           className="w-full h-auto block"
+          width="1600"
+          height="900"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/20" />
         <div className="absolute inset-0 flex items-center z-10">

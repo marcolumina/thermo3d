@@ -1,9 +1,16 @@
+import { Helmet } from 'react-helmet-async';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const PolitiqueConfidentialite = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Politique de Confidentialité | Thermo3D</title>
+        <meta name="description" content="Politique de confidentialité de Thermo3D : données collectées, droits RGPD, cookies et sécurité. Vos données sont protégées." />
+        <link rel="canonical" href="https://thermo3d.fr/politique-confidentialite" />
+      </Helmet>
+
       <Header />
       <main className="container mx-auto px-6 py-16 max-w-3xl">
         <h1 className="font-display text-3xl font-bold mb-8">Politique de Confidentialité</h1>

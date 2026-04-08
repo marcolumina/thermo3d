@@ -20,8 +20,12 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Contact — Thermo3D | Accessoire Thermomix imprimé en 3D</title>
-        <meta name="description" content="Contactez Thermo3D pour toute question sur nos accessoires Thermomix : support varoma, rangement TM6 TM5. Réponse sous 24-48h." />
+        <title>Contactez Thermo3D | Accessoires Thermomix — Support client</title>
+        <meta name="description" content="Contactez Thermo3D pour toute question sur nos accessoires Thermomix imprimés en 3D. Réponse sous 24-48h. Support, rangement, organisation cuisine." />
+        <link rel="canonical" href="https://thermo3d.fr/contact" />
+        <meta property="og:title" content="Contact — Thermo3D" />
+        <meta property="og:description" content="Une question sur nos accessoires Thermomix ? Contactez-nous, réponse sous 24-48h." />
+        <meta property="og:url" content="https://thermo3d.fr/contact" />
       </Helmet>
 
       <TopBanner />
@@ -38,6 +42,7 @@ const Contact = () => {
         <section className="container mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <form onSubmit={handleSubmit} className="space-y-5">
+              <h2 className="font-display font-bold text-lg text-foreground mb-2">Envoyez-nous un message</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Nom</label>
@@ -87,7 +92,7 @@ const Contact = () => {
 
             <div className="space-y-8">
               <div>
-                <h3 className="font-display font-bold text-lg mb-4">Nos coordonnées</h3>
+                <h2 className="font-display font-bold text-lg mb-4">Nos coordonnées</h2>
                 <ul className="space-y-4">
                   {[
                     { icon: Mail, label: 'contacthermo3d@gmail.com' },
@@ -104,7 +109,7 @@ const Contact = () => {
                 </ul>
               </div>
               <div className="bg-card rounded-xl p-6 border border-border">
-                <h4 className="font-display font-semibold text-sm mb-2">Délai de réponse</h4>
+                <h3 className="font-display font-semibold text-sm mb-2">Délai de réponse</h3>
                 <p className="text-sm text-muted-foreground">Nous répondons généralement sous 24 à 48h ouvrées.</p>
               </div>
             </div>

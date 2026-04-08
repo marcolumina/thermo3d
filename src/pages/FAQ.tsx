@@ -35,8 +35,26 @@ const FAQ = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>FAQ | Thermo3D — Questions fréquentes accessoires Thermomix</title>
-        <meta name="description" content="Questions fréquentes sur les accessoires Thermomix Thermo3D : compatibilité, matériaux, livraison, retours et entretien." />
+        <title>FAQ Accessoires Thermomix | Questions fréquentes — Thermo3D</title>
+        <meta name="description" content="Questions fréquentes sur les accessoires Thermomix Thermo3D : compatibilité TM5 TM6 TM7, matériaux alimentaires, livraison, retours et entretien." />
+        <link rel="canonical" href="https://thermo3d.fr/faq" />
+        <meta property="og:title" content="FAQ Accessoires Thermomix — Thermo3D" />
+        <meta property="og:description" content="Toutes les réponses à vos questions sur nos accessoires Thermomix imprimés en 3D." />
+        <meta property="og:url" content="https://thermo3d.fr/faq" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          })}
+        </script>
       </Helmet>
 
       <TopBanner />

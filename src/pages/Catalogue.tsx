@@ -66,9 +66,12 @@ const Catalogue = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Catalogue Accessoire Thermomix — Support Varoma, Rangement TM6 TM5 | Thermo3D</title>
-        <meta name="description" content="Tous nos accessoires Thermomix imprimés en 3D : support varoma, rangement Thermomix, accessoire TM6 et TM5. Cache écran, organisateurs. Fabriqué en France." />
+        <title>Catalogue Accessoires Thermomix | Support, Rangement, Cache | Thermo3D</title>
+        <meta name="description" content="Catalogue complet d'accessoires Thermomix imprimés en 3D : support, rangement, cache écran, organisateur. Compatible TM5, TM6, TM7. Fabriqué en France." />
         <link rel="canonical" href="https://thermo3d.fr/catalogue" />
+        <meta property="og:title" content="Catalogue Accessoires Thermomix — Thermo3D" />
+        <meta property="og:description" content="Tous nos accessoires Thermomix imprimés en 3D. Fabriqué en France, livraison rapide." />
+        <meta property="og:url" content="https://thermo3d.fr/catalogue" />
       </Helmet>
 
       <TopBanner />
@@ -96,10 +99,11 @@ const Catalogue = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="search"
-              placeholder="Rechercher un accessoire..."
+              placeholder="Rechercher un accessoire Thermomix..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 rounded-full bg-card border border-border/60 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30"
+              aria-label="Rechercher un accessoire Thermomix"
             />
           </div>
           <p className="text-sm text-muted-foreground">

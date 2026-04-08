@@ -16,7 +16,11 @@ const APropos = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>À propos de Thermo3D | Accessoires Thermomix fabriqués en France</title>
-        <meta name="description" content="Découvrez Thermo3D : accessoires Thermomix innovants imprimés en 3D en France. Notre mission, nos valeurs et notre engagement qualité." />
+        <meta name="description" content="Découvrez Thermo3D : accessoires Thermomix innovants imprimés en 3D en France. Notre mission, nos valeurs et notre engagement qualité pour votre cuisine." />
+        <link rel="canonical" href="https://thermo3d.fr/a-propos" />
+        <meta property="og:title" content="À propos de Thermo3D — Accessoires Thermomix" />
+        <meta property="og:description" content="Accessoires Thermomix imprimés en 3D en Corse. Découvrez notre histoire et nos valeurs." />
+        <meta property="og:url" content="https://thermo3d.fr/a-propos" />
       </Helmet>
 
       <TopBanner />

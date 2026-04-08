@@ -1,9 +1,16 @@
+import { Helmet } from 'react-helmet-async';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const CGV = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Conditions Générales de Vente | Thermo3D</title>
+        <meta name="description" content="Consultez les conditions générales de vente de Thermo3D : commande, paiement, livraison, retours et garantie pour vos accessoires Thermomix." />
+        <link rel="canonical" href="https://thermo3d.fr/cgv" />
+      </Helmet>
+
       <Header />
       <main className="container mx-auto px-6 py-16 max-w-3xl">
         <h1 className="font-display text-3xl font-bold mb-8">Conditions Générales de Vente</h1>
