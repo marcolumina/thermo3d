@@ -15,7 +15,7 @@ const CtaFinal = () => {
           to="/catalogue"
           className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-full font-semibold text-sm hover:bg-foreground/90 transition-all duration-300 mt-8"
         >
-          Découvrir le catalogue
+          Optimiser mon Thermomix
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>

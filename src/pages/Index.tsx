@@ -18,8 +18,8 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Accessoires Thermomix TM6 TM7 | Support & Rangement Thermomix – Thermo3D</title>
-        <meta name="description" content="Accessoires Thermomix TM6 et TM7 imprimés en 3D : support Thermomix, rangement Thermomix, organisateur cuisine. Fabriqué en France, qualité alimentaire. Livraison rapide." />
+        <title>Accessoires Thermomix TM6 & TM7 | Support, Rangement & Organisation — Thermo3D</title>
+        <meta name="description" content="Accessoires Thermomix TM6 et TM7 imprimés en 3D : support, rangement, organisation cuisine. Fabriqué en France, qualité alimentaire. Livraison offerte dès 50€." />
         <link rel="canonical" href="https://thermo3d.fr" />
         <meta property="og:title" content="Accessoires Thermomix TM6 TM7 | Support & Rangement – Thermo3D" />
         <meta property="og:description" content="Support Thermomix, rangement Thermomix et accessoires TM6 TM7 imprimés en 3D. Fabriqué en France." />
