@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Flag } from 'lucide-react';
+import aboutImage from '@/assets/about-section.png';
 
 const AboutSection = () => {
   return (
