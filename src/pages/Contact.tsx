@@ -90,8 +90,8 @@ const Contact = () => {
                 <h3 className="font-display font-bold text-lg mb-4">Nos coordonnées</h3>
                 <ul className="space-y-4">
                   {[
-                    { icon: Mail, label: 'contact@thermo3d.fr' },
-                    { icon: Phone, label: '06 00 00 00 00' },
+                    { icon: Mail, label: 'contacthermo3d@gmail.com' },
+                    { icon: Phone, label: '06 72 27 59 17' },
                     { icon: MapPin, label: 'France' },
                   ].map((item) => (
                     <li key={item.label} className="flex items-center gap-3 text-sm text-muted-foreground">
