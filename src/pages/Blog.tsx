@@ -12,7 +12,7 @@ const articles = [
     excerpt: "Découvrez les accessoires Thermomix essentiels pour organiser votre cuisine, gagner du temps et profiter pleinement de votre TM6 ou TM7.",
     readTime: '5 min',
     date: '7 avril 2026',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
+    image: '/images/blog-accessoires.png',
   },
 ];
 
