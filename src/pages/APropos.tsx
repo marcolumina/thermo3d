@@ -25,7 +25,7 @@ const APropos = () => {
       <main className="flex-1">
         <section className="bg-hero">
           <div className="container mx-auto px-6 py-20 md:py-28 text-center">
-            <h1 className="font-extrabold text-3xl md:text-5xl text-white leading-tight">
+            <h1 className="font-extrabold text-3xl md:text-5xl text-accent leading-tight">
               À propos de Thermo3D
             </h1>
             <p className="mt-5 text-white/60 text-lg max-w-xl mx-auto">
