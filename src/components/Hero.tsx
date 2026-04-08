@@ -8,7 +8,8 @@ const Hero = () => {
         className="absolute inset-0 bg-no-repeat bg-center"
         style={{
           backgroundImage: `url('/images/hero-thermomix.png')`,
-          backgroundSize: 'contain',
+          backgroundSize: '120%',
+          backgroundPosition: 'center 25%',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/20" />
