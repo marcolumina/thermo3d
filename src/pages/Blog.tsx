@@ -55,9 +55,11 @@ const Blog = () => {
               <div className="aspect-video overflow-hidden">
                 <img
                   src={article.image}
-                  alt={article.title}
+                  alt={`${article.title} — Blog accessoires Thermomix Thermo3D`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  width="600"
+                  height="338"
                 />
               </div>
               <div className="p-6 space-y-3">

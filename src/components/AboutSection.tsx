@@ -10,9 +10,11 @@ const AboutSection = () => {
           <div className="rounded-2xl overflow-hidden shadow-premium-lg">
             <img
               src={aboutImage}
-              alt="Couple découvrant les accessoires Thermo3D imprimés en 3D"
+              alt="Atelier Thermo3D — fabrication d'accessoires Thermomix par impression 3D en France"
               className="w-full h-[340px] object-cover"
               loading="lazy"
+              width="600"
+              height="340"
             />
           </div>
           <div>
