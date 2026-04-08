@@ -1,9 +1,16 @@
+import { Helmet } from 'react-helmet-async';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const MentionsLegales = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Mentions Légales | Thermo3D — Accessoires Thermomix</title>
+        <meta name="description" content="Mentions légales du site Thermo3D : éditeur, hébergement, propriété intellectuelle et cookies. Accessoires Thermomix imprimés en 3D en France." />
+        <link rel="canonical" href="https://thermo3d.fr/mentions-legales" />
+      </Helmet>
+
       <Header />
       <main className="container mx-auto px-6 py-16 max-w-3xl">
         <h1 className="font-display text-3xl font-bold mb-8">Mentions Légales</h1>
