@@ -40,7 +40,7 @@ const Index = () => {
       <TopBanner />
       <Header />
       <Hero />
-      <Categories />
+      
       <BestSellers />
       <Testimonials />
       <CrossSell />
