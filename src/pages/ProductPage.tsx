@@ -486,7 +486,7 @@ const ProductPage = () => {
                   </p>
                   <p>
                     Fabriqué en France par <strong className="text-foreground">impression 3D</strong> avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>,
-                    cet accessoire s'adapte parfaitement à votre <strong className="text-foreground">Thermomix TM5, TM6 ou TM7</strong>.
+                    cet accessoire s'adapte parfaitement à votre <strong className="text-foreground">Thermomix</strong>.
                     La précision au dixième de millimètre garantit un ajustement impeccable et une stabilité totale.
                   </p>
                   <p>
