@@ -475,24 +475,21 @@ const ProductPage = () => {
                 <div className="text-center mb-8">
                   <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">En détail</p>
                   <h2 className="font-display font-extrabold text-xl md:text-3xl text-foreground leading-tight">
-                    Optimisez votre cuisine en quelques secondes
+                    {productTitle}
                   </h2>
                 </div>
                 <div className="space-y-5 text-sm text-muted-foreground leading-relaxed">
-                  <p>
-                    Ce <strong className="text-foreground">support Thermomix</strong> est conçu pour optimiser votre espace et rendre votre cuisine plus pratique au quotidien.
-                    Fini le désordre, place à l'efficacité. Chaque accessoire trouve sa place, votre plan de travail reste dégagé,
-                    et vous gagnez un temps précieux à chaque utilisation.
-                  </p>
-                  <p>
-                    Fabriqué en France par <strong className="text-foreground">impression 3D</strong> avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>,
-                    cet accessoire s'adapte parfaitement à votre <strong className="text-foreground">Thermomix</strong>.
-                    La précision au dixième de millimètre garantit un ajustement impeccable et une stabilité totale.
-                  </p>
-                  <p>
-                    L'installation se fait en 2 secondes, sans outil. Vous posez, ça clipe, c'est prêt.
-                    Plus de 1 000 clients ont déjà transformé leur cuisine avec nos accessoires <strong className="text-foreground">Thermo3D</strong>.
-                  </p>
+                  {parsed?.description ? (
+                    <p>{parsed.description}</p>
+                  ) : product.node.description ? (
+                    <p>{product.node.description}</p>
+                  ) : (
+                    <p>
+                      Cet accessoire <strong className="text-foreground">Thermo3D</strong> est conçu pour optimiser votre espace cuisine au quotidien.
+                      Fabriqué en France par <strong className="text-foreground">impression 3D</strong> avec du <strong className="text-foreground">PLA de qualité alimentaire</strong>,
+                      il s'adapte parfaitement à votre <strong className="text-foreground">Thermomix</strong>.
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-5 mt-10 text-xs text-muted-foreground">
