@@ -21,7 +21,6 @@ const Hero = () => {
           <h1 className="font-display font-bold text-3xl leading-[1.15] tracking-tight text-background">
             Accessoires Thermomix TM6 & TM7 pour une cuisine organisée et efficace
           </h1>
-          </h1>
           <p className="mt-4 text-base text-background/70 leading-relaxed">
             Optimisez votre Thermomix avec des accessoires pratiques, design et compatibles TM6 & TM7
           </p>
