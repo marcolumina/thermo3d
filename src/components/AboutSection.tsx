@@ -9,8 +9,8 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
           <div className="rounded-2xl overflow-hidden shadow-premium-lg">
             <img
-              src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80"
-              alt="Atelier Thermo3D — fabrication en France"
+              src={aboutImage}
+              alt="Couple découvrant les accessoires Thermo3D imprimés en 3D"
               className="w-full h-[340px] object-cover"
               loading="lazy"
             />
