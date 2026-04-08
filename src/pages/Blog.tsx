@@ -38,7 +38,7 @@ const Blog = () => {
           <h1 className="font-display font-bold text-3xl md:text-5xl text-foreground leading-tight max-w-3xl">
             Conseils & astuces pour votre Thermomix
           </h1>
-          <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-accent max-w-2xl leading-relaxed">
             Guides pratiques pour optimiser votre cuisine avec les bons accessoires Thermomix.
           </p>
         </div>
