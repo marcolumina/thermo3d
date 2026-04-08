@@ -51,7 +51,7 @@ const AccessoiresTM7 = () => {
           <h1 className="font-display font-bold text-3xl md:text-5xl text-foreground leading-tight max-w-3xl">
             Accessoires Thermomix TM7
           </h1>
-          <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-accent max-w-2xl leading-relaxed">
             Des accessoires optimisés pour le tout nouveau Thermomix TM7. Organisation parfaite, rangement intelligent.
           </p>
           <div className="flex flex-wrap items-center gap-5 mt-8 text-sm text-foreground">
