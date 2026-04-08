@@ -34,6 +34,8 @@ const AppContent = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/index" element={<Index />} />
+        <Route path="/index.html" element={<Index />} />
         <Route path="/product/:handle" element={<ProductPage />} />
         <Route path="/catalogue" element={<Catalogue />} />
         <Route path="/a-propos" element={<APropos />} />
