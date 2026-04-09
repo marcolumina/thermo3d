@@ -14,6 +14,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CrossSell from '@/components/CrossSell';
 import { useState, useMemo } from 'react';
+import MascotProductTip from '@/components/MascotProductTip';
 
 /* ── Données statiques de la page ── */
 
@@ -406,8 +407,10 @@ const ProductPage = () => {
                     )}
                   </button>
 
-                  {/* Sous-CTA */}
-                  <div className="flex items-center justify-center gap-4 text-[10px] text-muted-foreground">
+                  <MascotProductTip />
+
+                   {/* Sous-CTA */}
+                   <div className="flex items-center justify-center gap-4 text-[10px] text-muted-foreground">
                     <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> Paiement sécurisé</span>
                     <span className="flex items-center gap-1"><RefreshCw className="w-3 h-3" /> Satisfait ou remboursé</span>
                     <span className="flex items-center gap-1"><Truck className="w-3 h-3" /> Expédié sous 48h</span>

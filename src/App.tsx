@@ -25,6 +25,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Account from "./pages/Account.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
+import MascotFloating from "./components/MascotFloating.tsx";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const AppContent = () => {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <MascotFloating />
     </BrowserRouter>
   );
 };
