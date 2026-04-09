@@ -12,6 +12,7 @@ import ShippingInfo from '@/components/ShippingInfo';
 import Reviews from '@/components/Reviews';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
+import MascotWelcome from '@/components/MascotWelcome';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -41,7 +42,7 @@ const Index = () => {
       <TopBanner />
       <Header />
       <Hero />
-      
+      <MascotWelcome />
       <BestSellers />
       <Testimonials />
       <CrossSell />
