@@ -112,7 +112,8 @@ const ProductPage = () => {
   const isLoading = useCartStore(state => state.isLoading);
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
+  const [hasInitializedVariant, setHasInitializedVariant] = useState(false);
 
   const { data: product, isLoading: fetching } = useQuery({
     queryKey: ['product', handle],
