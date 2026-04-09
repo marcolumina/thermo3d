@@ -130,23 +130,39 @@ const ProductPage = () => {
     return parseShopifyDescription(product.node.descriptionHtml);
   }, [product]);
 
+  // Extract variants and color options
+  const variants = useMemo(() => {
+    if (!product) return [];
+    return product.node.variants.edges.map(e => e.node);
+  }, [product]);
+
+  const colorOptions = useMemo(() => {
+    return variants.map((v, i) => {
+      const colorOpt = v.selectedOptions?.find(
+        (o: any) => o.name.toLowerCase() === 'couleur' || o.name.toLowerCase() === 'color' || o.name.toLowerCase() === 'colour'
+      );
+      return { index: i, label: colorOpt?.value || v.title, variant: v };
+    });
+  }, [variants]);
+
+  const hasColorOptions = colorOptions.length > 1;
+  const selectedVariant = variants[selectedVariantIndex] || variants[0];
+
   const handleAddToCart = async () => {
-    if (!product) return;
-    const variant = product.node.variants.edges[0]?.node;
-    if (!variant) return;
+    if (!product || !selectedVariant) return;
     await addItem({
       product,
-      variantId: variant.id,
-      variantTitle: variant.title,
-      price: variant.price,
+      variantId: selectedVariant.id,
+      variantTitle: selectedVariant.title,
+      price: selectedVariant.price,
       quantity: 1,
-      selectedOptions: variant.selectedOptions || [],
+      selectedOptions: selectedVariant.selectedOptions || [],
     });
     toast.success('Ajouté au panier ✓', { position: 'top-center' });
   };
 
   const productTitle = product?.node.title || 'Accessoire Thermomix';
-  const price = product ? parseFloat(product.node.priceRange.minVariantPrice.amount) : 0;
+  const price = selectedVariant ? parseFloat(selectedVariant.price.amount) : (product ? parseFloat(product.node.priceRange.minVariantPrice.amount) : 0);
   const productPrice = price.toFixed(2);
   const originalPrice = (price / 0.8).toFixed(2);
   const productImage = product?.node.images.edges[0]?.node.url || '';
