@@ -356,6 +356,27 @@ const ProductPage = () => {
                     ))}
                   </ul>
 
+                  {/* Sélecteur de couleur */}
+                  {hasColorOptions && (
+                    <div className="space-y-2">
+                      <label htmlFor="color-select" className="text-sm font-semibold text-foreground">
+                        Couleur
+                      </label>
+                      <select
+                        id="color-select"
+                        value={selectedVariantIndex}
+                        onChange={(e) => setSelectedVariantIndex(Number(e.target.value))}
+                        className="w-full h-11 rounded-xl border border-border bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                      >
+                        {colorOptions.map((opt) => (
+                          <option key={opt.index} value={opt.index}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
                   {/* CTA principal */}
                   <button
                     onClick={handleAddToCart}
