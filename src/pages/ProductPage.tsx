@@ -112,7 +112,8 @@ const ProductPage = () => {
   const isLoading = useCartStore(state => state.isLoading);
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
+  const [hasInitializedVariant, setHasInitializedVariant] = useState(false);
 
   const { data: product, isLoading: fetching } = useQuery({
     queryKey: ['product', handle],
@@ -146,7 +147,19 @@ const ProductPage = () => {
   }, [variants]);
 
   const hasColorOptions = colorOptions.length > 1;
-  const selectedVariant = variants[selectedVariantIndex] || variants[0];
+
+  // Auto-select "Noir" variant by default
+  useMemo(() => {
+    if (!hasInitializedVariant && colorOptions.length > 0) {
+      const noirIndex = colorOptions.findIndex(
+        (opt) => opt.label.toLowerCase().includes('noir') || opt.label.toLowerCase().includes('black')
+      );
+      setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
+      setHasInitializedVariant(true);
+    }
+  }, [colorOptions, hasInitializedVariant]);
+
+  const selectedVariant = variants[selectedVariantIndex >= 0 ? selectedVariantIndex : 0] || variants[0];
 
   const handleAddToCart = async () => {
     if (!product || !selectedVariant) return;
