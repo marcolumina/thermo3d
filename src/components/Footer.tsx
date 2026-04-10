@@ -14,7 +14,7 @@ const SnapchatIcon = () => (
 );
 
 const SOCIAL_LINKS = [
-  { icon: Instagram, href: 'https://www.instagram.com/thermo3d', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/thermo.3d/', label: 'Instagram' },
   { icon: TikTokIcon, href: 'https://www.tiktok.com/@thermo3d', label: 'TikTok', isCustom: true },
   { icon: SnapchatIcon, href: 'https://www.snapchat.com/@thermo3d', label: 'Snapchat', isCustom: true },
 ];
