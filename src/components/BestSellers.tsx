@@ -52,7 +52,7 @@ const BestSellers = () => {
             className="flex gap-5 overflow-x-auto scrollbar-hide pb-4 -mx-2 px-2"
           >
             {products.map((product) => (
-              <div key={product.node.id} className="min-w-[250px] sm:min-w-[290px] max-w-[320px] flex-shrink-0">
+              <div key={product.node.id} className="min-w-[280px] sm:min-w-[320px] max-w-[360px] flex-shrink-0">
                 <ProductCard product={product} />
               </div>
             ))}
