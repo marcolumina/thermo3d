@@ -20,9 +20,6 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
   const priceNum = parseFloat(price.amount);
   const fakeOriginalPrice = (priceNum / 0.8).toFixed(2);
 
-  const title = node.title.toLowerCase();
-  const isPack = title.includes('pack') || node.tags?.map(t => t.toLowerCase()).includes('pack');
-  const badge = isPack ? 'BESTSELLER' : null;
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -46,13 +43,6 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
     >
       {/* Image container */}
       <div className="relative aspect-square overflow-hidden bg-secondary/40">
-        {badge && (
-          <div className="absolute top-3 left-3 z-10">
-            <span className="bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
-              {badge}
-            </span>
-          </div>
-        )}
 
         {image ? (
           <>
