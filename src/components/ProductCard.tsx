@@ -59,7 +59,7 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
             <img
               src={image.url}
               alt={image.altText || `${node.title} — accessoire Thermomix`}
-              className={`w-full h-full object-contain p-6 transition-opacity duration-500 ${secondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-transform`}
+              className={`w-full h-full object-cover transition-opacity duration-500 ${secondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-transform`}
               loading="lazy"
               width="400"
               height="400"
