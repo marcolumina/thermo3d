@@ -259,14 +259,6 @@ const ProductPage = () => {
                         <Package className="w-16 h-16 opacity-30" />
                       </div>
                     )}
-                    <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                      <span className="bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
-                        ⭐ Best seller
-                      </span>
-                      <span className="bg-destructive text-destructive-foreground text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
-                        -20%
-                      </span>
-                    </div>
                   </div>
 
                   {product.node.images.edges.length > 1 && (
