@@ -68,7 +68,7 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
               <img
                 src={secondImage.url}
                 alt={secondImage.altText || node.title}
-                className="absolute inset-0 w-full h-full object-contain p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 loading="lazy"
                 width="400"
                 height="400"
