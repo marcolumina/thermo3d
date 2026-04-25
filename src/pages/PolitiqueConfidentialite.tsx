@@ -86,23 +86,36 @@ const PolitiqueConfidentialite = () => {
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-foreground mb-2">8. Cookies</h2>
-            <p>
-              Ce site utilise des cookies essentiels au fonctionnement du panier d'achat et des cookies analytiques pour améliorer votre expérience. Vous pouvez gérer vos préférences de cookies via les paramètres de votre navigateur.
+            <h2 className="font-display text-lg font-semibold text-foreground mb-2">8. Cookies et traceurs</h2>
+            <p>Ce site utilise trois catégories de cookies :</p>
+            <ul className="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Cookies essentiels</strong> (toujours actifs) : panier d'achat, session, sécurité, préférences de consentement. Sans eux, le site ne peut fonctionner.</li>
+              <li><strong>Cookies de mesure d'audience</strong> (soumis à consentement) : statistiques anonymes pour améliorer le site.</li>
+              <li><strong>Cookies marketing</strong> (soumis à consentement) : personnalisation des offres et publicités.</li>
+            </ul>
+            <p className="mt-2">
+              Lors de votre première visite, une bannière vous permet d'accepter, refuser ou personnaliser ces cookies. Votre choix est conservé 13 mois maximum. Vous pouvez modifier vos préférences à tout moment en effaçant le stockage local de votre navigateur ou en nous contactant. Conformément à la directive ePrivacy et aux recommandations de la CNIL, refuser les cookies non essentiels est aussi simple que les accepter.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-foreground mb-2">9. Sécurité</h2>
+            <h2 className="font-display text-lg font-semibold text-foreground mb-2">9. Transferts hors Union européenne</h2>
             <p>
-              Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction. Les paiements sont traités de manière sécurisée par Shopify.
+              Certains de nos prestataires (hébergement, paiement, analyse) peuvent être situés hors de l'Union européenne. Dans ce cas, les transferts sont encadrés par les Clauses Contractuelles Types de la Commission européenne ou par une décision d'adéquation, garantissant un niveau de protection équivalent au RGPD.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-foreground mb-2">10. Modifications</h2>
+            <h2 className="font-display text-lg font-semibold text-foreground mb-2">10. Sécurité</h2>
             <p>
-              Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. La version en vigueur est celle publiée sur le site. Dernière mise à jour : mars 2026.
+              Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données : chiffrement HTTPS/TLS, hébergement sécurisé, authentification renforcée, accès restreints, sauvegardes régulières. Les paiements sont traités de manière sécurisée par Shopify Payments (certifié PCI-DSS niveau 1).
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-lg font-semibold text-foreground mb-2">11. Modifications</h2>
+            <p>
+              Nous nous réservons le droit de modifier cette politique à tout moment. La version en vigueur est celle publiée sur le site. Dernière mise à jour : avril 2026.
             </p>
           </section>
         </div>

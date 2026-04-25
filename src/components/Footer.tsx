@@ -99,7 +99,16 @@ const Footer = () => {
             <ul className="space-y-2.5 text-sm text-background/40">
               <li><Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link></li>
               <li><Link to="/cgv" className="hover:text-accent transition-colors">CGV</Link></li>
-              <li><Link to="/politique-confidentialite" className="hover:text-accent transition-colors">Confidentialité</Link></li>
+              <li><Link to="/politique-de-retour" className="hover:text-accent transition-colors">Politique de retour 30j</Link></li>
+              <li><Link to="/politique-confidentialite" className="hover:text-accent transition-colors">Confidentialité (RGPD)</Link></li>
+              <li>
+                <button
+                  onClick={() => { try { localStorage.removeItem('thermo3d_cookie_consent'); window.location.reload(); } catch {} }}
+                  className="hover:text-accent transition-colors text-left"
+                >
+                  Gérer mes cookies
+                </button>
+              </li>
             </ul>
           </div>
         </div>
