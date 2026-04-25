@@ -6,19 +6,21 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
+import ShippingRates from '@/components/ShippingRates';
+
 const carriers = [
   {
     icon: Truck,
     name: 'Colissimo',
     delay: '2 à 3 jours ouvrés',
-    price: '4,90 €',
+    price: 'dès 5,15 €',
     desc: 'Livraison à domicile par La Poste, avec ou sans signature. Idéal si vous êtes souvent chez vous.',
   },
   {
-    icon: MapPin,
+    icon: Package,
     name: 'Mondial Relay',
     delay: '3 à 5 jours ouvrés',
-    price: '3,90 €',
+    price: 'dès 4,00 €',
     desc: 'Livraison en point relais près de chez vous. Plus de 11 000 points en France.',
   },
 ];
