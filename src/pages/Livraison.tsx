@@ -98,6 +98,23 @@ const Livraison = () => {
           </div>
         </section>
 
+        {/* Grille tarifaire par poids */}
+        <section className="py-14 md:py-20 bg-secondary/10">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground text-center mb-3">
+              Grille tarifaire par poids
+            </h2>
+            <p className="text-muted-foreground text-center text-sm mb-10 max-w-2xl mx-auto">
+              Le tarif exact est calculé automatiquement au moment du paiement en fonction du poids total de votre commande.
+              <span className="block mt-1 font-semibold text-accent">Livraison offerte dès 50€ d'achat, quel que soit le mode choisi.</span>
+            </p>
+            <ShippingRates />
+            <p className="text-[11px] text-muted-foreground text-center mt-4">
+              Tarifs indicatifs France métropolitaine. Corse, DOM-TOM et international : nous consulter.
+            </p>
+          </div>
+        </section>
+
         {/* Étapes */}
         <section className="bg-secondary/20 py-14 md:py-20">
           <div className="container mx-auto px-6 max-w-5xl">
