@@ -36,7 +36,7 @@ const reviews = [
 const faqs = [
   { q: 'Est-ce compatible avec mon Thermomix ?', a: "Oui ! Tous nos accessoires sont compatibles avec les modèles Thermomix. L'ajustement est parfait grâce à l'impression 3D de précision." },
   { q: "Comment ça s'installe ?", a: "Installation en 2 secondes, sans outil. Vous posez, ça clipe, c'est prêt. Ultra simple et ultra stable." },
-  { q: 'Quel est le délai de livraison ?', a: 'Expédition sous 48h depuis notre atelier en France. Livraison rapide par Colissimo ou Mondial Relay.' },
+  { q: 'Quel est le délai de livraison ?', a: 'Expédition sous 48h depuis notre atelier en Corse. Livraison rapide par Colissimo ou Mondial Relay.' },
   { q: "C'est vraiment alimentaire ?", a: 'Oui, tous nos produits sont fabriqués en PLA de qualité alimentaire, certifié pour un usage en cuisine en contact avec les aliments.' },
   { q: 'Et si ça ne me convient pas ?', a: 'Satisfait ou remboursé. Si le produit ne vous convient pas, contactez-nous et nous vous rembourserons sans discussion.' },
 ];
