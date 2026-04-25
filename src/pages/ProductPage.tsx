@@ -46,7 +46,7 @@ const faqs = [
 const guarantees = [
   { icon: Truck, title: 'Livraison rapide', desc: 'Expédié sous 48h depuis la Corse' },
   { icon: ShieldCheck, title: 'Paiement sécurisé', desc: 'CB, PayPal, Apple Pay' },
-  { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 15 jours' },
+  { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 14 jours' },
   { icon: Headphones, title: 'Support français', desc: 'Réponse sous 24h par email' },
 ];
 

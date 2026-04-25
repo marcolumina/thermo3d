@@ -44,7 +44,7 @@ const SocialProofBar = () => {
 
           <div className="hidden sm:flex items-center gap-2 text-xs text-muted-foreground">
             <ShieldCheck className="w-4 h-4 text-accent" />
-            <span>Satisfait ou remboursé 15j</span>
+            <span>Satisfait ou remboursé 14j</span>
           </div>
         </div>
       </div>

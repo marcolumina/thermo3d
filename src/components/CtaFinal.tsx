@@ -9,7 +9,7 @@ const CtaFinal = () => {
           Prêt à transformer votre expérience Thermomix ?
         </h2>
         <p className="mt-4 text-accent-foreground/80 max-w-lg mx-auto text-base">
-          Rejoignez +1000 clients satisfaits. Livraison offerte dès 50€, satisfait ou remboursé 15 jours.
+          Rejoignez +1000 clients satisfaits. Livraison offerte dès 50€, satisfait ou remboursé 14 jours.
         </p>
         <Link
           to="/catalogue"

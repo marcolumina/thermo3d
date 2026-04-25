@@ -8,8 +8,8 @@ const PolitiqueRetour = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>
-        <title>Politique de retour 15 jours | Satisfait ou Remboursé — Thermo3D</title>
-        <meta name="description" content="Satisfait ou remboursé sous 15 jours chez Thermo3D. Procédure simple, remboursement rapide sous 14 jours. Politique de retour conforme RGPD." />
+        <title>Politique de retour 14 jours | Satisfait ou Remboursé — Thermo3D</title>
+        <meta name="description" content="Satisfait ou remboursé sous 14 jours chez Thermo3D. Procédure simple, remboursement rapide sous 14 jours. Politique de retour conforme RGPD." />
         <link rel="canonical" href="https://thermo3d.fr/politique-de-retour" />
       </Helmet>
 
@@ -21,15 +21,15 @@ const PolitiqueRetour = () => {
           </div>
           <span className="text-xs uppercase tracking-wider font-semibold text-accent">Garantie Thermo3D</span>
         </div>
-        <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">Satisfait ou Remboursé — 15 jours</h1>
+        <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">Satisfait ou Remboursé — 14 jours</h1>
         <p className="text-base text-muted-foreground leading-relaxed mb-10">
-          Votre satisfaction est notre priorité. Si votre commande ne vous convient pas, vous disposez de <strong className="text-foreground">15 jours</strong> à compter de la réception pour nous la retourner et être intégralement remboursé. Sans question, sans justification. Ce délai dépasse l'obligation légale de rétractation de 14 jours prévue par l'article L221-18 du Code de la consommation.
+          Votre satisfaction est notre priorité. Si votre commande ne vous convient pas, vous disposez de <strong className="text-foreground">14 jours</strong> à compter de la réception pour nous la retourner et être intégralement remboursé. Sans question, sans justification. Ce délai dépasse l'obligation légale de rétractation de 14 jours prévue par l'article L221-18 du Code de la consommation.
         </p>
 
         {/* Garanties clés */}
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
           {[
-            { icon: Clock, title: '15 jours', desc: 'Délai de rétractation étendu' },
+            { icon: Clock, title: '14 jours', desc: 'Délai de rétractation étendu' },
             { icon: RefreshCw, title: 'Remboursement', desc: 'Sous 14 jours après retour' },
             { icon: CheckCircle2, title: 'Sans justificatif', desc: 'Aucune raison à fournir' },
           ].map(({ icon: Icon, title, desc }) => (
@@ -65,7 +65,7 @@ const PolitiqueRetour = () => {
           <section>
             <h2 className="font-display text-xl font-semibold text-foreground mb-3">Conditions du retour</h2>
             <ul className="space-y-2">
-              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" /> Le produit doit être retourné dans un délai de 15 jours après réception.</li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" /> Le produit doit être retourné dans un délai de 14 jours après réception.</li>
               <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" /> Il doit être complet, propre et dans son état d'origine.</li>
               <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" /> Les produits personnalisés (gravure, coloris sur mesure) ne sont pas éligibles, sauf défaut de fabrication.</li>
               <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" /> Conservez la preuve d'envoi jusqu'à confirmation du remboursement.</li>
