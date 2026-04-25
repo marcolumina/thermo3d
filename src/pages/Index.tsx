@@ -11,6 +11,8 @@ import WhyUs from '@/components/WhyUs';
 import ShippingInfo from '@/components/ShippingInfo';
 import Reviews from '@/components/Reviews';
 import TrustSection from '@/components/TrustSection';
+import SocialProofBar from '@/components/SocialProofBar';
+import HomeFAQ from '@/components/HomeFAQ';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
 import MascotWelcome from '@/components/MascotWelcome';
@@ -43,6 +45,7 @@ const Index = () => {
       <TopBanner />
       <Header />
       <Hero />
+      <SocialProofBar />
       <MascotWelcome />
       <BestSellers />
       <Testimonials />
@@ -52,6 +55,7 @@ const Index = () => {
       <ShippingInfo />
       <Reviews />
       <TrustSection />
+      <HomeFAQ />
       <CtaFinal />
       <SeoBlock />
       <Footer />

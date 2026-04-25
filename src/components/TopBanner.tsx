@@ -7,8 +7,8 @@ const TopBanner = () => {
       <div className="bg-card border-b border-border/60 py-2">
         <div className="container mx-auto px-4 flex items-center justify-between text-[11px] text-muted-foreground">
           <div className="flex items-center gap-1.5">
-            <Truck className="w-3.5 h-3.5 text-accent" />
-            <span>Livraison offerte dès 50€</span>
+            <span className="text-sm" aria-hidden>🚚</span>
+            <span className="font-semibold text-foreground">Livraison offerte dès 50€</span>
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
             <RefreshCw className="w-3.5 h-3.5 text-accent" />
