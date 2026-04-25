@@ -13,6 +13,8 @@ import { Mail, Lock, User, Loader2, ShoppingCart } from 'lucide-react';
 
 const Auth = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isCheckoutFlow = searchParams.get('redirect') === 'checkout';
   const { toast } = useToast();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
