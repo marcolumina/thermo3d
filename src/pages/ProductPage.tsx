@@ -425,19 +425,6 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT ═══════ */}
-            <section className="py-14 md:py-20 bg-background border-t border-border/30">
-              <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-                <div className="text-center mb-10 md:mb-14">
-                  <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">Pourquoi ce produit</p>
-                  <h2 className="font-display font-extrabold text-2xl md:text-3xl text-foreground leading-tight">
-                    3 bonnes raisons de l'adopter
-                  </h2>
-                  <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
-                    Pensé pour les passionnés de Thermomix qui veulent une cuisine claire, pratique et durable.
-                  </p>
-                </div>
-
             {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT EST INDISPENSABLE ═══════ */}
             <section className="py-14 md:py-20 bg-background border-t border-border/30">
               <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
