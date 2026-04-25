@@ -13,6 +13,8 @@ const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul ré
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
+  const { user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
@@ -25,6 +27,14 @@ export const CartDrawer = () => {
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
 
   const handleCheckout = () => {
+    if (!user) {
+      toast.info('Connectez-vous pour finaliser votre commande', {
+        description: 'Créez un compte ou connectez-vous en quelques secondes.',
+      });
+      setIsOpen(false);
+      navigate('/auth?redirect=checkout');
+      return;
+    }
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
       window.open(checkoutUrl, '_blank');
