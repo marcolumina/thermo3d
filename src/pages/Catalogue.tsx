@@ -187,7 +187,7 @@ const Catalogue = () => {
               Chez <strong className="text-foreground">Thermo3D</strong>, nous concevons et fabriquons en France des accessoires sur mesure pour votre Thermomix TM5, TM6 et TM7. Grâce à l'impression 3D de précision, chaque pièce s'adapte parfaitement et résiste à un usage quotidien intensif.
             </p>
             <p>
-              Nos clients gagnent en moyenne <strong className="text-foreground">30 minutes par semaine</strong> grâce à une cuisine mieux organisée. Tous nos accessoires sont en PLA de qualité alimentaire. Livraison offerte dès 50€, satisfait ou remboursé 30 jours.
+              Nos clients gagnent en moyenne <strong className="text-foreground">30 minutes par semaine</strong> grâce à une cuisine mieux organisée. Tous nos accessoires sont en PLA de qualité alimentaire. Livraison offerte dès 50€, satisfait ou remboursé 15 jours.
             </p>
           </div>
         </div>
