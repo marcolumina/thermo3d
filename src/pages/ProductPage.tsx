@@ -336,6 +336,10 @@ const ProductPage = () => {
                         <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la Corse
                       </p>
                     </div>
+                    <ShippingRateForVariant
+                      weight={selectedVariant?.weight}
+                      weightUnit={selectedVariant?.weightUnit}
+                    />
                     <Link to="/livraison" className="text-[11px] text-accent font-semibold hover:underline inline-flex items-center gap-1">
                       Délais, zones & suivi de colis →
                     </Link>
