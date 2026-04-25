@@ -1,20 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [website, setWebsite] = useState(''); // honeypot
+  const [submitting, setSubmitting] = useState(false);
+  const renderedAt = useRef<number>(Date.now());
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    renderedAt.current = Date.now();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Message envoyé !', { description: 'Nous vous répondrons dans les plus brefs délais.' });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke('contact', {
+        body: {
+          ...formData,
+          website,
+          elapsedMs: Date.now() - renderedAt.current,
+        },
+      });
+      if (error) throw error;
+      toast.success('Message envoyé !', { description: 'Nous vous répondrons sous 24-48h.' });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setWebsite('');
+    } catch (err) {
+      console.error(err);
+      toast.error('Erreur', { description: 'Impossible d’envoyer le message. Réessayez.' });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -41,13 +67,29 @@ const Contact = () => {
 
         <section className="container mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
               <h2 className="font-display font-bold text-lg text-foreground mb-2">Envoyez-nous un message</h2>
+
+              {/* Honeypot field — invisible to users, attractive to bots */}
+              <div aria-hidden="true" className="absolute left-[-9999px] top-[-9999px] h-0 w-0 overflow-hidden">
+                <label>
+                  Ne pas remplir
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </label>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Nom</label>
                   <Input
                     required
+                    maxLength={100}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Votre nom"
@@ -58,6 +100,7 @@ const Contact = () => {
                   <Input
                     type="email"
                     required
+                    maxLength={255}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="votre@email.com"
@@ -68,6 +111,7 @@ const Contact = () => {
                 <label className="text-sm font-medium text-foreground mb-1.5 block">Sujet</label>
                 <Input
                   required
+                  maxLength={150}
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder="Sujet de votre message"
@@ -77,6 +121,8 @@ const Contact = () => {
                 <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
                 <textarea
                   required
+                  minLength={5}
+                  maxLength={2000}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Votre message..."
@@ -84,9 +130,9 @@ const Contact = () => {
                   className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none"
                 />
               </div>
-              <Button type="submit" className="rounded-full gap-2">
-                <Send className="w-4 h-4" />
-                Envoyer le message
+              <Button type="submit" disabled={submitting} className="rounded-full gap-2">
+                {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                {submitting ? 'Envoi…' : 'Envoyer le message'}
               </Button>
             </form>
 

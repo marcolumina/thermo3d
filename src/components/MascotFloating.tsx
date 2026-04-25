@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ShoppingBag, HelpCircle } from 'lucide-react';
-import mascotImg from '@/assets/mascot-thermo3d.png';
+import mascotImg from '@/assets/mascot-thermo3d.webp';
 
 const MascotFloating = () => {
   const [isOpen, setIsOpen] = useState(false);

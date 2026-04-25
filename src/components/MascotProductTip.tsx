@@ -1,4 +1,4 @@
-import mascotImg from '@/assets/mascot-thermo3d.png';
+import mascotImg from '@/assets/mascot-thermo3d.webp';
 
 const MascotProductTip = () => {
   return (
