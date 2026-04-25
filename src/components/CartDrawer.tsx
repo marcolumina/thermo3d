@@ -137,9 +137,20 @@ export const CartDrawer = () => {
                   </div>
                 </div>
 
-                <Button onClick={handleCheckout} className="w-full bg-primary text-primary-foreground hover:opacity-90 min-h-[52px]" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
-                  {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Lock className="w-4 h-4 mr-2" />Passer commande — {grandTotal.toFixed(2)} €</>}
+                <Button onClick={handleCheckout} className="w-full bg-primary text-primary-foreground hover:opacity-90 min-h-[52px]" size="lg" disabled={items.length === 0 || isLoading || isSyncing || authLoading}>
+                  {isLoading || isSyncing || authLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : !user ? (
+                    <><Lock className="w-4 h-4 mr-2" />Se connecter pour commander</>
+                  ) : (
+                    <><Lock className="w-4 h-4 mr-2" />Passer commande — {grandTotal.toFixed(2)} €</>
+                  )}
                 </Button>
+                {!user && !authLoading && (
+                  <p className="text-[11px] text-center text-muted-foreground -mt-1">
+                    La création d'un compte est requise pour finaliser votre commande.
+                  </p>
+                )}
 
                 {/* Reassurance bar */}
                 <div className="grid grid-cols-3 gap-2 pt-1">
