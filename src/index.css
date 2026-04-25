@@ -95,3 +95,31 @@
     display: none;
   }
 }
+
+/* ====== Mobile UX optimizations ====== */
+@media (max-width: 767px) {
+  /* Évite le zoom auto iOS quand on focus un input (font-size < 16px) */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Améliore le tap delay et désactive le highlight bleu/gris au tap */
+  a, button, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Réserve de l'espace en bas sur les pages produit (sticky CTA mobile) */
+  body.has-sticky-cta {
+    padding-bottom: 80px;
+  }
+}
+
+/* Smooth scroll global */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+

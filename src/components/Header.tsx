@@ -38,17 +38,22 @@ const Header = () => {
           />
         </div>
 
-        <div className="flex items-center gap-3">
-          <Link to={user ? '/account' : '/auth'} className="p-2 hover:text-accent transition-colors" aria-label="Mon compte">
+        <div className="flex items-center gap-1 sm:gap-3">
+          <Link
+            to={user ? '/account' : '/auth'}
+            className="p-2.5 hover:text-accent transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label="Mon compte"
+          >
             <User className="w-5 h-5" />
           </Link>
           <CartDrawer />
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
+            aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -70,13 +75,13 @@ const Header = () => {
       </nav>
 
       {mobileOpen && (
-        <nav className="md:hidden bg-background border-t border-border/40 px-6 py-4 space-y-3">
-          <div className="relative mb-3">
+        <nav className="md:hidden bg-background border-t border-border/40 px-5 py-4 space-y-1 max-h-[calc(100vh-64px)] overflow-y-auto">
+          <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="search"
               placeholder="Chercher des produits..."
-              className="w-full pl-10 pr-4 py-2 rounded-full bg-secondary border border-border/60 text-sm"
+              className="w-full pl-10 pr-4 py-3 rounded-full bg-secondary border border-border/60 text-base"
             />
           </div>
           {NAV_LINKS.map(link => (
@@ -84,8 +89,8 @@ const Header = () => {
               key={link.to}
               to={link.to}
               onClick={() => setMobileOpen(false)}
-              className={`block text-sm font-medium py-1.5 ${
-                isActive(link.to) ? 'text-accent' : 'text-foreground/70'
+              className={`flex items-center text-base font-medium py-3 px-2 rounded-lg min-h-[44px] ${
+                isActive(link.to) ? 'text-accent bg-accent/10' : 'text-foreground/80 hover:bg-secondary'
               }`}
             >
               {link.label}
