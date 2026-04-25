@@ -128,9 +128,9 @@ export const CartDrawer = () => {
                   </div>
                   <div className="flex justify-between text-muted-foreground">
                     <span>Livraison Mondial Relay (3-5j)</span>
-                    <span>{shipping === 0 ? <span className="text-accent font-semibold">Offerte</span> : `dès ${shipping.toFixed(2)} €`}</span>
+                    <span>{shipping === 0 ? <span className="text-accent font-semibold">Offerte</span> : `${shipping.toFixed(2)} €`}</span>
                   </div>
-                  <p className="text-[10px] text-muted-foreground/80 -mt-1">Tarif final calculé au paiement</p>
+                  <p className="text-[10px] text-muted-foreground/80 -mt-1">Tarif unique France métropolitaine · offert dès 50 €</p>
                   <div className="flex justify-between items-center pt-2 border-t border-border/60">
                     <span className="text-lg font-display font-semibold">Total</span>
                     <span className="text-xl font-display font-bold">{grandTotal.toFixed(2)} €</span>
