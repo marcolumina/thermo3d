@@ -136,8 +136,8 @@ const Livraison = () => {
                   Où livrons-nous ?
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  Nous expédions tous nos accessoires Thermomix depuis notre atelier en France 🇫🇷.
-                  Que vous soyez en métropole, en Corse ou en Belgique, nous trouvons toujours une solution.
+                  Nous expédions tous nos accessoires Thermomix depuis notre atelier en Corse 🇫🇷.
+                  Que vous soyez en métropole ou en Belgique, nous trouvons toujours une solution.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Pour toute autre destination, contactez-nous avant commande pour un devis personnalisé.
