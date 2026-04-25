@@ -34,9 +34,14 @@ const Reviews = () => {
             {reviews.map((r) => (
               <div key={r.name} className="bg-card rounded-xl p-5 border border-border/50 w-[290px] flex-shrink-0">
                 <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <p className="font-semibold text-sm text-foreground">{r.name}</p>
-                    <p className="text-[11px] text-muted-foreground">{r.city}</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-accent/15 text-accent font-bold text-sm flex items-center justify-center flex-shrink-0">
+                      {r.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm text-foreground leading-tight">{r.name}</p>
+                      <p className="text-[11px] text-muted-foreground">{r.city}</p>
+                    </div>
                   </div>
                   <span className="text-[10px] text-accent font-medium bg-accent/10 px-2 py-0.5 rounded-full inline-flex items-center gap-1">
                     <ShieldCheck className="w-3 h-3" /> Vérifié
