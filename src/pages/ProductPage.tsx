@@ -417,6 +417,66 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT ═══════ */}
+            <section className="py-14 md:py-20 bg-background border-t border-border/30">
+              <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+                <div className="text-center mb-10 md:mb-14">
+                  <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">Pourquoi ce produit</p>
+                  <h2 className="font-display font-extrabold text-2xl md:text-3xl text-foreground leading-tight">
+                    3 bonnes raisons de l'adopter
+                  </h2>
+                  <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
+                    Pensé pour les passionnés de Thermomix qui veulent une cuisine claire, pratique et durable.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                  {[
+                    {
+                      icon: Zap,
+                      tag: 'Gain de temps',
+                      title: 'Tout à portée de main',
+                      desc: 'Vos accessoires Thermomix parfaitement rangés, prêts en une seconde. Fini les tiroirs en bazar.',
+                    },
+                    {
+                      icon: ShieldCheck,
+                      tag: 'Qualité premium',
+                      title: 'Fabriqué en France 🇫🇷',
+                      desc: 'Imprimé en 3D dans notre atelier, en PLA alimentaire certifié. Robuste, sûr, durable.',
+                    },
+                    {
+                      icon: Heart,
+                      tag: 'Plaisir au quotidien',
+                      title: 'Une cuisine qui vous ressemble',
+                      desc: 'Design épuré, finition soignée : votre Thermomix devient enfin une pièce maîtresse de votre cuisine.',
+                    },
+                  ].map((b) => (
+                    <div
+                      key={b.title}
+                      className="group relative bg-secondary/30 border border-border/40 rounded-2xl p-6 md:p-7 hover:border-accent/40 hover:shadow-lg transition-all"
+                    >
+                      <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors">
+                        <b.icon className="w-6 h-6 text-accent" />
+                      </div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-accent mb-2">{b.tag}</p>
+                      <h3 className="font-display font-bold text-base md:text-lg text-foreground mb-2 leading-snug">
+                        {b.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> +1 000 clients satisfaits</span>
+                  <span className="hidden sm:inline text-border">•</span>
+                  <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Satisfait ou remboursé 30j</span>
+                  <span className="hidden sm:inline text-border">•</span>
+                  <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Expédié sous 48h</span>
+                </div>
+              </div>
+            </section>
+
             {/* ═══════ SECTION 2 : CARACTÉRISTIQUES TECHNIQUES ═══════ */}
             <section className="bg-secondary/30 py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
