@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Lock, Truck, ShieldCheck } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+
+const FREE_SHIPPING_THRESHOLD = 50;
+const DEFAULT_SHIPPING = 4.0; // Mondial Relay entry tier
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
