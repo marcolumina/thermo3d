@@ -8,11 +8,11 @@ const TopBanner = () => {
         <div className="container mx-auto px-4 flex items-center justify-between text-[11px] text-muted-foreground">
           <div className="flex items-center gap-1.5">
             <span className="text-sm" aria-hidden>🚚</span>
-            <span className="font-semibold text-foreground">Livraison offerte dès 50€</span>
+            <span className="font-semibold text-foreground">Livraison offerte dès 50€ – 3 à 5 jours ouvrés</span>
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
             <RefreshCw className="w-3.5 h-3.5 text-accent" />
-            <span>Retour gratuit sous 15 jours</span>
+            <span>Retour gratuit sous 14 jours</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Star className="w-3.5 h-3.5 fill-accent text-accent" />
