@@ -5,7 +5,7 @@ import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Lock, Truck, 
 import { useCartStore } from "@/stores/cartStore";
 
 const FREE_SHIPPING_THRESHOLD = 50;
-const DEFAULT_SHIPPING = 4.0; // Mondial Relay entry tier
+const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul réel via Shopify)
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,9 +114,10 @@ export const CartDrawer = () => {
                     <span>{subtotal.toFixed(2)} €</span>
                   </div>
                   <div className="flex justify-between text-muted-foreground">
-                    <span>Livraison estimée</span>
-                    <span>{shipping === 0 ? <span className="text-accent font-semibold">Offerte</span> : `${shipping.toFixed(2)} €`}</span>
+                    <span>Livraison Mondial Relay (3-5j)</span>
+                    <span>{shipping === 0 ? <span className="text-accent font-semibold">Offerte</span> : `dès ${shipping.toFixed(2)} €`}</span>
                   </div>
+                  <p className="text-[10px] text-muted-foreground/80 -mt-1">Tarif final calculé au paiement</p>
                   <div className="flex justify-between items-center pt-2 border-t border-border/60">
                     <span className="text-lg font-display font-semibold">Total</span>
                     <span className="text-xl font-display font-bold">{grandTotal.toFixed(2)} €</span>

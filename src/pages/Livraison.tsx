@@ -20,7 +20,7 @@ const carriers = [
     icon: Package,
     name: 'Mondial Relay',
     delay: '3 à 5 jours ouvrés',
-    price: 'dès 4,00 €',
+    price: 'dès 4,10 €',
     desc: 'Livraison en point relais près de chez vous. Plus de 11 000 points en France.',
   },
 ];

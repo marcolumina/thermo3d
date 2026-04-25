@@ -15,7 +15,19 @@ const faqs = [
   },
   {
     q: 'Quel est le délai de livraison ?',
-    a: 'Nous expédions sous 48h ouvrées depuis notre atelier en Corse. La livraison en France métropolitaine prend généralement 2 à 4 jours. La livraison est offerte dès 50€ d\'achat.',
+    a: 'Nous expédions sous 24 à 48h ouvrées depuis notre atelier en Corse. Comptez ensuite 2 à 3 jours par Colissimo et 3 à 5 jours par Mondial Relay en France métropolitaine.',
+  },
+  {
+    q: 'Combien coûte la livraison ?',
+    a: 'Mondial Relay dès 4,10 € (3 à 5 jours ouvrés) et Colissimo dès 5,15 € (2 à 3 jours ouvrés). La livraison est offerte dès 50 € d\'achat. Le tarif exact est calculé automatiquement au paiement selon le poids de votre commande.',
+  },
+  {
+    q: 'À partir de quel montant la livraison est-elle offerte ?',
+    a: 'Dès 50 € d\'achat, la livraison est automatiquement offerte, quel que soit le mode choisi (Mondial Relay ou Colissimo).',
+  },
+  {
+    q: 'Puis-je suivre mon colis ?',
+    a: 'Oui, vous recevez par email votre numéro de suivi dès l\'expédition, avec un lien direct vers le site du transporteur. Vous le retrouvez aussi à tout moment dans votre espace client.',
   },
   {
     q: 'Puis-je retourner un produit ?',

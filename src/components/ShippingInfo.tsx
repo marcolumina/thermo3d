@@ -5,15 +5,15 @@ const shippingOptions = [
     icon: Truck,
     title: 'Colissimo',
     delay: '2-3 jours ouvrés',
-    price: '4,90 €',
-    freeFrom: 'Offert dès 50€',
+    price: 'dès 5,15 €',
+    freeFrom: 'Offerte dès 50€',
   },
   {
     icon: MapPin,
     title: 'Mondial Relay',
     delay: '3-5 jours ouvrés',
-    price: '3,90 €',
-    freeFrom: 'Offert dès 50€',
+    price: 'dès 4,10 €',
+    freeFrom: 'Offerte dès 50€',
   },
 ];
 
