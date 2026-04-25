@@ -124,7 +124,7 @@ const AccessoiresTM7 = () => {
               Tous nos <strong className="text-foreground">accessoires Thermomix</strong> pour TM7 sont fabriqués en PLA de qualité alimentaire, un matériau écologique et certifié pour un usage alimentaire. L'installation est instantanée, sans outil, pour un résultat immédiat dans votre cuisine.
             </p>
             <p>
-              Rejoignez plus de 1000 clients satisfaits qui ont déjà transformé leur expérience Thermomix avec les <strong className="text-foreground">accessoires Thermo3D</strong>. Livraison offerte dès 50€, satisfait ou remboursé 30 jours.
+              Rejoignez plus de 1000 clients satisfaits qui ont déjà transformé leur expérience Thermomix avec les <strong className="text-foreground">accessoires Thermo3D</strong>. Livraison offerte dès 50€, satisfait ou remboursé 15 jours.
             </p>
           </div>
         </div>

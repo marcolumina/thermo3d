@@ -28,7 +28,7 @@ const Footer = () => {
             {[
               { icon: Truck, label: 'Livraison offerte dès 50€' },
               { icon: ShieldCheck, label: 'Paiement 100% sécurisé' },
-              { icon: RefreshCw, label: 'Satisfait ou remboursé 30j' },
+              { icon: RefreshCw, label: 'Satisfait ou remboursé 15j' },
               { icon: Flag, label: 'Fabriqué en France 🇫🇷' },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex flex-col items-center gap-2">
@@ -99,7 +99,7 @@ const Footer = () => {
             <ul className="space-y-2.5 text-sm text-background/40">
               <li><Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link></li>
               <li><Link to="/cgv" className="hover:text-accent transition-colors">CGV</Link></li>
-              <li><Link to="/politique-de-retour" className="hover:text-accent transition-colors">Politique de retour 30j</Link></li>
+              <li><Link to="/politique-de-retour" className="hover:text-accent transition-colors">Politique de retour 15j</Link></li>
               <li><Link to="/politique-confidentialite" className="hover:text-accent transition-colors">Confidentialité (RGPD)</Link></li>
               <li>
                 <button

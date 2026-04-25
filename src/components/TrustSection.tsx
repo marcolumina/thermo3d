@@ -48,7 +48,7 @@ const TrustSection = () => {
               <ShieldCheck className="w-6 h-6 text-accent" />
             </div>
             <p className="font-display font-bold text-sm text-foreground">Satisfait ou remboursé</p>
-            <p className="text-[11px] text-muted-foreground leading-tight">30 jours pour changer d'avis</p>
+            <p className="text-[11px] text-muted-foreground leading-tight">15 jours pour changer d'avis</p>
           </div>
 
           {/* Compatibilité */}

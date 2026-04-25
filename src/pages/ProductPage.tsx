@@ -46,7 +46,7 @@ const faqs = [
 const guarantees = [
   { icon: Truck, title: 'Livraison rapide', desc: 'Expédié sous 48h depuis la Corse' },
   { icon: ShieldCheck, title: 'Paiement sécurisé', desc: 'CB, PayPal, Apple Pay' },
-  { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 30 jours' },
+  { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 15 jours' },
   { icon: Headphones, title: 'Support français', desc: 'Réponse sous 24h par email' },
 ];
 
@@ -470,7 +470,7 @@ const ProductPage = () => {
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
                   <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> +1 000 clients satisfaits</span>
                   <span className="hidden sm:inline text-border">•</span>
-                  <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Satisfait ou remboursé 30j</span>
+                  <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Satisfait ou remboursé 15j</span>
                   <span className="hidden sm:inline text-border">•</span>
                   <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Expédié sous 48h</span>
                 </div>

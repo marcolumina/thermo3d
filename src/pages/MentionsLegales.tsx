@@ -13,14 +13,19 @@ const MentionsLegales = () => {
 
       <Header />
       <main className="container mx-auto px-6 py-16 max-w-3xl">
-        <h1 className="font-display text-3xl font-bold mb-8">Mentions Légales</h1>
+        <h1 className="font-display text-3xl font-bold mb-2">Mentions Légales</h1>
+        <p className="text-xs text-muted-foreground mb-8">Dernière mise à jour : avril 2026</p>
+
+        <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 mb-8 text-xs text-foreground">
+          ⚠️ <strong>Mentions à compléter par l'éditeur</strong> avant la mise en ligne définitive : raison sociale, SIRET, RCS, n° TVA et coordonnées de contact.
+        </div>
 
         <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
           <section>
             <h2 className="font-display text-lg font-semibold text-foreground mb-2">Éditeur du site</h2>
             <p>
               Le site <strong>thermo3d.fr</strong> est édité par :<br />
-              [Nom / Raison sociale]<br />
+              <strong>Thermo3D</strong> — [Raison sociale à compléter]<br />
               [Forme juridique] au capital de [montant] €<br />
               Siège social : [Adresse complète]<br />
               SIRET : [Numéro SIRET]<br />
@@ -59,7 +64,7 @@ const MentionsLegales = () => {
           <section>
             <h2 className="font-display text-lg font-semibold text-foreground mb-2">Cookies</h2>
             <p>
-              Ce site utilise des cookies pour améliorer l'expérience utilisateur et assurer le bon fonctionnement du panier d'achat. En poursuivant votre navigation, vous acceptez l'utilisation de cookies conformément à notre politique de confidentialité.
+              Ce site utilise des cookies essentiels au bon fonctionnement (panier, session, préférences) ainsi que des cookies de mesure d'audience et marketing soumis à votre consentement. Lors de votre première visite, une bannière vous permet d'accepter, refuser ou personnaliser leur utilisation. Vous pouvez modifier vos préférences à tout moment via le lien <strong>« Gérer mes cookies »</strong> en pied de page. Pour plus d'informations, consultez notre <a href="/politique-confidentialite" className="text-primary underline">Politique de confidentialité</a>.
             </p>
           </section>
         </div>

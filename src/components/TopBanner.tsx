@@ -12,7 +12,7 @@ const TopBanner = () => {
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
             <RefreshCw className="w-3.5 h-3.5 text-accent" />
-            <span>Retour gratuit sous 30 jours</span>
+            <span>Retour gratuit sous 15 jours</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Star className="w-3.5 h-3.5 fill-accent text-accent" />
