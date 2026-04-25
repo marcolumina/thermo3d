@@ -336,20 +336,29 @@ const ProductPage = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
                       <div className="flex items-center gap-2 bg-secondary/40 rounded-lg px-3 py-2">
-                        <Truck className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                        <Package className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                         <div>
-                          <p className="font-semibold text-foreground">Colissimo</p>
-                          <p className="text-muted-foreground">2-3 jours · 4,90€</p>
+                          <p className="font-semibold text-foreground">Mondial Relay</p>
+                          <p className="text-muted-foreground">3-5 j · dès 4,00 €</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 bg-secondary/40 rounded-lg px-3 py-2">
-                        <Package className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                      <div>
-                          <p className="font-semibold text-foreground">Mondial Relay</p>
-                          <p className="text-muted-foreground">3-5 jours · 3,90€</p>
+                        <Truck className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                        <div>
+                          <p className="font-semibold text-foreground">Colissimo</p>
+                          <p className="text-muted-foreground">2-3 j · dès 5,15 €</p>
                         </div>
                       </div>
                     </div>
+                    <details className="group bg-secondary/30 rounded-lg border border-border">
+                      <summary className="cursor-pointer text-[11px] font-semibold text-foreground px-3 py-2 flex items-center justify-between list-none">
+                        <span>Voir la grille tarifaire complète par poids</span>
+                        <span className="text-accent group-open:rotate-180 transition-transform">▾</span>
+                      </summary>
+                      <div className="p-3 pt-0">
+                        <ShippingRates compact />
+                      </div>
+                    </details>
                     <Link to="/livraison" className="text-[11px] text-accent font-semibold hover:underline inline-flex items-center gap-1">
                       Délais, zones & suivi de colis →
                     </Link>
