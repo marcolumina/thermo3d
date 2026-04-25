@@ -1,14 +1,23 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Lock, Truck, ShieldCheck } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+
+const FREE_SHIPPING_THRESHOLD = 50;
+const DEFAULT_SHIPPING = 4.0; // Mondial Relay entry tier
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
+
+  const subtotal = totalPrice;
+  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : DEFAULT_SHIPPING;
+  const grandTotal = subtotal + shipping;
+  const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
+  const progressPct = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
 
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
 
@@ -80,14 +89,59 @@ export const CartDrawer = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t">
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-display font-semibold">Total</span>
-                  <span className="text-xl font-display font-bold">{totalPrice.toFixed(2)} €</span>
+              <div className="flex-shrink-0 space-y-3 pt-4 border-t">
+                {/* Free shipping progress */}
+                <div className="rounded-lg bg-accent/5 border border-accent/15 p-3">
+                  {remainingForFreeShipping > 0 ? (
+                    <p className="text-xs text-foreground/80">
+                      Plus que <span className="font-semibold text-accent">{remainingForFreeShipping.toFixed(2)} €</span> pour la livraison offerte 🎉
+                    </p>
+                  ) : (
+                    <p className="text-xs font-semibold text-accent">🎉 Livraison offerte débloquée !</p>
+                  )}
+                  <div className="mt-2 h-1.5 rounded-full bg-accent/15 overflow-hidden">
+                    <div
+                      className="h-full bg-accent transition-all duration-500"
+                      style={{ width: `${progressPct}%` }}
+                    />
+                  </div>
                 </div>
-                <Button onClick={handleCheckout} className="w-full bg-primary text-primary-foreground hover:opacity-90" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
-                  {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Passer la commande</>}
+
+                {/* Price breakdown */}
+                <div className="space-y-1.5 text-sm">
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>Sous-total</span>
+                    <span>{subtotal.toFixed(2)} €</span>
+                  </div>
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>Livraison estimée</span>
+                    <span>{shipping === 0 ? <span className="text-accent font-semibold">Offerte</span> : `${shipping.toFixed(2)} €`}</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-border/60">
+                    <span className="text-lg font-display font-semibold">Total</span>
+                    <span className="text-xl font-display font-bold">{grandTotal.toFixed(2)} €</span>
+                  </div>
+                </div>
+
+                <Button onClick={handleCheckout} className="w-full bg-primary text-primary-foreground hover:opacity-90 min-h-[52px]" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
+                  {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Lock className="w-4 h-4 mr-2" />Passer commande — {grandTotal.toFixed(2)} €</>}
                 </Button>
+
+                {/* Reassurance bar */}
+                <div className="grid grid-cols-3 gap-2 pt-1">
+                  <div className="flex flex-col items-center text-center gap-1">
+                    <Lock className="w-4 h-4 text-accent" />
+                    <span className="text-[10px] leading-tight text-muted-foreground">Paiement<br/>sécurisé</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center gap-1">
+                    <Truck className="w-4 h-4 text-accent" />
+                    <span className="text-[10px] leading-tight text-muted-foreground">Expédition<br/>rapide</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center gap-1">
+                    <ShieldCheck className="w-4 h-4 text-accent" />
+                    <span className="text-[10px] leading-tight text-muted-foreground">Garantie<br/>30 jours</span>
+                  </div>
+                </div>
               </div>
             </>
           )}
