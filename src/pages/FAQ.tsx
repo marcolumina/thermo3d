@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'Combien coûte la livraison ?',
-    a: 'Mondial Relay dès 4,10 € (3 à 5 jours ouvrés) et Colissimo dès 5,15 € (2 à 3 jours ouvrés). La livraison est offerte dès 50 € d\'achat. Le tarif exact est calculé automatiquement au paiement selon le poids de votre commande.',
+    a: 'Mondial Relay : tarif unique 5,99 € en France métropolitaine (3 à 5 jours ouvrés). Colissimo : dès 5,15 € selon le poids (2 à 3 jours ouvrés). La livraison est offerte dès 50 € d\'achat.',
   },
   {
     q: 'À partir de quel montant la livraison est-elle offerte ?',

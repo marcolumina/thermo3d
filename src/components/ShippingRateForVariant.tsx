@@ -23,7 +23,7 @@ const ShippingRateForVariant = ({ weight, weightUnit }: Props) => {
   const mr = grams != null ? findRateForWeight(grams, mondialRelayRates) : null;
   const co = grams != null ? findRateForWeight(grams, colissimoRates) : null;
 
-  // Fallback : pas de poids renseigné → prix "à partir de"
+  // Fallback : pas de poids renseigné → afficher tarif unique
   if (grams == null) {
     return (
       <div className="grid grid-cols-2 gap-2 text-[11px]">
@@ -31,7 +31,7 @@ const ShippingRateForVariant = ({ weight, weightUnit }: Props) => {
           <Package className="w-3.5 h-3.5 text-accent flex-shrink-0" />
           <div>
             <p className="font-semibold text-foreground">Mondial Relay</p>
-            <p className="text-muted-foreground">3-5 j · dès 4,00 €</p>
+            <p className="text-muted-foreground">3-5 j · <span className="font-bold text-foreground">5,99 €</span></p>
           </div>
         </div>
         <div className="flex items-center gap-2 bg-secondary/40 rounded-lg px-3 py-2">
