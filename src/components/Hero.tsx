@@ -19,7 +19,7 @@ const Hero = () => {
             Fabriqué en France 🇫🇷
           </p>
           <h1 className="font-display font-bold text-[28px] leading-[1.15] tracking-tight text-background">
-            Optimisez votre cuisine avec votre Thermomix
+            Gagnez du temps avec votre Thermomix
           </h1>
           <p className="mt-3 text-sm text-background/75 leading-relaxed">
             Accessoires pratiques, fabriqués en France, livraison rapide en point relais.
@@ -59,7 +59,7 @@ const Hero = () => {
                 Fabriqué en France · Impression 3D de précision
               </p>
               <h1 className="font-display font-bold text-5xl md:text-6xl leading-[1.1] tracking-tight text-background">
-                Optimisez votre cuisine avec votre Thermomix
+                Gagnez du temps avec votre Thermomix
               </h1>
               <p className="mt-6 text-lg text-background/75 max-w-xl leading-relaxed">
                 Accessoires pratiques, fabriqués en France, livraison rapide en point relais.
