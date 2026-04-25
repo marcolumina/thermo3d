@@ -20,6 +20,7 @@ import RangementThermomix from "./pages/RangementThermomix.tsx";
 import AccessoiresTM6 from "./pages/AccessoiresTM6.tsx";
 import AccessoiresTM7 from "./pages/AccessoiresTM7.tsx";
 import Blog from "./pages/Blog.tsx";
+import Livraison from "./pages/Livraison.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
@@ -45,6 +46,7 @@ const AppContent = () => {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgv" element={<CGV />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/livraison" element={<Livraison />} />
         <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
         <Route path="/support-thermomix" element={<SupportThermomix />} />
         <Route path="/rangement-thermomix" element={<RangementThermomix />} />

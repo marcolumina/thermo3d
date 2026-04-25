@@ -344,12 +344,15 @@ const ProductPage = () => {
                       </div>
                       <div className="flex items-center gap-2 bg-secondary/40 rounded-lg px-3 py-2">
                         <Package className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                        <div>
+                      <div>
                           <p className="font-semibold text-foreground">Mondial Relay</p>
                           <p className="text-muted-foreground">3-5 jours · 3,90€</p>
                         </div>
                       </div>
                     </div>
+                    <Link to="/livraison" className="text-[11px] text-accent font-semibold hover:underline inline-flex items-center gap-1">
+                      Délais, zones & suivi de colis →
+                    </Link>
                   </div>
 
                   {/* Bénéfices */}
