@@ -4,12 +4,12 @@ const advantages = [
   {
     icon: Truck,
     title: 'Livraison rapide',
-    desc: "Expédition sous 48h depuis notre atelier en France. Livraison offerte dès 50€ d'achat en France métropolitaine.",
+    desc: "Expédition sous 48h depuis notre atelier en Corse. Livraison offerte dès 50€ d'achat en France métropolitaine.",
   },
   {
     icon: Printer,
     title: 'Fabrication 3D française',
-    desc: "Chaque accessoire est imprimé en 3D avec précision dans notre atelier en France, avec du PLA de qualité alimentaire certifié.",
+    desc: "Chaque accessoire est imprimé en 3D avec précision dans notre atelier en Corse, avec du PLA de qualité alimentaire certifié.",
   },
   {
     icon: CheckCircle,
