@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: 'Quel est le délai de livraison ?',
-    a: 'Nous expédions sous 48h ouvrées. La livraison en France métropolitaine prend généralement 2 à 4 jours. La livraison est offerte dès 50€ d\'achat.',
+    a: 'Nous expédions sous 48h ouvrées depuis notre atelier en Corse. La livraison en France métropolitaine prend généralement 2 à 4 jours. La livraison est offerte dès 50€ d\'achat.',
   },
   {
     q: 'Puis-je retourner un produit ?',
