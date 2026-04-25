@@ -37,6 +37,8 @@ export interface ShopifyProduct {
             currencyCode: string;
           };
           availableForSale: boolean;
+          weight?: number | null;
+          weightUnit?: 'GRAMS' | 'KILOGRAMS' | 'OUNCES' | 'POUNDS' | null;
           selectedOptions: Array<{
             name: string;
             value: string;
