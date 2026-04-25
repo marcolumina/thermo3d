@@ -23,10 +23,10 @@ const ShippingInfo = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-3">
-            Livraison rapide depuis la France 🇫🇷
+            Livraison rapide depuis la Corse 🇫🇷
           </h2>
           <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-            Tous nos accessoires sont expédiés sous 48h depuis notre atelier en France.
+            Tous nos accessoires sont expédiés sous 48h depuis notre atelier en Corse.
           </p>
         </div>
 
