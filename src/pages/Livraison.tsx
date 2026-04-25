@@ -35,7 +35,7 @@ const Livraison = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
         <title>Livraison — Délais, Suivi & Tarifs | Thermo3D</title>
-        <meta name="description" content="Livraison Colissimo (2-3 jours) et Mondial Relay (3-5 jours) depuis la France. Préparation sous 24-48h, suivi de colis inclus, livraison offerte dès 50€." />
+        <meta name="description" content="Livraison Colissimo (2-3 jours) et Mondial Relay (3-5 jours) depuis la Corse. Préparation sous 24-48h, suivi de colis inclus, livraison offerte dès 50€." />
         <link rel="canonical" href="https://thermo3d.fr/livraison" />
       </Helmet>
 
