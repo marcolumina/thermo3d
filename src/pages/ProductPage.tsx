@@ -733,24 +733,27 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* Sticky mobile CTA */}
-            <div className="fixed bottom-0 left-0 right-0 p-3 bg-background/95 backdrop-blur-md border-t border-border lg:hidden z-50">
+            {/* Sticky mobile CTA — safe-area iOS */}
+            <div
+              className="fixed bottom-0 left-0 right-0 px-3 pt-3 bg-background/95 backdrop-blur-md border-t border-border lg:hidden z-50"
+              style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
+            >
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading}
-                className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base shadow-[0_0_20px_hsl(97_52%_51%/0.2)]"
+                className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base min-h-[56px] active:scale-[0.98] transition-transform shadow-[0_0_20px_hsl(97_52%_51%/0.25)]"
               >
                 {isLoading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <>
                     <ShoppingCart className="w-5 h-5" />
-                    Ajouter au panier — {productPrice} €
+                    Ajouter — {productPrice} €
                   </>
                 )}
               </button>
             </div>
-            <div className="h-20 lg:hidden" />
+            <div className="h-24 lg:hidden" aria-hidden="true" />
           </>
         )}
       </main>
