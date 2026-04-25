@@ -15,6 +15,7 @@ import Footer from '@/components/Footer';
 import CrossSell from '@/components/CrossSell';
 import { useState, useMemo } from 'react';
 import MascotProductTip from '@/components/MascotProductTip';
+import ShippingRates from '@/components/ShippingRates';
 
 /* ── Données statiques de la page ── */
 
