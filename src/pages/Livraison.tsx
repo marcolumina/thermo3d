@@ -48,7 +48,7 @@ const Livraison = () => {
           <div className="container mx-auto px-6 text-center max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-4">
               <Truck className="w-3.5 h-3.5" />
-              Expédié depuis la France 🇫🇷
+              Expédié depuis la Corse 🇫🇷
             </div>
             <h1 className="font-display font-extrabold text-3xl md:text-5xl text-foreground mb-4">
               Livraison rapide et soignée
