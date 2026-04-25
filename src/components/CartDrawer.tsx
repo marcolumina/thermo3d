@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Lock, Truck, ShieldCheck } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { useAuth } from "@/hooks/useAuth";
 
 const FREE_SHIPPING_THRESHOLD = 50;
 const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul réel via Shopify)
