@@ -8,7 +8,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { useAuth } from "@/hooks/useAuth";
 
 const FREE_SHIPPING_THRESHOLD = 50;
-const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul réel via Shopify)
+const DEFAULT_SHIPPING = 5.99; // Mondial Relay tarif unique France métropolitaine
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
