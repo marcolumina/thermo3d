@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import mascotImg from '@/assets/mascot-thermo3d.png';
+import mascotImg from '@/assets/mascot-thermo3d.webp';
 
 const MascotWelcome = () => {
   return (

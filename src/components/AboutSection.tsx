@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Flag } from 'lucide-react';
-import aboutImage from '@/assets/about-section.png';
+import aboutImage from '@/assets/about-section.webp';
 
 const AboutSection = () => {
   return (
