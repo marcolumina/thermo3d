@@ -115,7 +115,7 @@ const AccessoiresTM7 = () => {
               Le <strong className="text-foreground">Thermomix TM7</strong> représente la nouvelle génération de robots de cuisine. Avec ses innovations technologiques et son design repensé, il offre des possibilités encore plus étendues pour cuisiner au quotidien. Les bons <strong className="text-foreground">accessoires Thermomix</strong> vous permettent d'en tirer le meilleur parti.
             </p>
             <p>
-              Nos <strong className="text-foreground">accessoires Thermomix TM7</strong> sont spécialement conçus pour s'adapter aux nouvelles dimensions et à l'ergonomie du TM7. Fabriqués par impression 3D dans notre atelier en France, chaque pièce bénéficie d'une précision au dixième de millimètre pour un ajustement parfait.
+              Nos <strong className="text-foreground">accessoires Thermomix TM7</strong> sont spécialement conçus pour s'adapter aux nouvelles dimensions et à l'ergonomie du TM7. Fabriqués par impression 3D dans notre atelier en Corse, chaque pièce bénéficie d'une précision au dixième de millimètre pour un ajustement parfait.
             </p>
             <p>
               Le <strong className="text-foreground">rangement cuisine</strong> est essentiel pour profiter pleinement de votre TM7. Nos organisateurs, supports et rangements sont pensés pour libérer votre plan de travail et garder tous vos ustensiles accessibles. Une cuisine bien organisée, c'est plus de plaisir et moins de stress au quotidien.

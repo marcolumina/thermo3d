@@ -25,7 +25,7 @@ const carriers = [
 
 const steps = [
   { icon: CheckCircle, title: 'Commande confirmée', desc: 'Vous recevez un email de confirmation immédiatement après votre paiement.' },
-  { icon: Package, title: 'Préparation 24-48h', desc: 'Votre commande est imprimée, contrôlée et emballée dans notre atelier en France.' },
+  { icon: Package, title: 'Préparation 24-48h', desc: 'Votre commande est imprimée, contrôlée et emballée dans notre atelier en Corse.' },
   { icon: Truck, title: 'Expédition', desc: 'Vous recevez un email avec votre numéro de suivi dès que le colis quitte notre atelier.' },
   { icon: Gift, title: 'Livraison', desc: 'Votre colis arrive chez vous ou en point relais selon le mode choisi.' },
 ];
@@ -35,7 +35,7 @@ const Livraison = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
         <title>Livraison — Délais, Suivi & Tarifs | Thermo3D</title>
-        <meta name="description" content="Livraison Colissimo (2-3 jours) et Mondial Relay (3-5 jours) depuis la France. Préparation sous 24-48h, suivi de colis inclus, livraison offerte dès 50€." />
+        <meta name="description" content="Livraison Colissimo (2-3 jours) et Mondial Relay (3-5 jours) depuis la Corse. Préparation sous 24-48h, suivi de colis inclus, livraison offerte dès 50€." />
         <link rel="canonical" href="https://thermo3d.fr/livraison" />
       </Helmet>
 
@@ -48,7 +48,7 @@ const Livraison = () => {
           <div className="container mx-auto px-6 text-center max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-4">
               <Truck className="w-3.5 h-3.5" />
-              Expédié depuis la France 🇫🇷
+              Expédié depuis la Corse 🇫🇷
             </div>
             <h1 className="font-display font-extrabold text-3xl md:text-5xl text-foreground mb-4">
               Livraison rapide et soignée
@@ -136,8 +136,8 @@ const Livraison = () => {
                   Où livrons-nous ?
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  Nous expédions tous nos accessoires Thermomix depuis notre atelier en France 🇫🇷.
-                  Que vous soyez en métropole, en Corse ou en Belgique, nous trouvons toujours une solution.
+                  Nous expédions tous nos accessoires Thermomix depuis notre atelier en Corse 🇫🇷.
+                  Que vous soyez en métropole ou en Belgique, nous trouvons toujours une solution.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Pour toute autre destination, contactez-nous avant commande pour un devis personnalisé.

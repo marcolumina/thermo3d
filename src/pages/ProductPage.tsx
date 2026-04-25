@@ -36,13 +36,13 @@ const reviews = [
 const faqs = [
   { q: 'Est-ce compatible avec mon Thermomix ?', a: "Oui ! Tous nos accessoires sont compatibles avec les modèles Thermomix. L'ajustement est parfait grâce à l'impression 3D de précision." },
   { q: "Comment ça s'installe ?", a: "Installation en 2 secondes, sans outil. Vous posez, ça clipe, c'est prêt. Ultra simple et ultra stable." },
-  { q: 'Quel est le délai de livraison ?', a: 'Expédition sous 48h depuis notre atelier en France. Livraison rapide par Colissimo ou Mondial Relay.' },
+  { q: 'Quel est le délai de livraison ?', a: 'Expédition sous 48h depuis notre atelier en Corse. Livraison rapide par Colissimo ou Mondial Relay.' },
   { q: "C'est vraiment alimentaire ?", a: 'Oui, tous nos produits sont fabriqués en PLA de qualité alimentaire, certifié pour un usage en cuisine en contact avec les aliments.' },
   { q: 'Et si ça ne me convient pas ?', a: 'Satisfait ou remboursé. Si le produit ne vous convient pas, contactez-nous et nous vous rembourserons sans discussion.' },
 ];
 
 const guarantees = [
-  { icon: Truck, title: 'Livraison rapide', desc: 'Expédié sous 48h depuis la France' },
+  { icon: Truck, title: 'Livraison rapide', desc: 'Expédié sous 48h depuis la Corse' },
   { icon: ShieldCheck, title: 'Paiement sécurisé', desc: 'CB, PayPal, Apple Pay' },
   { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 30 jours' },
   { icon: Headphones, title: 'Support français', desc: 'Réponse sous 24h par email' },
@@ -331,7 +331,7 @@ const ProductPage = () => {
                     <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
                       <Truck className="w-4 h-4 text-accent flex-shrink-0" />
                       <p className="text-xs text-foreground">
-                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la France
+                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la Corse
                       </p>
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
