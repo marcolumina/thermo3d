@@ -10,6 +10,7 @@ import AboutSection from '@/components/AboutSection';
 import WhyUs from '@/components/WhyUs';
 import ShippingInfo from '@/components/ShippingInfo';
 import Reviews from '@/components/Reviews';
+import TrustSection from '@/components/TrustSection';
 import CtaFinal from '@/components/CtaFinal';
 import SeoBlock from '@/components/SeoBlock';
 import MascotWelcome from '@/components/MascotWelcome';
@@ -50,6 +51,7 @@ const Index = () => {
       <WhyUs />
       <ShippingInfo />
       <Reviews />
+      <TrustSection />
       <CtaFinal />
       <SeoBlock />
       <Footer />
