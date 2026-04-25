@@ -6,19 +6,21 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
+import ShippingRates from '@/components/ShippingRates';
+
 const carriers = [
   {
     icon: Truck,
     name: 'Colissimo',
     delay: '2 à 3 jours ouvrés',
-    price: '4,90 €',
+    price: 'dès 5,15 €',
     desc: 'Livraison à domicile par La Poste, avec ou sans signature. Idéal si vous êtes souvent chez vous.',
   },
   {
-    icon: MapPin,
+    icon: Package,
     name: 'Mondial Relay',
     delay: '3 à 5 jours ouvrés',
-    price: '3,90 €',
+    price: 'dès 4,00 €',
     desc: 'Livraison en point relais près de chez vous. Plus de 11 000 points en France.',
   },
 ];
@@ -93,6 +95,23 @@ const Livraison = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Grille tarifaire par poids */}
+        <section className="py-14 md:py-20 bg-secondary/10">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground text-center mb-3">
+              Grille tarifaire par poids
+            </h2>
+            <p className="text-muted-foreground text-center text-sm mb-10 max-w-2xl mx-auto">
+              Le tarif exact est calculé automatiquement au moment du paiement en fonction du poids total de votre commande.
+              <span className="block mt-1 font-semibold text-accent">Livraison offerte dès 50€ d'achat, quel que soit le mode choisi.</span>
+            </p>
+            <ShippingRates />
+            <p className="text-[11px] text-muted-foreground text-center mt-4">
+              Tarifs indicatifs France métropolitaine. Corse, DOM-TOM et international : nous consulter.
+            </p>
           </div>
         </section>
 
