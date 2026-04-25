@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +9,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Mail, Lock, User, Loader2 } from 'lucide-react';
+import { Mail, Lock, User, Loader2, ShoppingCart } from 'lucide-react';
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -117,8 +117,21 @@ const Auth = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <div className="container mx-auto px-4 py-16 max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-8">Mon Compte</h1>
-        <Tabs defaultValue="login" className="w-full">
+        {isCheckoutFlow && (
+          <div className="mb-6 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/5 p-4">
+            <ShoppingCart className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+            <div className="text-sm">
+              <p className="font-semibold text-foreground">Une dernière étape avant le paiement</p>
+              <p className="text-muted-foreground mt-0.5">
+                Connectez-vous ou créez un compte en 30 secondes pour finaliser votre commande et suivre votre colis.
+              </p>
+            </div>
+          </div>
+        )}
+        <h1 className="text-2xl font-bold text-center mb-8">
+          {isCheckoutFlow ? 'Finalisez votre commande' : 'Mon Compte'}
+        </h1>
+        <Tabs defaultValue={isCheckoutFlow ? 'signup' : 'login'} className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="login">Connexion</TabsTrigger>
             <TabsTrigger value="signup">Inscription</TabsTrigger>

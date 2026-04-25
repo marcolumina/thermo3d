@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Lock, Truck, ShieldCheck } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { useAuth } from "@/hooks/useAuth";
 
 const FREE_SHIPPING_THRESHOLD = 50;
 const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul réel via Shopify)
@@ -10,6 +13,8 @@ const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul ré
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
+  const { user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
@@ -22,6 +27,14 @@ export const CartDrawer = () => {
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
 
   const handleCheckout = () => {
+    if (!user) {
+      toast.info('Connectez-vous pour finaliser votre commande', {
+        description: 'Créez un compte ou connectez-vous en quelques secondes.',
+      });
+      setIsOpen(false);
+      navigate('/auth?redirect=checkout');
+      return;
+    }
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
       window.open(checkoutUrl, '_blank');
@@ -124,9 +137,20 @@ export const CartDrawer = () => {
                   </div>
                 </div>
 
-                <Button onClick={handleCheckout} className="w-full bg-primary text-primary-foreground hover:opacity-90 min-h-[52px]" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
-                  {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Lock className="w-4 h-4 mr-2" />Passer commande — {grandTotal.toFixed(2)} €</>}
+                <Button onClick={handleCheckout} className="w-full bg-primary text-primary-foreground hover:opacity-90 min-h-[52px]" size="lg" disabled={items.length === 0 || isLoading || isSyncing || authLoading}>
+                  {isLoading || isSyncing || authLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : !user ? (
+                    <><Lock className="w-4 h-4 mr-2" />Se connecter pour commander</>
+                  ) : (
+                    <><Lock className="w-4 h-4 mr-2" />Passer commande — {grandTotal.toFixed(2)} €</>
+                  )}
                 </Button>
+                {!user && !authLoading && (
+                  <p className="text-[11px] text-center text-muted-foreground -mt-1">
+                    La création d'un compte est requise pour finaliser votre commande.
+                  </p>
+                )}
 
                 {/* Reassurance bar */}
                 <div className="grid grid-cols-3 gap-2 pt-1">
