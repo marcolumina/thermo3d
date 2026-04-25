@@ -25,7 +25,7 @@ const carriers = [
 
 const steps = [
   { icon: CheckCircle, title: 'Commande confirmée', desc: 'Vous recevez un email de confirmation immédiatement après votre paiement.' },
-  { icon: Package, title: 'Préparation 24-48h', desc: 'Votre commande est imprimée, contrôlée et emballée dans notre atelier en France.' },
+  { icon: Package, title: 'Préparation 24-48h', desc: 'Votre commande est imprimée, contrôlée et emballée dans notre atelier en Corse.' },
   { icon: Truck, title: 'Expédition', desc: 'Vous recevez un email avec votre numéro de suivi dès que le colis quitte notre atelier.' },
   { icon: Gift, title: 'Livraison', desc: 'Votre colis arrive chez vous ou en point relais selon le mode choisi.' },
 ];
