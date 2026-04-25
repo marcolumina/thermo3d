@@ -14,6 +14,7 @@ import FAQ from "./pages/FAQ.tsx";
 import MentionsLegales from "./pages/MentionsLegales.tsx";
 import CGV from "./pages/CGV.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
+import PolitiqueRetour from "./pages/PolitiqueRetour.tsx";
 import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
 import SupportThermomix from "./pages/SupportThermomix.tsx";
 import RangementThermomix from "./pages/RangementThermomix.tsx";
@@ -27,6 +28,7 @@ import Auth from "./pages/Auth.tsx";
 import Account from "./pages/Account.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
 import MascotFloating from "./components/MascotFloating.tsx";
+import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +48,8 @@ const AppContent = () => {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgv" element={<CGV />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/politique-de-retour" element={<PolitiqueRetour />} />
+        <Route path="/retours" element={<PolitiqueRetour />} />
         <Route path="/livraison" element={<Livraison />} />
         <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
         <Route path="/support-thermomix" element={<SupportThermomix />} />
@@ -60,6 +64,7 @@ const AppContent = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MascotFloating />
+      <CookieBanner />
     </BrowserRouter>
   );
 };
