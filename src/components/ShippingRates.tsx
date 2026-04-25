@@ -16,7 +16,7 @@ export const mondialRelayRates = [
 
 // Grille Colissimo Domicile sans signature (France métropolitaine)
 export const colissimoRates = [
-  { maxG: 250, weight: "Jusqu'à 250 g", price: '5,15 €' },
+  { maxG: 250, weight: "Jusqu'à 250 g", price: '5,49 €' },
   { maxG: 500, weight: '250 g – 500 g', price: '6,75 €' },
   { maxG: 750, weight: '500 g – 750 g', price: '8,15 €' },
   { maxG: 1000, weight: '750 g – 1 kg', price: '8,75 €' },

@@ -38,7 +38,7 @@ const ShippingRateForVariant = ({ weight, weightUnit }: Props) => {
           <Truck className="w-3.5 h-3.5 text-accent flex-shrink-0" />
           <div>
             <p className="font-semibold text-foreground">Colissimo</p>
-            <p className="text-muted-foreground">2-3 j · dès 5,15 €</p>
+            <p className="text-muted-foreground">2-3 j · dès 5,49 €</p>
           </div>
         </div>
       </div>
