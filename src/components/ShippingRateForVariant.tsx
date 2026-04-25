@@ -71,7 +71,7 @@ const ShippingRateForVariant = ({ weight, weightUnit }: Props) => {
       </div>
       <p className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
         <Info className="w-3 h-3 text-accent" />
-        Tarif calculé pour ce produit ({formatGrams(grams)})
+        Tarif calculé pour ce produit ({formatGrams(grams)} emballage inclus)
       </p>
     </div>
   );
