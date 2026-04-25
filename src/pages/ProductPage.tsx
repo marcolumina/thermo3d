@@ -340,15 +340,6 @@ const ProductPage = () => {
                       weight={selectedVariant?.weight}
                       weightUnit={selectedVariant?.weightUnit}
                     />
-                    <details className="group bg-secondary/30 rounded-lg border border-border">
-                      <summary className="cursor-pointer text-[11px] font-semibold text-foreground px-3 py-2 flex items-center justify-between list-none">
-                        <span>Voir la grille tarifaire complète par poids</span>
-                        <span className="text-accent group-open:rotate-180 transition-transform">▾</span>
-                      </summary>
-                      <div className="p-3 pt-0">
-                        <ShippingRates compact />
-                      </div>
-                    </details>
                     <Link to="/livraison" className="text-[11px] text-accent font-semibold hover:underline inline-flex items-center gap-1">
                       Délais, zones & suivi de colis →
                     </Link>
