@@ -333,7 +333,7 @@ const ProductPage = () => {
                     <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
                       <Truck className="w-4 h-4 text-accent flex-shrink-0" />
                       <p className="text-xs text-foreground">
-                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la Corse
+                        📦 <strong>Livraison Mondial Relay dès 5,49€</strong> — offerte dès 50€
                       </p>
                     </div>
                     <ShippingRateForVariant
@@ -343,6 +343,14 @@ const ProductPage = () => {
                     <Link to="/livraison" className="text-[11px] text-accent font-semibold hover:underline inline-flex items-center gap-1">
                       Délais, zones & suivi de colis →
                     </Link>
+                  </div>
+
+                  {/* Urgence — forte demande */}
+                  <div className="flex items-center gap-2 bg-destructive/5 border border-destructive/20 rounded-xl px-4 py-2.5">
+                    <Flame className="w-4 h-4 text-destructive flex-shrink-0" />
+                    <p className="text-xs text-foreground">
+                      <strong>Forte demande</strong> — stock limité, expédition prioritaire sous 48h.
+                    </p>
                   </div>
 
                   {/* Bénéfices */}
