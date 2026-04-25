@@ -1,12 +1,17 @@
 import { Truck, Package } from 'lucide-react';
 
-// Tarif unique Mondial Relay France métropolitaine
-export const MONDIAL_RELAY_FLAT_RATE = 5.99;
-export const MONDIAL_RELAY_FLAT_RATE_LABEL = '5,99 €';
-
-// Grille "tarif unique" — toujours 5,99 € quel que soit le poids
+// Grilles tarifaires (poids max en grammes, prix affiché)
 export const mondialRelayRates = [
-  { maxG: Infinity, weight: 'Toute commande (France métropolitaine)', price: MONDIAL_RELAY_FLAT_RATE_LABEL },
+  { maxG: 500, weight: "Jusqu'à 500 g", price: '4,00 €' },
+  { maxG: 1000, weight: '500 g – 1 kg', price: '4,60 €' },
+  { maxG: 2000, weight: '1 – 2 kg', price: '5,30 €' },
+  { maxG: 3000, weight: '2 – 3 kg', price: '6,30 €' },
+  { maxG: 5000, weight: '3 – 5 kg', price: '7,40 €' },
+  { maxG: 7000, weight: '5 – 7 kg', price: '9,30 €' },
+  { maxG: 10000, weight: '7 – 10 kg', price: '11,30 €' },
+  { maxG: 15000, weight: '10 – 15 kg', price: '14,90 €' },
+  { maxG: 20000, weight: '15 – 20 kg', price: '17,50 €' },
+  { maxG: 30000, weight: '20 – 30 kg', price: '22,90 €' },
 ];
 
 // Grille Colissimo Domicile sans signature (France métropolitaine)

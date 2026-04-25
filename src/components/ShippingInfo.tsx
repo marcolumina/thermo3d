@@ -12,7 +12,7 @@ const shippingOptions = [
     icon: MapPin,
     title: 'Mondial Relay',
     delay: '3-5 jours ouvrés',
-    price: '5,99 €',
+    price: 'dès 4,10 €',
     freeFrom: 'Offerte dès 50€',
   },
 ];

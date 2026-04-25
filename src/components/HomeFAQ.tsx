@@ -9,7 +9,7 @@ const FAQS = [
   },
   {
     q: 'Quels sont les délais de livraison ?',
-    a: "Vos commandes sont préparées sous 24 à 48h ouvrées et expédiées via Mondial Relay (3-5 jours, 5,99 €) ou Colissimo (2-3 jours). La livraison est offerte dès 50 € d'achat en France métropolitaine.",
+    a: "Vos commandes sont préparées sous 24 à 48h ouvrées et expédiées via Mondial Relay (3-5 jours, dès 4,10 €) ou Colissimo (2-3 jours). La livraison est offerte dès 50 € d'achat en France métropolitaine.",
   },
   {
     q: 'Puis-je retourner un produit s\'il ne me convient pas ?',
