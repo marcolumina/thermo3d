@@ -5,7 +5,7 @@ import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Lock, Truck, 
 import { useCartStore } from "@/stores/cartStore";
 
 const FREE_SHIPPING_THRESHOLD = 50;
-const DEFAULT_SHIPPING = 4.0; // Mondial Relay entry tier
+const DEFAULT_SHIPPING = 4.1; // Mondial Relay entry tier (indicatif, calcul réel via Shopify)
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
