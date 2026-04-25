@@ -331,7 +331,7 @@ const ProductPage = () => {
                     <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
                       <Truck className="w-4 h-4 text-accent flex-shrink-0" />
                       <p className="text-xs text-foreground">
-                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la France
+                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la Corse
                       </p>
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
