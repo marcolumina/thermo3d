@@ -1,30 +1,54 @@
 import { Truck, Package } from 'lucide-react';
 
+// Grilles tarifaires (poids max en grammes, prix affiché)
 export const mondialRelayRates = [
-  { weight: "Jusqu'à 500 g", price: '4,00 €' },
-  { weight: '500 g – 1 kg', price: '4,60 €' },
-  { weight: '1 – 2 kg', price: '5,30 €' },
-  { weight: '2 – 3 kg', price: '6,30 €' },
-  { weight: '3 – 5 kg', price: '7,40 €' },
-  { weight: '5 – 7 kg', price: '9,30 €' },
-  { weight: '7 – 10 kg', price: '11,30 €' },
-  { weight: '10 – 15 kg', price: '14,90 €' },
-  { weight: '15 – 20 kg', price: '17,50 €' },
-  { weight: '20 – 30 kg', price: '22,90 €' },
+  { maxG: 500, weight: "Jusqu'à 500 g", price: '4,00 €' },
+  { maxG: 1000, weight: '500 g – 1 kg', price: '4,60 €' },
+  { maxG: 2000, weight: '1 – 2 kg', price: '5,30 €' },
+  { maxG: 3000, weight: '2 – 3 kg', price: '6,30 €' },
+  { maxG: 5000, weight: '3 – 5 kg', price: '7,40 €' },
+  { maxG: 7000, weight: '5 – 7 kg', price: '9,30 €' },
+  { maxG: 10000, weight: '7 – 10 kg', price: '11,30 €' },
+  { maxG: 15000, weight: '10 – 15 kg', price: '14,90 €' },
+  { maxG: 20000, weight: '15 – 20 kg', price: '17,50 €' },
+  { maxG: 30000, weight: '20 – 30 kg', price: '22,90 €' },
 ];
 
-// Grille Colissimo Domicile sans signature (France métropolitaine, tarifs publics La Poste)
+// Grille Colissimo Domicile sans signature (France métropolitaine)
 export const colissimoRates = [
-  { weight: "Jusqu'à 250 g", price: '5,15 €' },
-  { weight: '250 g – 500 g', price: '6,75 €' },
-  { weight: '500 g – 750 g', price: '8,15 €' },
-  { weight: '750 g – 1 kg', price: '8,75 €' },
-  { weight: '1 – 2 kg', price: '9,55 €' },
-  { weight: '2 – 5 kg', price: '12,80 €' },
-  { weight: '5 – 10 kg', price: '18,55 €' },
-  { weight: '10 – 15 kg', price: '23,90 €' },
-  { weight: '15 – 30 kg', price: '30,40 €' },
+  { maxG: 250, weight: "Jusqu'à 250 g", price: '5,15 €' },
+  { maxG: 500, weight: '250 g – 500 g', price: '6,75 €' },
+  { maxG: 750, weight: '500 g – 750 g', price: '8,15 €' },
+  { maxG: 1000, weight: '750 g – 1 kg', price: '8,75 €' },
+  { maxG: 2000, weight: '1 – 2 kg', price: '9,55 €' },
+  { maxG: 5000, weight: '2 – 5 kg', price: '12,80 €' },
+  { maxG: 10000, weight: '5 – 10 kg', price: '18,55 €' },
+  { maxG: 15000, weight: '10 – 15 kg', price: '23,90 €' },
+  { maxG: 30000, weight: '15 – 30 kg', price: '30,40 €' },
 ];
+
+// Convertit weight + weightUnit Shopify en grammes
+export function shopifyWeightToGrams(
+  weight?: number | null,
+  unit?: string | null
+): number | null {
+  if (weight == null || !Number.isFinite(weight) || weight <= 0) return null;
+  switch (unit) {
+    case 'KILOGRAMS': return weight * 1000;
+    case 'GRAMS': return weight;
+    case 'POUNDS': return weight * 453.592;
+    case 'OUNCES': return weight * 28.3495;
+    default: return weight; // par défaut on suppose grammes
+  }
+}
+
+// Trouve le palier correspondant (ou null si hors grille)
+export function findRateForWeight(
+  grams: number,
+  rates: { maxG: number; weight: string; price: string }[]
+) {
+  return rates.find((r) => grams <= r.maxG) || null;
+}
 
 interface ShippingRatesProps {
   compact?: boolean;
