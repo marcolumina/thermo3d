@@ -124,7 +124,7 @@ const AccessoiresTM6 = () => {
               Que vous ayez besoin d'un support pour votre varoma, d'un rangement pour vos spatules et fouets, ou d'un cache écran pour protéger votre TM6, notre gamme d'<strong className="text-foreground">accessoires Thermomix TM6</strong> couvre tous les besoins. Chaque produit est conçu pour s'installer en quelques secondes, sans outil ni modification.
             </p>
             <p>
-              Investir dans des <strong className="text-foreground">accessoires cuisine robot</strong> de qualité, c'est améliorer votre quotidien et profiter pleinement de votre <strong className="text-foreground">Thermomix TM6</strong>. Livraison offerte dès 50€, satisfait ou remboursé pendant 15 jours.
+              Investir dans des <strong className="text-foreground">accessoires cuisine robot</strong> de qualité, c'est améliorer votre quotidien et profiter pleinement de votre <strong className="text-foreground">Thermomix TM6</strong>. Livraison offerte dès 50€, satisfait ou remboursé pendant 14 jours.
             </p>
           </div>
         </div>

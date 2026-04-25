@@ -164,7 +164,7 @@ export const CartDrawer = () => {
                   </div>
                   <div className="flex flex-col items-center text-center gap-1">
                     <ShieldCheck className="w-4 h-4 text-accent" />
-                    <span className="text-[10px] leading-tight text-muted-foreground">Garantie<br/>15 jours</span>
+                    <span className="text-[10px] leading-tight text-muted-foreground">Garantie<br/>14 jours</span>
                   </div>
                 </div>
               </div>

@@ -136,7 +136,7 @@ const articlesData: Record<string, {
           Chez <strong>Thermo3D</strong>, nous sommes passionnés par l'impression 3D et par la cuisine. Chaque accessoire est le fruit de mois de développement, de tests et d'itérations pour offrir le meilleur produit possible. Plus de 1000 clients nous font déjà confiance, avec une note moyenne de 4,8/5.
         </p>
         <p>
-          Nous proposons une livraison rapide depuis la France (expédition sous 48h), un paiement sécurisé et une garantie satisfait ou remboursé pendant 15 jours. Vous pouvez commander en toute confiance.
+          Nous proposons une livraison rapide depuis la France (expédition sous 48h), un paiement sécurisé et une garantie satisfait ou remboursé pendant 14 jours. Vous pouvez commander en toute confiance.
         </p>
         <p>
           Découvrez dès maintenant notre <Link to="/accessoires-tm7" className="text-accent hover:underline">gamme complète d'accessoires Thermomix TM7</Link> et transformez votre expérience en cuisine. Votre Thermomix mérite les meilleurs accessoires.
@@ -245,7 +245,7 @@ const articlesData: Record<string, {
           L'organisation de votre Thermomix n'est pas un luxe, c'est un besoin. Et avec les bons accessoires, c'est aussi simple qu'agréable. Découvrez nos <Link to="/accessoires-thermomix" className="text-accent hover:underline">accessoires Thermomix</Link> conçus pour simplifier votre quotidien et transformer votre cuisine en un espace fonctionnel et harmonieux.
         </p>
         <p>
-          Prêt à organiser votre cuisine ? Parcourez notre <Link to="/catalogue" className="text-accent hover:underline">catalogue complet</Link> et trouvez les accessoires qui correspondent à vos besoins. Livraison offerte dès 50€, satisfait ou remboursé 15 jours.
+          Prêt à organiser votre cuisine ? Parcourez notre <Link to="/catalogue" className="text-accent hover:underline">catalogue complet</Link> et trouvez les accessoires qui correspondent à vos besoins. Livraison offerte dès 50€, satisfait ou remboursé 14 jours.
         </p>
       </div>
     ),
@@ -363,7 +363,7 @@ const articlesData: Record<string, {
           Chaque pièce est imprimée avec une précision au dixième de millimètre, garantissant un ajustement parfait sur votre Thermomix. Que vous ayez un TM5, un TM6 ou un TM7, nos accessoires s'adaptent aux dimensions exactes de votre modèle.
         </p>
         <p>
-          Nous proposons la livraison offerte dès 50€ d'achat, une expédition sous 48h et une garantie satisfait ou remboursé pendant 15 jours. Découvrez nos <Link to="/accessoires-thermomix" className="text-accent hover:underline">accessoires Thermomix</Link> et commencez à gagner du temps dès aujourd'hui.
+          Nous proposons la livraison offerte dès 50€ d'achat, une expédition sous 48h et une garantie satisfait ou remboursé pendant 14 jours. Découvrez nos <Link to="/accessoires-thermomix" className="text-accent hover:underline">accessoires Thermomix</Link> et commencez à gagner du temps dès aujourd'hui.
         </p>
       </div>
     ),

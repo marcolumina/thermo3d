@@ -35,7 +35,7 @@ const SeoBlock = () => {
             Notre gamme couvre l'ensemble des besoins : <Link to="/support-thermomix" className="text-accent hover:underline">supports pour ustensiles</Link>, caches écran et balance, organisateurs de cuisine, et notre produit phare, le <Link to="/catalogue" className="text-accent hover:underline">Pack Cuisine Optimisée</Link>, qui regroupe les accessoires les plus demandés à un prix avantageux. C'est l'offre la plus choisie par nos clients et le meilleur moyen de démarrer avec un Thermomix parfaitement équipé.
           </p>
           <p>
-            Explorez nos <Link to="/accessoires-tm6" className="text-accent hover:underline">accessoires TM6</Link> et <Link to="/accessoires-tm7" className="text-accent hover:underline">accessoires TM7</Link> pour trouver les solutions adaptées à votre modèle. Plus de 1000 clients nous font confiance avec une note de 4,8/5. Livraison offerte dès 50€, satisfait ou remboursé 15 jours. Découvrez aussi nos <Link to="/blog" className="text-accent hover:underline">guides et conseils</Link> pour optimiser votre cuisine au quotidien.
+            Explorez nos <Link to="/accessoires-tm6" className="text-accent hover:underline">accessoires TM6</Link> et <Link to="/accessoires-tm7" className="text-accent hover:underline">accessoires TM7</Link> pour trouver les solutions adaptées à votre modèle. Plus de 1000 clients nous font confiance avec une note de 4,8/5. Livraison offerte dès 50€, satisfait ou remboursé 14 jours. Découvrez aussi nos <Link to="/blog" className="text-accent hover:underline">guides et conseils</Link> pour optimiser votre cuisine au quotidien.
           </p>
         </div>
       </div>

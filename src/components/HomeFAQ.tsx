@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: 'Puis-je retourner un produit s\'il ne me convient pas ?',
-    a: "Oui, vous bénéficiez de 15 jours pour changer d'avis. Satisfait ou remboursé, sans question. Le remboursement intervient sous 14 jours après réception du retour.",
+    a: "Oui, vous bénéficiez de 14 jours pour changer d'avis. Satisfait ou remboursé, sans question. Le remboursement intervient sous 14 jours après réception du retour.",
   },
   {
     q: 'Le paiement est-il sécurisé ?',

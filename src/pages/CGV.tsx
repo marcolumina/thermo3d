@@ -8,7 +8,7 @@ const CGV = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>
         <title>Conditions Générales de Vente | Thermo3D</title>
-        <meta name="description" content="CGV Thermo3D : commande, paiement, livraison, droit de rétractation 14j, garantie satisfait ou remboursé 15 jours sur vos accessoires Thermomix." />
+        <meta name="description" content="CGV Thermo3D : commande, paiement, livraison, droit de rétractation 14j, garantie satisfait ou remboursé 14 jours sur vos accessoires Thermomix." />
         <link rel="canonical" href="https://thermo3d.fr/cgv" />
       </Helmet>
 
@@ -68,9 +68,9 @@ const CGV = () => {
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-foreground mb-2">Article 8 – Garantie « Satisfait ou Remboursé » 15 jours</h2>
+            <h2 className="font-display text-lg font-semibold text-foreground mb-2">Article 8 – Garantie « Satisfait ou Remboursé » 14 jours</h2>
             <p>
-              En complément du droit légal de rétractation, Thermo3D offre une <strong>garantie commerciale « Satisfait ou Remboursé » de 15 jours</strong> à compter de la réception. Si le produit ne vous convient pas, vous pouvez le retourner et être intégralement remboursé. Conditions et modalités détaillées dans notre <Link to="/politique-de-retour" className="text-primary underline">Politique de retour</Link>.
+              En complément du droit légal de rétractation, Thermo3D offre une <strong>garantie commerciale « Satisfait ou Remboursé » de 14 jours</strong> à compter de la réception. Si le produit ne vous convient pas, vous pouvez le retourner et être intégralement remboursé. Conditions et modalités détaillées dans notre <Link to="/politique-de-retour" className="text-primary underline">Politique de retour</Link>.
             </p>
           </section>
 

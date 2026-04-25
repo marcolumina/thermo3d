@@ -46,7 +46,7 @@ const faqs = [
 const guarantees = [
   { icon: Truck, title: 'Livraison rapide', desc: 'Expédié sous 48h depuis la Corse' },
   { icon: ShieldCheck, title: 'Paiement sécurisé', desc: 'CB, PayPal, Apple Pay' },
-  { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 15 jours' },
+  { icon: RefreshCw, title: 'Satisfait ou remboursé', desc: 'Retour gratuit sous 14 jours' },
   { icon: Headphones, title: 'Support français', desc: 'Réponse sous 24h par email' },
 ];
 
@@ -333,7 +333,7 @@ const ProductPage = () => {
                     <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
                       <Truck className="w-4 h-4 text-accent flex-shrink-0" />
                       <p className="text-xs text-foreground">
-                        <strong>Livraison offerte</strong> dès 50€ · Expédié sous 48h depuis la Corse
+                        📦 <strong>Livraison Mondial Relay dès 5,49€</strong> — offerte dès 50€
                       </p>
                     </div>
                     <ShippingRateForVariant
@@ -343,6 +343,14 @@ const ProductPage = () => {
                     <Link to="/livraison" className="text-[11px] text-accent font-semibold hover:underline inline-flex items-center gap-1">
                       Délais, zones & suivi de colis →
                     </Link>
+                  </div>
+
+                  {/* Urgence — forte demande */}
+                  <div className="flex items-center gap-2 bg-destructive/5 border border-destructive/20 rounded-xl px-4 py-2.5">
+                    <Flame className="w-4 h-4 text-destructive flex-shrink-0" />
+                    <p className="text-xs text-foreground">
+                      <strong>Forte demande</strong> — stock limité, expédition prioritaire sous 48h.
+                    </p>
                   </div>
 
                   {/* Bénéfices */}
@@ -417,60 +425,52 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT ═══════ */}
+            {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT EST INDISPENSABLE ═══════ */}
             <section className="py-14 md:py-20 bg-background border-t border-border/30">
               <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
                 <div className="text-center mb-10 md:mb-14">
-                  <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">Pourquoi ce produit</p>
+                  <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">L'essentiel</p>
                   <h2 className="font-display font-extrabold text-2xl md:text-3xl text-foreground leading-tight">
-                    3 bonnes raisons de l'adopter
+                    Pourquoi ce produit est indispensable
                   </h2>
                   <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
-                    Pensé pour les passionnés de Thermomix qui veulent une cuisine claire, pratique et durable.
+                    5 raisons concrètes qui font la différence dans votre cuisine au quotidien.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
                   {[
-                    {
-                      icon: Zap,
-                      tag: 'Gain de temps',
-                      title: 'Tout à portée de main',
-                      desc: 'Vos accessoires Thermomix parfaitement rangés, prêts en une seconde. Fini les tiroirs en bazar.',
-                    },
-                    {
-                      icon: ShieldCheck,
-                      tag: 'Qualité premium',
-                      title: 'Fabriqué en France 🇫🇷',
-                      desc: 'Imprimé en 3D dans notre atelier, en PLA alimentaire certifié. Robuste, sûr, durable.',
-                    },
-                    {
-                      icon: Heart,
-                      tag: 'Plaisir au quotidien',
-                      title: 'Une cuisine qui vous ressemble',
-                      desc: 'Design épuré, finition soignée : votre Thermomix devient enfin une pièce maîtresse de votre cuisine.',
-                    },
+                    { icon: Clock, tag: 'Gain de temps', title: 'Tout à portée de main', desc: 'Accessoires prêts en 1 seconde, fini les tiroirs à fouiller.' },
+                    { icon: Zap, tag: 'Précision', title: 'Ajustement parfait', desc: 'Conçu au dixième de mm pour votre Thermomix TM5/TM6/TM7.' },
+                    { icon: Package, tag: 'Organisation', title: 'Cuisine ordonnée', desc: 'Plus d\'espace utile sur votre plan de travail.' },
+                    { icon: BadgeCheck, tag: 'Simplicité', title: 'Installation 2 sec', desc: 'Vous posez, ça clipe. Aucun outil nécessaire.' },
+                    { icon: Flag, tag: 'Qualité FR', title: 'Made in France', desc: 'PLA alimentaire imprimé en 3D dans notre atelier en Corse.' },
                   ].map((b) => (
                     <div
                       key={b.title}
-                      className="group relative bg-secondary/30 border border-border/40 rounded-2xl p-6 md:p-7 hover:border-accent/40 hover:shadow-lg transition-all"
+                      className="group bg-secondary/30 border border-border/40 rounded-2xl p-5 hover:border-accent/40 hover:shadow-lg transition-all"
                     >
-                      <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors">
-                        <b.icon className="w-6 h-6 text-accent" />
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
+                        <b.icon className="w-5 h-5 text-accent" />
                       </div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-accent mb-2">{b.tag}</p>
-                      <h3 className="font-display font-bold text-base md:text-lg text-foreground mb-2 leading-snug">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-accent mb-1.5">{b.tag}</p>
+                      <h3 className="font-display font-bold text-sm text-foreground mb-1.5 leading-snug">
                         {b.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{b.desc}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+                {/* Message confiance global */}
+                <div className="mt-10 max-w-3xl mx-auto bg-accent/5 border border-accent/20 rounded-2xl px-6 py-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-foreground">
+                  <span className="inline-flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-accent" /> Paiement sécurisé</span>
+                  <span className="inline-flex items-center gap-1.5"><Truck className="w-4 h-4 text-accent" /> Livraison rapide</span>
+                  <span className="inline-flex items-center gap-1.5"><RefreshCw className="w-4 h-4 text-accent" /> Satisfait ou remboursé 14 jours</span>
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
                   <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> +1 000 clients satisfaits</span>
-                  <span className="hidden sm:inline text-border">•</span>
-                  <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Satisfait ou remboursé 15j</span>
                   <span className="hidden sm:inline text-border">•</span>
                   <span className="inline-flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> Expédié sous 48h</span>
                 </div>
