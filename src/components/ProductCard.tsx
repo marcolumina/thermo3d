@@ -71,13 +71,14 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
           </div>
         )}
 
+        {/* Mobile: bouton toujours visible / Desktop: apparaît au hover */}
         <button
           onClick={handleAddToCart}
           disabled={isLoading || !variant}
-          className="absolute bottom-3 left-3 right-3 bg-accent text-accent-foreground py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 disabled:opacity-50"
+          className="absolute bottom-3 left-3 right-3 bg-accent text-accent-foreground py-3 md:py-2.5 rounded-lg text-sm md:text-xs font-semibold flex items-center justify-center gap-2 shadow-lg md:shadow-none md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 disabled:opacity-50 active:scale-95 min-h-[44px]"
           aria-label={`Ajouter ${node.title} au panier`}
         >
-          {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ShoppingCart className="w-3.5 h-3.5" /> + Ajouter au panier</>}
+          {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ShoppingCart className="w-4 h-4" /> Ajouter au panier</>}
         </button>
       </div>
 
