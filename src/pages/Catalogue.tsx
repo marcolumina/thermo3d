@@ -154,7 +154,7 @@ const Catalogue = () => {
                     Nos Packs — Le meilleur rapport qualité-prix
                   </h2>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
                   {packs.map((product) => (
                     <ProductCard key={product.node.id} product={product} featured />
                   ))}
@@ -167,7 +167,7 @@ const Catalogue = () => {
                 <h2 className="font-display font-bold text-xl text-foreground mb-6">
                   Accessoires individuels
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
                   {accessories.map((product) => (
                     <ProductCard key={product.node.id} product={product} />
                   ))}

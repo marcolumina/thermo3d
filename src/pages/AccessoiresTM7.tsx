@@ -75,7 +75,7 @@ const AccessoiresTM7 = () => {
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
             {displayProducts.map((product) => (
               <ProductCard key={product.node.id} product={product} />
             ))}
