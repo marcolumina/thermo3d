@@ -38,7 +38,13 @@ export const useCartStore = create<CartStore>()(
 
       addItem: async (item) => {
         const { items, cartId, clearCart } = get();
-        const existingItem = items.find(i => i.variantId === item.variantId);
+        // Deux ajouts du même variant avec des attributs différents (ex: prénoms gravés différents)
+        // doivent créer deux lignes distinctes — on inclut donc les attributes dans la clé d'unicité.
+        const attrKey = (a?: Array<{ key: string; value: string }>) =>
+          (a || []).map(x => `${x.key}=${x.value}`).sort().join('|');
+        const existingItem = items.find(
+          i => i.variantId === item.variantId && attrKey(i.attributes) === attrKey(item.attributes)
+        );
         set({ isLoading: true });
         try {
           if (!cartId) {
@@ -51,7 +57,7 @@ export const useCartStore = create<CartStore>()(
             if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
-              set({ items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i) });
+              set({ items: get().items.map(i => i.lineId === existingItem.lineId ? { ...i, quantity: newQuantity } : i) });
             } else if (result.cartNotFound) clearCart();
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });

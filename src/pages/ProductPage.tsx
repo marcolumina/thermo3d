@@ -109,6 +109,41 @@ function parseShopifyDescription(html: string) {
 
 /* ── Composant principal ── */
 
+/* ── Mapping nom couleur → hex (pastille visuelle) ── */
+const COLOR_HEX: Record<string, string> = {
+  black: '#1a1a1a', noir: '#1a1a1a',
+  white: '#f5f5f5', blanc: '#f5f5f5',
+  red: '#dc2626', rouge: '#dc2626',
+  blue: '#2563eb', bleu: '#2563eb',
+  green: '#16a34a', vert: '#16a34a',
+  yellow: '#facc15', jaune: '#facc15',
+  orange: '#f97316',
+  pink: '#ec4899', rose: '#ec4899',
+  purple: '#9333ea', violet: '#9333ea', mauve: '#9333ea',
+  brown: '#92400e', marron: '#92400e',
+  beige: '#d6c7a3',
+  gold: '#d4af37', or: '#d4af37', dore: '#d4af37', doré: '#d4af37',
+  silver: '#c0c0c0', argent: '#c0c0c0', argente: '#c0c0c0', argenté: '#c0c0c0',
+  gray: '#6b7280', grey: '#6b7280', gris: '#6b7280',
+};
+const FRENCH_COLOR_LABEL: Record<string, string> = {
+  black: 'Noir', white: 'Blanc', red: 'Rouge', blue: 'Bleu', green: 'Vert',
+  yellow: 'Jaune', orange: 'Orange', pink: 'Rose', purple: 'Violet',
+  brown: 'Marron', beige: 'Beige', gold: 'Or', silver: 'Argent', gray: 'Gris', grey: 'Gris',
+};
+function colorHex(label: string): string {
+  return COLOR_HEX[label.trim().toLowerCase()] || '#cccccc';
+}
+function frenchColor(label: string): string {
+  return FRENCH_COLOR_LABEL[label.trim().toLowerCase()] || label;
+}
+
+/* ── Détection produits avec personnalisation texte ── */
+function needsCustomText(handle?: string): boolean {
+  if (!handle) return false;
+  return /cache-ecran|cache-écran/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
@@ -117,6 +152,8 @@ const ProductPage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
   const [hasInitializedVariant, setHasInitializedVariant] = useState(false);
+  const [customText, setCustomText] = useState('');
+  const [showErrors, setShowErrors] = useState(false);
 
   const { data: product, isLoading: fetching } = useQuery({
     queryKey: ['product', handle],
@@ -143,29 +180,51 @@ const ProductPage = () => {
   const colorOptions = useMemo(() => {
     return variants.map((v, i) => {
       const colorOpt = v.selectedOptions?.find(
-        (o: any) => o.name.toLowerCase() === 'couleur' || o.name.toLowerCase() === 'color' || o.name.toLowerCase() === 'colour'
+        (o: { name: string; value: string }) =>
+          o.name.toLowerCase().includes('couleur') || o.name.toLowerCase().includes('color')
       );
       return { index: i, label: colorOpt?.value || v.title, variant: v };
     });
   }, [variants]);
 
   const hasColorOptions = colorOptions.length > 1;
+  const requiresCustomText = needsCustomText(handle);
 
-  // Auto-select "Noir" variant by default
+  // Auto-select "Noir/Black" variant by default si dispo
   useMemo(() => {
     if (!hasInitializedVariant && colorOptions.length > 0) {
       const noirIndex = colorOptions.findIndex(
         (opt) => opt.label.toLowerCase().includes('noir') || opt.label.toLowerCase().includes('black')
       );
-      setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
+      // Si plusieurs couleurs : ne pas pré-sélectionner pour forcer un choix conscient
+      if (hasColorOptions) {
+        setSelectedVariantIndex(-1);
+      } else {
+        setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
+      }
       setHasInitializedVariant(true);
     }
-  }, [colorOptions, hasInitializedVariant]);
+  }, [colorOptions, hasInitializedVariant, hasColorOptions]);
 
   const selectedVariant = variants[selectedVariantIndex >= 0 ? selectedVariantIndex : 0] || variants[0];
+  const colorMissing = hasColorOptions && selectedVariantIndex < 0;
+  const textMissing = requiresCustomText && customText.trim().length < 1;
+  const cannotAdd = colorMissing || textMissing;
 
   const handleAddToCart = async () => {
     if (!product || !selectedVariant) return;
+    if (cannotAdd) {
+      setShowErrors(true);
+      if (colorMissing) toast.error('Choisissez une couleur avant d\'ajouter au panier');
+      else if (textMissing) toast.error('Ajoutez le prénom ou texte à graver');
+      // scroll vers la zone d'options
+      document.getElementById('product-options')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const attributes: Array<{ key: string; value: string }> = [];
+    if (requiresCustomText && customText.trim()) {
+      attributes.push({ key: 'Personnalisation', value: customText.trim() });
+    }
     await addItem({
       product,
       variantId: selectedVariant.id,
@@ -173,6 +232,7 @@ const ProductPage = () => {
       price: selectedVariant.price,
       quantity: 1,
       selectedOptions: selectedVariant.selectedOptions || [],
+      attributes: attributes.length > 0 ? attributes : undefined,
     });
     toast.success('Ajouté au panier ✓', { position: 'top-center' });
   };
@@ -363,24 +423,87 @@ const ProductPage = () => {
                     ))}
                   </ul>
 
-                  {/* Sélecteur de couleur */}
-                  {hasColorOptions && (
-                    <div className="space-y-2">
-                      <label htmlFor="color-select" className="text-sm font-semibold text-foreground">
-                        Couleur
-                      </label>
-                      <select
-                        id="color-select"
-                        value={selectedVariantIndex}
-                        onChange={(e) => setSelectedVariantIndex(Number(e.target.value))}
-                        className="w-full h-11 rounded-xl border border-border bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                      >
-                        {colorOptions.map((opt) => (
-                          <option key={opt.index} value={opt.index}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
+                  {/* Options personnalisables (couleur + texte) */}
+                  {(hasColorOptions || requiresCustomText) && (
+                    <div id="product-options" className="space-y-5 rounded-2xl border border-border/60 bg-secondary/20 p-4">
+
+                      {/* Pastilles couleur */}
+                      {hasColorOptions && (
+                        <div className="space-y-2.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-semibold text-foreground">
+                              Couleur <span className="text-destructive">*</span>
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {selectedVariantIndex >= 0
+                                ? frenchColor(colorOptions[selectedVariantIndex].label)
+                                : 'À choisir'}
+                            </span>
+                          </div>
+                          <div className="flex flex-wrap gap-2.5">
+                            {colorOptions.map((opt) => {
+                              const active = opt.index === selectedVariantIndex;
+                              const hex = colorHex(opt.label);
+                              const isLight = ['white', 'blanc', 'beige', 'yellow', 'jaune', 'silver', 'argent']
+                                .includes(opt.label.toLowerCase());
+                              return (
+                                <button
+                                  key={opt.index}
+                                  type="button"
+                                  onClick={() => { setSelectedVariantIndex(opt.index); setShowErrors(false); }}
+                                  aria-label={`Choisir la couleur ${frenchColor(opt.label)}`}
+                                  aria-pressed={active}
+                                  title={frenchColor(opt.label)}
+                                  className={`relative w-9 h-9 rounded-full transition-all ring-offset-2 ring-offset-secondary/20 ${
+                                    active
+                                      ? 'ring-2 ring-foreground scale-110'
+                                      : 'ring-1 ring-border hover:scale-105'
+                                  } ${isLight ? 'border border-border/60' : ''}`}
+                                  style={{ backgroundColor: hex }}
+                                />
+                              );
+                            })}
+                          </div>
+                          {showErrors && colorMissing && (
+                            <p className="text-xs text-destructive font-medium">
+                              ⚠️ Veuillez choisir une couleur.
+                            </p>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Champ texte personnalisé */}
+                      {requiresCustomText && (
+                        <div className="space-y-2">
+                          <label htmlFor="custom-text" className="flex items-center justify-between text-sm font-semibold text-foreground">
+                            <span>
+                              Texte à graver <span className="text-destructive">*</span>
+                            </span>
+                            <span className="text-xs font-normal text-muted-foreground">
+                              {customText.length}/20
+                            </span>
+                          </label>
+                          <input
+                            id="custom-text"
+                            type="text"
+                            value={customText}
+                            onChange={(e) => { setCustomText(e.target.value.slice(0, 20)); setShowErrors(false); }}
+                            placeholder="Ex : Marie, Chez Papy, ..."
+                            maxLength={20}
+                            className={`w-full h-11 rounded-xl border bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors ${
+                              showErrors && textMissing ? 'border-destructive' : 'border-border'
+                            }`}
+                          />
+                          <p className="text-[11px] text-muted-foreground">
+                            Prénom ou court message gravé sur le cache. Lettres, chiffres et espaces.
+                          </p>
+                          {showErrors && textMissing && (
+                            <p className="text-xs text-destructive font-medium">
+                              ⚠️ Ce champ est obligatoire.
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   )}
 

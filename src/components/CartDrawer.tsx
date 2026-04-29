@@ -73,15 +73,31 @@ export const CartDrawer = () => {
             <>
               <div className="flex-1 overflow-y-auto pr-2 min-h-0">
                 <div className="space-y-4">
-                  {items.map((item) => (
-                    <div key={item.variantId} className="flex gap-4 p-2">
+                  {items.map((item) => {
+                    const colorOpt = item.selectedOptions?.find(
+                      (o) => o.name.toLowerCase().includes('couleur') || o.name.toLowerCase().includes('color')
+                    );
+                    return (
+                    <div key={`${item.variantId}-${(item.attributes || []).map(a=>a.value).join('|')}`} className="flex gap-4 p-2">
                       <div className="w-16 h-16 bg-card rounded-lg overflow-hidden flex-shrink-0">
                         {item.product.node.images?.edges?.[0]?.node && (
                           <img src={item.product.node.images.edges[0].node.url} alt={`${item.product.node.title} — accessoire Thermomix`} className="w-full h-full object-contain p-1" loading="lazy" width="64" height="64" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-display font-medium text-sm truncate">{item.product.node.title}</h4>
+                        <h4 className="font-display font-medium text-sm line-clamp-2">{item.product.node.title}</h4>
+                        {(colorOpt || (item.attributes && item.attributes.length > 0)) && (
+                          <div className="mt-0.5 space-y-0.5">
+                            {colorOpt && (
+                              <p className="text-[11px] text-muted-foreground">Couleur : <span className="text-foreground font-medium">{colorOpt.value}</span></p>
+                            )}
+                            {item.attributes?.filter(a => !a.key.startsWith('_')).map((a) => (
+                              <p key={a.key} className="text-[11px] text-muted-foreground truncate">
+                                {a.key} : <span className="text-foreground font-medium">« {a.value} »</span>
+                              </p>
+                            ))}
+                          </div>
+                        )}
                         <p className="font-semibold text-sm mt-1">{parseFloat(item.price.amount).toFixed(2)} €</p>
                       </div>
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
@@ -99,7 +115,8 @@ export const CartDrawer = () => {
                         </div>
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
               <div className="flex-shrink-0 space-y-3 pt-4 border-t">
