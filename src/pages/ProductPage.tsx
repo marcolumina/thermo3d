@@ -17,6 +17,7 @@ import { useState, useMemo } from 'react';
 import MascotProductTip from '@/components/MascotProductTip';
 import ShippingRates from '@/components/ShippingRates';
 import ShippingRateForVariant from '@/components/ShippingRateForVariant';
+import { getCompatibility, formatCompatibilityLabel } from '@/lib/compatibility';
 
 /* ── Données statiques de la page ── */
 
@@ -360,6 +361,19 @@ const ProductPage = () => {
                   <h1 className="font-display font-extrabold text-2xl md:text-[2rem] leading-tight text-foreground">
                     {productTitle}
                   </h1>
+
+                  {/* Badge compatibilité Thermomix */}
+                  {(() => {
+                    const compat = getCompatibility(product);
+                    const label = formatCompatibilityLabel(compat);
+                    if (!label) return null;
+                    return (
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold">
+                        <BadgeCheck className="w-3.5 h-3.5" />
+                        {label}
+                      </div>
+                    );
+                  })()}
 
                   {/* Accroche */}
                   <p className="text-sm text-muted-foreground leading-relaxed">
