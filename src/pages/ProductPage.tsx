@@ -423,24 +423,87 @@ const ProductPage = () => {
                     ))}
                   </ul>
 
-                  {/* Sélecteur de couleur */}
-                  {hasColorOptions && (
-                    <div className="space-y-2">
-                      <label htmlFor="color-select" className="text-sm font-semibold text-foreground">
-                        Couleur
-                      </label>
-                      <select
-                        id="color-select"
-                        value={selectedVariantIndex}
-                        onChange={(e) => setSelectedVariantIndex(Number(e.target.value))}
-                        className="w-full h-11 rounded-xl border border-border bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                      >
-                        {colorOptions.map((opt) => (
-                          <option key={opt.index} value={opt.index}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
+                  {/* Options personnalisables (couleur + texte) */}
+                  {(hasColorOptions || requiresCustomText) && (
+                    <div id="product-options" className="space-y-5 rounded-2xl border border-border/60 bg-secondary/20 p-4">
+
+                      {/* Pastilles couleur */}
+                      {hasColorOptions && (
+                        <div className="space-y-2.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-semibold text-foreground">
+                              Couleur <span className="text-destructive">*</span>
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {selectedVariantIndex >= 0
+                                ? frenchColor(colorOptions[selectedVariantIndex].label)
+                                : 'À choisir'}
+                            </span>
+                          </div>
+                          <div className="flex flex-wrap gap-2.5">
+                            {colorOptions.map((opt) => {
+                              const active = opt.index === selectedVariantIndex;
+                              const hex = colorHex(opt.label);
+                              const isLight = ['white', 'blanc', 'beige', 'yellow', 'jaune', 'silver', 'argent']
+                                .includes(opt.label.toLowerCase());
+                              return (
+                                <button
+                                  key={opt.index}
+                                  type="button"
+                                  onClick={() => { setSelectedVariantIndex(opt.index); setShowErrors(false); }}
+                                  aria-label={`Choisir la couleur ${frenchColor(opt.label)}`}
+                                  aria-pressed={active}
+                                  title={frenchColor(opt.label)}
+                                  className={`relative w-9 h-9 rounded-full transition-all ring-offset-2 ring-offset-secondary/20 ${
+                                    active
+                                      ? 'ring-2 ring-foreground scale-110'
+                                      : 'ring-1 ring-border hover:scale-105'
+                                  } ${isLight ? 'border border-border/60' : ''}`}
+                                  style={{ backgroundColor: hex }}
+                                />
+                              );
+                            })}
+                          </div>
+                          {showErrors && colorMissing && (
+                            <p className="text-xs text-destructive font-medium">
+                              ⚠️ Veuillez choisir une couleur.
+                            </p>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Champ texte personnalisé */}
+                      {requiresCustomText && (
+                        <div className="space-y-2">
+                          <label htmlFor="custom-text" className="flex items-center justify-between text-sm font-semibold text-foreground">
+                            <span>
+                              Texte à graver <span className="text-destructive">*</span>
+                            </span>
+                            <span className="text-xs font-normal text-muted-foreground">
+                              {customText.length}/20
+                            </span>
+                          </label>
+                          <input
+                            id="custom-text"
+                            type="text"
+                            value={customText}
+                            onChange={(e) => { setCustomText(e.target.value.slice(0, 20)); setShowErrors(false); }}
+                            placeholder="Ex : Marie, Chez Papy, ..."
+                            maxLength={20}
+                            className={`w-full h-11 rounded-xl border bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors ${
+                              showErrors && textMissing ? 'border-destructive' : 'border-border'
+                            }`}
+                          />
+                          <p className="text-[11px] text-muted-foreground">
+                            Prénom ou court message gravé sur le cache. Lettres, chiffres et espaces.
+                          </p>
+                          {showErrors && textMissing && (
+                            <p className="text-xs text-destructive font-medium">
+                              ⚠️ Ce champ est obligatoire.
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   )}
 
