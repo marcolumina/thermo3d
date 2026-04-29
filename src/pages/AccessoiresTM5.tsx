@@ -12,8 +12,7 @@ import { Loader2 } from 'lucide-react';
 const AccessoiresTM5 = () => {
   const { data: products, isLoading } = useShopifyProducts(50);
 
-  const tm5Products = products ? filterByCompatibility(products, 'tm5') : [];
-  const displayProducts = tm5Products.length > 0 ? tm5Products : products?.slice(0, 8) || [];
+  const displayProducts = products ? filterByCompatibility(products, 'tm5') : [];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -67,6 +66,11 @@ const AccessoiresTM5 = () => {
         {isLoading ? (
           <div className="flex justify-center py-16">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+          </div>
+        ) : displayProducts.length === 0 ? (
+          <div className="text-center py-16 bg-secondary/30 rounded-2xl">
+            <p className="text-foreground font-medium">Aucun accessoire compatible TM5 disponible pour le moment.</p>
+            <p className="text-muted-foreground text-sm mt-2">Notre gamme s'étoffe régulièrement. Découvrez en attendant l'ensemble du catalogue.</p>
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
