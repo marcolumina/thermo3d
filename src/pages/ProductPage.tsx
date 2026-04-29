@@ -109,6 +109,41 @@ function parseShopifyDescription(html: string) {
 
 /* ── Composant principal ── */
 
+/* ── Mapping nom couleur → hex (pastille visuelle) ── */
+const COLOR_HEX: Record<string, string> = {
+  black: '#1a1a1a', noir: '#1a1a1a',
+  white: '#f5f5f5', blanc: '#f5f5f5',
+  red: '#dc2626', rouge: '#dc2626',
+  blue: '#2563eb', bleu: '#2563eb',
+  green: '#16a34a', vert: '#16a34a',
+  yellow: '#facc15', jaune: '#facc15',
+  orange: '#f97316',
+  pink: '#ec4899', rose: '#ec4899',
+  purple: '#9333ea', violet: '#9333ea', mauve: '#9333ea',
+  brown: '#92400e', marron: '#92400e',
+  beige: '#d6c7a3',
+  gold: '#d4af37', or: '#d4af37', dore: '#d4af37', doré: '#d4af37',
+  silver: '#c0c0c0', argent: '#c0c0c0', argente: '#c0c0c0', argenté: '#c0c0c0',
+  gray: '#6b7280', grey: '#6b7280', gris: '#6b7280',
+};
+const FRENCH_COLOR_LABEL: Record<string, string> = {
+  black: 'Noir', white: 'Blanc', red: 'Rouge', blue: 'Bleu', green: 'Vert',
+  yellow: 'Jaune', orange: 'Orange', pink: 'Rose', purple: 'Violet',
+  brown: 'Marron', beige: 'Beige', gold: 'Or', silver: 'Argent', gray: 'Gris', grey: 'Gris',
+};
+function colorHex(label: string): string {
+  return COLOR_HEX[label.trim().toLowerCase()] || '#cccccc';
+}
+function frenchColor(label: string): string {
+  return FRENCH_COLOR_LABEL[label.trim().toLowerCase()] || label;
+}
+
+/* ── Détection produits avec personnalisation texte ── */
+function needsCustomText(handle?: string): boolean {
+  if (!handle) return false;
+  return /cache-ecran|cache-écran/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
@@ -117,6 +152,8 @@ const ProductPage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
   const [hasInitializedVariant, setHasInitializedVariant] = useState(false);
+  const [customText, setCustomText] = useState('');
+  const [showErrors, setShowErrors] = useState(false);
 
   const { data: product, isLoading: fetching } = useQuery({
     queryKey: ['product', handle],
@@ -143,29 +180,51 @@ const ProductPage = () => {
   const colorOptions = useMemo(() => {
     return variants.map((v, i) => {
       const colorOpt = v.selectedOptions?.find(
-        (o: any) => o.name.toLowerCase() === 'couleur' || o.name.toLowerCase() === 'color' || o.name.toLowerCase() === 'colour'
+        (o: { name: string; value: string }) =>
+          o.name.toLowerCase().includes('couleur') || o.name.toLowerCase().includes('color')
       );
       return { index: i, label: colorOpt?.value || v.title, variant: v };
     });
   }, [variants]);
 
   const hasColorOptions = colorOptions.length > 1;
+  const requiresCustomText = needsCustomText(handle);
 
-  // Auto-select "Noir" variant by default
+  // Auto-select "Noir/Black" variant by default si dispo
   useMemo(() => {
     if (!hasInitializedVariant && colorOptions.length > 0) {
       const noirIndex = colorOptions.findIndex(
         (opt) => opt.label.toLowerCase().includes('noir') || opt.label.toLowerCase().includes('black')
       );
-      setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
+      // Si plusieurs couleurs : ne pas pré-sélectionner pour forcer un choix conscient
+      if (hasColorOptions) {
+        setSelectedVariantIndex(-1);
+      } else {
+        setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
+      }
       setHasInitializedVariant(true);
     }
-  }, [colorOptions, hasInitializedVariant]);
+  }, [colorOptions, hasInitializedVariant, hasColorOptions]);
 
   const selectedVariant = variants[selectedVariantIndex >= 0 ? selectedVariantIndex : 0] || variants[0];
+  const colorMissing = hasColorOptions && selectedVariantIndex < 0;
+  const textMissing = requiresCustomText && customText.trim().length < 1;
+  const cannotAdd = colorMissing || textMissing;
 
   const handleAddToCart = async () => {
     if (!product || !selectedVariant) return;
+    if (cannotAdd) {
+      setShowErrors(true);
+      if (colorMissing) toast.error('Choisissez une couleur avant d\'ajouter au panier');
+      else if (textMissing) toast.error('Ajoutez le prénom ou texte à graver');
+      // scroll vers la zone d'options
+      document.getElementById('product-options')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const attributes: Array<{ key: string; value: string }> = [];
+    if (requiresCustomText && customText.trim()) {
+      attributes.push({ key: 'Personnalisation', value: customText.trim() });
+    }
     await addItem({
       product,
       variantId: selectedVariant.id,
@@ -173,6 +232,7 @@ const ProductPage = () => {
       price: selectedVariant.price,
       quantity: 1,
       selectedOptions: selectedVariant.selectedOptions || [],
+      attributes: attributes.length > 0 ? attributes : undefined,
     });
     toast.success('Ajouté au panier ✓', { position: 'top-center' });
   };
