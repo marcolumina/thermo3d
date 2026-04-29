@@ -18,6 +18,7 @@ import PolitiqueRetour from "./pages/PolitiqueRetour.tsx";
 import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
 import SupportThermomix from "./pages/SupportThermomix.tsx";
 import RangementThermomix from "./pages/RangementThermomix.tsx";
+import AccessoiresTM5 from "./pages/AccessoiresTM5.tsx";
 import AccessoiresTM6 from "./pages/AccessoiresTM6.tsx";
 import AccessoiresTM7 from "./pages/AccessoiresTM7.tsx";
 import Blog from "./pages/Blog.tsx";
@@ -54,6 +55,7 @@ const AppContent = () => {
         <Route path="/accessoires-thermomix" element={<AccessoiresThermomix />} />
         <Route path="/support-thermomix" element={<SupportThermomix />} />
         <Route path="/rangement-thermomix" element={<RangementThermomix />} />
+        <Route path="/accessoires-tm5" element={<AccessoiresTM5 />} />
         <Route path="/accessoires-tm6" element={<AccessoiresTM6 />} />
         <Route path="/accessoires-tm7" element={<AccessoiresTM7 />} />
         <Route path="/blog" element={<Blog />} />
