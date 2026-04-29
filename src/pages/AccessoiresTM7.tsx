@@ -12,8 +12,7 @@ import { Loader2 } from 'lucide-react';
 const AccessoiresTM7 = () => {
   const { data: products, isLoading } = useShopifyProducts(50);
 
-  const tm7Products = products ? filterByCompatibility(products, 'tm7') : [];
-  const displayProducts = tm7Products.length > 0 ? tm7Products : products?.slice(0, 8) || [];
+  const displayProducts = products ? filterByCompatibility(products, 'tm7') : [];
 
   return (
     <div className="min-h-screen flex flex-col">
