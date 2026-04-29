@@ -69,6 +69,11 @@ const AccessoiresTM6 = () => {
           <div className="flex justify-center py-16">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
           </div>
+        ) : displayProducts.length === 0 ? (
+          <div className="text-center py-16 bg-secondary/30 rounded-2xl">
+            <p className="text-foreground font-medium">Aucun accessoire compatible TM6 disponible pour le moment.</p>
+            <p className="text-muted-foreground text-sm mt-2">Notre gamme s'étoffe régulièrement. Découvrez en attendant l'ensemble du catalogue.</p>
+          </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
             {displayProducts.map((product) => (
