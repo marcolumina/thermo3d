@@ -256,11 +256,24 @@ export interface CartItem {
   price: { amount: string; currencyCode: string };
   quantity: number;
   selectedOptions: Array<{ name: string; value: string }>;
+  /** Personnalisations Shopify (line item properties) — ex: texte gravé */
+  attributes?: Array<{ key: string; value: string }>;
+}
+
+function buildLineInput(item: CartItem) {
+  const line: Record<string, unknown> = {
+    quantity: item.quantity,
+    merchandiseId: item.variantId,
+  };
+  if (item.attributes && item.attributes.length > 0) {
+    line.attributes = item.attributes.filter(a => a.value && a.value.trim() !== '');
+  }
+  return line;
 }
 
 export async function createShopifyCart(item: CartItem): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
+    input: { lines: [buildLineInput(item)] },
   });
   if (data?.data?.cartCreate?.userErrors?.length > 0) return null;
   const cart = data?.data?.cartCreate?.cart;
@@ -273,7 +286,7 @@ export async function createShopifyCart(item: CartItem): Promise<{ cartId: strin
 export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
     cartId,
-    lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
+    lines: [buildLineInput(item)],
   });
   const userErrors = data?.data?.cartLinesAdd?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
