@@ -97,10 +97,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
             onClick={handleAddToCart}
             disabled={isLoading || !variant}
             className="btn-cart inline-flex items-center gap-1 text-[11px] md:text-xs font-semibold rounded-full px-3 py-1.5"
-            aria-label={`Ajouter ${node.title} au panier`}
+            aria-label={requiresChoice ? `Choisir options pour ${node.title}` : `Ajouter ${node.title} au panier`}
           >
             {isLoading ? (
               <Loader2 className="w-3 h-3 animate-spin" />
+            ) : requiresChoice ? (
+              <>
+                <Settings2 className="w-3 h-3" strokeWidth={2.5} /> Choisir
+              </>
             ) : (
               <>
                 <Plus className="w-3 h-3" strokeWidth={2.5} /> Ajouter
