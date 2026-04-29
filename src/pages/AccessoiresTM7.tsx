@@ -6,17 +6,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
+import { filterByCompatibility } from '@/lib/compatibility';
 import { Loader2 } from 'lucide-react';
 
 const AccessoiresTM7 = () => {
   const { data: products, isLoading } = useShopifyProducts(50);
 
-  const tm7Products = products?.filter((p) => {
-    const title = p.node.title.toLowerCase();
-    const desc = p.node.description.toLowerCase();
-    return title.includes('tm7') || desc.includes('tm7');
-  }) || [];
-
+  const tm7Products = products ? filterByCompatibility(products, 'tm7') : [];
   const displayProducts = tm7Products.length > 0 ? tm7Products : products?.slice(0, 8) || [];
 
   return (

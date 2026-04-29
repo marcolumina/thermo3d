@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useCartStore } from '@/stores/cartStore';
 import type { ShopifyProduct } from '@/lib/shopify';
+import { getCompatibility, formatCompatibilityLabel } from '@/lib/compatibility';
 import { Loader2, Plus, Settings2 } from 'lucide-react';
 
 interface ProductCardProps {
@@ -27,6 +28,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   // Si plusieurs variantes (couleur) ou personnalisation requise → rediriger vers la fiche
   const requiresChoice = node.variants.edges.length > 1 || needsCustomization(node.handle);
+
+  // Compatibilité Thermomix (tags Shopify)
+  const compat = getCompatibility(product);
+  const compatLabel = formatCompatibilityLabel(compat);
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -84,6 +89,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       {/* Infos minimalistes sous l'image */}
       <div className="pt-3 px-0.5">
+        {compatLabel && (
+          <p className="text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-accent/80 mb-1">
+            {compatLabel}
+          </p>
+        )}
         <h3 className="font-display font-medium text-[13px] md:text-sm text-foreground leading-snug line-clamp-2 min-h-[2.4em] group-hover:text-accent transition-colors">
           {node.title}
         </h3>

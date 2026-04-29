@@ -7,6 +7,7 @@ import { useState } from 'react';
 const NAV_LINKS = [
   { to: '/', label: 'Accueil' },
   { to: '/catalogue', label: 'Boutique' },
+  { to: '/accessoires-tm5', label: 'TM5' },
   { to: '/accessoires-tm6', label: 'TM6' },
   { to: '/accessoires-tm7', label: 'TM7' },
   { to: '/blog', label: 'Blog' },
