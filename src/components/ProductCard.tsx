@@ -89,6 +89,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       {/* Infos minimalistes sous l'image */}
       <div className="pt-3 px-0.5">
+        {compatLabel && (
+          <p className="text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-accent/80 mb-1">
+            {compatLabel}
+          </p>
+        )}
         <h3 className="font-display font-medium text-[13px] md:text-sm text-foreground leading-snug line-clamp-2 min-h-[2.4em] group-hover:text-accent transition-colors">
           {node.title}
         </h3>
