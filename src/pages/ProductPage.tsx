@@ -388,7 +388,7 @@ const ProductPage = () => {
                   <button
                     onClick={handleAddToCart}
                     disabled={isLoading}
-                    className="w-full bg-accent text-accent-foreground font-bold py-5 rounded-xl hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 flex items-center justify-center gap-3 text-lg shadow-[0_0_30px_hsl(97_52%_51%/0.25)]"
+                    className="btn-cart w-full font-bold py-5 rounded-xl flex items-center justify-center gap-3 text-lg"
                   >
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -714,7 +714,7 @@ const ProductPage = () => {
                 <button
                   onClick={handleAddToCart}
                   disabled={isLoading}
-                  className="mt-8 inline-flex items-center gap-3 bg-accent text-accent-foreground px-10 py-5 rounded-full font-bold text-base hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 shadow-[0_0_30px_hsl(97_52%_51%/0.3)]"
+                  className="btn-cart mt-8 inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-base"
                 >
                   {isLoading ? (
                     <Loader2 className="w-5 h-5 animate-spin" />
@@ -741,7 +741,7 @@ const ProductPage = () => {
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading}
-                className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 text-base min-h-[56px] active:scale-[0.98] transition-transform shadow-[0_0_20px_hsl(97_52%_51%/0.25)]"
+                className="btn-cart w-full font-bold py-4 rounded-xl flex items-center justify-center gap-2 text-base min-h-[56px]"
               >
                 {isLoading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />

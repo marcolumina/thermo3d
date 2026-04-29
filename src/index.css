@@ -123,3 +123,23 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+
+/* ====== Bouton "Ajouter au panier" — vert global ====== */
+.btn-cart {
+  background-color: #22c55e;
+  color: #ffffff;
+  transition: background-color 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+}
+.btn-cart:hover:not(:disabled) {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+}
+.btn-cart:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.btn-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
