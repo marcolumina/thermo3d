@@ -83,7 +83,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <button
             onClick={handleAddToCart}
             disabled={isLoading || !variant}
-            className="inline-flex items-center gap-1 text-[11px] md:text-xs font-medium text-foreground border border-border rounded-full px-2.5 py-1 hover:bg-foreground hover:text-background transition-colors disabled:opacity-50 active:scale-95"
+            className="btn-cart inline-flex items-center gap-1 text-[11px] md:text-xs font-semibold rounded-full px-3 py-1.5"
             aria-label={`Ajouter ${node.title} au panier`}
           >
             {isLoading ? (
