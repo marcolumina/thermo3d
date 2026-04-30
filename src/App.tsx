@@ -59,6 +59,7 @@ const AppContent = () => {
         <Route path="/accessoires-tm5" element={<AccessoiresTM5 />} />
         <Route path="/accessoires-tm6" element={<AccessoiresTM6 />} />
         <Route path="/accessoires-tm7" element={<AccessoiresTM7 />} />
+        <Route path="/collection/:handle" element={<Collection />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogArticle />} />
         <Route path="/auth" element={<Auth />} />
