@@ -104,7 +104,7 @@ export const CacheEcranTM7Probleme = () => (
           <div className="aspect-square rounded-3xl overflow-hidden bg-secondary/30 shadow-xl">
             <img
               src={avantImg}
-              alt="Écran Thermomix TM7 sale avec traces, projections et rayures"
+              alt="Écran Thermomix TM7 sale avec projections de sauce, traces de doigts et poussières"
               className="w-full h-full object-cover"
               width={1024}
               height={1024}
@@ -197,7 +197,7 @@ export const CacheEcranTM7AvantApres = () => (
         <div className="relative rounded-3xl overflow-hidden bg-secondary/40 shadow-md">
           <img
             src={avantImg}
-            alt="Écran Thermomix sans protection — sale et rayé"
+            alt="Écran Thermomix TM7 sans cache — sale, projections et traces"
             className="w-full aspect-square object-cover"
             width={1024}
             height={1024}
