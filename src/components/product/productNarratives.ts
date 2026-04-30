@@ -574,7 +574,93 @@ function buildDefaultNarrative(args: {
     apresLabel: 'Avec Thermo3D',
   };
 
-  switch (category) {
+  switch (sub) {
+    case 'cache-ecran':
+      return {
+        ...common,
+        eyebrow: `Cache écran Thermomix ${model}`,
+        heroTitle: `Gardez votre écran ${model} <highlight>comme neuf</highlight>`,
+        heroSubtitle: `L'écran tactile du ${model} subit projections, vapeur et traces de doigts au quotidien. Notre cache se pose entre deux utilisations pour préserver son aspect d'origine.`,
+        infoBanner: 'À poser après utilisation, à retirer avant cuisson.',
+        heroBullets: [
+          "Protège l'écran tactile entre les utilisations",
+          'Évite projections, traces grasses et micro-rayures',
+          'Pose et retrait en 2 secondes, sans outil',
+          `Ajustement précis dédié au ${model}`,
+        ],
+        problemTitle: `L'écran ${model} se ternit avec le temps`,
+        problemDesc:
+          "Sans protection, l'écran accumule projections, gras et micro-rayures dues au nettoyage. En quelques mois, il perd son aspect neuf.",
+        problemPoints: [
+          'Projections de sauce et matières grasses',
+          'Traces de doigts grasses au quotidien',
+          'Micro-rayures dues au nettoyage répété',
+          "Perte d'aspect neuf et de la valeur de revente",
+        ],
+        solutionTitle: 'Une protection simple, un écran impeccable',
+        solutionDesc: "Posez après cuisson, retirez avant. Votre écran reste neuf.",
+        solutionSteps: [
+          { title: 'Pose en 2 secondes', desc: "Vous posez le cache sur l'écran après cuisson." },
+          { title: 'Protection au repos', desc: "L'écran est à l'abri des projections et de la poussière." },
+          { title: 'Retrait avant usage', desc: "D'un geste avant la prochaine recette." },
+        ],
+        avantCaption: 'Écran exposé : projections et traces s\'accumulent.',
+        apresCaption: 'Écran protégé : aspect neuf préservé.',
+        beneficesTitle: `4 raisons de protéger votre écran ${model}`,
+        benefices: [
+          { title: 'Protégé au repos', desc: "Plus de projections sur l'écran tactile." },
+          { title: 'Évite traces & rayures', desc: 'Fini le gras et les micro-rayures du nettoyage.' },
+          { title: 'Aspect neuf durable', desc: 'Préserve la valeur de revente.' },
+          { title: 'Pose & retrait 2 sec', desc: 'Aucune contrainte au quotidien.' },
+        ],
+        urgenceTitle: `Protégez votre écran ${model} dès aujourd'hui`,
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Protéger mon écran',
+      };
+
+    case 'cache-balance':
+      return {
+        ...common,
+        eyebrow: `Cache balance Thermomix ${model}`,
+        heroTitle: `Protégez la <highlight>balance intégrée</highlight> de votre ${model}`,
+        heroSubtitle: `La balance du ${model} est sensible aux chocs, liquides et ustensiles posés. Notre cache la couvre entre les pesées pour préserver sa précision et son apparence.`,
+        infoBanner: 'À retirer avant chaque pesée — pas de mesure avec le cache.',
+        heroBullets: [
+          'Préserve la précision de la balance',
+          'Évite chocs, liquides et taches',
+          'Surface lisse, facile à essuyer',
+          `Ajustement précis dédié au ${model}`,
+        ],
+        problemTitle: 'La balance reste exposée entre les recettes',
+        problemDesc:
+          "Saladier posé, liquide renversé, ustensile tombé : la zone de pesée encaisse tout. À la longue, l'aspect se dégrade et la précision peut en souffrir.",
+        problemPoints: [
+          'Liquides renversés sur la zone sensible',
+          'Chocs des ustensiles posés dessus',
+          'Taches difficiles à nettoyer',
+          'Usure prématurée du capteur',
+        ],
+        solutionTitle: 'Un cache pour préserver votre balance',
+        solutionDesc: 'Posez après pesée, retirez avant la suivante. Votre balance reste comme neuve.',
+        solutionSteps: [
+          { title: 'Pose immédiate', desc: 'Le cache se positionne tout seul sur la balance.' },
+          { title: 'Protection complète', desc: 'Liquides et chocs restent à la surface du cache.' },
+          { title: 'Retrait avant pesée', desc: 'Un geste pour retrouver une balance précise.' },
+        ],
+        avantCaption: 'Balance exposée : taches, chocs et usure inévitables.',
+        apresCaption: 'Balance protégée : précision et aspect préservés.',
+        beneficesTitle: '4 raisons de protéger votre balance',
+        benefices: [
+          { title: 'Préserve la précision', desc: 'Moins de chocs = balance fiable plus longtemps.' },
+          { title: 'Anti-taches', desc: 'Les liquides ne touchent plus la balance.' },
+          { title: 'Nettoyage facile', desc: "Un coup d'éponge suffit." },
+          { title: 'Discret', desc: `S'intègre à l'esthétique du ${model}.` },
+        ],
+        urgenceTitle: `Protégez votre balance ${model} dès aujourd'hui`,
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Protéger ma balance',
+      };
+
     case 'cache':
       return {
         ...common,
@@ -584,82 +670,290 @@ function buildDefaultNarrative(args: {
         infoBanner: 'À poser après utilisation, à retirer avant cuisson.',
         heroBullets: [
           'Protège votre Thermomix entre les utilisations',
-          'Se pose en 2 secondes, sans outil ni colle',
+          "Se pose en 2 secondes, sans outil ni colle",
           `Ajustement précis dédié au ${model}`,
           'Fabriqué en France 🇫🇷 — PLA premium',
         ],
         problemTitle: 'Votre Thermomix est exposé en permanence',
         problemDesc:
-          'Sur le plan de travail, votre Thermomix subit projections, vapeur et traces de doigts. Sans protection, il perd son aspect neuf en quelques mois.',
+          'Sur le plan de travail, votre Thermomix subit projections, vapeur et traces. Sans protection, il perd son aspect neuf en quelques mois.',
         problemPoints: [
           "Projections lors d'autres préparations",
           'Poussières et particules au quotidien',
           'Traces de doigts et nettoyages répétés',
-          "Perte de l'aspect neuf et de la valeur de revente",
+          "Perte de l'aspect neuf",
         ],
         solutionTitle: 'Une protection simple, un Thermomix qui reste neuf',
-        solutionDesc: 'Posez après cuisson, retirez avant utilisation. C\'est tout.',
+        solutionDesc: "Posez après cuisson, retirez avant utilisation. C'est tout.",
         solutionSteps: [
-          { title: 'Pose en 2 secondes', desc: "Après cuisson, vous posez la protection. Elle s'aligne toute seule." },
-          { title: 'Protection au repos', desc: "Votre Thermomix est à l'abri des agressions du quotidien." },
-          { title: 'Retrait avant usage', desc: "D'un geste, vous retirez la protection avant la prochaine recette." },
+          { title: 'Pose en 2 secondes', desc: "La protection s'aligne toute seule." },
+          { title: 'Protection au repos', desc: "À l'abri des agressions du quotidien." },
+          { title: 'Retrait avant usage', desc: "Vous le retirez d'un geste." },
         ],
         avantCaption: 'Exposé en permanence aux projections et à la poussière.',
-        apresCaption: 'À l\'abri entre les utilisations, comme neuf dans le temps.',
+        apresCaption: "À l'abri entre les utilisations, comme neuf dans le temps.",
         beneficesTitle: `4 raisons de protéger votre ${model}`,
         benefices: [
-          { title: 'Protégé au repos', desc: 'Plus de projections ni de poussières directement sur la zone sensible.' },
-          { title: 'Évite traces & rayures', desc: 'Fini les traces grasses et les micro-rayures du nettoyage.' },
-          { title: 'Comme neuf dans le temps', desc: "Préserve l'aspect d'origine et la valeur de revente." },
-          { title: 'Pose & retrait en 2 sec', desc: 'Aucune contrainte au quotidien, totalement réversible.' },
+          { title: 'Protégé au repos', desc: 'Plus de projections sur la zone sensible.' },
+          { title: 'Évite traces & rayures', desc: 'Fini les traces grasses et les micro-rayures.' },
+          { title: 'Comme neuf', desc: "Préserve l'aspect d'origine." },
+          { title: 'Pose & retrait 2 sec', desc: 'Aucune contrainte au quotidien.' },
         ],
         urgenceTitle: `Protégez votre ${model} dès aujourd'hui`,
-        urgenceDesc:
-          'Chaque pièce est imprimée à la commande dans notre atelier en France. Commandez maintenant pour recevoir sous 48 à 72h.',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
         ctaLabel: 'Protéger mon Thermomix',
       };
 
-    case 'support':
+    case 'support-couvercle':
       return {
         ...common,
-        eyebrow: `Pour Thermomix ${model}`,
-        heroTitle: `Tout à portée de main, <highlight>cuisinez sans interruption</highlight>`,
-        heroSubtitle: `Un support pensé pour votre Thermomix : vos accessoires sont prêts en 1 seconde, sans fouiller dans les tiroirs ni encombrer le plan de travail.`,
+        eyebrow: `Support couvercle Thermomix ${model}`,
+        heroTitle: `Fini les <highlight>gouttes du couvercle</highlight> sur le plan de travail`,
+        heroSubtitle: `À chaque ouverture, le couvercle du ${model} laisse couler des gouttes. Notre support les recueille proprement, sans tache ni nettoyage.`,
         heroBullets: [
-          'Accessoires accessibles en 1 seconde',
-          'Plan de travail dégagé et organisé',
-          `Ajustement précis pour le ${model}`,
-          'Fabriqué en France 🇫🇷 — PLA premium',
+          'Recueille les gouttes du couvercle',
+          'Plan de travail propre, zéro tache',
+          'Pose et retrait du couvercle en un geste',
+          `Ajustement précis dédié au ${model}`,
         ],
-        problemTitle: 'Vos accessoires Thermomix prennent trop de place',
+        problemTitle: 'Le couvercle goutte partout dès qu\'on le retire',
         problemDesc:
-          "Spatule, gobelet doseur, fouet… vous les cherchez à chaque recette, ils traînent ou prennent un tiroir entier. Résultat : du temps perdu et un plan de travail encombré.",
+          "Vapeur, sauce, jus de cuisson : à chaque ouverture, le couvercle salit le plan de travail. Vous nettoyez à chaque recette.",
         problemPoints: [
-          'Accessoires éparpillés dans plusieurs tiroirs',
-          'Temps perdu à chaque recette',
-          'Plan de travail encombré',
+          'Gouttes de jus et de sauce sur le plan de travail',
+          'Taches qui marquent à la longue',
+          'Nettoyage systématique après chaque recette',
+          "Pas d'endroit propre pour poser le couvercle",
+        ],
+        solutionTitle: 'Un support qui garde votre cuisine propre',
+        solutionDesc: 'Posez le couvercle dessus. Les gouttes restent contenues.',
+        solutionSteps: [
+          { title: 'Mise en place', desc: 'Posez le support à côté du Thermomix, sans outil.' },
+          { title: 'Posez le couvercle', desc: "À chaque ouverture, déposez-le dessus." },
+          { title: 'Plan de travail propre', desc: 'Plus de gouttes à essuyer.' },
+        ],
+        avantCaption: 'Gouttes et taches sur le plan de travail.',
+        apresCaption: 'Couvercle posé proprement, plan de travail impeccable.',
+        beneficesTitle: '4 raisons d\'adopter ce support couvercle',
+        benefices: [
+          { title: 'Zéro goutte', desc: 'Le plan de travail reste sec.' },
+          { title: 'Plus de nettoyage', desc: 'Vous gagnez du temps après chaque recette.' },
+          { title: 'Pratique', desc: 'Une vraie place dédiée pour le couvercle.' },
+          { title: `Ajustement ${model}`, desc: `Conçu pour le couvercle ${model}.` },
+        ],
+        urgenceTitle: 'Gardez votre cuisine propre dès aujourd\'hui',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Adopter le support couvercle',
+      };
+
+    case 'support-spatule':
+      return {
+        ...common,
+        eyebrow: `Support spatule Thermomix ${model}`,
+        heroTitle: `Votre spatule ${model} <highlight>toujours à portée</highlight>, jamais sale`,
+        heroSubtitle: `Plus besoin de chercher la spatule ni de la poser sur un plan de travail sale. Un emplacement dédié, juste à côté du Thermomix.`,
+        heroBullets: [
+          'Spatule accessible en 1 seconde',
+          'Plus de spatule posée sur le plan de travail sale',
+          "Spatule propre, prête à l'emploi",
+          `Ajustement précis dédié au ${model}`,
+        ],
+        problemTitle: 'Où est la spatule au moment crucial ?',
+        problemDesc:
+          "Vous avez besoin de la spatule pendant la cuisson, mais elle traîne dans l'évier ou un tiroir. Vous la posez n'importe où.",
+        problemPoints: [
+          "Spatule introuvable au moment d'en avoir besoin",
+          'Posée sur un plan de travail pas toujours propre',
+          'Sauce qui coule de la spatule',
+          'Recette interrompue pour aller la chercher',
+        ],
+        solutionTitle: 'Un emplacement dédié, à portée immédiate',
+        solutionDesc: 'Glissez la spatule sur son support après chaque utilisation.',
+        solutionSteps: [
+          { title: 'Installation', desc: 'Posez le support à côté du Thermomix, sans outil.' },
+          { title: 'Rangement immédiat', desc: 'La spatule trouve sa place.' },
+          { title: 'Toujours prête', desc: "Vous l'attrapez en 1 seconde." },
+        ],
+        avantCaption: 'Spatule introuvable, posée n\'importe où.',
+        apresCaption: 'Spatule à sa place, propre et prête à l\'emploi.',
+        beneficesTitle: '4 raisons d\'adopter le support spatule',
+        benefices: [
+          { title: 'Toujours à portée', desc: 'Plus de recette interrompue pour la chercher.' },
+          { title: "Plus d'hygiène", desc: 'La spatule ne touche plus le plan de travail.' },
+          { title: 'Gain de place', desc: 'Format compact, ne prend pas de place utile.' },
+          { title: `Ajustement ${model}`, desc: `Conçu pour la spatule ${model}.` },
+        ],
+        urgenceTitle: 'Adoptez le support spatule dès aujourd\'hui',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Adopter ce support',
+      };
+
+    case 'support-ustensiles':
+      return {
+        ...common,
+        eyebrow: `Support ustensiles Thermomix ${model}`,
+        heroTitle: `Tous vos ustensiles ${model} <highlight>en un seul endroit</highlight>`,
+        heroSubtitle: `Spatule, gobelet, fouet, panier de cuisson : un support compact qui regroupe tous vos ustensiles ${model} directement à côté du Thermomix.`,
+        heroBullets: [
+          `Tous les ustensiles ${model} réunis en un endroit`,
+          'Plan de travail enfin libéré',
+          'Accès immédiat pendant la cuisson',
+          `Ajustement précis dédié au ${model}`,
+        ],
+        problemTitle: `Vos ustensiles ${model} prennent trop de place`,
+        problemDesc:
+          'Sans rangement dédié, les ustensiles occupent un tiroir entier ou s\'éparpillent. Vous perdez du temps et de l\'espace utile.',
+        problemPoints: [
+          'Tiroir entier monopolisé par les accessoires',
+          'Ustensiles éparpillés sur le plan de travail',
+          'Temps perdu à chercher la bonne pièce',
           'Risque de perte ou de casse',
         ],
-        solutionTitle: 'Un seul support, tout à portée de main',
-        solutionDesc: 'Posez le support, rangez vos accessoires : votre Thermomix devient une vraie station de cuisine organisée.',
+        solutionTitle: 'Un support pensé pour tout regrouper',
+        solutionDesc: 'Chaque ustensile a sa place dédiée, immédiatement accessible.',
         solutionSteps: [
-          { title: 'Mise en place', desc: 'Posez le support à côté ou sur le Thermomix, sans outil.' },
-          { title: 'Rangement immédiat', desc: 'Chaque accessoire trouve sa place, en un geste.' },
-          { title: 'Cuisine fluide', desc: 'Vous prenez ce qu\'il vous faut sans interrompre votre recette.' },
+          { title: 'Installation', desc: 'Posez le support à côté du Thermomix, sans outil.' },
+          { title: 'Rangement immédiat', desc: 'Chaque ustensile trouve sa place.' },
+          { title: 'Cuisine fluide', desc: 'Vous cuisinez sans interruption.' },
         ],
-        avantCaption: 'Accessoires éparpillés, plan de travail encombré.',
-        apresCaption: 'Tout à sa place, prêt à l\'emploi en un geste.',
-        beneficesTitle: `4 raisons d'adopter ce support`,
+        avantCaption: 'Tiroirs encombrés, ustensiles éparpillés.',
+        apresCaption: 'Tout regroupé, accessible et visible.',
+        beneficesTitle: "4 raisons d'adopter ce support",
         benefices: [
-          { title: 'Gain de temps', desc: 'Vos accessoires sont accessibles instantanément.' },
+          { title: 'Tout regroupé', desc: 'Une seule place pour tous vos ustensiles.' },
+          { title: 'Tiroir libéré', desc: 'Vous récupérez un tiroir complet.' },
+          { title: 'Accès immédiat', desc: 'Vos ustensiles sont visibles et accessibles.' },
+          { title: `Ajustement ${model}`, desc: `Pensé pour les dimensions ${model}.` },
+        ],
+        urgenceTitle: 'Organisez vos ustensiles dès aujourd\'hui',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Adopter ce support',
+      };
+
+    case 'organiseur':
+      return {
+        ...common,
+        eyebrow: `Organiseur Thermomix ${model}`,
+        heroTitle: `Vos ustensiles ${model} <highlight>toujours à portée de main</highlight>`,
+        heroSubtitle: `Un emplacement dédié pour chaque accessoire, directement à côté de votre Thermomix. Fini les tiroirs à fouiller en pleine recette.`,
+        heroBullets: [
+          'Une place dédiée pour chaque ustensile',
+          'Accès en 1 seconde, sans interrompre la recette',
+          'Plan de travail enfin dégagé',
+          `Ajustement précis dédié au ${model}`,
+        ],
+        problemTitle: `Vos ustensiles ${model} sont éparpillés`,
+        problemDesc:
+          'À chaque recette, vous perdez du temps à chercher. Et vous interrompez la cuisson pour fouiller les tiroirs.',
+        problemPoints: [
+          'Ustensiles mélangés au reste de la vaisselle',
+          'Temps perdu à chercher en pleine recette',
+          'Gobelet ou spatule régulièrement égarés',
+          'Plan de travail encombré pendant la cuisson',
+        ],
+        solutionTitle: 'Tous vos ustensiles réunis en un seul endroit',
+        solutionDesc: 'Un emplacement par ustensile, directement accessible.',
+        solutionSteps: [
+          { title: 'Installation', desc: 'Posez l\'organiseur à côté du Thermomix.' },
+          { title: 'Rangement immédiat', desc: 'Chaque ustensile trouve sa place.' },
+          { title: 'Cuisine fluide', desc: 'Vous prenez ce qu\'il vous faut sans quitter votre recette.' },
+        ],
+        avantCaption: 'Ustensiles éparpillés, plan de travail encombré.',
+        apresCaption: 'Tout à sa place, accessible en 1 seconde.',
+        beneficesTitle: "4 raisons d'adopter cet organiseur",
+        benefices: [
+          { title: 'Gain de temps', desc: 'Ustensiles accessibles en 1 seconde.' },
           { title: 'Plan de travail dégagé', desc: 'Plus d\'espace utile pour cuisiner.' },
-          { title: `Ajustement ${model}`, desc: `Conçu spécifiquement pour le ${model}, au dixième de mm.` },
-          { title: 'Installation 2 sec', desc: 'Aucun outil, aucun perçage, totalement réversible.' },
+          { title: 'Zéro objet perdu', desc: 'Chaque ustensile a sa place.' },
+          { title: 'Installation 2 sec', desc: 'Aucun outil, totalement réversible.' },
         ],
         urgenceTitle: 'Organisez votre cuisine dès aujourd\'hui',
-        urgenceDesc:
-          'Pièces imprimées à la commande dans notre atelier français. Commandez maintenant pour recevoir sous 48 à 72h.',
-        ctaLabel: 'Organiser mon Thermomix',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Organiser mes ustensiles',
+      };
+
+    case 'demouleur':
+      return {
+        ...common,
+        eyebrow: 'Démouleur Thermomix',
+        heroTitle: `Démoulage <highlight>facile, propre, sans gâchis</highlight>`,
+        heroSubtitle: `Sortir la pâte du bol Thermomix sans en perdre la moitié sur les parois ni se brûler les doigts : un démouleur conçu pour épouser parfaitement la forme du bol.`,
+        heroBullets: [
+          'Récupère 100% de la pâte, sans gâchis',
+          "Plus besoin d'y mettre les mains",
+          'Compatible TM5, TM6 et TM7',
+          'Fabriqué en France 🇫🇷 — PLA alimentaire',
+        ],
+        problemTitle: 'Démouler la pâte est toujours galère',
+        problemDesc:
+          "Avec une spatule classique, vous laissez de la pâte sur les parois, vous vous tachez les mains et vous perdez du temps.",
+        problemPoints: [
+          'Pâte qui reste collée aux parois',
+          'Mains et plan de travail tachés',
+          'Démoulage long et fastidieux',
+          'Bol plus difficile à nettoyer ensuite',
+        ],
+        solutionTitle: 'Un démouleur pensé pour le bol Thermomix',
+        solutionDesc: 'Sa forme épouse celle du bol : vous récupérez la totalité de la pâte en quelques secondes.',
+        solutionSteps: [
+          { title: 'Insérer', desc: 'Glissez le démouleur le long de la paroi.' },
+          { title: 'Faire le tour', desc: 'Un tour complet et la pâte se détache.' },
+          { title: 'Démouler', desc: 'Récupérez votre pâte en entier.' },
+        ],
+        avantCaption: 'Pâte qui reste collée, démoulage fastidieux.',
+        apresCaption: 'Démoulage rapide, propre, sans perte.',
+        beneficesTitle: "4 raisons d'adopter ce démouleur",
+        benefices: [
+          { title: 'Zéro gâchis', desc: 'Vous récupérez 100% de la pâte.' },
+          { title: 'Mains propres', desc: "Plus besoin d'y mettre les doigts." },
+          { title: 'Bol plus propre', desc: 'Nettoyage instantané ensuite.' },
+          { title: 'Compatible TM5/6/7', desc: 'Une pièce pour tous les bols Thermomix.' },
+        ],
+        urgenceTitle: 'Démoulez sans effort dès aujourd\'hui',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Adopter le démouleur',
+      };
+
+    case 'pack':
+      return {
+        ...common,
+        eyebrow: 'Pack Thermomix',
+        heroTitle: `Tout ce qu'il faut pour <highlight>optimiser votre Thermomix</highlight>`,
+        heroSubtitle: `Une sélection complète de nos accessoires les plus utiles, réunis dans un pack à prix avantageux. Tout pour cuisiner mieux, ranger mieux, gagner du temps.`,
+        heroBullets: [
+          'Plusieurs accessoires complémentaires en un seul achat',
+          'Économie immédiate vs. achat à l\'unité',
+          'Cohérence visuelle (même finition, même couleur)',
+          'Fabriqué en France 🇫🇷 — PLA premium',
+        ],
+        problemTitle: 'Acheter les accessoires un par un, c\'est long et plus cher',
+        problemDesc:
+          "Vous avez besoin de plusieurs accessoires Thermomix mais hésitez à tout commander d'un coup. Notre pack regroupe l'essentiel à prix réduit.",
+        problemPoints: [
+          'Multiples commandes = plusieurs frais de livraison',
+          'Prix unitaire plus élevé',
+          "Risque d'incohérence de couleurs/finitions",
+          'Délai cumulé plus long',
+        ],
+        solutionTitle: 'Un pack pensé pour vous simplifier la vie',
+        solutionDesc: 'Tout ce qu\'il faut, en une seule commande, à prix avantageux.',
+        solutionSteps: [
+          { title: 'Choisissez', desc: 'Le pack qui correspond à votre besoin.' },
+          { title: 'Recevez', desc: 'Une seule livraison, tout regroupé.' },
+          { title: 'Profitez', desc: 'Une cuisine optimisée immédiatement.' },
+        ],
+        avantCaption: 'Plusieurs achats séparés, plus chers et désordonnés.',
+        apresCaption: 'Un pack cohérent, à prix avantageux.',
+        beneficesTitle: '4 raisons d\'opter pour le pack',
+        benefices: [
+          { title: 'Prix avantageux', desc: 'Économie significative vs. à l\'unité.' },
+          { title: 'Une seule livraison', desc: 'Frais de port mutualisés.' },
+          { title: 'Cohérence visuelle', desc: 'Même finition pour tous les accessoires.' },
+          { title: 'Tout en une fois', desc: 'Vous équipez votre Thermomix en une commande.' },
+        ],
+        urgenceTitle: 'Optimisez votre Thermomix dès aujourd\'hui',
+        urgenceDesc: 'Pack imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
+        ctaLabel: 'Commander le pack',
       };
 
     case 'rangement':
@@ -667,7 +961,7 @@ function buildDefaultNarrative(args: {
         ...common,
         eyebrow: 'Rangement Thermomix',
         heroTitle: `Une cuisine organisée, <highlight>une cuisine sereine</highlight>`,
-        heroSubtitle: `Un rangement sur-mesure pour vos accessoires Thermomix. Tout est à sa place, rien ne traîne, vous gagnez du temps à chaque utilisation.`,
+        heroSubtitle: `Un rangement sur-mesure pour vos accessoires Thermomix. Tout est à sa place, vous gagnez du temps à chaque utilisation.`,
         heroBullets: [
           'Une place dédiée pour chaque accessoire',
           'Plan de travail libéré',
@@ -676,7 +970,7 @@ function buildDefaultNarrative(args: {
         ],
         problemTitle: 'Vos accessoires sont éparpillés',
         problemDesc:
-          'Sans rangement dédié, les accessoires Thermomix s\'entassent, se perdent et encombrent vos tiroirs. Vous perdez du temps à chaque recette.',
+          'Sans rangement dédié, les accessoires Thermomix s\'entassent et encombrent vos tiroirs.',
         problemPoints: [
           'Accessoires mélangés au reste de la vaisselle',
           'Temps perdu à chercher la bonne pièce',
@@ -687,21 +981,20 @@ function buildDefaultNarrative(args: {
         solutionDesc: 'Chaque accessoire trouve sa place, immédiatement accessible.',
         solutionSteps: [
           { title: 'Installation', desc: 'Posez le rangement où vous voulez, sans outil.' },
-          { title: 'Tout à sa place', desc: 'Chaque accessoire dispose de son emplacement dédié.' },
-          { title: 'Cuisine fluide', desc: 'Vous gagnez du temps à chaque recette, sans frustration.' },
+          { title: 'Tout à sa place', desc: 'Chaque accessoire dispose de son emplacement.' },
+          { title: 'Cuisine fluide', desc: 'Plus de frustration au quotidien.' },
         ],
         avantCaption: 'Tiroirs encombrés, accessoires mélangés.',
-        apresCaption: 'Rangement clair, chaque pièce immédiatement accessible.',
+        apresCaption: 'Rangement clair, chaque pièce accessible.',
         beneficesTitle: '4 raisons d\'adopter ce rangement',
         benefices: [
-          { title: 'Organisation parfaite', desc: 'Une place dédiée et visible pour chaque accessoire.' },
-          { title: 'Gain de temps', desc: 'Plus de recherche, vous prenez ce qu\'il vous faut directement.' },
-          { title: 'Protège vos accessoires', desc: 'Évite la casse et l\'usure prématurée.' },
-          { title: 'Made in France', desc: 'PLA premium imprimé dans notre atelier français.' },
+          { title: 'Organisation parfaite', desc: 'Une place dédiée pour chaque accessoire.' },
+          { title: 'Gain de temps', desc: 'Vous prenez ce qu\'il vous faut directement.' },
+          { title: 'Protège vos accessoires', desc: 'Évite la casse et l\'usure.' },
+          { title: 'Made in France', desc: 'PLA premium, atelier français.' },
         ],
         urgenceTitle: 'Organisez votre cuisine dès aujourd\'hui',
-        urgenceDesc:
-          'Pièces imprimées à la commande. Commandez maintenant pour recevoir sous 48 à 72h.',
+        urgenceDesc: 'Imprimé à la commande dans notre atelier français. Expédition sous 48 à 72h.',
         ctaLabel: 'Organiser ma cuisine',
       };
 
@@ -719,32 +1012,31 @@ function buildDefaultNarrative(args: {
         ],
         problemTitle: 'Votre Thermomix mérite mieux',
         problemDesc:
-          'Au quotidien, certains détails rendent l\'utilisation du Thermomix moins agréable. Cet accessoire est là pour les régler simplement.',
+          "Au quotidien, certains détails rendent l'utilisation du Thermomix moins agréable. Cet accessoire est là pour les régler simplement.",
         problemPoints: [
           'Petits gestes répétitifs et inconfortables',
           'Perte de temps en cuisine',
-          'Manque d\'organisation',
-          'Accessoires d\'origine peu pratiques',
+          "Manque d'organisation",
+          "Accessoires d'origine peu pratiques",
         ],
         solutionTitle: 'Une amélioration simple et efficace',
-        solutionDesc: 'Un accessoire malin, pensé par des passionnés de Thermomix, pour vous simplifier la vie.',
+        solutionDesc: 'Un accessoire malin, pensé par des passionnés de Thermomix.',
         solutionSteps: [
           { title: 'Mise en place', desc: 'Installation en quelques secondes, sans outil.' },
-          { title: 'Utilisation', desc: 'Profitez immédiatement du gain de confort au quotidien.' },
-          { title: 'Tranquillité', desc: 'Conçu pour durer et résister à un usage intensif.' },
+          { title: 'Utilisation', desc: 'Profitez immédiatement du gain de confort.' },
+          { title: 'Tranquillité', desc: 'Conçu pour durer.' },
         ],
         avantCaption: 'Le quotidien sans cet accessoire : moins pratique.',
         apresCaption: 'Avec Thermo3D : un vrai gain de confort.',
-        beneficesTitle: '4 raisons de l\'adopter',
+        beneficesTitle: "4 raisons de l'adopter",
         benefices: [
-          { title: 'Pratique au quotidien', desc: 'Vous gagnez du temps et du confort à chaque utilisation.' },
+          { title: 'Pratique au quotidien', desc: 'Vous gagnez du temps et du confort.' },
           { title: 'Ajustement précis', desc: `Conçu spécifiquement pour le ${model}.` },
           { title: 'Qualité premium', desc: 'PLA alimentaire, finition mate soignée.' },
           { title: 'Made in France', desc: 'Imprimé dans notre atelier français.' },
         ],
         urgenceTitle: 'Améliorez votre Thermomix dès aujourd\'hui',
-        urgenceDesc:
-          'Pièces imprimées à la commande. Commandez maintenant pour recevoir sous 48 à 72h.',
+        urgenceDesc: 'Imprimé à la commande. Expédition sous 48 à 72h.',
         ctaLabel: 'Ajouter au panier',
       };
   }
