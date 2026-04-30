@@ -27,16 +27,20 @@ export const CacheEcranTM7Hero = ({ onAddToCart }: Props) => {
               Protégez votre écran TM7 <span className="text-accent">avant qu'il ne soit abîmé</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Graisse, rayures, traces… votre Thermomix est exposé à chaque utilisation.
-              Gardez-le comme neuf en 2 secondes.
+              Un cache écran à poser <strong>entre les utilisations</strong> de votre Thermomix
+              pour le protéger des projections, poussières et traces du quotidien.
+              Il se retire en 2 secondes avant chaque cuisson.
+            </p>
+            <p className="text-xs text-muted-foreground/80 italic">
+              ⚠️ À retirer avant utilisation du Thermomix — ce n'est pas une protection à laisser pendant la cuisson.
             </p>
 
             <ul className="space-y-3 pt-2">
               {[
-                { icon: ShieldCheck, t: 'Protection complète contre projections, vapeur et rayures' },
-                { icon: Clock, t: 'Installation en 2 secondes, sans outil ni colle' },
+                { icon: ShieldCheck, t: 'Protège l\'écran entre les utilisations (projections, poussières, traces)' },
+                { icon: Hand, t: 'Se pose et se retire en 2 secondes, sans outil ni colle' },
                 { icon: Sparkles, t: 'Ajustement précis dédié au TM7 (au dixième de mm)' },
-                { icon: Flag, t: 'Fabriqué en France 🇫🇷 — PLA qualité alimentaire' },
+                { icon: Flag, t: 'Fabriqué en France 🇫🇷 — PLA qualité premium' },
               ].map(({ icon: Icon, t }) => (
                 <li key={t} className="flex items-start gap-3 text-sm md:text-base text-foreground">
                   <span className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
