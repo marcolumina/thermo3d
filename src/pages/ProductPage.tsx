@@ -907,6 +907,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </section>
+            )}
 
             {/* Sticky mobile CTA — safe-area iOS */}
             <div
