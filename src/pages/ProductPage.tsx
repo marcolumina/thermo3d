@@ -18,6 +18,20 @@ import MascotProductTip from '@/components/MascotProductTip';
 import ShippingRates from '@/components/ShippingRates';
 import ShippingRateForVariant from '@/components/ShippingRateForVariant';
 import { getCompatibility, formatCompatibilityLabel } from '@/lib/compatibility';
+import {
+  CacheEcranTM7Hero,
+  CacheEcranTM7Probleme,
+  CacheEcranTM7Solution,
+  CacheEcranTM7AvantApres,
+  CacheEcranTM7Video,
+  CacheEcranTM7Benefices,
+  CacheEcranTM7Differenciation,
+  CacheEcranTM7UrgenceCTA,
+} from '@/components/product/CacheEcranTM7Sections';
+
+/* Page optimisée conversion pour le Cache écran TM7 */
+const isCacheEcranTM7 = (handle?: string) =>
+  !!handle && /^cache-ecran(-thermomix)?-tm7$/i.test(handle);
 
 /* ── Données statiques de la page ── */
 
@@ -246,6 +260,7 @@ const ProductPage = () => {
   const accroche = parsed?.accroche || 'Organisez votre espace en quelques secondes et cuisinez plus efficacement.';
   const benefitsFromShopify = parsed?.benefits || [];
   const specsFromShopify = parsed?.specs || [];
+  const isTM7Page = isCacheEcranTM7(handle);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -562,7 +577,21 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* ═══════ BLOC SUR-MESURE : CACHE ÉCRAN TM7 ═══════ */}
+            {isTM7Page && (
+              <>
+                <CacheEcranTM7Hero onAddToCart={handleAddToCart} price={productPrice} />
+                <CacheEcranTM7Probleme />
+                <CacheEcranTM7Solution />
+                <CacheEcranTM7AvantApres />
+                <CacheEcranTM7Video />
+                <CacheEcranTM7Benefices />
+                <CacheEcranTM7Differenciation />
+              </>
+            )}
+
             {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT EST INDISPENSABLE ═══════ */}
+            {!isTM7Page && (
             <section className="py-14 md:py-20 bg-background border-t border-border/30">
               <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
                 <div className="text-center mb-10 md:mb-14">
@@ -613,6 +642,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </section>
+            )}
 
             {/* ═══════ SECTION 2 : CARACTÉRISTIQUES TECHNIQUES ═══════ */}
             <section className="bg-secondary/30 py-14 md:py-20">
@@ -674,6 +704,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 : AVANT / APRÈS ═══════ */}
+            {!isTM7Page && (
             <section className="py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center mb-10">
@@ -704,6 +735,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </section>
+            )}
 
             {/* ═══════ SECTION 4 : DESCRIPTION DÉTAILLÉE SEO ═══════ */}
             <section className="bg-secondary/20 py-14 md:py-20">
@@ -787,6 +819,11 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* CTA URGENCE — uniquement page TM7, juste avant la preuve sociale */}
+            {isTM7Page && (
+              <CacheEcranTM7UrgenceCTA onAddToCart={handleAddToCart} price={productPrice} />
+            )}
+
             {/* ═══════ SECTION 6 : FAQ ═══════ */}
             <section className="bg-secondary/20 py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
@@ -835,6 +872,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 8 : CTA FINAL ═══════ */}
+            {!isTM7Page && (
             <section className="bg-foreground text-background">
               <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
                 <div className="flex items-center justify-center gap-1 mb-4">
@@ -869,6 +907,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </section>
+            )}
 
             {/* Sticky mobile CTA — safe-area iOS */}
             <div
