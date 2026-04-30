@@ -116,18 +116,18 @@ export const CacheEcranTM7Probleme = () => (
             Le problème
           </div>
           <h2 className="font-display font-extrabold text-2xl md:text-4xl leading-tight text-foreground">
-            Votre écran TM7 se dégrade plus vite que vous ne le pensez
+            Entre deux utilisations, votre écran TM7 prend cher
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed">
-            À chaque recette, votre écran subit des agressions invisibles : projections de sauce,
-            vapeur brûlante, traces de doigts grasses, micro-rayures de cuillère ou d'éponge.
-            En quelques mois, votre Thermomix flambant neuf perd son éclat.
+            Posé sur le plan de travail, votre Thermomix reste exposé en permanence : poussière,
+            projections quand vous cuisinez à côté, traces de doigts, frottements d'éponge…
+            En quelques mois, l'écran perd son aspect neuf.
           </p>
 
           <ul className="space-y-3">
             {[
-              'Projections de sauce, huile et matières grasses',
-              'Vapeur chaude qui s\'infiltre et laisse des traces',
+              'Projections de sauce, huile et matières grasses lors d\'autres préparations',
+              'Poussière et particules qui se déposent au quotidien',
               'Micro-rayures dues au nettoyage répété',
               'Perte de l\'aspect neuf et de la valeur de revente',
             ].map((p) => (
