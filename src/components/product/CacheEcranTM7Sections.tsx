@@ -204,14 +204,14 @@ export const CacheEcranTM7AvantApres = () => (
             Sans cache
           </div>
           <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-            <p className="text-white text-sm font-medium">Traces, projections, rayures, nettoyage permanent.</p>
+            <p className="text-white text-sm font-medium">Traces, projections, poussières, nettoyage permanent.</p>
           </div>
         </div>
 
         <div className="relative rounded-3xl overflow-hidden bg-secondary/40 shadow-lg ring-2 ring-accent/30">
           <img
             src={apresImg}
-            alt="Écran Thermomix TM7 protégé par cache 3D — propre et neuf"
+            alt="Écran Thermomix TM7 protégé par cache 3D entre deux utilisations"
             className="w-full aspect-square object-cover"
             width={1024}
             height={1024}
@@ -221,7 +221,7 @@ export const CacheEcranTM7AvantApres = () => (
             Avec cache Thermo3D
           </div>
           <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-            <p className="text-white text-sm font-medium">Écran impeccable, zéro stress, Thermomix comme neuf.</p>
+            <p className="text-white text-sm font-medium">Écran à l'abri entre les utilisations, comme neuf dans le temps.</p>
           </div>
         </div>
       </div>
