@@ -20,6 +20,14 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
   const [mobileOpen, setMobileOpen] = useState(false);
   const { user } = useAuth();
+  const { data: collections } = useShopifyCollections();
+
+  const collectionLinks = (collections || []).map(c => ({
+    to: `/collection/${c.handle}`,
+    label: c.title,
+  }));
+  const NAV_LINKS = [...STATIC_LINKS, ...collectionLinks, ...TAIL_LINKS];
+
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/60">
