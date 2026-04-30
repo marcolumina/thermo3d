@@ -239,7 +239,7 @@ export const CacheEcranTM7Video = () => (
           Voyez-le en action
         </h2>
         <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
-          Installation, utilisation au quotidien, nettoyage : tout en moins d'une minute.
+          Pose entre les utilisations, retrait avant cuisson, nettoyage : tout en moins d'une minute.
         </p>
       </div>
 
