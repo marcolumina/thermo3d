@@ -928,7 +928,7 @@ const ProductPage = () => {
                 ) : (
                   <>
                     <ShoppingCart className="w-5 h-5" />
-                    {narrative ? `Protéger — ${productPrice} €` : `Ajouter — ${productPrice} €`}
+                    {narrative ? `${narrative.ctaLabel} — ${productPrice} €` : `Ajouter — ${productPrice} €`}
                   </>
                 )}
               </button>
