@@ -150,18 +150,18 @@ export const CacheEcranTM7Solution = () => (
       <div className="text-center mb-12">
         <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">La solution</p>
         <h2 className="font-display font-extrabold text-2xl md:text-4xl text-foreground leading-tight">
-          Une protection invisible, une tranquillité totale
+          Une protection simple, un Thermomix qui reste neuf
         </h2>
         <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-          Pensé pour s'oublier dès qu'il est posé. Vous cuisinez normalement, votre TM7 reste neuf.
+          Posez le cache après chaque utilisation, retirez-le avant la prochaine cuisson. C'est tout.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {[
-          { num: '01', icon: Wrench, title: 'Installation rapide', desc: 'Vous posez le cache sur l\'écran, il s\'aligne tout seul. Aucun outil, aucune colle.' },
-          { num: '02', icon: Eye, title: 'Ajustement parfait', desc: 'Conçu sur mesure pour le TM7. Découpes précises pour le bouton et la zone tactile.' },
-          { num: '03', icon: Hand, title: 'Utilisation normale', desc: 'L\'écran reste 100 % tactile. Vous cuisinez sans la moindre gêne, l\'esprit léger.' },
+          { num: '01', icon: Wrench, title: 'Pose en 2 secondes', desc: 'Après cuisson, vous posez le cache sur l\'écran. Il s\'aligne tout seul, sans outil ni colle.' },
+          { num: '02', icon: ShieldCheck, title: 'Protection au repos', desc: 'L\'écran est à l\'abri des projections, poussières, traces et frottements quand vous ne l\'utilisez pas.' },
+          { num: '03', icon: Hand, title: 'Retrait avant utilisation', desc: 'Avant de relancer une recette, vous retirez le cache d\'un geste. Le Thermomix s\'utilise normalement.' },
         ].map((s) => (
           <div key={s.num} className="bg-background rounded-2xl border border-border/50 p-6 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-4">
