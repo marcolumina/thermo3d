@@ -552,7 +552,7 @@ const ProductPage = () => {
                     ) : (
                       <>
                         <ShoppingCart className="w-5 h-5" />
-                        {isTM7Page ? `Protéger mon écran — ${productPrice} €` : `Ajouter au panier — ${productPrice} €`}
+                        {narrative ? `${narrative.ctaLabel} — ${productPrice} €` : `Ajouter au panier — ${productPrice} €`}
                       </>
                     )}
                   </button>
@@ -582,16 +582,15 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* ═══════ BLOC SUR-MESURE : CACHE ÉCRAN TM7 ═══════ */}
-            {isTM7Page && (
+            {/* ═══════ NARRATIF PRODUIT (générique, adapté par produit) ═══════ */}
+            {narrative && (
               <>
-                <CacheEcranTM7Hero onAddToCart={handleAddToCart} price={productPrice} />
-                <CacheEcranTM7Probleme />
-                <CacheEcranTM7Solution />
-                <CacheEcranTM7AvantApres />
-                <CacheEcranTM7Video />
-                <CacheEcranTM7Benefices />
-                <CacheEcranTM7Differenciation />
+                <ProductNarrativeHero narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
+                <ProductNarrativeProbleme narrative={narrative} />
+                <ProductNarrativeSolution narrative={narrative} />
+                <ProductNarrativeAvantApres narrative={narrative} />
+                <ProductNarrativeBenefices narrative={narrative} />
+                <ProductNarrativeDifferenciation />
               </>
             )}
 
