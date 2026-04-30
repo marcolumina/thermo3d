@@ -231,12 +231,11 @@ const ProductPage = () => {
   const cannotAdd = optionsMissing || textMissing;
 
   const handleAddToCart = async () => {
-    if (!product || !selectedVariant) return;
-    if (cannotAdd) {
+    if (!product) return;
+    if (cannotAdd || !selectedVariant) {
       setShowErrors(true);
-      if (colorMissing) toast.error('Choisissez une couleur avant d\'ajouter au panier');
+      if (optionsMissing) toast.error('Choisissez toutes les options avant d\'ajouter au panier');
       else if (textMissing) toast.error('Ajoutez le prénom ou texte à graver');
-      // scroll vers la zone d'options
       document.getElementById('product-options')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
