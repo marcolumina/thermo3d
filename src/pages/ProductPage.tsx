@@ -260,6 +260,7 @@ const ProductPage = () => {
   const accroche = parsed?.accroche || 'Organisez votre espace en quelques secondes et cuisinez plus efficacement.';
   const benefitsFromShopify = parsed?.benefits || [];
   const specsFromShopify = parsed?.specs || [];
+  const isTM7Page = isCacheEcranTM7(handle);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
