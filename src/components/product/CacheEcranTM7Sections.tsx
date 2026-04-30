@@ -27,16 +27,20 @@ export const CacheEcranTM7Hero = ({ onAddToCart }: Props) => {
               Protégez votre écran TM7 <span className="text-accent">avant qu'il ne soit abîmé</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Graisse, rayures, traces… votre Thermomix est exposé à chaque utilisation.
-              Gardez-le comme neuf en 2 secondes.
+              Un cache écran à poser <strong>entre les utilisations</strong> de votre Thermomix
+              pour le protéger des projections, poussières et traces du quotidien.
+              Il se retire en 2 secondes avant chaque cuisson.
+            </p>
+            <p className="text-xs text-muted-foreground/80 italic">
+              ⚠️ À retirer avant utilisation du Thermomix — ce n'est pas une protection à laisser pendant la cuisson.
             </p>
 
             <ul className="space-y-3 pt-2">
               {[
-                { icon: ShieldCheck, t: 'Protection complète contre projections, vapeur et rayures' },
-                { icon: Clock, t: 'Installation en 2 secondes, sans outil ni colle' },
+                { icon: ShieldCheck, t: 'Protège l\'écran entre les utilisations (projections, poussières, traces)' },
+                { icon: Hand, t: 'Se pose et se retire en 2 secondes, sans outil ni colle' },
                 { icon: Sparkles, t: 'Ajustement précis dédié au TM7 (au dixième de mm)' },
-                { icon: Flag, t: 'Fabriqué en France 🇫🇷 — PLA qualité alimentaire' },
+                { icon: Flag, t: 'Fabriqué en France 🇫🇷 — PLA qualité premium' },
               ].map(({ icon: Icon, t }) => (
                 <li key={t} className="flex items-start gap-3 text-sm md:text-base text-foreground">
                   <span className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -112,18 +116,18 @@ export const CacheEcranTM7Probleme = () => (
             Le problème
           </div>
           <h2 className="font-display font-extrabold text-2xl md:text-4xl leading-tight text-foreground">
-            Votre écran TM7 se dégrade plus vite que vous ne le pensez
+            Entre deux utilisations, votre écran TM7 prend cher
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed">
-            À chaque recette, votre écran subit des agressions invisibles : projections de sauce,
-            vapeur brûlante, traces de doigts grasses, micro-rayures de cuillère ou d'éponge.
-            En quelques mois, votre Thermomix flambant neuf perd son éclat.
+            Posé sur le plan de travail, votre Thermomix reste exposé en permanence : poussière,
+            projections quand vous cuisinez à côté, traces de doigts, frottements d'éponge…
+            En quelques mois, l'écran perd son aspect neuf.
           </p>
 
           <ul className="space-y-3">
             {[
-              'Projections de sauce, huile et matières grasses',
-              'Vapeur chaude qui s\'infiltre et laisse des traces',
+              'Projections de sauce, huile et matières grasses lors d\'autres préparations',
+              'Poussière et particules qui se déposent au quotidien',
               'Micro-rayures dues au nettoyage répété',
               'Perte de l\'aspect neuf et de la valeur de revente',
             ].map((p) => (
@@ -146,18 +150,18 @@ export const CacheEcranTM7Solution = () => (
       <div className="text-center mb-12">
         <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2">La solution</p>
         <h2 className="font-display font-extrabold text-2xl md:text-4xl text-foreground leading-tight">
-          Une protection invisible, une tranquillité totale
+          Une protection simple, un Thermomix qui reste neuf
         </h2>
         <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-          Pensé pour s'oublier dès qu'il est posé. Vous cuisinez normalement, votre TM7 reste neuf.
+          Posez le cache après chaque utilisation, retirez-le avant la prochaine cuisson. C'est tout.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {[
-          { num: '01', icon: Wrench, title: 'Installation rapide', desc: 'Vous posez le cache sur l\'écran, il s\'aligne tout seul. Aucun outil, aucune colle.' },
-          { num: '02', icon: Eye, title: 'Ajustement parfait', desc: 'Conçu sur mesure pour le TM7. Découpes précises pour le bouton et la zone tactile.' },
-          { num: '03', icon: Hand, title: 'Utilisation normale', desc: 'L\'écran reste 100 % tactile. Vous cuisinez sans la moindre gêne, l\'esprit léger.' },
+          { num: '01', icon: Wrench, title: 'Pose en 2 secondes', desc: 'Après cuisson, vous posez le cache sur l\'écran. Il s\'aligne tout seul, sans outil ni colle.' },
+          { num: '02', icon: ShieldCheck, title: 'Protection au repos', desc: 'L\'écran est à l\'abri des projections, poussières, traces et frottements quand vous ne l\'utilisez pas.' },
+          { num: '03', icon: Hand, title: 'Retrait avant utilisation', desc: 'Avant de relancer une recette, vous retirez le cache d\'un geste. Le Thermomix s\'utilise normalement.' },
         ].map((s) => (
           <div key={s.num} className="bg-background rounded-2xl border border-border/50 p-6 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-4">
@@ -200,14 +204,14 @@ export const CacheEcranTM7AvantApres = () => (
             Sans cache
           </div>
           <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-            <p className="text-white text-sm font-medium">Traces, projections, rayures, nettoyage permanent.</p>
+            <p className="text-white text-sm font-medium">Traces, projections, poussières, nettoyage permanent.</p>
           </div>
         </div>
 
         <div className="relative rounded-3xl overflow-hidden bg-secondary/40 shadow-lg ring-2 ring-accent/30">
           <img
             src={apresImg}
-            alt="Écran Thermomix TM7 protégé par cache 3D — propre et neuf"
+            alt="Écran Thermomix TM7 protégé par cache 3D entre deux utilisations"
             className="w-full aspect-square object-cover"
             width={1024}
             height={1024}
@@ -217,7 +221,7 @@ export const CacheEcranTM7AvantApres = () => (
             Avec cache Thermo3D
           </div>
           <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-            <p className="text-white text-sm font-medium">Écran impeccable, zéro stress, Thermomix comme neuf.</p>
+            <p className="text-white text-sm font-medium">Écran à l'abri entre les utilisations, comme neuf dans le temps.</p>
           </div>
         </div>
       </div>
@@ -235,7 +239,7 @@ export const CacheEcranTM7Video = () => (
           Voyez-le en action
         </h2>
         <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
-          Installation, utilisation au quotidien, nettoyage : tout en moins d'une minute.
+          Pose entre les utilisations, retrait avant cuisson, nettoyage : tout en moins d'une minute.
         </p>
       </div>
 
@@ -272,10 +276,10 @@ export const CacheEcranTM7Benefices = () => (
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
         {[
-          { icon: Sparkles, title: 'Écran toujours propre', desc: 'Plus de projections directes. Un coup d\'éponge sur le cache et c\'est fini.' },
-          { icon: Clock, title: 'Gain de temps', desc: 'Fini les nettoyages minutieux après chaque recette.' },
-          { icon: Heart, title: 'Thermomix comme neuf', desc: 'Préserve l\'aspect d\'origine et la valeur de revente.' },
-          { icon: ShieldCheck, title: 'Protection durable', desc: 'PLA résistant à la chaleur, conçu pour durer des années.' },
+          { icon: ShieldCheck, title: 'Protégé entre 2 utilisations', desc: 'Plus de projections ni de poussières directement sur l\'écran quand vous ne cuisinez pas.' },
+          { icon: Sparkles, title: 'Évite traces & rayures', desc: 'Fini les traces de doigts grasses et les micro-rayures dues au nettoyage répété.' },
+          { icon: Heart, title: 'Comme neuf dans le temps', desc: 'Préserve l\'aspect d\'origine de l\'écran et la valeur de revente de votre Thermomix.' },
+          { icon: Hand, title: 'Pose & retrait en 2 sec', desc: 'Se met en place et se retire d\'un geste, avant chaque utilisation. Aucune contrainte.' },
         ].map((b) => (
           <div key={b.title} className="bg-secondary/30 border border-border/40 rounded-2xl p-5 hover:border-accent/40 hover:shadow-lg transition-all">
             <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
