@@ -161,7 +161,7 @@ const ProductPage = () => {
   const isLoading = useCartStore(state => state.isLoading);
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
+  const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const [hasInitializedVariant, setHasInitializedVariant] = useState(false);
   const [customText, setCustomText] = useState('');
   const [showErrors, setShowErrors] = useState(false);
@@ -182,53 +182,60 @@ const ProductPage = () => {
     return parseShopifyDescription(product.node.descriptionHtml);
   }, [product]);
 
-  // Extract variants and color options
+  // Extract variants and product-level options (each option shown as its own row)
   const variants = useMemo(() => {
     if (!product) return [];
     return product.node.variants.edges.map(e => e.node);
   }, [product]);
 
-  const colorOptions = useMemo(() => {
-    return variants.map((v, i) => {
-      const colorOpt = v.selectedOptions?.find(
-        (o: { name: string; value: string }) =>
-          o.name.toLowerCase().includes('couleur') || o.name.toLowerCase().includes('color')
-      );
-      return { index: i, label: colorOpt?.value || v.title, variant: v };
-    });
-  }, [variants]);
+  // product.options = liste ordonnée des options Shopify (ex: "Couleur principale", "Couleur dessin")
+  const productOptions = useMemo(() => {
+    if (!product) return [] as Array<{ name: string; values: string[] }>;
+    return (product.node.options || []).filter(o => (o.values?.length || 0) > 0);
+  }, [product]);
 
-  const hasColorOptions = colorOptions.length > 1;
+  // Une option "réelle" = option avec >1 valeur (sinon Shopify renvoie "Title"/"Default Title")
+  const selectableOptions = useMemo(
+    () => productOptions.filter(o => o.values.length > 1 && o.name.toLowerCase() !== 'title'),
+    [productOptions]
+  );
+
+  const hasSelectableOptions = selectableOptions.length > 0;
   const requiresCustomText = needsCustomText(handle);
 
-  // Auto-select "Noir/Black" variant by default si dispo
+  // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
-    if (!hasInitializedVariant && colorOptions.length > 0) {
-      const noirIndex = colorOptions.findIndex(
-        (opt) => opt.label.toLowerCase().includes('noir') || opt.label.toLowerCase().includes('black')
-      );
-      // Si plusieurs couleurs : ne pas pré-sélectionner pour forcer un choix conscient
-      if (hasColorOptions) {
-        setSelectedVariantIndex(-1);
-      } else {
-        setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
-      }
-      setHasInitializedVariant(true);
+    if (hasInitializedVariant || !product) return;
+    if (!hasSelectableOptions && variants[0]) {
+      const init: Record<string, string> = {};
+      (variants[0].selectedOptions || []).forEach(o => { init[o.name] = o.value; });
+      setSelectedOptions(init);
     }
-  }, [colorOptions, hasInitializedVariant, hasColorOptions]);
+    setHasInitializedVariant(true);
+  }, [product, variants, hasSelectableOptions, hasInitializedVariant]);
 
-  const selectedVariant = variants[selectedVariantIndex >= 0 ? selectedVariantIndex : 0] || variants[0];
-  const colorMissing = hasColorOptions && selectedVariantIndex < 0;
+  // Trouver la variante qui matche TOUTES les options sélectionnées
+  const selectedVariant = useMemo(() => {
+    if (variants.length === 0) return undefined;
+    if (!hasSelectableOptions) return variants[0];
+    const allChosen = selectableOptions.every(o => selectedOptions[o.name]);
+    if (!allChosen) return undefined;
+    return variants.find(v =>
+      (v.selectedOptions || []).every(o => selectedOptions[o.name] === undefined || selectedOptions[o.name] === o.value)
+      && selectableOptions.every(o => (v.selectedOptions || []).some(vo => vo.name === o.name && vo.value === selectedOptions[o.name]))
+    );
+  }, [variants, selectableOptions, selectedOptions, hasSelectableOptions]);
+
+  const optionsMissing = hasSelectableOptions && !selectedVariant;
   const textMissing = requiresCustomText && customText.trim().length < 1;
-  const cannotAdd = colorMissing || textMissing;
+  const cannotAdd = optionsMissing || textMissing;
 
   const handleAddToCart = async () => {
-    if (!product || !selectedVariant) return;
-    if (cannotAdd) {
+    if (!product) return;
+    if (cannotAdd || !selectedVariant) {
       setShowErrors(true);
-      if (colorMissing) toast.error('Choisissez une couleur avant d\'ajouter au panier');
+      if (optionsMissing) toast.error('Choisissez toutes les options avant d\'ajouter au panier');
       else if (textMissing) toast.error('Ajoutez le prénom ou texte à graver');
-      // scroll vers la zone d'options
       document.getElementById('product-options')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
@@ -457,54 +464,72 @@ const ProductPage = () => {
                     ))}
                   </ul>
 
-                  {/* Options personnalisables (couleur + texte) */}
-                  {(hasColorOptions || requiresCustomText) && (
+                  {/* Options personnalisables (une ligne par option Shopify + texte) */}
+                  {(hasSelectableOptions || requiresCustomText) && (
                     <div id="product-options" className="space-y-5 rounded-2xl border border-border/60 bg-secondary/20 p-4">
 
-                      {/* Pastilles couleur */}
-                      {hasColorOptions && (
-                        <div className="space-y-2.5">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold text-foreground">
-                              Couleur <span className="text-destructive">*</span>
-                            </span>
-                            <span className="text-xs text-muted-foreground">
-                              {selectedVariantIndex >= 0
-                                ? frenchColor(colorOptions[selectedVariantIndex].label)
-                                : 'À choisir'}
-                            </span>
+                      {/* Une ligne de pastilles par option Shopify (Couleur principale, Couleur dessin, etc.) */}
+                      {selectableOptions.map((option) => {
+                        const currentValue = selectedOptions[option.name];
+                        const isColorOption = /couleur|color/i.test(option.name);
+                        return (
+                          <div key={option.name} className="space-y-2.5">
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm font-semibold text-foreground">
+                                {option.name} <span className="text-destructive">*</span>
+                              </span>
+                              <span className="text-xs text-muted-foreground">
+                                {currentValue ? (isColorOption ? frenchColor(currentValue) : currentValue) : 'À choisir'}
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap gap-2.5">
+                              {option.values.map((value) => {
+                                const active = currentValue === value;
+                                if (isColorOption) {
+                                  const hex = colorHex(value);
+                                  const isLight = ['white', 'blanc', 'beige', 'yellow', 'jaune', 'silver', 'argent']
+                                    .includes(value.toLowerCase());
+                                  return (
+                                    <button
+                                      key={value}
+                                      type="button"
+                                      onClick={() => { setSelectedOptions(s => ({ ...s, [option.name]: value })); setShowErrors(false); }}
+                                      aria-label={`Choisir ${option.name} ${frenchColor(value)}`}
+                                      aria-pressed={active}
+                                      title={frenchColor(value)}
+                                      className={`relative w-9 h-9 rounded-full transition-all ring-offset-2 ring-offset-secondary/20 ${
+                                        active ? 'ring-2 ring-foreground scale-110' : 'ring-1 ring-border hover:scale-105'
+                                      } ${isLight ? 'border border-border/60' : ''}`}
+                                      style={{ backgroundColor: hex }}
+                                    />
+                                  );
+                                }
+                                // Option non-couleur : pill texte
+                                return (
+                                  <button
+                                    key={value}
+                                    type="button"
+                                    onClick={() => { setSelectedOptions(s => ({ ...s, [option.name]: value })); setShowErrors(false); }}
+                                    aria-pressed={active}
+                                    className={`px-3 h-9 rounded-full text-xs font-medium transition-all border ${
+                                      active
+                                        ? 'border-foreground bg-foreground text-background'
+                                        : 'border-border bg-background text-foreground hover:border-foreground/50'
+                                    }`}
+                                  >
+                                    {value}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                            {showErrors && !currentValue && (
+                              <p className="text-xs text-destructive font-medium">
+                                ⚠️ Veuillez choisir : {option.name}.
+                              </p>
+                            )}
                           </div>
-                          <div className="flex flex-wrap gap-2.5">
-                            {colorOptions.map((opt) => {
-                              const active = opt.index === selectedVariantIndex;
-                              const hex = colorHex(opt.label);
-                              const isLight = ['white', 'blanc', 'beige', 'yellow', 'jaune', 'silver', 'argent']
-                                .includes(opt.label.toLowerCase());
-                              return (
-                                <button
-                                  key={opt.index}
-                                  type="button"
-                                  onClick={() => { setSelectedVariantIndex(opt.index); setShowErrors(false); }}
-                                  aria-label={`Choisir la couleur ${frenchColor(opt.label)}`}
-                                  aria-pressed={active}
-                                  title={frenchColor(opt.label)}
-                                  className={`relative w-9 h-9 rounded-full transition-all ring-offset-2 ring-offset-secondary/20 ${
-                                    active
-                                      ? 'ring-2 ring-foreground scale-110'
-                                      : 'ring-1 ring-border hover:scale-105'
-                                  } ${isLight ? 'border border-border/60' : ''}`}
-                                  style={{ backgroundColor: hex }}
-                                />
-                              );
-                            })}
-                          </div>
-                          {showErrors && colorMissing && (
-                            <p className="text-xs text-destructive font-medium">
-                              ⚠️ Veuillez choisir une couleur.
-                            </p>
-                          )}
-                        </div>
-                      )}
+                        );
+                      })}
 
                       {/* Champ texte personnalisé */}
                       {requiresCustomText && (
