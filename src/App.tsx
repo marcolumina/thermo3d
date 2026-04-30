@@ -16,6 +16,7 @@ import CGV from "./pages/CGV.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import PolitiqueRetour from "./pages/PolitiqueRetour.tsx";
 import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
+import Collection from "./pages/Collection.tsx";
 import SupportThermomix from "./pages/SupportThermomix.tsx";
 import RangementThermomix from "./pages/RangementThermomix.tsx";
 import AccessoiresTM5 from "./pages/AccessoiresTM5.tsx";
