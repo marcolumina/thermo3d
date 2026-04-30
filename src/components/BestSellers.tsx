@@ -7,8 +7,8 @@ import { useRef } from 'react';
 const BestSellers = () => {
   // Récupère les produits de la collection Shopify "Nos meilleures ventes".
   // On tente plusieurs handles courants au cas où.
-  const primary = useShopifyCollection('nos-meilleures-ventes', 12);
-  const fallback1 = useShopifyCollection('meilleures-ventes', 12);
+  const primary = useShopifyCollection('nos-meilleurs-ventes', 12);
+  const fallback1 = useShopifyCollection('nos-meilleures-ventes', 12);
   const fallback2 = useShopifyCollection('best-sellers', 12);
 
   const products =
