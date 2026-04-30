@@ -735,6 +735,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </section>
+            )}
 
             {/* ═══════ SECTION 4 : DESCRIPTION DÉTAILLÉE SEO ═══════ */}
             <section className="bg-secondary/20 py-14 md:py-20">
