@@ -256,7 +256,16 @@ const ProductPage = () => {
   const accroche = parsed?.accroche || 'Organisez votre espace en quelques secondes et cuisinez plus efficacement.';
   const benefitsFromShopify = parsed?.benefits || [];
   const specsFromShopify = parsed?.specs || [];
-  const isTM7Page = isCacheEcranTM7(handle);
+  const productImages = product?.node.images.edges || [];
+  const narrative = product
+    ? getProductNarrative({
+        handle: handle || '',
+        title: productTitle,
+        tags: product.node.tags || [],
+        image: productImages[0]?.node.url,
+        secondImage: productImages[1]?.node.url,
+      })
+    : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
