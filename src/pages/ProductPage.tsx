@@ -819,6 +819,11 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* CTA URGENCE — uniquement page TM7, juste avant la preuve sociale */}
+            {isTM7Page && (
+              <CacheEcranTM7UrgenceCTA onAddToCart={handleAddToCart} price={productPrice} />
+            )}
+
             {/* ═══════ SECTION 6 : FAQ ═══════ */}
             <section className="bg-secondary/20 py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
@@ -867,6 +872,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 8 : CTA FINAL ═══════ */}
+            {!isTM7Page && (
             <section className="bg-foreground text-background">
               <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
                 <div className="flex items-center justify-center gap-1 mb-4">
