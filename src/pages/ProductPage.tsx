@@ -19,19 +19,15 @@ import ShippingRates from '@/components/ShippingRates';
 import ShippingRateForVariant from '@/components/ShippingRateForVariant';
 import { getCompatibility, formatCompatibilityLabel } from '@/lib/compatibility';
 import {
-  CacheEcranTM7Hero,
-  CacheEcranTM7Probleme,
-  CacheEcranTM7Solution,
-  CacheEcranTM7AvantApres,
-  CacheEcranTM7Video,
-  CacheEcranTM7Benefices,
-  CacheEcranTM7Differenciation,
-  CacheEcranTM7UrgenceCTA,
-} from '@/components/product/CacheEcranTM7Sections';
-
-/* Page optimisée conversion pour le Cache écran TM7 */
-const isCacheEcranTM7 = (handle?: string) =>
-  !!handle && /^cache-ecran(-thermomix)?-tm7$/i.test(handle);
+  ProductNarrativeHero,
+  ProductNarrativeProbleme,
+  ProductNarrativeSolution,
+  ProductNarrativeAvantApres,
+  ProductNarrativeBenefices,
+  ProductNarrativeDifferenciation,
+  ProductNarrativeUrgenceCTA,
+} from '@/components/product/ProductNarrativeSections';
+import { getProductNarrative } from '@/components/product/productNarratives';
 
 /* ── Données statiques de la page ── */
 
@@ -260,7 +256,16 @@ const ProductPage = () => {
   const accroche = parsed?.accroche || 'Organisez votre espace en quelques secondes et cuisinez plus efficacement.';
   const benefitsFromShopify = parsed?.benefits || [];
   const specsFromShopify = parsed?.specs || [];
-  const isTM7Page = isCacheEcranTM7(handle);
+  const productImages = product?.node.images.edges || [];
+  const narrative = product
+    ? getProductNarrative({
+        handle: handle || '',
+        title: productTitle,
+        tags: product.node.tags || [],
+        image: productImages[0]?.node.url,
+        secondImage: productImages[1]?.node.url,
+      })
+    : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -547,7 +552,7 @@ const ProductPage = () => {
                     ) : (
                       <>
                         <ShoppingCart className="w-5 h-5" />
-                        {isTM7Page ? `Protéger mon écran — ${productPrice} €` : `Ajouter au panier — ${productPrice} €`}
+                        {narrative ? `${narrative.ctaLabel} — ${productPrice} €` : `Ajouter au panier — ${productPrice} €`}
                       </>
                     )}
                   </button>
@@ -577,21 +582,20 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* ═══════ BLOC SUR-MESURE : CACHE ÉCRAN TM7 ═══════ */}
-            {isTM7Page && (
+            {/* ═══════ NARRATIF PRODUIT (générique, adapté par produit) ═══════ */}
+            {narrative && (
               <>
-                <CacheEcranTM7Hero onAddToCart={handleAddToCart} price={productPrice} />
-                <CacheEcranTM7Probleme />
-                <CacheEcranTM7Solution />
-                <CacheEcranTM7AvantApres />
-                <CacheEcranTM7Video />
-                <CacheEcranTM7Benefices />
-                <CacheEcranTM7Differenciation />
+                <ProductNarrativeHero narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
+                <ProductNarrativeProbleme narrative={narrative} />
+                <ProductNarrativeSolution narrative={narrative} />
+                <ProductNarrativeAvantApres narrative={narrative} />
+                <ProductNarrativeBenefices narrative={narrative} />
+                <ProductNarrativeDifferenciation />
               </>
             )}
 
             {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT EST INDISPENSABLE ═══════ */}
-            {!isTM7Page && (
+            {!narrative && (
             <section className="py-14 md:py-20 bg-background border-t border-border/30">
               <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
                 <div className="text-center mb-10 md:mb-14">
@@ -704,7 +708,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 : AVANT / APRÈS ═══════ */}
-            {!isTM7Page && (
+            {!narrative && (
             <section className="py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center mb-10">
@@ -819,9 +823,9 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* CTA URGENCE — uniquement page TM7, juste avant la preuve sociale */}
-            {isTM7Page && (
-              <CacheEcranTM7UrgenceCTA onAddToCart={handleAddToCart} price={productPrice} />
+            {/* CTA URGENCE narratif — juste avant la FAQ */}
+            {narrative && (
+              <ProductNarrativeUrgenceCTA narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
             )}
 
             {/* ═══════ SECTION 6 : FAQ ═══════ */}
@@ -872,7 +876,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 8 : CTA FINAL ═══════ */}
-            {!isTM7Page && (
+            {!narrative && (
             <section className="bg-foreground text-background">
               <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
                 <div className="flex items-center justify-center gap-1 mb-4">
@@ -924,7 +928,7 @@ const ProductPage = () => {
                 ) : (
                   <>
                     <ShoppingCart className="w-5 h-5" />
-                    {isTM7Page ? `Protéger — ${productPrice} €` : `Ajouter — ${productPrice} €`}
+                    {narrative ? `${narrative.ctaLabel} — ${productPrice} €` : `Ajouter — ${productPrice} €`}
                   </>
                 )}
               </button>
