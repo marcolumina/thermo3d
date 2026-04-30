@@ -2,14 +2,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
 import { Search, Menu, X, User } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { useShopifyCollections } from '@/hooks/useShopifyCollections';
 import { useState } from 'react';
 
-const NAV_LINKS = [
+const STATIC_LINKS = [
   { to: '/', label: 'Accueil' },
   { to: '/catalogue', label: 'Boutique' },
-  { to: '/accessoires-tm5', label: 'TM5' },
-  { to: '/accessoires-tm6', label: 'TM6' },
-  { to: '/accessoires-tm7', label: 'TM7' },
+];
+const TAIL_LINKS = [
   { to: '/blog', label: 'Blog' },
   { to: '/a-propos', label: 'À propos' },
   { to: '/contact', label: 'Contact' },
