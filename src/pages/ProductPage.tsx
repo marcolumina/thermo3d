@@ -577,7 +577,21 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* ═══════ BLOC SUR-MESURE : CACHE ÉCRAN TM7 ═══════ */}
+            {isTM7Page && (
+              <>
+                <CacheEcranTM7Hero onAddToCart={handleAddToCart} price={productPrice} />
+                <CacheEcranTM7Probleme />
+                <CacheEcranTM7Solution />
+                <CacheEcranTM7AvantApres />
+                <CacheEcranTM7Video />
+                <CacheEcranTM7Benefices />
+                <CacheEcranTM7Differenciation />
+              </>
+            )}
+
             {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT EST INDISPENSABLE ═══════ */}
+            {!isTM7Page && (
             <section className="py-14 md:py-20 bg-background border-t border-border/30">
               <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
                 <div className="text-center mb-10 md:mb-14">
