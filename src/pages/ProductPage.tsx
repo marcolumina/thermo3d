@@ -182,45 +182,53 @@ const ProductPage = () => {
     return parseShopifyDescription(product.node.descriptionHtml);
   }, [product]);
 
-  // Extract variants and color options
+  // Extract variants and product-level options (each option shown as its own row)
   const variants = useMemo(() => {
     if (!product) return [];
     return product.node.variants.edges.map(e => e.node);
   }, [product]);
 
-  const colorOptions = useMemo(() => {
-    return variants.map((v, i) => {
-      const colorOpt = v.selectedOptions?.find(
-        (o: { name: string; value: string }) =>
-          o.name.toLowerCase().includes('couleur') || o.name.toLowerCase().includes('color')
-      );
-      return { index: i, label: colorOpt?.value || v.title, variant: v };
-    });
-  }, [variants]);
+  // product.options = liste ordonnée des options Shopify (ex: "Couleur principale", "Couleur dessin")
+  const productOptions = useMemo(() => {
+    if (!product) return [] as Array<{ name: string; values: string[] }>;
+    return (product.node.options || []).filter(o => (o.values?.length || 0) > 0);
+  }, [product]);
 
-  const hasColorOptions = colorOptions.length > 1;
+  // Une option "réelle" = option avec >1 valeur (sinon Shopify renvoie "Title"/"Default Title")
+  const selectableOptions = useMemo(
+    () => productOptions.filter(o => o.values.length > 1 && o.name.toLowerCase() !== 'title'),
+    [productOptions]
+  );
+
+  const hasSelectableOptions = selectableOptions.length > 0;
   const requiresCustomText = needsCustomText(handle);
 
-  // Auto-select "Noir/Black" variant by default si dispo
+  // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
-    if (!hasInitializedVariant && colorOptions.length > 0) {
-      const noirIndex = colorOptions.findIndex(
-        (opt) => opt.label.toLowerCase().includes('noir') || opt.label.toLowerCase().includes('black')
-      );
-      // Si plusieurs couleurs : ne pas pré-sélectionner pour forcer un choix conscient
-      if (hasColorOptions) {
-        setSelectedVariantIndex(-1);
-      } else {
-        setSelectedVariantIndex(noirIndex >= 0 ? noirIndex : 0);
-      }
-      setHasInitializedVariant(true);
+    if (hasInitializedVariant || !product) return;
+    if (!hasSelectableOptions && variants[0]) {
+      const init: Record<string, string> = {};
+      (variants[0].selectedOptions || []).forEach(o => { init[o.name] = o.value; });
+      setSelectedOptions(init);
     }
-  }, [colorOptions, hasInitializedVariant, hasColorOptions]);
+    setHasInitializedVariant(true);
+  }, [product, variants, hasSelectableOptions, hasInitializedVariant]);
 
-  const selectedVariant = variants[selectedVariantIndex >= 0 ? selectedVariantIndex : 0] || variants[0];
-  const colorMissing = hasColorOptions && selectedVariantIndex < 0;
+  // Trouver la variante qui matche TOUTES les options sélectionnées
+  const selectedVariant = useMemo(() => {
+    if (variants.length === 0) return undefined;
+    if (!hasSelectableOptions) return variants[0];
+    const allChosen = selectableOptions.every(o => selectedOptions[o.name]);
+    if (!allChosen) return undefined;
+    return variants.find(v =>
+      (v.selectedOptions || []).every(o => selectedOptions[o.name] === undefined || selectedOptions[o.name] === o.value)
+      && selectableOptions.every(o => (v.selectedOptions || []).some(vo => vo.name === o.name && vo.value === selectedOptions[o.name]))
+    );
+  }, [variants, selectableOptions, selectedOptions, hasSelectableOptions]);
+
+  const optionsMissing = hasSelectableOptions && !selectedVariant;
   const textMissing = requiresCustomText && customText.trim().length < 1;
-  const cannotAdd = colorMissing || textMissing;
+  const cannotAdd = optionsMissing || textMissing;
 
   const handleAddToCart = async () => {
     if (!product || !selectedVariant) return;
