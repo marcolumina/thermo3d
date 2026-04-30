@@ -512,14 +512,33 @@ const ALIASES: Record<string, string> = {
 };
 
 
-/* ─── Détection de catégorie pour générer un narratif par défaut ─── */
-type Category = 'rangement' | 'support' | 'cache' | 'accessoire';
+/* ─── Détection de sous-catégorie pour générer un narratif par défaut ─── */
+type SubCategory =
+  | 'cache-ecran'
+  | 'cache-balance'
+  | 'cache'
+  | 'support-couvercle'
+  | 'support-spatule'
+  | 'support-ustensiles'
+  | 'organiseur'
+  | 'demouleur'
+  | 'pack'
+  | 'rangement'
+  | 'accessoire';
 
-function detectCategory(handle: string, title: string): Category {
+function detectSubCategory(handle: string, title: string): SubCategory {
   const s = `${handle} ${title}`.toLowerCase();
+  if (/cache.*(ecran|écran|tactile|screen)/.test(s)) return 'cache-ecran';
+  if (/cache.*balance/.test(s)) return 'cache-balance';
   if (/cache|protect|protec|cover/.test(s)) return 'cache';
-  if (/support|stand|porte/.test(s)) return 'support';
-  if (/rangement|organis|tiroir|boite|boîte/.test(s)) return 'rangement';
+  if (/support.*couvercle|repose.*couvercle/.test(s)) return 'support-couvercle';
+  if (/support.*spatule|porte.*spatule/.test(s)) return 'support-spatule';
+  if (/support.*ustensile|porte.*ustensile/.test(s)) return 'support-ustensiles';
+  if (/organiseur|organisateur|organis/.test(s)) return 'organiseur';
+  if (/demouleur|démouleur|demoul/.test(s)) return 'demouleur';
+  if (/\bpack\b|coffret|bundle|lot\s/.test(s)) return 'pack';
+  if (/rangement|tiroir|boite|boîte/.test(s)) return 'rangement';
+  if (/support|stand|porte/.test(s)) return 'support-ustensiles';
   return 'accessoire';
 }
 
@@ -531,7 +550,7 @@ function detectModel(handle: string, title: string, tags: string[] = []): 'TM5' 
   return 'Thermomix';
 }
 
-/* ─── Narratifs génériques par catégorie ─── */
+/* ─── Narratifs génériques par sous-catégorie ─── */
 function buildDefaultNarrative(args: {
   title: string;
   handle: string;
@@ -540,7 +559,7 @@ function buildDefaultNarrative(args: {
   secondImage?: string;
 }): ProductNarrative {
   const { title, handle, tags = [], image, secondImage } = args;
-  const category = detectCategory(handle, title);
+  const sub = detectSubCategory(handle, title);
   const model = detectModel(handle, title, tags);
 
   const baseHero = image;
