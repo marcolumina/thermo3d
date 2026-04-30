@@ -1,17 +1,17 @@
-import { useShopifyProducts } from '@/hooks/useShopifyProducts';
+import { useShopifyCollection } from '@/hooks/useShopifyCollection';
 import ProductCard from '@/components/ProductCard';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 
 const CrossSell = () => {
-  const { data: products, isLoading } = useShopifyProducts(8);
+  // Produits de la collection Shopify "Nos nouveautés"
+  const { data: products, isLoading } = useShopifyCollection('nos-nouveautes', 12);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   if (isLoading || !products?.length) return null;
 
-  // Show products not in the first 6 (those are in best sellers)
-  const newProducts = products.slice(0, 6);
+  const newProducts = products;
 
   const scroll = (dir: 'left' | 'right') => {
     if (!scrollRef.current) return;
