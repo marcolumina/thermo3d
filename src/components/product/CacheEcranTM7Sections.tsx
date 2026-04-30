@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
   ShieldCheck, Sparkles, Clock, Flag, CheckCircle, AlertTriangle,
-  Droplets, Hand, ChevronRight, PlayCircle, Wrench, Eye, Heart
+  Droplets, Hand, ChevronRight, PlayCircle, Wrench, Eye, Heart, Info
 } from 'lucide-react';
 import heroImg from '@/assets/cache-ecran-tm7-hero.jpg';
 import avantImg from '@/assets/cache-ecran-tm7-avant.jpg';
@@ -24,21 +24,24 @@ export const CacheEcranTM7Hero = ({ onAddToCart }: Props) => {
               Spécialement conçu pour le TM7
             </p>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-foreground">
-              Protégez votre écran TM7 <span className="text-accent">avant qu'il ne soit abîmé</span>
+              Gardez votre écran TM7 <span className="text-accent">comme neuf, jour après jour</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Un cache écran à poser <strong>entre les utilisations</strong> de votre Thermomix
-              pour le protéger des projections, poussières et traces du quotidien.
-              Il se retire en 2 secondes avant chaque cuisson.
+              Votre écran est exposé à chaque utilisation : projections, vapeur, traces de doigts.
+              Notre cache se pose <strong>entre deux utilisations</strong> pour préserver l'écran
+              du quotidien — et se retire en 2 secondes avant chaque cuisson.
             </p>
-            <p className="text-xs text-muted-foreground/80 italic">
-              ⚠️ À retirer avant utilisation du Thermomix — ce n'est pas une protection à laisser pendant la cuisson.
-            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 border border-accent/20">
+              <Info className="w-4 h-4 text-accent flex-shrink-0" />
+              <p className="text-xs md:text-sm font-semibold text-foreground">
+                À poser après utilisation, à retirer avant cuisson.
+              </p>
+            </div>
 
             <ul className="space-y-3 pt-2">
               {[
                 { icon: ShieldCheck, t: 'Protège l\'écran entre les utilisations (projections, poussières, traces)' },
-                { icon: Hand, t: 'Se pose et se retire en 2 secondes, sans outil ni colle' },
+                { icon: Hand, t: 'Se pose en 2 secondes, sans outil ni colle' },
                 { icon: Sparkles, t: 'Ajustement précis dédié au TM7 (au dixième de mm)' },
                 { icon: Flag, t: 'Fabriqué en France 🇫🇷 — PLA qualité premium' },
               ].map(({ icon: Icon, t }) => (
@@ -116,19 +119,19 @@ export const CacheEcranTM7Probleme = () => (
             Le problème
           </div>
           <h2 className="font-display font-extrabold text-2xl md:text-4xl leading-tight text-foreground">
-            Entre deux utilisations, votre écran TM7 prend cher
+            Votre écran est exposé à chaque utilisation
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed">
-            Posé sur le plan de travail, votre Thermomix reste exposé en permanence : poussière,
-            projections quand vous cuisinez à côté, traces de doigts, frottements d'éponge…
-            En quelques mois, l'écran perd son aspect neuf.
+            Projections, vapeur, traces de doigts : entre deux cuissons, votre écran TM7 reste
+            vulnérable sur le plan de travail. En quelques mois, il perd son aspect neuf —
+            même sans rayures profondes.
           </p>
 
           <ul className="space-y-3">
             {[
               'Projections de sauce, huile et matières grasses lors d\'autres préparations',
-              'Poussière et particules qui se déposent au quotidien',
-              'Micro-rayures dues au nettoyage répété',
+              'Vapeur, poussière et particules qui se déposent au quotidien',
+              'Traces de doigts grasses et nettoyages répétés',
               'Perte de l\'aspect neuf et de la valeur de revente',
             ].map((p) => (
               <li key={p} className="flex items-start gap-3 text-sm text-foreground">
@@ -204,7 +207,7 @@ export const CacheEcranTM7AvantApres = () => (
             Sans cache
           </div>
           <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-            <p className="text-white text-sm font-medium">Traces, projections, poussières, nettoyage permanent.</p>
+            <p className="text-white text-sm font-medium">Traces, projections, poussières — l'écran se salit en permanence.</p>
           </div>
         </div>
 
