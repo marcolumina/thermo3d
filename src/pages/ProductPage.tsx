@@ -547,7 +547,7 @@ const ProductPage = () => {
                     ) : (
                       <>
                         <ShoppingCart className="w-5 h-5" />
-                        Ajouter au panier — {productPrice} €
+                        {isTM7Page ? `Protéger mon écran — ${productPrice} €` : `Ajouter au panier — ${productPrice} €`}
                       </>
                     )}
                   </button>
@@ -924,7 +924,7 @@ const ProductPage = () => {
                 ) : (
                   <>
                     <ShoppingCart className="w-5 h-5" />
-                    Ajouter — {productPrice} €
+                    {isTM7Page ? `Protéger — ${productPrice} €` : `Ajouter — ${productPrice} €`}
                   </>
                 )}
               </button>
