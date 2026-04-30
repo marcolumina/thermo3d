@@ -595,7 +595,7 @@ const ProductPage = () => {
             )}
 
             {/* ═══════ SECTION 1.5 : POURQUOI CE PRODUIT EST INDISPENSABLE ═══════ */}
-            {!isTM7Page && (
+            {!narrative && (
             <section className="py-14 md:py-20 bg-background border-t border-border/30">
               <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
                 <div className="text-center mb-10 md:mb-14">
@@ -708,7 +708,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 : AVANT / APRÈS ═══════ */}
-            {!isTM7Page && (
+            {!narrative && (
             <section className="py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center mb-10">
@@ -824,7 +824,7 @@ const ProductPage = () => {
             </section>
 
             {/* CTA URGENCE — uniquement page TM7, juste avant la preuve sociale */}
-            {isTM7Page && (
+            {narrative && (
               <CacheEcranTM7UrgenceCTA onAddToCart={handleAddToCart} price={productPrice} />
             )}
 
@@ -876,7 +876,7 @@ const ProductPage = () => {
             </section>
 
             {/* ═══════ SECTION 8 : CTA FINAL ═══════ */}
-            {!isTM7Page && (
+            {!narrative && (
             <section className="bg-foreground text-background">
               <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
                 <div className="flex items-center justify-center gap-1 mb-4">
@@ -928,7 +928,7 @@ const ProductPage = () => {
                 ) : (
                   <>
                     <ShoppingCart className="w-5 h-5" />
-                    {isTM7Page ? `Protéger — ${productPrice} €` : `Ajouter — ${productPrice} €`}
+                    {narrative ? `Protéger — ${productPrice} €` : `Ajouter — ${productPrice} €`}
                   </>
                 )}
               </button>
