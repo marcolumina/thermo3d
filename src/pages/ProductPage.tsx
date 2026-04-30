@@ -823,9 +823,9 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* CTA URGENCE — uniquement page TM7, juste avant la preuve sociale */}
+            {/* CTA URGENCE narratif — juste avant la FAQ */}
             {narrative && (
-              <CacheEcranTM7UrgenceCTA onAddToCart={handleAddToCart} price={productPrice} />
+              <ProductNarrativeUrgenceCTA narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
             )}
 
             {/* ═══════ SECTION 6 : FAQ ═══════ */}
