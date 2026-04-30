@@ -1,11 +1,23 @@
-import { useShopifyProducts } from '@/hooks/useShopifyProducts';
+import { useShopifyCollection } from '@/hooks/useShopifyCollection';
 import ProductCard from './ProductCard';
 import { Loader2, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 
 const BestSellers = () => {
-  const { data: products, isLoading, error } = useShopifyProducts(12);
+  // Récupère les produits de la collection Shopify "Nos meilleures ventes".
+  // On tente plusieurs handles courants au cas où.
+  const primary = useShopifyCollection('nos-meilleures-ventes', 12);
+  const fallback1 = useShopifyCollection('meilleures-ventes', 12);
+  const fallback2 = useShopifyCollection('best-sellers', 12);
+
+  const products =
+    (primary.data && primary.data.length > 0 && primary.data) ||
+    (fallback1.data && fallback1.data.length > 0 && fallback1.data) ||
+    (fallback2.data && fallback2.data.length > 0 && fallback2.data) ||
+    [];
+  const isLoading = primary.isLoading || fallback1.isLoading || fallback2.isLoading;
+  const error = primary.error && fallback1.error && fallback2.error;
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 'left' | 'right') => {
