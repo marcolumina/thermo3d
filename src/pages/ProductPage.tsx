@@ -19,19 +19,15 @@ import ShippingRates from '@/components/ShippingRates';
 import ShippingRateForVariant from '@/components/ShippingRateForVariant';
 import { getCompatibility, formatCompatibilityLabel } from '@/lib/compatibility';
 import {
-  CacheEcranTM7Hero,
-  CacheEcranTM7Probleme,
-  CacheEcranTM7Solution,
-  CacheEcranTM7AvantApres,
-  CacheEcranTM7Video,
-  CacheEcranTM7Benefices,
-  CacheEcranTM7Differenciation,
-  CacheEcranTM7UrgenceCTA,
-} from '@/components/product/CacheEcranTM7Sections';
-
-/* Page optimisée conversion pour le Cache écran TM7 */
-const isCacheEcranTM7 = (handle?: string) =>
-  !!handle && /^cache-ecran(-thermomix)?-tm7$/i.test(handle);
+  ProductNarrativeHero,
+  ProductNarrativeProbleme,
+  ProductNarrativeSolution,
+  ProductNarrativeAvantApres,
+  ProductNarrativeBenefices,
+  ProductNarrativeDifferenciation,
+  ProductNarrativeUrgenceCTA,
+} from '@/components/product/ProductNarrativeSections';
+import { getProductNarrative } from '@/components/product/productNarratives';
 
 /* ── Données statiques de la page ── */
 
