@@ -161,7 +161,7 @@ const ProductPage = () => {
   const isLoading = useCartStore(state => state.isLoading);
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
+  const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const [hasInitializedVariant, setHasInitializedVariant] = useState(false);
   const [customText, setCustomText] = useState('');
   const [showErrors, setShowErrors] = useState(false);
