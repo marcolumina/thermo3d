@@ -276,10 +276,10 @@ export const CacheEcranTM7Benefices = () => (
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
         {[
-          { icon: Sparkles, title: 'Écran toujours propre', desc: 'Plus de projections directes. Un coup d\'éponge sur le cache et c\'est fini.' },
-          { icon: Clock, title: 'Gain de temps', desc: 'Fini les nettoyages minutieux après chaque recette.' },
-          { icon: Heart, title: 'Thermomix comme neuf', desc: 'Préserve l\'aspect d\'origine et la valeur de revente.' },
-          { icon: ShieldCheck, title: 'Protection durable', desc: 'PLA résistant à la chaleur, conçu pour durer des années.' },
+          { icon: ShieldCheck, title: 'Protégé entre 2 utilisations', desc: 'Plus de projections ni de poussières directement sur l\'écran quand vous ne cuisinez pas.' },
+          { icon: Sparkles, title: 'Évite traces & rayures', desc: 'Fini les traces de doigts grasses et les micro-rayures dues au nettoyage répété.' },
+          { icon: Heart, title: 'Comme neuf dans le temps', desc: 'Préserve l\'aspect d\'origine de l\'écran et la valeur de revente de votre Thermomix.' },
+          { icon: Hand, title: 'Pose & retrait en 2 sec', desc: 'Se met en place et se retire d\'un geste, avant chaque utilisation. Aucune contrainte.' },
         ].map((b) => (
           <div key={b.title} className="bg-secondary/30 border border-border/40 rounded-2xl p-5 hover:border-accent/40 hover:shadow-lg transition-all">
             <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
