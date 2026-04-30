@@ -1044,7 +1044,8 @@ function buildDefaultNarrative(args: {
 
 /**
  * Récupère le narratif d'un produit. Utilise la config explicite si disponible,
- * sinon génère un narratif cohérent à partir du handle, du titre et des tags.
+ * sinon résout via les alias, sinon fait un match par préfixe,
+ * sinon génère un narratif via la sous-catégorie détectée.
  */
 export function getProductNarrative(args: {
   handle: string;
@@ -1053,10 +1054,26 @@ export function getProductNarrative(args: {
   image?: string;
   secondImage?: string;
 }): ProductNarrative {
-  const explicit = NARRATIVES[args.handle.toLowerCase()];
-  if (explicit) return explicit;
+  const handle = args.handle.toLowerCase();
+
+  // 1. Match exact dans la config explicite
+  if (NARRATIVES[handle]) return NARRATIVES[handle];
+
+  // 2. Résolution via alias
+  const aliased = ALIASES[handle];
+  if (aliased && NARRATIVES[aliased]) return NARRATIVES[aliased];
+
+  // 3. Match par préfixe : ex. 'cache-balance-thermomix-tm7-version-petite' → 'cache-balance-tm7'
+  for (const key of Object.keys(NARRATIVES)) {
+    const stems = key.replace(/-thermomix/g, '').split('-').filter(Boolean);
+    if (stems.length >= 2 && stems.every((s) => handle.includes(s))) {
+      return NARRATIVES[key];
+    }
+  }
+
+  // 4. Fallback : génération automatique par sous-catégorie
   return buildDefaultNarrative({
-    handle: args.handle,
+    handle,
     title: args.title,
     tags: args.tags,
     image: args.image || heroTm7,
@@ -1066,5 +1083,6 @@ export function getProductNarrative(args: {
 
 export function hasExplicitNarrative(handle?: string): boolean {
   if (!handle) return false;
-  return !!NARRATIVES[handle.toLowerCase()];
+  const h = handle.toLowerCase();
+  return !!NARRATIVES[h] || !!ALIASES[h];
 }
