@@ -644,7 +644,7 @@ const ProductPage = () => {
             </section>
             )}
 
-
+            {/* ═══════ SECTION 2 : CARACTÉRISTIQUES TECHNIQUES ═══════ */}
             <section className="bg-secondary/30 py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
                 <div className="text-center mb-10">
