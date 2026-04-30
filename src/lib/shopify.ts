@@ -184,6 +184,67 @@ export const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
   }
 `;
 
+export interface ShopifyCollection {
+  id: string;
+  handle: string;
+  title: string;
+  description: string;
+  image: { url: string; altText: string | null } | null;
+}
+
+export const STOREFRONT_COLLECTIONS_QUERY = `
+  query GetCollections($first: Int!) {
+    collections(first: $first) {
+      edges {
+        node {
+          id
+          handle
+          title
+          description
+          image { url altText }
+        }
+      }
+    }
+  }
+`;
+
+export const STOREFRONT_COLLECTION_BY_HANDLE_QUERY = `
+  query GetCollectionByHandle($handle: String!, $first: Int!) {
+    collectionByHandle(handle: $handle) {
+      id
+      handle
+      title
+      description
+      image { url altText }
+      products(first: $first) {
+        edges {
+          node {
+            id
+            title
+            description
+            handle
+            tags
+            priceRange { minVariantPrice { amount currencyCode } }
+            images(first: 5) { edges { node { url altText } } }
+            variants(first: 10) {
+              edges {
+                node {
+                  id title
+                  price { amount currencyCode }
+                  availableForSale
+                  weight weightUnit
+                  selectedOptions { name value }
+                }
+              }
+            }
+            options { name values }
+          }
+        }
+      }
+    }
+  }
+`;
+
 // Cart mutations
 export const CART_QUERY = `
   query cart($id: ID!) {

@@ -16,6 +16,7 @@ import CGV from "./pages/CGV.tsx";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite.tsx";
 import PolitiqueRetour from "./pages/PolitiqueRetour.tsx";
 import AccessoiresThermomix from "./pages/AccessoiresThermomix.tsx";
+import Collection from "./pages/Collection.tsx";
 import SupportThermomix from "./pages/SupportThermomix.tsx";
 import RangementThermomix from "./pages/RangementThermomix.tsx";
 import AccessoiresTM5 from "./pages/AccessoiresTM5.tsx";
@@ -58,6 +59,7 @@ const AppContent = () => {
         <Route path="/accessoires-tm5" element={<AccessoiresTM5 />} />
         <Route path="/accessoires-tm6" element={<AccessoiresTM6 />} />
         <Route path="/accessoires-tm7" element={<AccessoiresTM7 />} />
+        <Route path="/collection/:handle" element={<Collection />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogArticle />} />
         <Route path="/auth" element={<Auth />} />

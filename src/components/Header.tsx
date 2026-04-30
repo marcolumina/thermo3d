@@ -2,14 +2,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { CartDrawer } from '@/components/CartDrawer';
 import { Search, Menu, X, User } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { useShopifyCollections } from '@/hooks/useShopifyCollections';
 import { useState } from 'react';
 
-const NAV_LINKS = [
+const STATIC_LINKS = [
   { to: '/', label: 'Accueil' },
   { to: '/catalogue', label: 'Boutique' },
-  { to: '/accessoires-tm5', label: 'TM5' },
-  { to: '/accessoires-tm6', label: 'TM6' },
-  { to: '/accessoires-tm7', label: 'TM7' },
+];
+const TAIL_LINKS = [
   { to: '/blog', label: 'Blog' },
   { to: '/a-propos', label: 'À propos' },
   { to: '/contact', label: 'Contact' },
@@ -20,6 +20,14 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
   const [mobileOpen, setMobileOpen] = useState(false);
   const { user } = useAuth();
+  const { data: collections } = useShopifyCollections();
+
+  const collectionLinks = (collections || []).map(c => ({
+    to: `/collection/${c.handle}`,
+    label: c.title,
+  }));
+  const NAV_LINKS = [...STATIC_LINKS, ...collectionLinks, ...TAIL_LINKS];
+
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/60">
