@@ -464,54 +464,72 @@ const ProductPage = () => {
                     ))}
                   </ul>
 
-                  {/* Options personnalisables (couleur + texte) */}
-                  {(hasColorOptions || requiresCustomText) && (
+                  {/* Options personnalisables (une ligne par option Shopify + texte) */}
+                  {(hasSelectableOptions || requiresCustomText) && (
                     <div id="product-options" className="space-y-5 rounded-2xl border border-border/60 bg-secondary/20 p-4">
 
-                      {/* Pastilles couleur */}
-                      {hasColorOptions && (
-                        <div className="space-y-2.5">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold text-foreground">
-                              Couleur <span className="text-destructive">*</span>
-                            </span>
-                            <span className="text-xs text-muted-foreground">
-                              {selectedVariantIndex >= 0
-                                ? frenchColor(colorOptions[selectedVariantIndex].label)
-                                : 'À choisir'}
-                            </span>
+                      {/* Une ligne de pastilles par option Shopify (Couleur principale, Couleur dessin, etc.) */}
+                      {selectableOptions.map((option) => {
+                        const currentValue = selectedOptions[option.name];
+                        const isColorOption = /couleur|color/i.test(option.name);
+                        return (
+                          <div key={option.name} className="space-y-2.5">
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm font-semibold text-foreground">
+                                {option.name} <span className="text-destructive">*</span>
+                              </span>
+                              <span className="text-xs text-muted-foreground">
+                                {currentValue ? (isColorOption ? frenchColor(currentValue) : currentValue) : 'À choisir'}
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap gap-2.5">
+                              {option.values.map((value) => {
+                                const active = currentValue === value;
+                                if (isColorOption) {
+                                  const hex = colorHex(value);
+                                  const isLight = ['white', 'blanc', 'beige', 'yellow', 'jaune', 'silver', 'argent']
+                                    .includes(value.toLowerCase());
+                                  return (
+                                    <button
+                                      key={value}
+                                      type="button"
+                                      onClick={() => { setSelectedOptions(s => ({ ...s, [option.name]: value })); setShowErrors(false); }}
+                                      aria-label={`Choisir ${option.name} ${frenchColor(value)}`}
+                                      aria-pressed={active}
+                                      title={frenchColor(value)}
+                                      className={`relative w-9 h-9 rounded-full transition-all ring-offset-2 ring-offset-secondary/20 ${
+                                        active ? 'ring-2 ring-foreground scale-110' : 'ring-1 ring-border hover:scale-105'
+                                      } ${isLight ? 'border border-border/60' : ''}`}
+                                      style={{ backgroundColor: hex }}
+                                    />
+                                  );
+                                }
+                                // Option non-couleur : pill texte
+                                return (
+                                  <button
+                                    key={value}
+                                    type="button"
+                                    onClick={() => { setSelectedOptions(s => ({ ...s, [option.name]: value })); setShowErrors(false); }}
+                                    aria-pressed={active}
+                                    className={`px-3 h-9 rounded-full text-xs font-medium transition-all border ${
+                                      active
+                                        ? 'border-foreground bg-foreground text-background'
+                                        : 'border-border bg-background text-foreground hover:border-foreground/50'
+                                    }`}
+                                  >
+                                    {value}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                            {showErrors && !currentValue && (
+                              <p className="text-xs text-destructive font-medium">
+                                ⚠️ Veuillez choisir : {option.name}.
+                              </p>
+                            )}
                           </div>
-                          <div className="flex flex-wrap gap-2.5">
-                            {colorOptions.map((opt) => {
-                              const active = opt.index === selectedVariantIndex;
-                              const hex = colorHex(opt.label);
-                              const isLight = ['white', 'blanc', 'beige', 'yellow', 'jaune', 'silver', 'argent']
-                                .includes(opt.label.toLowerCase());
-                              return (
-                                <button
-                                  key={opt.index}
-                                  type="button"
-                                  onClick={() => { setSelectedVariantIndex(opt.index); setShowErrors(false); }}
-                                  aria-label={`Choisir la couleur ${frenchColor(opt.label)}`}
-                                  aria-pressed={active}
-                                  title={frenchColor(opt.label)}
-                                  className={`relative w-9 h-9 rounded-full transition-all ring-offset-2 ring-offset-secondary/20 ${
-                                    active
-                                      ? 'ring-2 ring-foreground scale-110'
-                                      : 'ring-1 ring-border hover:scale-105'
-                                  } ${isLight ? 'border border-border/60' : ''}`}
-                                  style={{ backgroundColor: hex }}
-                                />
-                              );
-                            })}
-                          </div>
-                          {showErrors && colorMissing && (
-                            <p className="text-xs text-destructive font-medium">
-                              ⚠️ Veuillez choisir une couleur.
-                            </p>
-                          )}
-                        </div>
-                      )}
+                        );
+                      })}
 
                       {/* Champ texte personnalisé */}
                       {requiresCustomText && (
