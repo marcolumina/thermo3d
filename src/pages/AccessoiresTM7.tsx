@@ -8,11 +8,58 @@ import ProductCard from '@/components/ProductCard';
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
 import { filterByCompatibility } from '@/lib/compatibility';
 import { Loader2 } from 'lucide-react';
+import type { ShopifyProduct } from '@/lib/shopify';
+
+type CategoryKey = 'cache-ecran' | 'rangement' | 'support' | 'accessoires' | 'autres';
+
+const CATEGORIES: { key: CategoryKey; label: string; emoji: string; match: (p: ShopifyProduct) => boolean }[] = [
+  {
+    key: 'cache-ecran',
+    label: 'Caches écran',
+    emoji: '🖥️',
+    match: (p) => /cache.?(écran|ecran)/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
+  },
+  {
+    key: 'rangement',
+    label: 'Rangement',
+    emoji: '🗄️',
+    match: (p) => /rangement|boite|boîte|organisateur|tiroir|porte-/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
+  },
+  {
+    key: 'support',
+    label: 'Supports',
+    emoji: '🪜',
+    match: (p) => /support|socle|stand/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
+  },
+  {
+    key: 'accessoires',
+    label: 'Accessoires',
+    emoji: '🔧',
+    match: (p) => /accessoire|spatule|cuillère|cuillere|protection|cape|housse/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
+  },
+];
+
+function categorize(products: ShopifyProduct[]) {
+  const groups: Record<string, { label: string; emoji: string; items: ShopifyProduct[] }> = {};
+  const used = new Set<string>();
+
+  for (const cat of CATEGORIES) {
+    const items = products.filter((p) => !used.has(p.node.id) && cat.match(p));
+    items.forEach((p) => used.add(p.node.id));
+    if (items.length > 0) groups[cat.key] = { label: cat.label, emoji: cat.emoji, items };
+  }
+
+  const others = products.filter((p) => !used.has(p.node.id));
+  if (others.length > 0) groups['autres'] = { label: 'Autres', emoji: '✨', items: others };
+
+  return groups;
+}
 
 const AccessoiresTM7 = () => {
   const { data: products, isLoading } = useShopifyProducts(50);
 
   const displayProducts = products ? filterByCompatibility(products, 'tm7') : [];
+  const grouped = categorize(displayProducts);
 
   return (
     <div className="min-h-screen flex flex-col">
