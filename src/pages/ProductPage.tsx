@@ -435,7 +435,7 @@ const ProductPage = () => {
                       weight={selectedVariant?.weight}
                       weightUnit={selectedVariant?.weightUnit}
                     />
-                    <div className="flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-xl px-4 py-3">
+                    <div className="flex items-center gap-2 px-4 py-3">
                       <Truck className="w-4 h-4 text-accent flex-shrink-0" />
                       <p className="text-xs text-foreground">
                         📦 <strong>Livraison Colissimo dès 5,49€</strong>
