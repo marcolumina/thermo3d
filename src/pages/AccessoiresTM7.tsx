@@ -15,7 +15,7 @@ type CategoryKey = 'cache-ecran' | 'rangement' | 'support' | 'accessoires' | 'au
 const CATEGORIES: { key: CategoryKey; label: string; emoji: string; match: (p: ShopifyProduct) => boolean }[] = [
   {
     key: 'cache-ecran',
-    label: 'Cache balance',
+    label: 'Caches écran',
     emoji: '🖥️',
     match: (p) => /cache.?(écran|ecran)/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
   },
