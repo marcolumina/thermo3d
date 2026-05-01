@@ -16,7 +16,7 @@ const CATEGORIES = [
   'Organisateur',
   
   
-  'Protection',
+  
   'Rangement',
 ];
 
@@ -40,7 +40,7 @@ const Catalogue = () => {
       if (cat === 'organisateur') return title.includes('organis');
       
       
-      if (cat === 'protection') return title.includes('protect');
+      
       if (cat === 'rangement') return title.includes('rang');
       
       return true;
