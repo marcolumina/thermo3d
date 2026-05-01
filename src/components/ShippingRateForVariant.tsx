@@ -43,6 +43,8 @@ const ShippingRateForVariant = ({ weight, weightUnit }: Props) => {
             <p className="text-muted-foreground">
               3-5 j ·{' '}
               <span className="font-bold text-foreground">{mr?.price ?? 'sur devis'}</span>
+              {' '}·{' '}
+              <span className="font-semibold text-accent">offert dès 50 €</span>
             </p>
           </div>
         </div>
