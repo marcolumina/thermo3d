@@ -159,14 +159,6 @@ const AccessoiresTM7 = () => {
             </div>
           </>
         )}
-        <div className="text-center mt-12">
-          <Link
-            to="/catalogue"
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all"
-          >
-            Voir tout le catalogue <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </section>
 
       {/* Internal links */}
