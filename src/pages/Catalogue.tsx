@@ -18,7 +18,6 @@ const CATEGORIES = [
   'Spatule & racleur',
   'Protection',
   'Rangement',
-  'Déco cuisine',
 ];
 
 const Catalogue = () => {
@@ -43,7 +42,7 @@ const Catalogue = () => {
       if (cat === 'spatule & racleur') return title.includes('spatule') || title.includes('racleur');
       if (cat === 'protection') return title.includes('protect');
       if (cat === 'rangement') return title.includes('rang');
-      if (cat === 'déco cuisine') return title.includes('déco') || title.includes('deco');
+      
       return true;
     }) || [];
 
