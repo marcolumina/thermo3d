@@ -15,7 +15,7 @@ const CATEGORIES = [
   'Support ustensiles',
   'Organisateur',
   
-  'Spatule & racleur',
+  
   'Protection',
   'Rangement',
 ];
@@ -39,7 +39,7 @@ const Catalogue = () => {
       if (cat === 'support ustensiles') return title.includes('support');
       if (cat === 'organisateur') return title.includes('organis');
       
-      if (cat === 'spatule & racleur') return title.includes('spatule') || title.includes('racleur');
+      
       if (cat === 'protection') return title.includes('protect');
       if (cat === 'rangement') return title.includes('rang');
       
