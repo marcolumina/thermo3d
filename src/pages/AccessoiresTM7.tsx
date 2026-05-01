@@ -33,9 +33,9 @@ const CATEGORIES: { key: CategoryKey; label: string; emoji: string; match: (p: S
   },
   {
     key: 'accessoires',
-    label: 'Accessoires',
-    emoji: '🔧',
-    match: (p) => /accessoire|spatule|cuillère|cuillere|protection|cape|housse/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
+    label: 'Cache balance',
+    emoji: '⚖️',
+    match: (p) => /cache.?balance|balance/i.test(`${p.node.title} ${p.node.tags?.join(' ') || ''}`),
   },
 ];
 
