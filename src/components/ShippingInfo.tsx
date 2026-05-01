@@ -2,17 +2,17 @@ import { Truck, Clock, MapPin, Gift } from 'lucide-react';
 
 const shippingOptions = [
   {
-    icon: Truck,
-    title: 'Colissimo',
-    delay: '2-3 jours ouvrés',
-    price: 'dès 5,15 €',
-    freeFrom: 'Offerte dès 50€',
-  },
-  {
     icon: MapPin,
     title: 'Mondial Relay',
     delay: '3-5 jours ouvrés',
     price: 'dès 4,10 €',
+    freeFrom: 'Offerte dès 50€',
+  },
+  {
+    icon: Truck,
+    title: 'Colissimo',
+    delay: '2-3 jours ouvrés',
+    price: 'dès 5,15 €',
     freeFrom: 'Offerte dès 50€',
   },
 ];
