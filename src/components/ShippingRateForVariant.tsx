@@ -26,7 +26,7 @@ const ShippingRateForVariant = ({ weight, weightUnit }: Props) => {
           <Package className="w-3.5 h-3.5 text-accent flex-shrink-0" />
           <div>
             <p className="font-semibold text-foreground">Mondial Relay</p>
-            <p className="text-muted-foreground">3-5 j · dès 4,00 €</p>
+            <p className="text-muted-foreground">3-5 j · dès 4,00 € · <span className="font-semibold text-accent">offert dès 50 €</span></p>
           </div>
         </div>
       </div>
