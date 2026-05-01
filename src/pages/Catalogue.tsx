@@ -14,7 +14,7 @@ const CATEGORIES = [
   'Cache balance',
   'Support ustensiles',
   'Organisateur',
-  'Range couteau',
+  
   'Spatule & racleur',
   'Protection',
   'Rangement',
@@ -38,7 +38,7 @@ const Catalogue = () => {
       if (cat === 'cache balance') return title.includes('cache') && title.includes('balance');
       if (cat === 'support ustensiles') return title.includes('support');
       if (cat === 'organisateur') return title.includes('organis');
-      if (cat === 'range couteau') return title.includes('couteau') || title.includes('range');
+      
       if (cat === 'spatule & racleur') return title.includes('spatule') || title.includes('racleur');
       if (cat === 'protection') return title.includes('protect');
       if (cat === 'rangement') return title.includes('rang');
