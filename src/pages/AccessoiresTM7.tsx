@@ -109,9 +109,10 @@ const AccessoiresTM7 = () => {
 
       {/* Products */}
       <section className="container mx-auto px-6 py-16 md:py-24">
-        <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-10">
+        <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-4">
           Accessoires compatibles Thermomix TM7
         </h2>
+
         {isLoading ? (
           <div className="flex justify-center py-16">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
@@ -122,11 +123,41 @@ const AccessoiresTM7 = () => {
             <p className="text-muted-foreground text-sm mt-2">Notre gamme s'étoffe régulièrement. Découvrez en attendant l'ensemble du catalogue.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
-            {displayProducts.map((product) => (
-              <ProductCard key={product.node.id} product={product} />
-            ))}
-          </div>
+          <>
+            {/* Catégories — navigation rapide */}
+            <div className="flex flex-wrap gap-2 mb-12">
+              {Object.entries(grouped).map(([key, group]) => (
+                <a
+                  key={key}
+                  href={`#cat-${key}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/60 hover:bg-accent hover:text-accent-foreground rounded-full text-sm font-medium transition-colors border border-border/40"
+                >
+                  <span>{group.emoji}</span>
+                  <span>{group.label}</span>
+                  <span className="text-xs text-muted-foreground">({group.items.length})</span>
+                </a>
+              ))}
+            </div>
+
+            <div className="space-y-16">
+              {Object.entries(grouped).map(([key, group]) => (
+                <div key={key} id={`cat-${key}`} className="scroll-mt-24">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">{group.emoji}</span>
+                    <h3 className="font-display font-semibold text-xl md:text-2xl text-foreground">
+                      {group.label}
+                    </h3>
+                    <span className="text-sm text-muted-foreground">({group.items.length})</span>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+                    {group.items.map((product) => (
+                      <ProductCard key={product.node.id} product={product} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
         <div className="text-center mt-12">
           <Link
