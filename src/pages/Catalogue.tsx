@@ -17,7 +17,7 @@ const CATEGORIES = [
   
   
   
-  'Rangement',
+  
 ];
 
 const Catalogue = () => {
@@ -41,7 +41,7 @@ const Catalogue = () => {
       
       
       
-      if (cat === 'rangement') return title.includes('rang');
+      
       
       return true;
     }) || [];
