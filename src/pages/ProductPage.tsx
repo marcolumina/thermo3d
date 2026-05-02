@@ -183,6 +183,12 @@ function isOrganiseurCouvercle(handle?: string): boolean {
   return /organisateur-thermomix-tm7-avec-support-couvercle/i.test(handle);
 }
 
+/* ── Détection support spatule TM7 ── */
+function isSupportSpatule(handle?: string): boolean {
+  if (!handle) return false;
+  return /support-spatule/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
@@ -234,6 +240,7 @@ const ProductPage = () => {
   const isUstensilesSupport = isSupportUstensiles(handle);
   const isOrganiseurTm7 = isOrganiseur(handle);
   const isOrganiseurCouv = isOrganiseurCouvercle(handle);
+  const isSpatuleSupport = isSupportSpatule(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
@@ -464,7 +471,7 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {(requiresCustomText || isBalanceCover || isUstensilesSupport || isOrganiseurTm7 || isOrganiseurCouv) && (
+                    {(requiresCustomText || isBalanceCover || isUstensilesSupport || isOrganiseurTm7 || isOrganiseurCouv || isSpatuleSupport) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
                       </p>
@@ -482,6 +489,11 @@ const ProductPage = () => {
                     {(isOrganiseurTm7 || isOrganiseurCouv) && (
                       <p className="text-xs text-muted-foreground mt-1">
                         Moins de 0,50€ / jour pour une cuisine parfaitement organisée
+                      </p>
+                    )}
+                    {isSpatuleSupport && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Moins de 0,50€ / jour pour une cuisine propre et organisée
                       </p>
                     )}
                   </div>
@@ -923,6 +935,15 @@ const ProductPage = () => {
                 ]}
               />
             )}
+            {narrative && isSpatuleSupport && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Une spatule toujours propre',
+                  'Aucun nettoyage inutile',
+                  'Une cuisine fluide et agréable',
+                ]}
+              />
+            )}
 
             {/* Preuve sociale renforcée — cache balance */}
             {isBalanceCover && (
@@ -950,6 +971,13 @@ const ProductPage = () => {
               <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
                 <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
                   🔥 Déjà +1000 cuisines organisées
+                </span>
+              </div>
+            )}
+            {isSpatuleSupport && (
+              <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
+                <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
+                  🔥 Déjà +1000 cuisines optimisées
                 </span>
               </div>
             )}
@@ -1016,7 +1044,9 @@ const ProductPage = () => {
                           ? "J'optimise mon espace maintenant"
                           : isOrganiseurCouv
                             ? "J'organise mon Thermomix maintenant"
-                            : undefined
+                            : isSpatuleSupport
+                              ? "J'organise ma spatule maintenant"
+                              : undefined
                 }
               />
             )}
