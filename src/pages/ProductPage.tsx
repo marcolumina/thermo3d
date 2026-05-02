@@ -583,6 +583,13 @@ const ProductPage = () => {
                     </div>
                   )}
 
+                  {/* Mention production à la commande */}
+                  {requiresCustomText && (
+                    <p className="text-center text-xs text-muted-foreground -mb-2">
+                      🇫🇷 Production à la commande — expédié sous 48h
+                    </p>
+                  )}
+
                   {/* CTA principal */}
                   <button
                     onClick={handleAddToCart}
