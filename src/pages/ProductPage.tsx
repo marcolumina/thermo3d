@@ -842,6 +842,9 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* ═══════ PATTERN INTERRUPT "Imaginez…" (avant les avis, produit perso) ═══════ */}
+            {narrative && requiresCustomText && <ProductNarrativeImaginez />}
+
             {/* ═══════ SECTION 5 : AVIS CLIENTS ═══════ */}
             <section className="py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6">
