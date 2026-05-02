@@ -914,6 +914,15 @@ const ProductPage = () => {
                 ]}
               />
             )}
+            {narrative && isOrganiseurCouv && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Un plan de travail toujours propre',
+                  'Un couvercle parfaitement rangé',
+                  'Une cuisine fluide et sans stress',
+                ]}
+              />
+            )}
 
             {/* Preuve sociale renforcée — cache balance */}
             {isBalanceCover && (
@@ -934,6 +943,13 @@ const ProductPage = () => {
               <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
                 <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
                   🔥 Déjà +1000 cuisines optimisées
+                </span>
+              </div>
+            )}
+            {isOrganiseurCouv && (
+              <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
+                <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
+                  🔥 Déjà +1000 cuisines organisées
                 </span>
               </div>
             )}
