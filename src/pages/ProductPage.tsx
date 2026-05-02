@@ -435,6 +435,11 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
+                    {requiresCustomText && (
+                      <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
+                        🔥 Forte demande — production limitée aujourd'hui
+                      </p>
+                    )}
                   </div>
 
                   {/* Livraison info */}
