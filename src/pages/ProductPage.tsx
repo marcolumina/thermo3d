@@ -892,7 +892,12 @@ const ProductPage = () => {
 
             {/* CTA URGENCE narratif — juste avant la FAQ */}
             {narrative && (
-              <ProductNarrativeUrgenceCTA narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
+              <ProductNarrativeUrgenceCTA
+                narrative={narrative}
+                onAddToCart={handleAddToCart}
+                price={productPrice}
+                ctaOverride={requiresCustomText ? 'Je crée mon cache unique maintenant' : undefined}
+              />
             )}
 
             {/* ═══════ SECTION 6 : FAQ ═══════ */}
