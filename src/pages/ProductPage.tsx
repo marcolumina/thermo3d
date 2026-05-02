@@ -189,6 +189,12 @@ function isSupportSpatule(handle?: string): boolean {
   return /support-spatule/i.test(handle);
 }
 
+/* ── Détection support couvercle TM7 ── */
+function isSupportCouvercle(handle?: string): boolean {
+  if (!handle) return false;
+  return /^support-couvercle-thermomix-tm7$|support-couvercle-thermomix-tm7-fini-les-gouttes/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
