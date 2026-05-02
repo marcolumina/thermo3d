@@ -353,32 +353,33 @@ export const ProductNarrativeUrgenceCTA = ({ narrative, onAddToCart, price, ctaO
 );
 
 /* ───────── PATTERN INTERRUPT "Imaginez…" ───────── */
-export const ProductNarrativeImaginez = () => (
-  <section className="py-12 md:py-16 bg-gradient-to-br from-accent/10 via-secondary/40 to-background">
-    <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center">
-      <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-3">
-        Projetez-vous
-      </p>
-      <h2 className="font-display font-extrabold text-3xl md:text-5xl text-foreground leading-[1.05] mb-7">
-        Imaginez…
-      </h2>
-      <ul className="space-y-3 text-base md:text-lg text-foreground inline-block text-left">
-        <li className="flex items-start gap-3">
-          <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-          <span>Votre prénom sur votre Thermomix</span>
-        </li>
-        <li className="flex items-start gap-3">
-          <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-          <span>Un écran toujours propre</span>
-        </li>
-        <li className="flex items-start gap-3">
-          <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-          <span>Un détail que tout le monde remarque</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-);
+export const ProductNarrativeImaginez = ({ items }: { items?: string[] } = {}) => {
+  const list = items && items.length > 0 ? items : [
+    'Votre prénom sur votre Thermomix',
+    'Un écran toujours propre',
+    'Un détail que tout le monde remarque',
+  ];
+  return (
+    <section className="py-12 md:py-16 bg-gradient-to-br from-accent/10 via-secondary/40 to-background">
+      <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center">
+        <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-3">
+          Projetez-vous
+        </p>
+        <h2 className="font-display font-extrabold text-3xl md:text-5xl text-foreground leading-[1.05] mb-7">
+          Imaginez…
+        </h2>
+        <ul className="space-y-3 text-base md:text-lg text-foreground inline-block text-left">
+          {list.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+};
 
 /* ───────── GALERIE PERSONNALISATION ───────── */
 export const ProductNarrativePersonalisation = ({ narrative, onScrollToOptions }: { narrative: ProductNarrative; onScrollToOptions?: () => void }) => {

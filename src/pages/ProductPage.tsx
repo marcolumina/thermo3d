@@ -159,6 +159,12 @@ function needsCustomText(handle?: string): boolean {
   return /cache-ecran|cache-écran/i.test(handle);
 }
 
+/* ── Détection cache balance TM7 (triggers conversion spécifiques) ── */
+function isCacheBalance(handle?: string): boolean {
+  if (!handle) return false;
+  return /cache-balance/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
@@ -206,6 +212,7 @@ const ProductPage = () => {
 
   const hasSelectableOptions = selectableOptions.length > 0;
   const requiresCustomText = needsCustomText(handle);
+  const isBalanceCover = isCacheBalance(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
@@ -436,9 +443,14 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {requiresCustomText && (
+                    {(requiresCustomText || isBalanceCover) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
+                      </p>
+                    )}
+                    {isBalanceCover && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Moins de 0,50€ / jour pour protéger votre Thermomix
                       </p>
                     )}
                   </div>
@@ -842,8 +854,26 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* ═══════ PATTERN INTERRUPT "Imaginez…" (avant les avis, produit perso) ═══════ */}
+            {/* ═══════ PATTERN INTERRUPT "Imaginez…" ═══════ */}
             {narrative && requiresCustomText && <ProductNarrativeImaginez />}
+            {narrative && isBalanceCover && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Une balance toujours propre',
+                  'Des pesées toujours précises',
+                  'Un Thermomix qui dure plus longtemps',
+                ]}
+              />
+            )}
+
+            {/* Preuve sociale renforcée — cache balance */}
+            {isBalanceCover && (
+              <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
+                <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
+                  🔥 Déjà +1000 Thermomix protégés
+                </span>
+              </div>
+            )}
 
             {/* ═══════ SECTION 5 : AVIS CLIENTS ═══════ */}
             <section className="py-14 md:py-20">
@@ -896,7 +926,13 @@ const ProductPage = () => {
                 narrative={narrative}
                 onAddToCart={handleAddToCart}
                 price={productPrice}
-                ctaOverride={requiresCustomText ? 'Je crée mon cache unique maintenant' : undefined}
+                ctaOverride={
+                  requiresCustomText
+                    ? 'Je crée mon cache unique maintenant'
+                    : isBalanceCover
+                      ? 'Je protège ma balance maintenant'
+                      : undefined
+                }
               />
             )}
 
