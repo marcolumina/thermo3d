@@ -926,7 +926,13 @@ const ProductPage = () => {
                 narrative={narrative}
                 onAddToCart={handleAddToCart}
                 price={productPrice}
-                ctaOverride={requiresCustomText ? 'Je crée mon cache unique maintenant' : undefined}
+                ctaOverride={
+                  requiresCustomText
+                    ? 'Je crée mon cache unique maintenant'
+                    : isBalanceCover
+                      ? 'Je protège ma balance maintenant'
+                      : undefined
+                }
               />
             )}
 
