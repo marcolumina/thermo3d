@@ -450,7 +450,7 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {(requiresCustomText || isBalanceCover) && (
+                    {(requiresCustomText || isBalanceCover || isUstensilesSupport) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
                       </p>
@@ -458,6 +458,11 @@ const ProductPage = () => {
                     {isBalanceCover && (
                       <p className="text-xs text-muted-foreground mt-1">
                         Moins de 0,50€ / jour pour protéger votre Thermomix
+                      </p>
+                    )}
+                    {isUstensilesSupport && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Moins de 0,50€ / jour pour une cuisine organisée
                       </p>
                     )}
                   </div>
