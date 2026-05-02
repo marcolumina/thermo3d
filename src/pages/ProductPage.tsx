@@ -29,6 +29,7 @@ import {
   ProductNarrativePersonalisation,
   ProductNarrativeEmotion,
   ProductNarrativeCadeau,
+  ProductNarrativeImaginez,
 } from '@/components/product/ProductNarrativeSections';
 import { getProductNarrative } from '@/components/product/productNarratives';
 
