@@ -72,52 +72,80 @@ export interface ProductNarrative {
 /* ─── Configuration explicite par handle ─── */
 const NARRATIVES: Record<string, ProductNarrative> = {
   'cache-ecran-tm7': {
-    eyebrow: 'Spécialement conçu pour le TM7',
-    heroTitle: "Gardez votre écran TM7 <highlight>comme neuf, jour après jour</highlight>",
+    eyebrow: 'Personnalisable — Spécial TM7',
+    heroTitle: "Rendez votre Thermomix <highlight>unique avec votre prénom</highlight>",
     heroSubtitle:
-      "Votre écran est exposé à chaque utilisation : projections, vapeur, traces de doigts. Notre cache se pose entre deux utilisations pour préserver l'écran du quotidien — et se retire en 2 secondes avant chaque cuisson.",
-    infoBanner: 'À poser après utilisation, à retirer avant cuisson.',
+      "Bien plus qu'un simple cache écran : un objet personnalisé, gravé à votre nom, qui transforme votre Thermomix en pièce unique. Protection au quotidien, design soigné, fabrication française à la commande.",
+    infoBanner: 'Personnalisation gratuite — votre prénom ou message gravé en relief.',
     heroBullets: [
-      "Protège l'écran entre les utilisations (projections, poussières, traces)",
-      'Se pose en 2 secondes, sans outil ni colle',
-      'Ajustement précis dédié au TM7 (au dixième de mm)',
-      'Fabriqué en France 🇫🇷 — PLA qualité premium',
+      'Personnalisé à votre prénom ou message (gravé en relief)',
+      "Protège l'écran des projections, traces et rayures",
+      'Pose et retrait en 2 secondes, sans outil',
+      'Imprimé en 3D à la commande en France 🇫🇷',
     ],
-    problemTitle: 'Votre écran est exposé à chaque utilisation',
+    problemTitle: "Tous les Thermomix se ressemblent. Le vôtre mérite mieux.",
     problemDesc:
-      "Projections, vapeur, traces de doigts : entre deux cuissons, votre écran TM7 reste vulnérable sur le plan de travail. En quelques mois, il perd son aspect neuf — même sans rayures profondes.",
+      "Votre Thermomix vous accompagne tous les jours, mais il reste un appareil sans âme — identique à des millions d'autres. Et à chaque utilisation, son écran s'expose aux projections, à la vapeur, aux traces de doigts.",
     problemPoints: [
-      "Projections de sauce, huile et matières grasses lors d'autres préparations",
-      'Vapeur, poussière et particules qui se déposent au quotidien',
-      'Traces de doigts grasses et nettoyages répétés',
-      "Perte de l'aspect neuf et de la valeur de revente",
+      "Un appareil impersonnel, identique à tous les autres",
+      "Écran exposé aux projections, à la vapeur et aux traces grasses",
+      "Micro-rayures dues aux nettoyages répétés",
+      "Aucune touche personnelle dans votre cuisine",
     ],
-    solutionTitle: 'Une protection simple, un Thermomix qui reste neuf',
+    solutionTitle: 'Un cache personnalisé qui rend votre Thermomix unique',
     solutionDesc:
-      "Posez le cache après chaque utilisation, retirez-le avant la prochaine cuisson. C'est tout.",
+      "Choisissez votre texte, on le grave en relief, on l'imprime à la commande. Vous recevez un cache fait pour vous — pas pour tout le monde.",
     solutionSteps: [
-      { title: 'Pose en 2 secondes', desc: "Après cuisson, vous posez le cache sur l'écran. Il s'aligne tout seul, sans outil ni colle." },
-      { title: 'Protection au repos', desc: "L'écran est à l'abri des projections, poussières, traces et frottements quand vous ne l'utilisez pas." },
-      { title: 'Retrait avant utilisation', desc: "Avant de relancer une recette, vous retirez le cache d'un geste. Le Thermomix s'utilise normalement." },
+      { title: '1. Choisissez votre texte', desc: "Prénom, surnom, expression : “Sophie”, “Chez Mamie”, “La cuisine de Julien”… jusqu'à 20 caractères." },
+      { title: '2. Imprimé à votre nom', desc: "Nous imprimons votre cache en 3D dans notre atelier français, avec votre texte gravé en relief." },
+      { title: '3. Pose en 2 secondes', desc: "À réception, vous posez le cache sur l'écran après cuisson. Aucun outil, aucune colle." },
     ],
     avantLabel: 'Sans cache',
-    apresLabel: 'Avec cache Thermo3D',
-    avantCaption: "Traces, projections, poussières — l'écran se salit en permanence.",
-    apresCaption: "Écran à l'abri entre les utilisations, comme neuf dans le temps.",
-    beneficesTitle: '4 bonnes raisons de protéger votre TM7',
+    apresLabel: 'Avec cache personnalisé',
+    avantCaption: "Écran exposé, traces, projections — un appareil comme un autre.",
+    apresCaption: "Écran protégé et personnalisé — votre touche unique en cuisine.",
+    beneficesTitle: 'Pourquoi tout le monde l\'adopte',
     benefices: [
-      { title: 'Protégé entre 2 utilisations', desc: "Plus de projections ni de poussières directement sur l'écran quand vous ne cuisinez pas." },
-      { title: 'Évite traces & rayures', desc: 'Fini les traces de doigts grasses et les micro-rayures dues au nettoyage répété.' },
-      { title: 'Comme neuf dans le temps', desc: "Préserve l'aspect d'origine de l'écran et la valeur de revente de votre Thermomix." },
-      { title: 'Pose & retrait en 2 sec', desc: "Se met en place et se retire d'un geste, avant chaque utilisation. Aucune contrainte." },
+      { title: 'Personnalisation unique', desc: "Votre prénom ou message gravé en relief : un cache qui n'appartient qu'à vous." },
+      { title: 'Protection complète', desc: "Préserve l'écran des projections, traces de doigts et micro-rayures du quotidien." },
+      { title: 'Pose & retrait 2 sec', desc: "Aucun outil, aucune colle. Vous posez après cuisson, vous retirez avant la suivante." },
+      { title: 'Made in France', desc: "Imprimé à la commande dans notre atelier en Corse, en PLA premium qualité alimentaire." },
     ],
-    urgenceTitle: 'Protégez votre TM7 dès aujourd\'hui',
+    urgenceTitle: 'Créez votre cache personnalisé maintenant',
     urgenceDesc:
-      "Chaque cache est imprimé à la commande dans notre atelier. Délais de production légèrement allongés en cas de forte demande — commandez maintenant pour recevoir sous 48 à 72h.",
-    ctaLabel: 'Protéger mon écran',
-    heroImage: heroTm7,
+      "Chaque cache est imprimé à la commande avec votre texte. Délai de production 48 à 72h. Commandez aujourd'hui, recevez votre cache unique cette semaine.",
+    ctaLabel: 'Personnaliser mon Thermomix',
+    heroImage: persoSophie,
     avantImage: avantTm7,
-    apresImage: apresTm7,
+    apresImage: persoJulien,
+
+    personalisationGallery: {
+      title: 'Votre texte, votre style',
+      subtitle: 'Quelques exemples de caches personnalisés que nous avons imprimés pour nos clients.',
+      examples: [
+        { image: persoSophie, label: '"Sophie"', alt: 'Cache écran TM7 personnalisé prénom Sophie blanc' },
+        { image: persoMamie, label: '"Chez Mamie"', alt: 'Cache écran TM7 personnalisé Chez Mamie noir cursive' },
+        { image: persoJulien, label: '"La cuisine de Julien"', alt: 'Cache écran TM7 personnalisé vert sauge' },
+      ],
+    },
+
+    emotion: {
+      title: 'Le petit détail qui change tout dans votre cuisine',
+      desc: "C'est en passant la main dessus chaque matin que vous comprenez. Ce n'est plus juste un robot de cuisine, c'est le vôtre. Avec votre prénom. Votre style. Votre histoire. Un objet du quotidien transformé en pièce unique — celle que vos invités remarquent, celle qui vous fait sourire à chaque utilisation.",
+      image: persoSophie,
+    },
+
+    cadeau: {
+      title: 'Une idée cadeau vraiment originale',
+      desc: "Offrir un cache personnalisé, c'est offrir bien plus qu'un accessoire : c'est une attention unique pour quelqu'un qui aime cuisiner. Personnalisé à son prénom, fabriqué à la main, livré dans un emballage soigné.",
+      occasions: [
+        { emoji: '🎂', label: 'Anniversaire' },
+        { emoji: '💐', label: 'Fête des mères' },
+        { emoji: '🎁', label: 'Noël' },
+        { emoji: '👩‍🍳', label: 'Passionnés de cuisine' },
+        { emoji: '💍', label: 'Mariage' },
+      ],
+    },
   },
 
   /* ───── Cache écran TM6 ───── */
