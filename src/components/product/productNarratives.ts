@@ -47,6 +47,26 @@ export interface ProductNarrative {
   heroImage: string;
   avantImage: string;
   apresImage: string;
+
+  /** ─── Sections optionnelles dédiées aux produits personnalisables ─── */
+  /** Bloc galerie de personnalisations (ex : caches avec prénoms différents) */
+  personalisationGallery?: {
+    title: string;
+    subtitle: string;
+    examples: { image: string; label: string; alt: string }[];
+  };
+  /** Bloc émotion / projection */
+  emotion?: {
+    title: string;
+    desc: string;
+    image?: string;
+  };
+  /** Bloc idée cadeau */
+  cadeau?: {
+    title: string;
+    desc: string;
+    occasions: { emoji: string; label: string }[];
+  };
 }
 
 /* ─── Configuration explicite par handle ─── */
