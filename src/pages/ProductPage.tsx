@@ -177,6 +177,12 @@ function isOrganiseur(handle?: string): boolean {
   return /^organiseur-thermomix-tm7$|^organisateur-thermomix-tm7$/i.test(handle);
 }
 
+/* ── Détection organisateur TM7 avec support couvercle ── */
+function isOrganiseurCouvercle(handle?: string): boolean {
+  if (!handle) return false;
+  return /organisateur-thermomix-tm7-avec-support-couvercle/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
