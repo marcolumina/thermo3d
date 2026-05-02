@@ -426,10 +426,15 @@ const ProductPage = () => {
                   </div>
 
                   {/* Prix */}
-                  <div className="flex items-baseline gap-3 py-1">
-                    <span className="text-3xl font-extrabold text-foreground">{productPrice}&nbsp;€</span>
-                    <span className="text-lg text-muted-foreground line-through">{originalPrice}&nbsp;€</span>
-                    <span className="text-[11px] font-bold text-destructive bg-destructive/10 px-2.5 py-1 rounded-full">-20%</span>
+                  <div className="space-y-1.5 py-1">
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-3xl font-extrabold text-foreground">{productPrice}&nbsp;€</span>
+                    </div>
+                    {requiresCustomText && (
+                      <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent">
+                        ✨ Personnalisation gratuite incluse
+                      </p>
+                    )}
                   </div>
 
                   {/* Livraison info */}
