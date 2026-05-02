@@ -951,6 +951,15 @@ const ProductPage = () => {
                 ]}
               />
             )}
+            {narrative && isCouvercleSupport && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Un plan de travail toujours propre',
+                  'Aucun liquide qui coule',
+                  'Une cuisine plus agréable',
+                ]}
+              />
+            )}
 
             {/* Preuve sociale renforcée — cache balance */}
             {isBalanceCover && (
