@@ -443,9 +443,14 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {requiresCustomText && (
+                    {(requiresCustomText || isBalanceCover) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
+                      </p>
+                    )}
+                    {isBalanceCover && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Moins de 0,50€ / jour pour protéger votre Thermomix
                       </p>
                     )}
                   </div>
