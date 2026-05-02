@@ -989,7 +989,9 @@ const ProductPage = () => {
                       ? 'Je protège ma balance maintenant'
                       : isUstensilesSupport
                         ? "J'organise mon Thermomix maintenant"
-                        : undefined
+                        : isOrganiseurTm7
+                          ? "J'optimise mon espace maintenant"
+                          : undefined
                 }
               />
             )}
