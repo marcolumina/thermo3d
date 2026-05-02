@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
   ShieldCheck, Sparkles, Flag, AlertTriangle,
-  Droplets, Hand, ChevronRight, PlayCircle, Wrench, Eye, Heart, Info, CheckCircle
+  Droplets, Hand, ChevronRight, PlayCircle, Wrench, Eye, Heart, Info, CheckCircle, Gift, Type
 } from 'lucide-react';
 import type { ProductNarrative } from './productNarratives';
 
