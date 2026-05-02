@@ -183,6 +183,12 @@ function isOrganiseurCouvercle(handle?: string): boolean {
   return /organisateur-thermomix-tm7-avec-support-couvercle/i.test(handle);
 }
 
+/* ── Détection support spatule TM7 ── */
+function isSupportSpatule(handle?: string): boolean {
+  if (!handle) return false;
+  return /support-spatule/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
