@@ -171,6 +171,12 @@ function isSupportUstensiles(handle?: string): boolean {
   return /support-ustensiles|porte-ustensiles/i.test(handle);
 }
 
+/* ── Détection organiseur TM7 (triggers conversion spécifiques) ── */
+function isOrganiseur(handle?: string): boolean {
+  if (!handle) return false;
+  return /^organiseur-thermomix-tm7$|^organisateur-thermomix-tm7$/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
@@ -220,6 +226,7 @@ const ProductPage = () => {
   const requiresCustomText = needsCustomText(handle);
   const isBalanceCover = isCacheBalance(handle);
   const isUstensilesSupport = isSupportUstensiles(handle);
+  const isOrganiseurTm7 = isOrganiseur(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
@@ -450,7 +457,7 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {(requiresCustomText || isBalanceCover || isUstensilesSupport) && (
+                    {(requiresCustomText || isBalanceCover || isUstensilesSupport || isOrganiseurTm7) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
                       </p>
@@ -463,6 +470,11 @@ const ProductPage = () => {
                     {isUstensilesSupport && (
                       <p className="text-xs text-muted-foreground mt-1">
                         Moins de 0,50€ / jour pour une cuisine organisée
+                      </p>
+                    )}
+                    {isOrganiseurTm7 && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Moins de 0,50€ / jour pour une cuisine parfaitement organisée
                       </p>
                     )}
                   </div>
@@ -886,6 +898,15 @@ const ProductPage = () => {
                 ]}
               />
             )}
+            {narrative && isOrganiseurTm7 && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Un plan de travail dégagé',
+                  'Tous vos accessoires au même endroit',
+                  'Une cuisine toujours propre',
+                ]}
+              />
+            )}
 
             {/* Preuve sociale renforcée — cache balance */}
             {isBalanceCover && (
@@ -899,6 +920,13 @@ const ProductPage = () => {
               <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
                 <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
                   🔥 Déjà +1000 cuisines organisées
+                </span>
+              </div>
+            )}
+            {isOrganiseurTm7 && (
+              <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
+                <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
+                  🔥 Déjà +1000 cuisines optimisées
                 </span>
               </div>
             )}
@@ -961,7 +989,9 @@ const ProductPage = () => {
                       ? 'Je protège ma balance maintenant'
                       : isUstensilesSupport
                         ? "J'organise mon Thermomix maintenant"
-                        : undefined
+                        : isOrganiseurTm7
+                          ? "J'optimise mon espace maintenant"
+                          : undefined
                 }
               />
             )}
