@@ -212,6 +212,7 @@ const ProductPage = () => {
 
   const hasSelectableOptions = selectableOptions.length > 0;
   const requiresCustomText = needsCustomText(handle);
+  const isBalanceCover = isCacheBalance(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
