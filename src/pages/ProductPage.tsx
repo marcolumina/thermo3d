@@ -959,7 +959,9 @@ const ProductPage = () => {
                     ? 'Je crée mon cache unique maintenant'
                     : isBalanceCover
                       ? 'Je protège ma balance maintenant'
-                      : undefined
+                      : isUstensilesSupport
+                        ? "J'organise mon Thermomix maintenant"
+                        : undefined
                 }
               />
             )}
