@@ -1044,7 +1044,9 @@ const ProductPage = () => {
                           ? "J'optimise mon espace maintenant"
                           : isOrganiseurCouv
                             ? "J'organise mon Thermomix maintenant"
-                            : undefined
+                            : isSpatuleSupport
+                              ? "J'organise ma spatule maintenant"
+                              : undefined
                 }
               />
             )}
