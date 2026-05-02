@@ -159,6 +159,12 @@ function needsCustomText(handle?: string): boolean {
   return /cache-ecran|cache-écran/i.test(handle);
 }
 
+/* ── Détection cache balance TM7 (triggers conversion spécifiques) ── */
+function isCacheBalance(handle?: string): boolean {
+  if (!handle) return false;
+  return /cache-balance/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
