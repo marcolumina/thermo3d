@@ -474,9 +474,16 @@ const ProductPage = () => {
 
                   {/* Options personnalisables (une ligne par option Shopify + texte) */}
                   {(hasSelectableOptions || requiresCustomText) && (
-                    <div id="product-options" className="space-y-5 rounded-2xl border border-border/60 bg-secondary/20 p-4">
+                    <div
+                      id="product-options"
+                      className={`space-y-5 rounded-2xl p-5 ${
+                        requiresCustomText
+                          ? 'border-2 border-accent/40 bg-accent/5 shadow-md'
+                          : 'border border-border/60 bg-secondary/20'
+                      }`}
+                    >
 
-                      {/* Une ligne de pastilles par option Shopify (Couleur principale, Couleur dessin, etc.) */}
+                      {/* Une ligne de pastilles par option Shopify */}
                       {selectableOptions.map((option) => {
                         const currentValue = selectedOptions[option.name];
                         const isColorOption = /couleur|color/i.test(option.name);
@@ -512,7 +519,6 @@ const ProductPage = () => {
                                     />
                                   );
                                 }
-                                // Option non-couleur : pill texte
                                 return (
                                   <button
                                     key={value}
@@ -539,12 +545,12 @@ const ProductPage = () => {
                         );
                       })}
 
-                      {/* Champ texte personnalisé */}
+                      {/* Champ texte personnalisé — mis en avant */}
                       {requiresCustomText && (
-                        <div className="space-y-2">
-                          <label htmlFor="custom-text" className="flex items-center justify-between text-sm font-semibold text-foreground">
+                        <div className="space-y-2.5">
+                          <label htmlFor="custom-text" className="flex items-center justify-between text-base font-bold text-foreground">
                             <span>
-                              Texte à graver <span className="text-destructive">*</span>
+                              ✍️ Écris ici le texte à afficher sur TON Thermomix <span className="text-destructive">*</span>
                             </span>
                             <span className="text-xs font-normal text-muted-foreground">
                               {customText.length}/20
@@ -555,14 +561,17 @@ const ProductPage = () => {
                             type="text"
                             value={customText}
                             onChange={(e) => { setCustomText(e.target.value.slice(0, 20)); setShowErrors(false); }}
-                            placeholder="Ex : Marie, Chez Papy, ..."
+                            placeholder="Ex : Sophie, Chez Mamie, La cuisine de Julien"
                             maxLength={20}
-                            className={`w-full h-11 rounded-xl border bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors ${
-                              showErrors && textMissing ? 'border-destructive' : 'border-border'
+                            className={`w-full h-12 rounded-xl border-2 bg-background px-4 py-2 text-base font-semibold text-foreground placeholder:font-normal placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors ${
+                              showErrors && textMissing ? 'border-destructive' : 'border-accent/30'
                             }`}
                           />
+                          <p className="text-xs text-foreground/70">
+                            💡 Exemples : <span className="font-medium">Cuisine de Sophie</span>, <span className="font-medium">Chez Mamie</span>, <span className="font-medium">La cuisine de Julien</span>
+                          </p>
                           <p className="text-[11px] text-muted-foreground">
-                            Prénom ou court message gravé sur le cache. Lettres, chiffres et espaces.
+                            Jusqu'à 20 caractères — gravé en relief
                           </p>
                           {showErrors && textMissing && (
                             <p className="text-xs text-destructive font-medium">
