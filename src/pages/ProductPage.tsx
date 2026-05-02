@@ -26,6 +26,9 @@ import {
   ProductNarrativeBenefices,
   ProductNarrativeDifferenciation,
   ProductNarrativeUrgenceCTA,
+  ProductNarrativePersonalisation,
+  ProductNarrativeEmotion,
+  ProductNarrativeCadeau,
 } from '@/components/product/ProductNarrativeSections';
 import { getProductNarrative } from '@/components/product/productNarratives';
 
