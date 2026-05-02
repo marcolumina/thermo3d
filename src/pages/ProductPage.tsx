@@ -1069,7 +1069,9 @@ const ProductPage = () => {
                             ? "J'organise mon Thermomix maintenant"
                             : isSpatuleSupport
                               ? "J'organise ma spatule maintenant"
-                              : undefined
+                              : isCouvercleSupport
+                                ? 'Je garde ma cuisine propre maintenant'
+                                : undefined
                 }
               />
             )}
