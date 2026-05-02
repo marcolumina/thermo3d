@@ -1,6 +1,9 @@
 import heroTm7 from '@/assets/cache-ecran-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
+import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
+import persoMamie from '@/assets/cache-ecran-tm7-perso-mamie.jpg';
+import persoJulien from '@/assets/cache-ecran-tm7-perso-julien.jpg';
 
 export interface ProductNarrative {
   /** label affiché au-dessus du H2 du hero */
