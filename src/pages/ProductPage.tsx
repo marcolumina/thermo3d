@@ -26,6 +26,9 @@ import {
   ProductNarrativeBenefices,
   ProductNarrativeDifferenciation,
   ProductNarrativeUrgenceCTA,
+  ProductNarrativePersonalisation,
+  ProductNarrativeEmotion,
+  ProductNarrativeCadeau,
 } from '@/components/product/ProductNarrativeSections';
 import { getProductNarrative } from '@/components/product/productNarratives';
 
@@ -611,10 +614,19 @@ const ProductPage = () => {
             {narrative && (
               <>
                 <ProductNarrativeHero narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
+                <ProductNarrativePersonalisation
+                  narrative={narrative}
+                  onScrollToOptions={() => {
+                    document.getElementById('product-options')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    document.getElementById('custom-text')?.focus({ preventScroll: true });
+                  }}
+                />
                 <ProductNarrativeProbleme narrative={narrative} />
                 <ProductNarrativeSolution narrative={narrative} />
                 <ProductNarrativeAvantApres narrative={narrative} />
+                <ProductNarrativeEmotion narrative={narrative} />
                 <ProductNarrativeBenefices narrative={narrative} />
+                <ProductNarrativeCadeau narrative={narrative} onAddToCart={handleAddToCart} />
                 <ProductNarrativeDifferenciation />
               </>
             )}

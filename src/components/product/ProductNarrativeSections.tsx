@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
   ShieldCheck, Sparkles, Flag, AlertTriangle,
-  Droplets, Hand, ChevronRight, PlayCircle, Wrench, Eye, Heart, Info, CheckCircle
+  Droplets, Hand, ChevronRight, PlayCircle, Wrench, Eye, Heart, Info, CheckCircle, Gift, Type
 } from 'lucide-react';
 import type { ProductNarrative } from './productNarratives';
 
@@ -347,6 +347,154 @@ export const ProductNarrativeUrgenceCTA = ({ narrative, onAddToCart, price }: Se
     </div>
   </section>
 );
+
+/* ───────── GALERIE PERSONNALISATION ───────── */
+export const ProductNarrativePersonalisation = ({ narrative, onScrollToOptions }: { narrative: ProductNarrative; onScrollToOptions?: () => void }) => {
+  if (!narrative.personalisationGallery) return null;
+  const { title, subtitle, examples } = narrative.personalisationGallery;
+  return (
+    <section className="py-14 md:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="text-center mb-10 md:mb-14">
+          <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-2 inline-flex items-center gap-2">
+            <Type className="w-3.5 h-3.5" /> Personnalisation
+          </p>
+          <h2 className="font-display font-extrabold text-2xl md:text-4xl text-foreground leading-tight">
+            {title}
+          </h2>
+          <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            {subtitle}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {examples.map((ex) => (
+            <figure key={ex.label} className="group rounded-3xl overflow-hidden bg-background shadow-md hover:shadow-xl transition-shadow border border-border/40">
+              <div className="aspect-[3/2] overflow-hidden">
+                <img
+                  src={ex.image}
+                  alt={ex.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  width={1536}
+                  height={1024}
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="px-5 py-4 text-center">
+                <p className="font-display font-bold text-base text-foreground">{ex.label}</p>
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground mt-0.5">Cache personnalisé Thermo3D</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {onScrollToOptions && (
+          <div className="text-center mt-10">
+            <button
+              onClick={onScrollToOptions}
+              className="btn-cart inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-base"
+            >
+              Écrire mon texte <ChevronRight className="w-4 h-4" />
+            </button>
+            <p className="mt-3 text-xs text-muted-foreground">Jusqu'à 20 caractères — gravé en relief</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+/* ───────── ÉMOTION / PROJECTION ───────── */
+export const ProductNarrativeEmotion = ({ narrative }: { narrative: ProductNarrative }) => {
+  if (!narrative.emotion) return null;
+  const { title, desc, image } = narrative.emotion;
+  return (
+    <section className="py-14 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {image && (
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-secondary/30 shadow-2xl">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                  width={1024}
+                  height={1280}
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute -top-4 -right-4 hidden md:flex w-16 h-16 rounded-full bg-accent items-center justify-center shadow-xl">
+                <Sparkles className="w-7 h-7 text-accent-foreground" />
+              </div>
+            </div>
+          )}
+          <div className="space-y-6">
+            <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em]">
+              Votre touche personnelle
+            </p>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-foreground">
+              {title}
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              {desc}
+            </p>
+            <div className="flex items-center gap-3 pt-2 text-sm text-foreground">
+              <Heart className="w-5 h-5 text-accent fill-accent" />
+              <span className="italic">"Mon Thermomix n'est plus comme les autres — c'est le mien."</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ───────── IDÉE CADEAU ───────── */
+export const ProductNarrativeCadeau = ({ narrative, onAddToCart }: { narrative: ProductNarrative; onAddToCart?: () => void }) => {
+  if (!narrative.cadeau) return null;
+  const { title, desc, occasions } = narrative.cadeau;
+  return (
+    <section className="py-14 md:py-20 bg-gradient-to-br from-accent/10 via-secondary/30 to-background">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent text-xs font-bold uppercase tracking-wider mb-4">
+            <Gift className="w-4 h-4" /> Idée cadeau
+          </div>
+          <h2 className="font-display font-extrabold text-2xl md:text-4xl text-foreground leading-tight">
+            {title}
+          </h2>
+          <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            {desc}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10">
+          {occasions.map((o) => (
+            <div
+              key={o.label}
+              className="flex items-center gap-2 px-5 py-3 rounded-full bg-background border border-border/60 shadow-sm hover:shadow-md hover:border-accent/40 transition-all"
+            >
+              <span className="text-xl" aria-hidden>{o.emoji}</span>
+              <span className="font-semibold text-sm text-foreground">{o.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {onAddToCart && (
+          <div className="text-center">
+            <button
+              onClick={onAddToCart}
+              className="btn-cart inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-base"
+            >
+              Offrir un cache personnalisé <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
 
 /* ───────── Bundle d'export pratique ───────── */
 export const ProductNarrativeSections = (props: SectionProps) => (
