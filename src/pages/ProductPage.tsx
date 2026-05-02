@@ -934,6 +934,7 @@ const ProductPage = () => {
                   'Une cuisine fluide et sans stress',
                 ]}
               />
+            )}
             {narrative && isSpatuleSupport && (
               <ProductNarrativeImaginez
                 items={[
