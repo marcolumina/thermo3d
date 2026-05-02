@@ -19,16 +19,16 @@ const Hero = () => {
             Fabriqué en France 🇫🇷
           </p>
           <h1 className="font-display font-bold text-[28px] leading-[1.15] tracking-tight text-background">
-            Gagnez du temps avec votre Thermomix
+            Votre Thermomix mérite mieux que du désordre
           </h1>
           <p className="mt-3 text-sm text-background/75 leading-relaxed">
-            Accessoires pratiques, fabriqués en France, livraison rapide en point relais.
+            Organisez, protégez et améliorez votre cuisine avec des accessoires conçus pour simplifier votre quotidien.
           </p>
           <Link
             to="/catalogue"
             className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all duration-300 mt-6 shadow-lg w-full active:scale-95 min-h-[52px]"
           >
-            Découvrir la boutique
+            Optimiser mon Thermomix
             <ArrowRight className="w-5 h-5" />
           </Link>
 
@@ -59,10 +59,10 @@ const Hero = () => {
                 Fabriqué en France · Impression 3D de précision
               </p>
               <h1 className="font-display font-bold text-5xl md:text-6xl leading-[1.1] tracking-tight text-background">
-                Gagnez du temps avec votre Thermomix
+                Votre Thermomix mérite mieux que du désordre
               </h1>
               <p className="mt-6 text-lg text-background/75 max-w-xl leading-relaxed">
-                Accessoires pratiques, fabriqués en France, livraison rapide en point relais.
+                Organisez, protégez et améliorez votre cuisine avec des accessoires conçus pour simplifier votre quotidien.
               </p>
 
               <div className="mt-8 flex items-center gap-4">
@@ -70,7 +70,7 @@ const Hero = () => {
                   to="/catalogue"
                   className="inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all duration-300 shadow-lg"
                 >
-                  Découvrir les accessoires
+                  Optimiser mon Thermomix
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <span className="text-background/70 text-xs">
