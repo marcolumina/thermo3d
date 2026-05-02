@@ -457,7 +457,7 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {(requiresCustomText || isBalanceCover || isUstensilesSupport) && (
+                    {(requiresCustomText || isBalanceCover || isUstensilesSupport || isOrganiseurTm7) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
                       </p>
@@ -470,6 +470,11 @@ const ProductPage = () => {
                     {isUstensilesSupport && (
                       <p className="text-xs text-muted-foreground mt-1">
                         Moins de 0,50€ / jour pour une cuisine organisée
+                      </p>
+                    )}
+                    {isOrganiseurTm7 && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Moins de 0,50€ / jour pour une cuisine parfaitement organisée
                       </p>
                     )}
                   </div>
