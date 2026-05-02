@@ -189,6 +189,12 @@ function isSupportSpatule(handle?: string): boolean {
   return /support-spatule/i.test(handle);
 }
 
+/* ── Détection support couvercle TM7 ── */
+function isSupportCouvercle(handle?: string): boolean {
+  if (!handle) return false;
+  return /^support-couvercle-thermomix-tm7$|support-couvercle-thermomix-tm7-fini-les-gouttes/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
@@ -241,6 +247,7 @@ const ProductPage = () => {
   const isOrganiseurTm7 = isOrganiseur(handle);
   const isOrganiseurCouv = isOrganiseurCouvercle(handle);
   const isSpatuleSupport = isSupportSpatule(handle);
+  const isCouvercleSupport = isSupportCouvercle(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
@@ -471,7 +478,7 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
-                    {(requiresCustomText || isBalanceCover || isUstensilesSupport || isOrganiseurTm7 || isOrganiseurCouv || isSpatuleSupport) && (
+                    {(requiresCustomText || isBalanceCover || isUstensilesSupport || isOrganiseurTm7 || isOrganiseurCouv || isSpatuleSupport || isCouvercleSupport) && (
                       <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
                         🔥 Forte demande — production limitée aujourd'hui
                       </p>
@@ -491,7 +498,7 @@ const ProductPage = () => {
                         Moins de 0,50€ / jour pour une cuisine parfaitement organisée
                       </p>
                     )}
-                    {isSpatuleSupport && (
+                    {(isSpatuleSupport || isCouvercleSupport) && (
                       <p className="text-xs text-muted-foreground mt-1">
                         Moins de 0,50€ / jour pour une cuisine propre et organisée
                       </p>
@@ -944,6 +951,15 @@ const ProductPage = () => {
                 ]}
               />
             )}
+            {narrative && isCouvercleSupport && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Un plan de travail toujours propre',
+                  'Aucun liquide qui coule',
+                  'Une cuisine plus agréable',
+                ]}
+              />
+            )}
 
             {/* Preuve sociale renforcée — cache balance */}
             {isBalanceCover && (
@@ -978,6 +994,13 @@ const ProductPage = () => {
               <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
                 <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
                   🔥 Déjà +1000 cuisines optimisées
+                </span>
+              </div>
+            )}
+            {isCouvercleSupport && (
+              <div className="container mx-auto px-4 sm:px-6 -mt-2 mb-6 text-center">
+                <span className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-4 py-2 rounded-full">
+                  🔥 Déjà +1000 cuisines simplifiées
                 </span>
               </div>
             )}
@@ -1046,7 +1069,9 @@ const ProductPage = () => {
                             ? "J'organise mon Thermomix maintenant"
                             : isSpatuleSupport
                               ? "J'organise ma spatule maintenant"
-                              : undefined
+                              : isCouvercleSupport
+                                ? 'Je garde ma cuisine propre maintenant'
+                                : undefined
                 }
               />
             )}
