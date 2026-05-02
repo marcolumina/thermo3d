@@ -934,6 +934,14 @@ const ProductPage = () => {
                   'Une cuisine fluide et sans stress',
                 ]}
               />
+            {narrative && isSpatuleSupport && (
+              <ProductNarrativeImaginez
+                items={[
+                  'Une spatule toujours propre',
+                  'Aucun nettoyage inutile',
+                  'Une cuisine fluide et agréable',
+                ]}
+              />
             )}
 
             {/* Preuve sociale renforcée — cache balance */}
