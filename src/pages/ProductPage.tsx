@@ -233,6 +233,7 @@ const ProductPage = () => {
   const isBalanceCover = isCacheBalance(handle);
   const isUstensilesSupport = isSupportUstensiles(handle);
   const isOrganiseurTm7 = isOrganiseur(handle);
+  const isOrganiseurCouv = isOrganiseurCouvercle(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
