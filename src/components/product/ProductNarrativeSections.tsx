@@ -314,7 +314,7 @@ export const ProductNarrativeDifferenciation = () => (
 );
 
 /* ───────── URGENCE + CTA ───────── */
-export const ProductNarrativeUrgenceCTA = ({ narrative, onAddToCart, price }: SectionProps) => (
+export const ProductNarrativeUrgenceCTA = ({ narrative, onAddToCart, price, ctaOverride }: SectionProps & { ctaOverride?: string }) => (
   <section className="py-14 md:py-20 bg-accent/5">
     <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center">
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-accent text-xs font-semibold mb-5">
@@ -328,11 +328,15 @@ export const ProductNarrativeUrgenceCTA = ({ narrative, onAddToCart, price }: Se
         {narrative.urgenceDesc}
       </p>
 
+      <p className="mt-8 text-sm md:text-base font-semibold text-foreground max-w-xl mx-auto">
+        Chaque cache est imprimé pour vous — aucun stock générique.
+      </p>
+
       <button
         onClick={onAddToCart}
-        className="btn-cart mt-8 inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-base"
+        className="btn-cart mt-4 inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-base"
       >
-        {narrative.ctaLabel} — {price} €
+        {ctaOverride || narrative.ctaLabel} — {price} €
       </button>
 
       <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-6 text-xs text-muted-foreground">
@@ -344,6 +348,34 @@ export const ProductNarrativeUrgenceCTA = ({ narrative, onAddToCart, price }: Se
       <Link to="/livraison" className="inline-block mt-4 text-xs text-accent font-semibold hover:underline">
         Voir les détails de livraison →
       </Link>
+    </div>
+  </section>
+);
+
+/* ───────── PATTERN INTERRUPT "Imaginez…" ───────── */
+export const ProductNarrativeImaginez = () => (
+  <section className="py-12 md:py-16 bg-gradient-to-br from-accent/10 via-secondary/40 to-background">
+    <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center">
+      <p className="text-accent font-semibold text-[11px] uppercase tracking-[0.2em] mb-3">
+        Projetez-vous
+      </p>
+      <h2 className="font-display font-extrabold text-3xl md:text-5xl text-foreground leading-[1.05] mb-7">
+        Imaginez…
+      </h2>
+      <ul className="space-y-3 text-base md:text-lg text-foreground inline-block text-left">
+        <li className="flex items-start gap-3">
+          <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+          <span>Votre prénom sur votre Thermomix</span>
+        </li>
+        <li className="flex items-start gap-3">
+          <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+          <span>Un écran toujours propre</span>
+        </li>
+        <li className="flex items-start gap-3">
+          <Sparkles className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+          <span>Un détail que tout le monde remarque</span>
+        </li>
+      </ul>
     </div>
   </section>
 );

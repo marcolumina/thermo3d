@@ -105,7 +105,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     apresLabel: 'Avec votre prénom',
     avantCaption: "Écran exposé, appareil impersonnel — un Thermomix comme un autre.",
     apresCaption: "Écran protégé, votre prénom gravé — votre Thermomix unique.",
-    beneficesTitle: 'Pourquoi vous allez l\'adorer',
+    beneficesTitle: 'Pourquoi vous ne pourrez plus vous en passer',
     benefices: [
       { title: 'Rend votre Thermomix unique', desc: "Votre prénom gravé en relief : un cache qui n'appartient qu'à vous." },
       { title: "Protège l'écran", desc: "Préserve l'écran des projections, de la vapeur et des traces du quotidien." },

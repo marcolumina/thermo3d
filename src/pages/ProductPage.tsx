@@ -29,6 +29,7 @@ import {
   ProductNarrativePersonalisation,
   ProductNarrativeEmotion,
   ProductNarrativeCadeau,
+  ProductNarrativeImaginez,
 } from '@/components/product/ProductNarrativeSections';
 import { getProductNarrative } from '@/components/product/productNarratives';
 
@@ -435,6 +436,11 @@ const ProductPage = () => {
                         ✨ Personnalisation gratuite incluse
                       </p>
                     )}
+                    {requiresCustomText && (
+                      <p className="inline-flex items-center gap-1.5 text-xs font-bold text-destructive mt-1">
+                        🔥 Forte demande — production limitée aujourd'hui
+                      </p>
+                    )}
                   </div>
 
                   {/* Livraison info */}
@@ -836,6 +842,9 @@ const ProductPage = () => {
               </div>
             </section>
 
+            {/* ═══════ PATTERN INTERRUPT "Imaginez…" (avant les avis, produit perso) ═══════ */}
+            {narrative && requiresCustomText && <ProductNarrativeImaginez />}
+
             {/* ═══════ SECTION 5 : AVIS CLIENTS ═══════ */}
             <section className="py-14 md:py-20">
               <div className="container mx-auto px-4 sm:px-6">
@@ -883,7 +892,12 @@ const ProductPage = () => {
 
             {/* CTA URGENCE narratif — juste avant la FAQ */}
             {narrative && (
-              <ProductNarrativeUrgenceCTA narrative={narrative} onAddToCart={handleAddToCart} price={productPrice} />
+              <ProductNarrativeUrgenceCTA
+                narrative={narrative}
+                onAddToCart={handleAddToCart}
+                price={productPrice}
+                ctaOverride={requiresCustomText ? 'Je crée mon cache unique maintenant' : undefined}
+              />
             )}
 
             {/* ═══════ SECTION 6 : FAQ ═══════ */}
