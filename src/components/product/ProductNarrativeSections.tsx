@@ -436,7 +436,7 @@ export const ProductNarrativeEmotion = ({ narrative }: { narrative: ProductNarra
             <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-foreground">
               {title}
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
               {desc}
             </p>
             <div className="flex items-center gap-3 pt-2 text-sm text-foreground">
