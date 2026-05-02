@@ -247,6 +247,7 @@ const ProductPage = () => {
   const isOrganiseurTm7 = isOrganiseur(handle);
   const isOrganiseurCouv = isOrganiseurCouvercle(handle);
   const isSpatuleSupport = isSupportSpatule(handle);
+  const isCouvercleSupport = isSupportCouvercle(handle);
 
   // Init : si une seule variante, on la sélectionne d'office. Sinon on laisse vide pour forcer un choix.
   useMemo(() => {
