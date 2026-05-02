@@ -165,6 +165,12 @@ function isCacheBalance(handle?: string): boolean {
   return /cache-balance/i.test(handle);
 }
 
+/* ── Détection support ustensiles (triggers conversion spécifiques) ── */
+function isSupportUstensiles(handle?: string): boolean {
+  if (!handle) return false;
+  return /support-ustensiles|porte-ustensiles/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
