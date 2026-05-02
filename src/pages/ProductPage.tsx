@@ -171,6 +171,12 @@ function isSupportUstensiles(handle?: string): boolean {
   return /support-ustensiles|porte-ustensiles/i.test(handle);
 }
 
+/* ── Détection organiseur TM7 (triggers conversion spécifiques) ── */
+function isOrganiseur(handle?: string): boolean {
+  if (!handle) return false;
+  return /^organiseur-thermomix-tm7$|^organisateur-thermomix-tm7$/i.test(handle);
+}
+
 const ProductPage = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
