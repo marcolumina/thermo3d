@@ -200,7 +200,7 @@ export const ProductNarrativeAvantApres = ({ narrative }: { narrative: ProductNa
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         <div className="relative rounded-3xl overflow-hidden bg-secondary/40 shadow-md">
-          <img src={narrative.avantImage} alt="Sans Thermo3D" className="w-full aspect-square object-cover" width={1024} height={1024} loading="lazy" />
+          <img src={narrative.avantImage} alt="Sans Thermo3D" className="w-full aspect-square object-contain bg-secondary/40" width={1024} height={1024} loading="lazy" />
           <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-destructive text-destructive-foreground text-[10px] font-bold uppercase tracking-wider">
             {narrative.avantLabel}
           </div>
