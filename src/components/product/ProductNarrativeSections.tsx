@@ -110,13 +110,13 @@ export const ProductNarrativeProbleme = ({ narrative }: { narrative: ProductNarr
     <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         <div className="order-2 lg:order-1">
-          <div className="aspect-square rounded-3xl overflow-hidden bg-secondary/30 shadow-xl">
+          <div className="aspect-[3/2] rounded-3xl overflow-hidden bg-secondary/30 shadow-xl">
             <img
               src={narrative.avantImage}
               alt="Sans accessoire Thermo3D — situation à éviter"
-              className="w-full h-full object-cover"
-              width={1024}
-              height={1024}
+              className="w-full h-full object-cover object-center"
+              width={1517}
+              height={1015}
               loading="lazy"
             />
           </div>
