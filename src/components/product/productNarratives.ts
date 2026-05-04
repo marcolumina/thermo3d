@@ -303,7 +303,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un simple tiroir qui change toute votre organisation. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Optimiser mon espace',
-    heroImage: heroTm7,
+    heroImage: heroOrganiseurTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
