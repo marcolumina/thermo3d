@@ -4,6 +4,7 @@ import heroSupportUstensilesTm7Grande from '@/assets/support-ustensiles-tm7-gran
 import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
 import heroOrganisateurSupportCouvercleTm7 from '@/assets/organisateur-support-couvercle-tm7-hero.jpg';
 import heroSupportSpatuleTm7 from '@/assets/support-spatule-tm7-hero.jpg';
+import heroSupportCouvercleTm7 from '@/assets/support-couvercle-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
 import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
@@ -418,7 +419,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit accessoire qui évite beaucoup de nettoyage. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Garder mon plan de travail propre',
-    heroImage: heroTm7,
+    heroImage: heroSupportCouvercleTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
