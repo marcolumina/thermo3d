@@ -1,4 +1,5 @@
 import heroTm7 from '@/assets/cache-ecran-tm7-hero.jpg';
+import heroSupportUstensilesTm7 from '@/assets/support-ustensiles-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
 import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
@@ -524,7 +525,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit changement qui fait une grande différence. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Organiser mon Thermomix',
-    heroImage: heroTm7,
+    heroImage: heroSupportUstensilesTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
