@@ -1,6 +1,7 @@
 import heroTm7 from '@/assets/cache-ecran-tm7-hero.jpg';
 import heroSupportUstensilesTm7 from '@/assets/support-ustensiles-tm7-hero.jpg';
 import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
+import heroOrganisateurSupportCouvercleTm7 from '@/assets/organisateur-support-couvercle-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
 import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
@@ -359,7 +360,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un simple accessoire qui change votre confort en cuisine. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Organiser mon Thermomix',
-    heroImage: heroTm7,
+    heroImage: heroOrganisateurSupportCouvercleTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
