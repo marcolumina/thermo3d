@@ -1,5 +1,6 @@
 import heroTm7 from '@/assets/cache-ecran-tm7-hero.jpg';
 import heroSupportUstensilesTm7 from '@/assets/support-ustensiles-tm7-hero.jpg';
+import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
 import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
@@ -302,7 +303,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un simple tiroir qui change toute votre organisation. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Optimiser mon espace',
-    heroImage: heroTm7,
+    heroImage: heroOrganiseurTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
