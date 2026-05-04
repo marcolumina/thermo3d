@@ -3,6 +3,7 @@ import heroSupportUstensilesTm7 from '@/assets/support-ustensiles-tm7-hero.jpg';
 import heroSupportUstensilesTm7Grande from '@/assets/support-ustensiles-tm7-grande-hero.jpg';
 import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
 import heroOrganisateurSupportCouvercleTm7 from '@/assets/organisateur-support-couvercle-tm7-hero.jpg';
+import heroSupportSpatuleTm7 from '@/assets/support-spatule-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
 import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
@@ -473,7 +474,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit accessoire qui fait toute la différence. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Organiser ma spatule',
-    heroImage: heroTm7,
+    heroImage: heroSupportSpatuleTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
