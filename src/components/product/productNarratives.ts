@@ -5,6 +5,7 @@ import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
 import heroOrganisateurSupportCouvercleTm7 from '@/assets/organisateur-support-couvercle-tm7-hero.jpg';
 import heroSupportSpatuleTm7 from '@/assets/support-spatule-tm7-hero.jpg';
 import heroSupportCouvercleTm7 from '@/assets/support-couvercle-tm7-hero.jpg';
+import heroCacheBalanceTm7 from '@/assets/cache-balance-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import avantCacheBalanceTm7 from '@/assets/cache-balance-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
@@ -252,7 +253,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit accessoire qui évite de gros problèmes. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Protéger ma balance',
-    heroImage: heroTm7,
+    heroImage: heroCacheBalanceTm7,
     avantImage: avantCacheBalanceTm7,
     apresImage: apresTm7,
 
