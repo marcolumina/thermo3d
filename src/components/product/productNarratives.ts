@@ -1,5 +1,6 @@
 import heroTm7 from '@/assets/cache-ecran-tm7-hero.jpg';
 import heroSupportUstensilesTm7 from '@/assets/support-ustensiles-tm7-hero.jpg';
+import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
 import apresTm7 from '@/assets/cache-ecran-tm7-apres.jpg';
 import persoSophie from '@/assets/cache-ecran-tm7-perso-sophie.jpg';
