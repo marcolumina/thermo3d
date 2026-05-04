@@ -525,7 +525,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit changement qui fait une grande différence. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Organiser mon Thermomix',
-    heroImage: heroTm7,
+    heroImage: heroSupportUstensilesTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
