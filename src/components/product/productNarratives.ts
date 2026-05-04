@@ -1,5 +1,6 @@
 import heroTm7 from '@/assets/cache-ecran-tm7-hero.jpg';
 import heroSupportUstensilesTm7 from '@/assets/support-ustensiles-tm7-hero.jpg';
+import heroSupportUstensilesTm7Grande from '@/assets/support-ustensiles-tm7-grande-hero.jpg';
 import heroOrganiseurTm7 from '@/assets/organiseur-tm7-hero.jpg';
 import heroOrganisateurSupportCouvercleTm7 from '@/assets/organisateur-support-couvercle-tm7-hero.jpg';
 import avantTm7 from '@/assets/cache-ecran-tm7-avant.jpg';
@@ -537,6 +538,61 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     },
   },
 
+  /* ───── Support ustensiles TM7 — version grande ───── */
+  'support-ustensiles-thermomix-tm7-grande': {
+    eyebrow: '✨ La version grande — pour tout ranger en un seul endroit',
+    heroTitle: "Arrêtez de chercher vos ustensiles <highlight>à chaque recette</highlight>",
+    heroSubtitle:
+      "La version grande du support ustensiles : pensée pour accueillir spatule, fouet, gobelet doseur et plus encore. Tout reste à portée de main, autour de votre Thermomix.",
+    infoBanner: '✨ Version grande — capacité maximale pour tous vos ustensiles',
+    heroBullets: [
+      "Tous vos ustensiles regroupés au même endroit",
+      "Plan de travail enfin dégagé",
+      "Gain de temps à chaque recette",
+      "Installation en quelques secondes, sans outil",
+    ],
+    problemTitle: "Vos ustensiles n'ont jamais vraiment leur place",
+    problemDesc:
+      "Vous cuisinez. Vous posez la spatule. Puis vous la cherchez. Encore. Un détail… qui devient vite agaçant au quotidien.",
+    problemPoints: [
+      "Spatule posée n'importe où",
+      "Fouet difficile à retrouver",
+      "Plan de travail encombré",
+      "Perte de temps à chaque recette",
+    ],
+    solutionTitle: 'Un support grande capacité pour tout garder à portée de main',
+    solutionDesc: "Chaque ustensile a sa place dédiée. Plus besoin de chercher. Votre espace reste propre et organisé.",
+    solutionSteps: [
+      { title: '1. Installation', desc: "Posez le support à côté de votre Thermomix, sans outil." },
+      { title: '2. Rangement immédiat', desc: 'Chaque ustensile trouve sa place dédiée.' },
+      { title: '3. Cuisine fluide', desc: "Vous prenez ce qu'il vous faut sans interrompre la recette." },
+    ],
+    avantLabel: 'Avant',
+    apresLabel: 'Après',
+    avantCaption: "Ustensiles dispersés, cuisine désorganisée.",
+    apresCaption: "Tout est à sa place, accessible instantanément.",
+    beneficesTitle: 'Pourquoi vous ne pourrez plus vous en passer',
+    benefices: [
+      { title: 'Tout à portée de main', desc: 'Vos ustensiles sont accessibles en 1 seconde.' },
+      { title: 'Grande capacité', desc: 'Spatule, fouet, gobelet doseur — tout est regroupé.' },
+      { title: 'Plan de travail propre', desc: 'Fini le désordre — votre cuisine reste ordonnée.' },
+      { title: 'Installation 2 sec', desc: "Aucun outil, aucune contrainte. Vous posez, c'est prêt." },
+      { title: 'Design discret', desc: 'Parfaitement intégré à côté de votre Thermomix.' },
+    ],
+    urgenceTitle: 'Organisez votre Thermomix maintenant',
+    urgenceDesc:
+      "Un petit changement qui fait une grande différence. Production à la commande dans notre atelier français — expédié sous 48h.",
+    ctaLabel: 'Organiser mon Thermomix',
+    heroImage: heroSupportUstensilesTm7Grande,
+    avantImage: avantTm7,
+    apresImage: apresTm7,
+
+    emotion: {
+      title: 'Cuisinez avec fluidité',
+      desc: "Plus besoin de chercher, de déplacer ou de nettoyer en permanence.\nTout est là, exactement où vous en avez besoin.\n\n✨ Une cuisine plus simple, plus agréable, au quotidien.",
+    },
+  },
+
   /* ───── Démouleur à pâte ───── */
   'demouleur-a-pate-thermomix-tm5-tm6-tm7': {
     eyebrow: 'Démouleur à pâte Thermomix',
@@ -602,8 +658,8 @@ const ALIASES: Record<string, string> = {
   'organisateur-thermomix-tm7-avec-support-couvercle-tout-range-tout-a-portee': 'organisateur-thermomix-tm7-avec-support-couvercle',
   'support-couvercle-thermomix-tm7-fini-les-gouttes-sur-le-plan-de-travail': 'support-couvercle-thermomix-tm7',
   'support-spatule-thermomix-tm7-spatule-toujours-a-portee-de-main': 'support-spatule-thermomix-tm7',
-  'support-ustensiles-thermomix-tm7-version-grande': 'support-ustensiles-thermomix-tm7',
-  'support-ustensiles-thermomix-tm7-version-grande-rangement-essentiel': 'support-ustensiles-thermomix-tm7',
+  'support-ustensiles-thermomix-tm7-version-grande': 'support-ustensiles-thermomix-tm7-grande',
+  'support-ustensiles-thermomix-tm7-version-grande-rangement-essentiel': 'support-ustensiles-thermomix-tm7-grande',
   'support-ustensiles-thermomix-tm7-version-petite': 'support-ustensiles-thermomix-tm7',
   'support-ustensiles-thermomix-tm7-version-petite-rangement-essentiel': 'support-ustensiles-thermomix-tm7',
   'support-ustensiles-thermomix-tm7-version-simple': 'support-ustensiles-thermomix-tm7',
