@@ -474,7 +474,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit accessoire qui fait toute la différence. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Organiser ma spatule',
-    heroImage: heroTm7,
+    heroImage: heroSupportSpatuleTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
