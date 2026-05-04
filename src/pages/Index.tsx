@@ -18,7 +18,7 @@ import SeoBlock from '@/components/SeoBlock';
 import MascotWelcome from '@/components/MascotWelcome';
 import HomeProblem from '@/components/HomeProblem';
 import HomeCategories4 from '@/components/HomeCategories4';
-import BeforeAfter from '@/components/BeforeAfter';
+
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -51,7 +51,6 @@ const Index = () => {
       <SocialProofBar />
       <MascotWelcome />
       <HomeProblem />
-      <BeforeAfter />
       <HomeCategories4 />
       <BestSellers />
       <Testimonials />
