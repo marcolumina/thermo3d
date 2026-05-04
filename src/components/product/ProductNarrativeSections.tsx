@@ -535,7 +535,7 @@ export const ProductNarrativeSections = (props: SectionProps) => (
     <ProductNarrativeHero {...props} />
     <ProductNarrativeProbleme narrative={props.narrative} />
     <ProductNarrativeSolution narrative={props.narrative} />
-    <ProductNarrativeAvantApres narrative={props.narrative} />
+    
     <ProductNarrativeBenefices narrative={props.narrative} />
     <ProductNarrativeDifferenciation />
   </>
