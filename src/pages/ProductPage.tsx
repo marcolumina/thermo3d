@@ -712,7 +712,7 @@ const ProductPage = () => {
                 />
                 <ProductNarrativeProbleme narrative={narrative} />
                 <ProductNarrativeSolution narrative={narrative} />
-                <ProductNarrativeAvantApres narrative={narrative} />
+                
                 <ProductNarrativeEmotion narrative={narrative} />
                 <ProductNarrativeBenefices narrative={narrative} />
                 <ProductNarrativeCadeau narrative={narrative} onAddToCart={handleAddToCart} />
