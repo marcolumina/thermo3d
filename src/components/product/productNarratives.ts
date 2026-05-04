@@ -419,7 +419,7 @@ const NARRATIVES: Record<string, ProductNarrative> = {
     urgenceDesc:
       "Un petit accessoire qui évite beaucoup de nettoyage. Production à la commande dans notre atelier français — expédié sous 48h.",
     ctaLabel: 'Garder mon plan de travail propre',
-    heroImage: heroTm7,
+    heroImage: heroSupportCouvercleTm7,
     avantImage: avantTm7,
     apresImage: apresTm7,
 
