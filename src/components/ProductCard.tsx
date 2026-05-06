@@ -114,12 +114,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
           <button
             onClick={handleAddToCart}
-            disabled={isLoading || !variant}
-            className="btn-cart inline-flex items-center gap-1 text-[11px] md:text-xs font-semibold rounded-full px-3 py-1.5"
-            aria-label={requiresChoice ? `Choisir options pour ${node.title}` : `Ajouter ${node.title} au panier`}
+            disabled={isLoading || !variant || !isAvailable}
+            className="btn-cart inline-flex items-center gap-1 text-[11px] md:text-xs font-semibold rounded-full px-3 py-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label={!isAvailable ? `${node.title} en rupture` : requiresChoice ? `Choisir options pour ${node.title}` : `Ajouter ${node.title} au panier`}
           >
             {isLoading ? (
               <Loader2 className="w-3 h-3 animate-spin" />
+            ) : !isAvailable ? (
+              <>Rupture</>
             ) : requiresChoice ? (
               <>
                 <Settings2 className="w-3 h-3" strokeWidth={2.5} /> Choisir
