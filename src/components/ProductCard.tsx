@@ -68,7 +68,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <img
               src={image.url}
               alt={image.altText || `${node.title} — accessoire Thermomix`}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${secondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-transform duration-500`}
+              className={`w-full h-full object-cover transition-opacity duration-500 ${secondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-transform duration-500 ${!isAvailable ? 'opacity-60 grayscale' : ''}`}
               loading="lazy"
               width="400"
               height="400"
@@ -77,11 +77,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <img
                 src={secondImage.url}
                 alt={secondImage.altText || node.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className={`absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${!isAvailable ? 'grayscale' : ''}`}
                 loading="lazy"
                 width="400"
                 height="400"
               />
+            )}
+            {!isAvailable && (
+              <div className="absolute top-2 left-2 bg-foreground/85 text-background text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full">
+                Rupture
+              </div>
             )}
           </>
         ) : (
