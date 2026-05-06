@@ -39,6 +39,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (!isAvailable) return;
     if (requiresChoice) {
       navigate(`/product/${node.handle}`);
       return;
