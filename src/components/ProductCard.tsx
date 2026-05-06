@@ -26,6 +26,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const price = node.priceRange.minVariantPrice;
   const priceNum = parseFloat(price.amount);
 
+  // Stock Shopify : produit dispo si au moins une variante est en stock
+  const isAvailable = node.variants.edges.some(v => v.node.availableForSale);
+
   // Si plusieurs variantes (couleur) ou personnalisation requise → rediriger vers la fiche
   const requiresChoice = node.variants.edges.length > 1 || needsCustomization(node.handle);
 
