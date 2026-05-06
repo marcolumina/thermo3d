@@ -26,6 +26,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const price = node.priceRange.minVariantPrice;
   const priceNum = parseFloat(price.amount);
 
+  // Stock Shopify : produit dispo si au moins une variante est en stock
+  const isAvailable = node.variants.edges.some(v => v.node.availableForSale);
+
   // Si plusieurs variantes (couleur) ou personnalisation requise → rediriger vers la fiche
   const requiresChoice = node.variants.edges.length > 1 || needsCustomization(node.handle);
 
@@ -36,6 +39,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (!isAvailable) return;
     if (requiresChoice) {
       navigate(`/product/${node.handle}`);
       return;
@@ -64,7 +68,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <img
               src={image.url}
               alt={image.altText || `${node.title} — accessoire Thermomix`}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${secondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-transform duration-500`}
+              className={`w-full h-full object-cover transition-opacity duration-500 ${secondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-transform duration-500 ${!isAvailable ? 'opacity-60 grayscale' : ''}`}
               loading="lazy"
               width="400"
               height="400"
@@ -73,11 +77,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <img
                 src={secondImage.url}
                 alt={secondImage.altText || node.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className={`absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${!isAvailable ? 'grayscale' : ''}`}
                 loading="lazy"
                 width="400"
                 height="400"
               />
+            )}
+            {!isAvailable && (
+              <div className="absolute top-2 left-2 bg-foreground/85 text-background text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full">
+                Rupture
+              </div>
             )}
           </>
         ) : (
@@ -105,12 +114,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
           <button
             onClick={handleAddToCart}
-            disabled={isLoading || !variant}
-            className="btn-cart inline-flex items-center gap-1 text-[11px] md:text-xs font-semibold rounded-full px-3 py-1.5"
-            aria-label={requiresChoice ? `Choisir options pour ${node.title}` : `Ajouter ${node.title} au panier`}
+            disabled={isLoading || !variant || !isAvailable}
+            className="btn-cart inline-flex items-center gap-1 text-[11px] md:text-xs font-semibold rounded-full px-3 py-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label={!isAvailable ? `${node.title} en rupture` : requiresChoice ? `Choisir options pour ${node.title}` : `Ajouter ${node.title} au panier`}
           >
             {isLoading ? (
               <Loader2 className="w-3 h-3 animate-spin" />
+            ) : !isAvailable ? (
+              <>Rupture</>
             ) : requiresChoice ? (
               <>
                 <Settings2 className="w-3 h-3" strokeWidth={2.5} /> Choisir
