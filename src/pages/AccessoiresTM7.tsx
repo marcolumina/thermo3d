@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star, Sparkles } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
