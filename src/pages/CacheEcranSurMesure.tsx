@@ -15,6 +15,12 @@ import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, type ShopifyP
 
 const PRODUCT_HANDLE = 'cache-ecran-thermomix-personnalise-sur-mesure';
 
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.71a8.21 8.21 0 0 0 4.76 1.52V6.77a4.83 4.83 0 0 1-1-.08z" />
+  </svg>
+);
+
 const styles = [
   { icon: Sparkles, label: 'Anime', desc: 'Manga, héros, univers japonais' },
   { icon: Crown, label: 'Luxe', desc: 'Codes premium, dorures, élégance' },
@@ -129,18 +135,23 @@ const CacheEcranSurMesure = () => {
               </div>
 
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link
-                  to="/contact"
+                <a
+                  href="https://www.tiktok.com/@thermo3d?_r=1&_t=ZN-96DJ4x6ZS9G"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-foreground text-background font-semibold text-sm md:text-base shadow-premium-lg hover:shadow-premium hover:-translate-y-0.5 hover:bg-accent transition-all duration-300 w-full sm:w-auto"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <TikTokIcon className="w-5 h-5" />
                   Me contacter pour mon projet
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </Link>
+                </a>
                 <div className="text-sm text-muted-foreground">
                   À partir de <span className="text-2xl font-extrabold text-foreground">19,90 €</span>
                 </div>
               </div>
+              <p className="mt-3 text-xs text-muted-foreground/80 text-center max-w-md mx-auto">
+                Contactez-moi directement sur TikTok pour discuter de votre projet personnalisé.
+              </p>
 
               {/* Bouton d'achat secondaire — après validation du projet */}
               <div className="mt-7 max-w-md mx-auto">
@@ -295,13 +306,15 @@ const CacheEcranSurMesure = () => {
                   ))}
                 </ul>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Link
-                    to="/contact"
+                  <a
+                    href="https://www.tiktok.com/@thermo3d?_r=1&_t=ZN-96DJ4x6ZS9G"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-accent text-accent-foreground font-semibold text-sm shadow-premium hover:shadow-premium-lg hover:-translate-y-0.5 transition-all"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <TikTokIcon className="w-4 h-4" />
                     Me contacter pour mon projet
-                  </Link>
+                  </a>
                   <a
                     href="mailto:contact@thermo3d.fr"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card text-foreground font-semibold text-sm hover:border-accent/40 transition-all"
@@ -392,13 +405,18 @@ const CacheEcranSurMesure = () => {
               <p className="mt-4 text-sm md:text-base text-background/70 max-w-xl mx-auto">
                 Parlez-moi de votre univers. Je vous accompagne pour donner vie à un design qui vous ressemble vraiment.
               </p>
-              <Link
-                to="/contact"
+              <a
+                href="https://www.tiktok.com/@thermo3d?_r=1&_t=ZN-96DJ4x6ZS9G"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-accent text-accent-foreground font-semibold text-sm md:text-base shadow-premium-lg hover:scale-105 transition-transform"
               >
-                <MessageCircle className="w-5 h-5" />
+                <TikTokIcon className="w-5 h-5" />
                 Discuter de mon projet
-              </Link>
+              </a>
+              <p className="mt-3 text-xs text-background/60 max-w-md mx-auto">
+                Contactez-moi directement sur TikTok pour discuter de votre projet personnalisé.
+              </p>
               <p className="mt-4 text-xs text-background/50">
                 Réponse personnelle sous 24h • À partir de 19,90€
               </p>
