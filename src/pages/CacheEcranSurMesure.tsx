@@ -129,18 +129,23 @@ const CacheEcranSurMesure = () => {
               </div>
 
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link
-                  to="/contact"
+                <a
+                  href="https://www.tiktok.com/@thermo3d?_r=1&_t=ZN-96DJ4x6ZS9G"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-foreground text-background font-semibold text-sm md:text-base shadow-premium-lg hover:shadow-premium hover:-translate-y-0.5 hover:bg-accent transition-all duration-300 w-full sm:w-auto"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <TikTokIcon className="w-5 h-5" />
                   Me contacter pour mon projet
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </Link>
+                </a>
                 <div className="text-sm text-muted-foreground">
                   À partir de <span className="text-2xl font-extrabold text-foreground">19,90 €</span>
                 </div>
               </div>
+              <p className="mt-3 text-xs text-muted-foreground/80 text-center max-w-md mx-auto">
+                Contactez-moi directement sur TikTok pour discuter de votre projet personnalisé.
+              </p>
 
               {/* Bouton d'achat secondaire — après validation du projet */}
               <div className="mt-7 max-w-md mx-auto">
