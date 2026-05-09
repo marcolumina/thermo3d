@@ -46,6 +46,40 @@ const faqs = [
 
 const CacheEcranSurMesure = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [buying, setBuying] = useState(false);
+  const addItem = useCartStore((s) => s.addItem);
+
+  const handleBuy = async () => {
+    if (buying) return;
+    setBuying(true);
+    try {
+      const data = await storefrontApiRequest(STOREFRONT_PRODUCT_BY_HANDLE_QUERY, { handle: PRODUCT_HANDLE });
+      const p = data?.data?.productByHandle;
+      const variant = p?.variants?.edges?.[0]?.node;
+      if (!p || !variant) {
+        toast.error('Produit indisponible pour le moment.', { position: 'top-center' });
+        return;
+      }
+      const product: ShopifyProduct = { node: p };
+      await addItem({
+        product,
+        variantId: variant.id,
+        variantTitle: variant.title,
+        price: variant.price,
+        quantity: 1,
+        selectedOptions: variant.selectedOptions || [],
+      });
+      toast.success('Ajouté au panier ✓', {
+        description: 'N\'oubliez pas de me contacter pour valider votre projet avant le règlement.',
+        position: 'top-center',
+      });
+    } catch (e) {
+      console.error(e);
+      toast.error('Une erreur est survenue. Réessayez.', { position: 'top-center' });
+    } finally {
+      setBuying(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
