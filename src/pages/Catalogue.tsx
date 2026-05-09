@@ -182,8 +182,7 @@ const Catalogue = () => {
             </Link>
           </div>
         )}
-
-
+        {totalCount > 0 && (
           <>
             {packs.length > 0 && (
               <div className="mb-12">
