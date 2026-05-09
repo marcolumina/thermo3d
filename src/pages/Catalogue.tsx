@@ -1,12 +1,11 @@
 import { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
-import { Loader2, Search, Award, Sparkles, MessageCircle } from 'lucide-react';
+import { Loader2, Search, Award } from 'lucide-react';
 
 const CATEGORIES = [
   'Tous',
@@ -144,44 +143,6 @@ const Catalogue = () => {
           </div>
         )}
 
-        {/* ── Carte spéciale : cache écran personnalisé ── */}
-        {(activeCategory === 'Tous' || activeCategory === 'Cache écran') && !searchQuery && (
-          <div className="mb-12">
-            <Link
-              to="/cache-ecran-personnalise"
-              className="group relative block rounded-3xl overflow-hidden border border-accent/30 bg-gradient-to-br from-foreground via-foreground to-accent/30 text-background p-6 md:p-10 shadow-premium-lg hover:shadow-premium hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="absolute -top-20 -right-20 w-72 h-72 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="relative grid md:grid-cols-[1fr_auto] gap-6 items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold mb-4">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Service exclusif
-                  </div>
-                  <h2 className="font-display font-extrabold text-2xl md:text-3xl leading-tight">
-                    Cache écran <span className="text-accent">100% personnalisé</span>
-                  </h2>
-                  <p className="mt-3 text-sm md:text-base text-background/70 max-w-xl">
-                    Anime, luxe, sport, gaming, minimaliste… Chaque cache écran est créé spécialement selon votre univers et vos envies.
-                  </p>
-                  <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-background/60">
-                    <span>Création unique</span><span>•</span>
-                    <span>Design sur mesure</span><span>•</span>
-                    <span>Style personnalisé</span>
-                  </div>
-                </div>
-                <div className="flex md:flex-col items-center md:items-end gap-3 md:text-right">
-                  <div className="text-2xl md:text-3xl font-extrabold">19,90 €</div>
-                  <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-accent-foreground font-semibold text-sm shadow-premium group-hover:scale-105 transition-transform whitespace-nowrap">
-                    <MessageCircle className="w-4 h-4" />
-                    Voir le projet
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        )}
         {totalCount > 0 && (
           <>
             {packs.length > 0 && (
