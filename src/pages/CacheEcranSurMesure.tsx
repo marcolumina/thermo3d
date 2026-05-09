@@ -142,9 +142,29 @@ const CacheEcranSurMesure = () => {
                 </div>
               </div>
 
-              <p className="mt-5 text-xs text-muted-foreground italic max-w-md mx-auto">
-                Avant toute commande, contactez-moi afin de voir ensemble si votre projet est réalisable.
-              </p>
+              {/* Bouton d'achat secondaire — après validation du projet */}
+              <div className="mt-7 max-w-md mx-auto">
+                <p className="flex items-start sm:items-center justify-center gap-2 text-xs sm:text-[13px] text-muted-foreground mb-3 px-2">
+                  <AlertTriangle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5 sm:mt-0" />
+                  <span>Merci de me contacter avant toute commande afin de valider votre projet personnalisé.</span>
+                </p>
+                <button
+                  onClick={handleBuy}
+                  disabled={buying}
+                  className="group inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full border border-foreground/15 bg-card/60 backdrop-blur text-foreground font-medium text-sm hover:border-accent/50 hover:bg-card hover:-translate-y-0.5 hover:shadow-premium transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {buying ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <ShoppingBag className="w-4 h-4 text-accent" strokeWidth={2.25} />
+                  )}
+                  <span>Commander après validation</span>
+                  <span className="text-muted-foreground font-normal">— 19,90 €</span>
+                </button>
+                <p className="mt-3 text-[11px] text-muted-foreground/80 italic text-center">
+                  Chaque création étant unique, les commandes sont acceptées uniquement après validation du projet.
+                </p>
+              </div>
             </div>
           </div>
         </section>
