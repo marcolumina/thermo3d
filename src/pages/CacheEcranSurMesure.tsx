@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
+import { toast } from 'sonner';
 import {
   Sparkles, MessageCircle, Palette, Wand2, Send, CheckCircle2,
   Crown, Gamepad2, Car, Trophy, Quote, Moon, Zap, ChevronDown,
-  Mail, Clock, ShieldCheck, Flag, Brush, PenTool,
+  Mail, Clock, ShieldCheck, Flag, Brush, PenTool, ShoppingBag, Loader2, AlertTriangle,
 } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useCartStore } from '@/stores/cartStore';
+import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from '@/lib/shopify';
+
+const PRODUCT_HANDLE = 'cache-ecran-thermomix-personnalise-sur-mesure';
 
 const styles = [
   { icon: Sparkles, label: 'Anime', desc: 'Manga, héros, univers japonais' },
