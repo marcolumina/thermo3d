@@ -1,11 +1,12 @@
 import { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
-import { Loader2, Search, Award } from 'lucide-react';
+import { Loader2, Search, Award, Sparkles, MessageCircle } from 'lucide-react';
 
 const CATEGORIES = [
   'Tous',
