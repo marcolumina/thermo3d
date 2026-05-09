@@ -66,7 +66,8 @@ const AppContent = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/cache-ecran-personnalise" element={<CacheEcranPersonnalise />} />
-        <Route path="/cache-ecran-sur-mesure" element={<CacheEcranPersonnalise />} />
+        <Route path="/cache-ecran-sur-mesure" element={<CacheEcranSurMesure />} />
+        <Route path="/cache-ecran-personnalise-sur-mesure" element={<CacheEcranSurMesure />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MascotFloating />
