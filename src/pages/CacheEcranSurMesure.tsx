@@ -306,13 +306,15 @@ const CacheEcranSurMesure = () => {
                   ))}
                 </ul>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Link
-                    to="/contact"
+                  <a
+                    href="https://www.tiktok.com/@thermo3d?_r=1&_t=ZN-96DJ4x6ZS9G"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-accent text-accent-foreground font-semibold text-sm shadow-premium hover:shadow-premium-lg hover:-translate-y-0.5 transition-all"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <TikTokIcon className="w-4 h-4" />
                     Me contacter pour mon projet
-                  </Link>
+                  </a>
                   <a
                     href="mailto:contact@thermo3d.fr"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card text-foreground font-semibold text-sm hover:border-accent/40 transition-all"
