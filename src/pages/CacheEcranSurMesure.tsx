@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import {
-  Sparkles, Palette, Wand2, Send, CheckCircle2,
+  Sparkles, MessageCircle, Palette, Wand2, Send, CheckCircle2,
   Crown, Gamepad2, Car, Trophy, Quote, Moon, Zap, ChevronDown,
   Mail, Clock, ShieldCheck, Flag, Brush, PenTool, ShoppingBag, Loader2, AlertTriangle,
 } from 'lucide-react';
