@@ -29,6 +29,7 @@ import Auth from "./pages/Auth.tsx";
 import Account from "./pages/Account.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
 import CacheEcranPersonnalise from "./pages/CacheEcranPersonnalise.tsx";
+import CacheEcranSurMesure from "./pages/CacheEcranSurMesure.tsx";
 import MascotFloating from "./components/MascotFloating.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
