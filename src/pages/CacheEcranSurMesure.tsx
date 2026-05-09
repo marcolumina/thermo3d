@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
+import { toast } from 'sonner';
 import {
   Sparkles, MessageCircle, Palette, Wand2, Send, CheckCircle2,
   Crown, Gamepad2, Car, Trophy, Quote, Moon, Zap, ChevronDown,
-  Mail, Clock, ShieldCheck, Flag, Brush, PenTool,
+  Mail, Clock, ShieldCheck, Flag, Brush, PenTool, ShoppingBag, Loader2, AlertTriangle,
 } from 'lucide-react';
 import TopBanner from '@/components/TopBanner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useCartStore } from '@/stores/cartStore';
+import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from '@/lib/shopify';
+
+const PRODUCT_HANDLE = 'cache-ecran-thermomix-personnalise-sur-mesure';
 
 const styles = [
   { icon: Sparkles, label: 'Anime', desc: 'Manga, héros, univers japonais' },
@@ -41,6 +46,40 @@ const faqs = [
 
 const CacheEcranSurMesure = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [buying, setBuying] = useState(false);
+  const addItem = useCartStore((s) => s.addItem);
+
+  const handleBuy = async () => {
+    if (buying) return;
+    setBuying(true);
+    try {
+      const data = await storefrontApiRequest(STOREFRONT_PRODUCT_BY_HANDLE_QUERY, { handle: PRODUCT_HANDLE });
+      const p = data?.data?.productByHandle;
+      const variant = p?.variants?.edges?.[0]?.node;
+      if (!p || !variant) {
+        toast.error('Produit indisponible pour le moment.', { position: 'top-center' });
+        return;
+      }
+      const product: ShopifyProduct = { node: p };
+      await addItem({
+        product,
+        variantId: variant.id,
+        variantTitle: variant.title,
+        price: variant.price,
+        quantity: 1,
+        selectedOptions: variant.selectedOptions || [],
+      });
+      toast.success('Ajouté au panier ✓', {
+        description: 'N\'oubliez pas de me contacter pour valider votre projet avant le règlement.',
+        position: 'top-center',
+      });
+    } catch (e) {
+      console.error(e);
+      toast.error('Une erreur est survenue. Réessayez.', { position: 'top-center' });
+    } finally {
+      setBuying(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -103,9 +142,29 @@ const CacheEcranSurMesure = () => {
                 </div>
               </div>
 
-              <p className="mt-5 text-xs text-muted-foreground italic max-w-md mx-auto">
-                Avant toute commande, contactez-moi afin de voir ensemble si votre projet est réalisable.
-              </p>
+              {/* Bouton d'achat secondaire — après validation du projet */}
+              <div className="mt-7 max-w-md mx-auto">
+                <p className="flex items-start sm:items-center justify-center gap-2 text-xs sm:text-[13px] text-muted-foreground mb-3 px-2">
+                  <AlertTriangle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5 sm:mt-0" />
+                  <span>Merci de me contacter avant toute commande afin de valider votre projet personnalisé.</span>
+                </p>
+                <button
+                  onClick={handleBuy}
+                  disabled={buying}
+                  className="group inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full border border-foreground/15 bg-card/60 backdrop-blur text-foreground font-medium text-sm hover:border-accent/50 hover:bg-card hover:-translate-y-0.5 hover:shadow-premium transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {buying ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <ShoppingBag className="w-4 h-4 text-accent" strokeWidth={2.25} />
+                  )}
+                  <span>Commander après validation</span>
+                  <span className="text-muted-foreground font-normal">— 19,90 €</span>
+                </button>
+                <p className="mt-3 text-[11px] text-muted-foreground/80 italic text-center">
+                  Chaque création étant unique, les commandes sont acceptées uniquement après validation du projet.
+                </p>
+              </div>
             </div>
           </div>
         </section>
