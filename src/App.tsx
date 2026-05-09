@@ -28,6 +28,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Account from "./pages/Account.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
+import CacheEcranPersonnalise from "./pages/CacheEcranPersonnalise.tsx";
 import MascotFloating from "./components/MascotFloating.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
@@ -63,6 +64,8 @@ const AppContent = () => {
         <Route path="/auth" element={<Auth />} />
         <Route path="/account" element={<Account />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/cache-ecran-personnalise" element={<CacheEcranPersonnalise />} />
+        <Route path="/cache-ecran-sur-mesure" element={<CacheEcranPersonnalise />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MascotFloating />
