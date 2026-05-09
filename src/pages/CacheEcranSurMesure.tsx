@@ -405,13 +405,18 @@ const CacheEcranSurMesure = () => {
               <p className="mt-4 text-sm md:text-base text-background/70 max-w-xl mx-auto">
                 Parlez-moi de votre univers. Je vous accompagne pour donner vie à un design qui vous ressemble vraiment.
               </p>
-              <Link
-                to="/contact"
+              <a
+                href="https://www.tiktok.com/@thermo3d?_r=1&_t=ZN-96DJ4x6ZS9G"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-accent text-accent-foreground font-semibold text-sm md:text-base shadow-premium-lg hover:scale-105 transition-transform"
               >
-                <MessageCircle className="w-5 h-5" />
+                <TikTokIcon className="w-5 h-5" />
                 Discuter de mon projet
-              </Link>
+              </a>
+              <p className="mt-3 text-xs text-background/60 max-w-md mx-auto">
+                Contactez-moi directement sur TikTok pour discuter de votre projet personnalisé.
+              </p>
               <p className="mt-4 text-xs text-background/50">
                 Réponse personnelle sous 24h • À partir de 19,90€
               </p>
